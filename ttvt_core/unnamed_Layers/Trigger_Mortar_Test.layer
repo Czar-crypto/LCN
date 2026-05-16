@@ -16,20 +16,19 @@ GenericEntity Area1 : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compo
   GenericEntity Layer1 : "{5F9FFF4BF027B3A3}Prefabs/Systems/ScenarioFramework/Components/Layer.et" {
    coords 2.401 0.709 6.281
    {
-    GenericEntity LayerTask1 : "{5AF3BFDA2EAE56EA}Prefabs/Systems/ScenarioFramework/Components/LayerTask.et" {
-     coords 6.279 0.502 1.768
-     scale 0.7
-     {
-      GenericEntity Slot1 : "{AA01691FDC4E9167}Prefabs/Systems/ScenarioFramework/Components/Slot.et" {
-       components {
-        SCR_ScenarioFrameworkSlotBase "{5A22E1D67E712EC8}" {
-         m_sObjectToSpawn "{B7AB0899A91A985D}Prefabs/Systems/ScenarioFramework/Triggers/Trigger_Base.et"
-        }
-       }
-       coords 8.299 0.243 -3.558
-       scale 1.429
+    SCR_BaseTriggerEntity : "{B7AB0899A91A985D}Prefabs/Systems/ScenarioFramework/Triggers/Trigger_Base.et" {
+     components {
+      LCN_MortarZoneComponent "{6960E2BB7D142CC7}" {
+       m_fRequiredPresenceTime 1
+       m_fCheckPeriod 0.1
+       m_fRoundInterval 1
       }
      }
+     coords 21.51 1.072 2.432
+     TriggerShapeType Sphere
+     SphereRadius 25
+     DrawShape 1
+     TriggerActivationType "All changes"
     }
    }
   }
