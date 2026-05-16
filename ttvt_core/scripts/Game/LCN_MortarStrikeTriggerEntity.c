@@ -23,6 +23,9 @@ class LCN_MortarStrikeTriggerEntity : GenericEntity
 	[Attribute("0", UIWidgets.CheckBox, "Require the blocking faction to be absent while the triggering faction is present", category: "Filter")]
 	protected bool m_bRequireBlockingFactionCleared;
 
+	[Attribute("0", UIWidgets.CheckBox, "Require that only the triggering faction is present in the zone", category: "Filter")]
+	protected bool m_bRequireOnlyTriggerFactionPresent;
+
 	[Attribute("", UIWidgets.EditBox, "Faction key that prevents the trigger while present in the zone", category: "Filter")]
 	protected FactionKey m_sBlockingFactionKey;
 
@@ -120,6 +123,7 @@ class LCN_MortarStrikeTriggerEntity : GenericEntity
 	{
 		bool blockingPresent = false;
 		bool triggeringPresent = false;
+		bool otherFactionPresent = false;
 
 		foreach (IEntity entity : m_aNearbyCharacters)
 		{
@@ -149,7 +153,14 @@ class LCN_MortarStrikeTriggerEntity : GenericEntity
 			{
 				triggeringPresent = true;
 			}
+			else
+			{
+				otherFactionPresent = true;
+			}
 		}
+
+		if (m_bRequireOnlyTriggerFactionPresent)
+			return triggeringPresent && !blockingPresent && !otherFactionPresent;
 
 		if (m_bRequireBlockingFactionCleared)
 			return !blockingPresent && triggeringPresent;

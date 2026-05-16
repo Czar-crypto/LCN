@@ -5,6 +5,7 @@ LCN_MortarStrikeTriggerEntity E_LCN_BaseAlarmMortarTrigger {
  m_sTriggerFactionKey ""
  m_bAcceptInheritedFaction 1
  m_bRequireBlockingFactionCleared 1
+ m_bRequireOnlyTriggerFactionPresent 1
  m_sBlockingFactionKey ""
  m_bAcceptInheritedBlockingFaction 1
  m_fTriggerRadius 25
