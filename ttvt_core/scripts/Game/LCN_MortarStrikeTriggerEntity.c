@@ -38,6 +38,12 @@ class LCN_MortarStrikeTriggerEntity : GenericEntity
 	[Attribute("0", UIWidgets.EditBox, "Optional extra delay before the first shell lands", params: "0 300 0.1", category: "Barrage")]
 	protected float m_fInitialBarrageDelay;
 
+	[Attribute("120", UIWidgets.EditBox, "Height in meters where shells are spawned above the impact point", params: "5 1000 1", category: "Barrage")]
+	protected float m_fShellSpawnHeight;
+
+	[Attribute("55", UIWidgets.EditBox, "Initial downward shell speed in m/s", params: "1 500 1", category: "Barrage")]
+	protected float m_fInitialShellSpeed;
+
 	[Attribute("0", UIWidgets.CheckBox, "Allow the trigger to fire again after everyone leaves the zone", category: "Barrage")]
 	protected bool m_bAllowRetrigger;
 
@@ -175,7 +181,7 @@ class LCN_MortarStrikeTriggerEntity : GenericEntity
 		}
 
 		Print(string.Format("LCN_MortarStrikeTriggerEntity: barrage started at %1", owner.GetOrigin().ToString()));
-		barrageEntity.Configure(m_aProjectilePrefabs, m_fRoundInterval, m_fBarrageDuration, m_fImpactRadius, m_fInitialBarrageDelay);
+		barrageEntity.Configure(m_aProjectilePrefabs, m_fRoundInterval, m_fBarrageDuration, m_fImpactRadius, m_fInitialBarrageDelay, m_fShellSpawnHeight, m_fInitialShellSpeed);
 		m_bHasTriggered = true;
 	}
 

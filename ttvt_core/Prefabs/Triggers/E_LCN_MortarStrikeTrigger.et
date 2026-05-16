@@ -12,5 +12,7 @@ LCN_MortarStrikeTriggerEntity E_LCN_MortarStrikeTrigger {
  m_fRoundInterval 3.5
  m_fImpactRadius 35
  m_fInitialBarrageDelay 0
+ m_fShellSpawnHeight 120
+ m_fInitialShellSpeed 55
  m_bAllowRetrigger 0
 }
