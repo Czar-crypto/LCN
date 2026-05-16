@@ -1,3 +1,10 @@
+[BaseContainerProps()]
+class LCN_TriggeredFallingShellData
+{
+	IEntity m_ShellEntity;
+	vector m_vVelocity;
+}
+
 [EntityEditorProps(category: "LCN/Triggers", description: "Visible mortar trigger zone with configurable delayed barrage", color: "255 96 32 255", color2: "255 96 32 48", visible: true, style: "sphere", dynamicBox: true)]
 class LCN_MortarStrikeTriggerEntityClass : GenericEntityClass
 {
@@ -50,9 +57,15 @@ class LCN_MortarStrikeTriggerEntity : GenericEntity
 	protected ref array<IEntity> m_aNearbyCharacters = {};
 	protected ref array<IEntity> m_aTrackedCharacters = {};
 	protected ref array<float> m_aTrackedDurations = {};
+	protected ref array<ref Resource> m_aLoadedProjectilePrefabs = {};
+	protected ref array<ref LCN_TriggeredFallingShellData> m_aActiveShells = {};
 
 	protected float m_fCheckDelay;
+	protected float m_fBarrageTimeUntilNextShot;
+	protected float m_fBarrageTimeRemaining;
+	protected int m_iCurrentProjectileIndex;
 	protected bool m_bHasTriggered;
+	protected bool m_bBarrageActive;
 
 	//------------------------------------------------------------------------------------------------
 	void LCN_MortarStrikeTriggerEntity(IEntitySource src, IEntity parent)
@@ -78,6 +91,9 @@ class LCN_MortarStrikeTriggerEntity : GenericEntity
 	{
 		if (RplSession.Mode() == RplMode.Client)
 			return;
+
+		if (m_bBarrageActive)
+			UpdateBarrage(owner, timeSlice);
 
 		m_fCheckDelay -= timeSlice;
 		if (m_fCheckDelay > 0)
@@ -169,20 +185,139 @@ class LCN_MortarStrikeTriggerEntity : GenericEntity
 			return;
 		}
 
-		EntitySpawnParams spawnParams = new EntitySpawnParams();
-		spawnParams.TransformMode = ETransformMode.WORLD;
-		owner.GetTransform(spawnParams.Transform);
-
-		LCN_ModularMortarBarrageEntity barrageEntity = LCN_ModularMortarBarrageEntity.Cast(GetGame().SpawnEntity(LCN_ModularMortarBarrageEntity, owner.GetWorld(), spawnParams));
-		if (!barrageEntity)
+		m_aLoadedProjectilePrefabs.Clear();
+		foreach (ResourceName projectilePrefab : m_aProjectilePrefabs)
 		{
-			Print("LCN_MortarStrikeTriggerEntity: failed to spawn barrage helper entity");
+			if (!projectilePrefab)
+				continue;
+
+			Resource loadedResource = Resource.Load(projectilePrefab);
+			if (loadedResource && loadedResource.IsValid())
+				m_aLoadedProjectilePrefabs.Insert(loadedResource);
+		}
+
+		if (m_aLoadedProjectilePrefabs.IsEmpty())
+		{
+			Print("LCN_MortarStrikeTriggerEntity: projectile prefabs failed to load");
 			return;
 		}
 
 		Print(string.Format("LCN_MortarStrikeTriggerEntity: barrage started at %1", owner.GetOrigin().ToString()));
-		barrageEntity.Configure(m_aProjectilePrefabs, m_fRoundInterval, m_fBarrageDuration, m_fImpactRadius, m_fInitialBarrageDelay, m_fShellSpawnHeight, m_fInitialShellSpeed);
+		m_fBarrageTimeUntilNextShot = m_fInitialBarrageDelay;
+		m_fBarrageTimeRemaining = m_fBarrageDuration;
+		m_iCurrentProjectileIndex = 0;
+		m_bBarrageActive = true;
 		m_bHasTriggered = true;
+	}
+
+	//------------------------------------------------------------------------------------------------
+	protected void UpdateBarrage(IEntity owner, float timeSlice)
+	{
+		UpdateFallingShells(owner, timeSlice);
+
+		m_fBarrageTimeRemaining -= timeSlice;
+		m_fBarrageTimeUntilNextShot -= timeSlice;
+
+		if (m_fBarrageTimeRemaining <= 0)
+		{
+			if (m_aActiveShells.IsEmpty())
+				m_bBarrageActive = false;
+
+			return;
+		}
+
+		if (m_fBarrageTimeUntilNextShot > 0)
+			return;
+
+		m_fBarrageTimeUntilNextShot += m_fRoundInterval;
+		SpawnShell(owner);
+	}
+
+	//------------------------------------------------------------------------------------------------
+	protected void UpdateFallingShells(IEntity owner, float timeSlice)
+	{
+		vector gravity = PhysicsWorld.GetGravity(GetGame().GetWorldEntity());
+
+		for (int i = m_aActiveShells.Count() - 1; i >= 0; i--)
+		{
+			LCN_TriggeredFallingShellData shellData = m_aActiveShells[i];
+			if (!shellData || !shellData.m_ShellEntity)
+			{
+				m_aActiveShells.Remove(i);
+				continue;
+			}
+
+			vector startPos = shellData.m_ShellEntity.GetOrigin();
+			shellData.m_vVelocity = shellData.m_vVelocity + gravity * timeSlice;
+			vector endPos = startPos + shellData.m_vVelocity * timeSlice;
+
+			autoptr TraceParam trace = new TraceParam();
+			trace.Start = startPos;
+			trace.End = endPos;
+			trace.Flags = TraceFlags.WORLD | TraceFlags.ENTS;
+			trace.Exclude = shellData.m_ShellEntity;
+
+			float traced = owner.GetWorld().TraceMove(trace, null);
+			if (traced < 1)
+			{
+				vector hitPos = startPos + (endPos - startPos) * traced;
+				shellData.m_ShellEntity.SetOrigin(hitPos);
+				TriggerShell(shellData.m_ShellEntity);
+				m_aActiveShells.Remove(i);
+				continue;
+			}
+
+			shellData.m_ShellEntity.SetOrigin(endPos);
+		}
+	}
+
+	//------------------------------------------------------------------------------------------------
+	protected void SpawnShell(IEntity owner)
+	{
+		if (m_aLoadedProjectilePrefabs.IsEmpty())
+			return;
+
+		Resource prefab = m_aLoadedProjectilePrefabs[m_iCurrentProjectileIndex];
+		m_iCurrentProjectileIndex++;
+		if (m_iCurrentProjectileIndex >= m_aLoadedProjectilePrefabs.Count())
+			m_iCurrentProjectileIndex = 0;
+
+		if (!prefab)
+			return;
+
+		vector spawnPos = owner.GetOrigin();
+		spawnPos[0] = spawnPos[0] + Math.RandomFloat(-m_fImpactRadius, m_fImpactRadius);
+		spawnPos[2] = spawnPos[2] + Math.RandomFloat(-m_fImpactRadius, m_fImpactRadius);
+		spawnPos[1] = spawnPos[1] + m_fShellSpawnHeight;
+
+		vector transform[4];
+		Math3D.MatrixIdentity4(transform);
+		transform[3] = spawnPos;
+
+		EntitySpawnParams spawnParams = new EntitySpawnParams();
+		spawnParams.TransformMode = ETransformMode.WORLD;
+		for (int i = 0; i < 4; i++)
+			spawnParams.Transform[i] = transform[i];
+
+		IEntity shellEntity = GetGame().SpawnEntityPrefab(prefab, owner.GetWorld(), spawnParams);
+		if (!shellEntity)
+		{
+			Print("LCN_MortarStrikeTriggerEntity: shell spawn failed");
+			return;
+		}
+
+		ref LCN_TriggeredFallingShellData shellData = new LCN_TriggeredFallingShellData();
+		shellData.m_ShellEntity = shellEntity;
+		shellData.m_vVelocity = Vector(0, -m_fInitialShellSpeed, 0);
+		m_aActiveShells.Insert(shellData);
+	}
+
+	//------------------------------------------------------------------------------------------------
+	protected void TriggerShell(IEntity shellEntity)
+	{
+		BaseTriggerComponent triggerComponent = BaseTriggerComponent.Cast(shellEntity.FindComponent(BaseTriggerComponent));
+		if (triggerComponent)
+			triggerComponent.OnUserTrigger(shellEntity);
 	}
 
 #ifdef WORKBENCH
