@@ -118,7 +118,11 @@ class LCN_MortarStrikeTriggerEntity : GenericEntity
 		if (m_sTriggerFactionKey.IsEmpty())
 			return true;
 
-		Faction faction = character.GetFaction();
+		FactionAffiliationComponent factionAffiliation = FactionAffiliationComponent.Cast(character.FindComponent(FactionAffiliationComponent));
+		if (!factionAffiliation)
+			return false;
+
+		Faction faction = factionAffiliation.GetAffiliatedFaction();
 		if (!faction)
 			return false;
 
