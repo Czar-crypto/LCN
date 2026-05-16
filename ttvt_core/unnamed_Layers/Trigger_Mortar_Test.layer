@@ -14,7 +14,7 @@ GenericEntity Area1 : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compo
          m_sObjectToSpawn "{B7AB0899A91A985D}Prefabs/Systems/ScenarioFramework/Triggers/Trigger_Base.et"
         }
        }
-       coords 8.232 0.243 -3.053
+       coords 8.299 0.243 -3.558
        scale 1.429
       }
      }
