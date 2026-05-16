@@ -1,0 +1,13 @@
+LCN_MortarStrikeTriggerEntity E_LCN_BaseAlarmMortarTrigger {
+ m_sEffectModulePrefab "PrefabsEditable/EffectsModules/Mine/BaseEffectModule_MineField_Medium.et"
+ m_fInitialEffectDelay 10
+ m_bAllowRetrigger 0
+ m_sTriggerFactionKey ""
+ m_bAcceptInheritedFaction 1
+ m_bRequireBlockingFactionCleared 1
+ m_sBlockingFactionKey ""
+ m_bAcceptInheritedBlockingFaction 1
+ m_fTriggerRadius 25
+ m_fRequiredPresenceTime 5
+ m_fCheckPeriod 0.25
+}

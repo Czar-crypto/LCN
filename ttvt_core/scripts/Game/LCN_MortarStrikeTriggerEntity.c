@@ -20,6 +20,15 @@ class LCN_MortarStrikeTriggerEntity : GenericEntity
 	[Attribute("1", UIWidgets.CheckBox, "Treat inherited factions as valid too", category: "Filter")]
 	protected bool m_bAcceptInheritedFaction;
 
+	[Attribute("0", UIWidgets.CheckBox, "Require the blocking faction to be absent while the triggering faction is present", category: "Filter")]
+	protected bool m_bRequireBlockingFactionCleared;
+
+	[Attribute("", UIWidgets.EditBox, "Faction key that prevents the trigger while present in the zone", category: "Filter")]
+	protected FactionKey m_sBlockingFactionKey;
+
+	[Attribute("1", UIWidgets.CheckBox, "Treat inherited blocking factions as valid too", category: "Filter")]
+	protected bool m_bAcceptInheritedBlockingFaction;
+
 	[Attribute("25", UIWidgets.EditBox, "Zone radius in meters", params: "1 500 1", category: "Trigger")]
 	protected float m_fTriggerRadius;
 
@@ -30,11 +39,10 @@ class LCN_MortarStrikeTriggerEntity : GenericEntity
 	protected float m_fCheckPeriod;
 
 	protected ref array<IEntity> m_aNearbyCharacters = {};
-	protected ref array<IEntity> m_aTrackedCharacters = {};
-	protected ref array<float> m_aTrackedDurations = {};
 
 	protected float m_fCheckDelay;
 	protected float m_fPendingEffectDelay;
+	protected float m_fConditionHeldTime;
 	protected bool m_bHasTriggered;
 	protected bool m_bEffectPending;
 
@@ -78,28 +86,19 @@ class LCN_MortarStrikeTriggerEntity : GenericEntity
 		m_aNearbyCharacters.Clear();
 		owner.GetWorld().QueryEntitiesBySphere(owner.GetOrigin(), m_fTriggerRadius, QueryEntitiesCallback, null, EQueryEntitiesFlags.DYNAMIC | EQueryEntitiesFlags.WITH_OBJECT);
 
-		array<IEntity> nextTracked = {};
-		array<float> nextDurations = {};
-
-		foreach (IEntity character : m_aNearbyCharacters)
+		bool conditionMet = EvaluateTriggerCondition();
+		if (conditionMet)
 		{
-			float duration = m_fCheckPeriod;
-			int existingIndex = m_aTrackedCharacters.Find(character);
-			if (existingIndex != -1)
-				duration = m_aTrackedDurations[existingIndex] + m_fCheckPeriod;
-
-			nextTracked.Insert(character);
-			nextDurations.Insert(duration);
-
-			if (!m_bHasTriggered && duration >= m_fRequiredPresenceTime)
+			m_fConditionHeldTime += m_fCheckPeriod;
+			if (!m_bHasTriggered && m_fConditionHeldTime >= m_fRequiredPresenceTime)
 				StartEffectSequence(owner);
 		}
-
-		m_aTrackedCharacters = nextTracked;
-		m_aTrackedDurations = nextDurations;
-
-		if (m_bAllowRetrigger && m_aTrackedCharacters.IsEmpty() && !m_bEffectPending)
-			m_bHasTriggered = false;
+		else
+		{
+			m_fConditionHeldTime = 0;
+			if (m_bAllowRetrigger && !m_bEffectPending)
+				m_bHasTriggered = false;
+		}
 	}
 
 	//------------------------------------------------------------------------------------------------
@@ -112,18 +111,57 @@ class LCN_MortarStrikeTriggerEntity : GenericEntity
 		if (!character)
 			return false;
 
-		if (!CanFactionTrigger(character))
-			return false;
-
 		m_aNearbyCharacters.Insert(entity);
 		return true;
 	}
 
 	//------------------------------------------------------------------------------------------------
-	protected bool CanFactionTrigger(ChimeraCharacter character)
+	protected bool EvaluateTriggerCondition()
 	{
-		if (m_sTriggerFactionKey.IsEmpty())
-			return true;
+		bool blockingPresent = false;
+		bool triggeringPresent = false;
+
+		foreach (IEntity entity : m_aNearbyCharacters)
+		{
+			ChimeraCharacter character = ChimeraCharacter.Cast(entity);
+			if (!character)
+				continue;
+
+			bool isBlockingFaction = IsCharacterInFaction(character, m_sBlockingFactionKey, m_bAcceptInheritedBlockingFaction);
+			bool isTriggeringFaction = IsCharacterInFaction(character, m_sTriggerFactionKey, m_bAcceptInheritedFaction);
+
+			if (isBlockingFaction)
+				blockingPresent = true;
+
+			if (m_sTriggerFactionKey.IsEmpty())
+			{
+				if (m_bRequireBlockingFactionCleared)
+				{
+					if (!isBlockingFaction)
+						triggeringPresent = true;
+				}
+				else
+				{
+					triggeringPresent = true;
+				}
+			}
+			else if (isTriggeringFaction)
+			{
+				triggeringPresent = true;
+			}
+		}
+
+		if (m_bRequireBlockingFactionCleared)
+			return !blockingPresent && triggeringPresent;
+
+		return triggeringPresent;
+	}
+
+	//------------------------------------------------------------------------------------------------
+	protected bool IsCharacterInFaction(ChimeraCharacter character, FactionKey factionKey, bool acceptInherited)
+	{
+		if (factionKey.IsEmpty())
+			return false;
 
 		FactionAffiliationComponent factionAffiliation = FactionAffiliationComponent.Cast(character.FindComponent(FactionAffiliationComponent));
 		if (!factionAffiliation)
@@ -133,11 +171,11 @@ class LCN_MortarStrikeTriggerEntity : GenericEntity
 		if (!faction)
 			return false;
 
-		if (faction.GetFactionKey() == m_sTriggerFactionKey)
+		if (faction.GetFactionKey() == factionKey)
 			return true;
 
 		SCR_Faction scriptedFaction = SCR_Faction.Cast(faction);
-		if (m_bAcceptInheritedFaction && scriptedFaction && scriptedFaction.IsInherited(m_sTriggerFactionKey))
+		if (acceptInherited && scriptedFaction && scriptedFaction.IsInherited(factionKey))
 			return true;
 
 		return false;
