@@ -124,6 +124,9 @@ class LCN_MortarStrikeTriggerEntity : GenericEntity
 		bool blockingPresent = false;
 		bool triggeringPresent = false;
 		bool otherFactionPresent = false;
+		int triggerCount = 0;
+		int blockingCount = 0;
+		int otherCount = 0;
 
 		foreach (IEntity entity : m_aNearbyCharacters)
 		{
@@ -135,36 +138,54 @@ class LCN_MortarStrikeTriggerEntity : GenericEntity
 			bool isTriggeringFaction = IsCharacterInFaction(character, m_sTriggerFactionKey, m_bAcceptInheritedFaction);
 
 			if (isBlockingFaction)
+			{
 				blockingPresent = true;
+				blockingCount++;
+			}
 
 			if (m_sTriggerFactionKey.IsEmpty())
 			{
 				if (m_bRequireBlockingFactionCleared)
 				{
 					if (!isBlockingFaction)
+					{
 						triggeringPresent = true;
+						triggerCount++;
+					}
 				}
 				else
 				{
 					triggeringPresent = true;
+					triggerCount++;
 				}
 			}
 			else if (isTriggeringFaction)
 			{
 				triggeringPresent = true;
+				triggerCount++;
 			}
 			else
 			{
 				otherFactionPresent = true;
+				otherCount++;
 			}
 		}
 
 		if (m_bRequireOnlyTriggerFactionPresent)
-			return triggeringPresent && !blockingPresent && !otherFactionPresent;
+		{
+			bool onlyTriggerFactionPresent = triggerCount > 0 && blockingCount == 0 && otherCount == 0;
+			Print(string.Format("LCN_MortarStrikeTriggerEntity: only-trigger check trigger=%1 blocking=%2 other=%3 result=%4", triggerCount, blockingCount, otherCount, onlyTriggerFactionPresent));
+			return onlyTriggerFactionPresent;
+		}
 
 		if (m_bRequireBlockingFactionCleared)
-			return !blockingPresent && triggeringPresent;
+		{
+			bool blockingCleared = !blockingPresent && triggeringPresent;
+			Print(string.Format("LCN_MortarStrikeTriggerEntity: cleared-blocking check trigger=%1 blocking=%2 other=%3 result=%4", triggerCount, blockingCount, otherCount, blockingCleared));
+			return blockingCleared;
+		}
 
+		Print(string.Format("LCN_MortarStrikeTriggerEntity: simple trigger check trigger=%1 blocking=%2 other=%3 result=%4", triggerCount, blockingCount, otherCount, triggeringPresent));
 		return triggeringPresent;
 	}
 
