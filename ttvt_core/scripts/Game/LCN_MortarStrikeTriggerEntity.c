@@ -8,6 +8,9 @@ class LCN_MortarStrikeTriggerEntity : GenericEntity
 	[Attribute("", UIWidgets.ResourceAssignArray, "Projectile prefabs used by the modular mortar barrage effect", "et", category: "Barrage")]
 	ref array<ResourceName> m_aProjectilePrefabs = {};
 
+	[Attribute("{E15B8A4A6D904A2E}Prefabs/Weapons/Projectiles/Mortar/Ammo_Shell_82mm_HE_O832DU.et", UIWidgets.ResourcePickerThumbnail, "Fallback projectile prefab used when the array above is empty", "et", category: "Barrage")]
+	protected ResourceName m_sFallbackProjectilePrefab;
+
 	[Attribute("", UIWidgets.EditBox, "Faction key that can trigger the barrage. Leave empty to allow any faction", category: "Filter")]
 	protected FactionKey m_sTriggerFactionKey;
 
@@ -49,6 +52,19 @@ class LCN_MortarStrikeTriggerEntity : GenericEntity
 	void LCN_MortarStrikeTriggerEntity(IEntitySource src, IEntity parent)
 	{
 		SetEventMask(EntityEvent.FRAME);
+	}
+
+	//------------------------------------------------------------------------------------------------
+	protected void EnsureProjectilePrefabs()
+	{
+		if (!m_aProjectilePrefabs)
+			m_aProjectilePrefabs = {};
+
+		if (!m_aProjectilePrefabs.IsEmpty())
+			return;
+
+		if (m_sFallbackProjectilePrefab)
+			m_aProjectilePrefabs.Insert(m_sFallbackProjectilePrefab);
 	}
 
 	//------------------------------------------------------------------------------------------------
@@ -139,6 +155,8 @@ class LCN_MortarStrikeTriggerEntity : GenericEntity
 	//------------------------------------------------------------------------------------------------
 	protected void StartBarrage(IEntity owner)
 	{
+		EnsureProjectilePrefabs();
+
 		if (m_aProjectilePrefabs.IsEmpty())
 		{
 			Print("LCN_MortarStrikeTriggerEntity: no projectile prefabs configured");

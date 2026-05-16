@@ -6,6 +6,7 @@ GenericEntity Area1 : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compo
    {
     LCN_MortarStrikeTriggerEntity : "{B4F20971358B6D41}Prefabs/Triggers/E_LCN_MortarStrikeTrigger.et" {
      coords 23.875 0.863 7.5
+     m_sFallbackProjectilePrefab "{E15B8A4A6D904A2E}Prefabs/Weapons/Projectiles/Mortar/Ammo_Shell_82mm_HE_O832DU.et"
      m_sTriggerFactionKey ""
      m_bAcceptInheritedFaction 0
      m_fTriggerRadius 26.1

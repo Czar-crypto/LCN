@@ -2,6 +2,7 @@ LCN_MortarStrikeTriggerEntity E_LCN_MortarStrikeTrigger {
  m_aProjectilePrefabs {
   "{E15B8A4A6D904A2E}Prefabs/Weapons/Projectiles/Mortar/Ammo_Shell_82mm_HE_O832DU.et"
  }
+ m_sFallbackProjectilePrefab "{E15B8A4A6D904A2E}Prefabs/Weapons/Projectiles/Mortar/Ammo_Shell_82mm_HE_O832DU.et"
  m_sTriggerFactionKey ""
  m_bAcceptInheritedFaction 1
  m_fTriggerRadius 25
