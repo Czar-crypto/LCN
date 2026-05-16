@@ -140,7 +140,10 @@ class LCN_MortarStrikeTriggerEntity : GenericEntity
 	protected void StartBarrage(IEntity owner)
 	{
 		if (m_aProjectilePrefabs.IsEmpty())
+		{
+			Print("LCN_MortarStrikeTriggerEntity: no projectile prefabs configured");
 			return;
+		}
 
 		EntitySpawnParams spawnParams = new EntitySpawnParams();
 		spawnParams.TransformMode = ETransformMode.WORLD;
@@ -148,8 +151,12 @@ class LCN_MortarStrikeTriggerEntity : GenericEntity
 
 		LCN_ModularMortarBarrageEntity barrageEntity = LCN_ModularMortarBarrageEntity.Cast(GetGame().SpawnEntity(LCN_ModularMortarBarrageEntity, owner.GetWorld(), spawnParams));
 		if (!barrageEntity)
+		{
+			Print("LCN_MortarStrikeTriggerEntity: failed to spawn barrage helper entity");
 			return;
+		}
 
+		Print(string.Format("LCN_MortarStrikeTriggerEntity: barrage started at %1", owner.GetOrigin().ToString()));
 		barrageEntity.Configure(m_aProjectilePrefabs, m_fRoundInterval, m_fBarrageDuration, m_fImpactRadius, m_fInitialBarrageDelay);
 		m_bHasTriggered = true;
 	}

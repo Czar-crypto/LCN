@@ -1,16 +1,4 @@
 GenericEntity Area1 : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Components/Area.et" {
- components {
-  LCN_MortarZoneComponent "{D527832E3F344A12}" {
-   m_fTriggerRadius 28
-   m_fRequiredPresenceTime 20
-   m_fCheckPeriod 0.25
-   m_fBarrageDuration 300
-   m_fRoundInterval 3.5
-   m_fImpactRadius 35
-   m_sProjectilePrefab "{E15B8A4A6D904A2E}Prefabs/Weapons/Projectiles/Mortar/Ammo_Shell_82mm_HE_O832DU.et"
-   m_bAllowRetrigger 0
-  }
- }
  coords 1829.309 25.074 1930.036
  {
   GenericEntity Layer1 : "{5F9FFF4BF027B3A3}Prefabs/Systems/ScenarioFramework/Components/Layer.et" {
@@ -18,7 +6,7 @@ GenericEntity Area1 : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compo
    {
     LCN_MortarStrikeTriggerEntity : "{B4F20971358B6D41}Prefabs/Triggers/E_LCN_MortarStrikeTrigger.et" {
      coords 23.875 0.863 7.5
-     m_sTriggerFactionKey "US"
+     m_sTriggerFactionKey ""
      m_bAcceptInheritedFaction 0
      m_fTriggerRadius 26.1
      m_fRequiredPresenceTime 1
