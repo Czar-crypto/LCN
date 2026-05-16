@@ -41,7 +41,7 @@ ScriptedChatEntity ScriptedChatEntity : "{F69BC912AC8236F9}Prefabs/MP/ScriptedCh
  coords 1891.659 12.065 1827.161
 }
 SCR_SpawnPoint : "{45225582B358C31A}PrefabsEditable/SpawnPoints/E_SpawnPoint_USSR.et" {
- coords 1876.682 16.615 1851.792
+ coords 1876.999 17.45 1857.478
 }
 SCR_LoadoutManager LoadoutManager_USxUSSR : "{97EF4C1A41F63DDB}Prefabs/MP/Managers/Loadouts/LoadoutManager_USxUSSR.et" {
  coords 1891.659 11.714 1824.161
@@ -59,5 +59,5 @@ SCR_LoadoutManager LoadoutManager_USxUSSR : "{97EF4C1A41F63DDB}Prefabs/MP/Manage
  }
 }
 SCR_SpawnPoint : "{CEA2B24051A44525}PrefabsEditable/SpawnPoints/E_SpawnPoint_US.et" {
- coords 1874.631 14.37 1833.639
+ coords 1874.762 14.32 1833.292
 }
