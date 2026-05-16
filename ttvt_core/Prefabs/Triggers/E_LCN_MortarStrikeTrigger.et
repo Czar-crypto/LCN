@@ -1,10 +1,15 @@
-LCN_MortarStrikeTriggerEntity E_LCN_MortarStrikeTrigger {
- m_sEffectModulePrefab "PrefabsEditable/EffectsModules/Mine/BaseEffectModule_MineField_Medium.et"
- m_fInitialEffectDelay 0
- m_sTriggerFactionKey ""
- m_bAcceptInheritedFaction 1
- m_fTriggerRadius 25
- m_fRequiredPresenceTime 30
- m_fCheckPeriod 0.25
+LCN_MortarStrikeTriggerEntity {
+ ID "6960FEB64C67EE4B"
+ coords 23.875 0.863 7.5
+ m_sEffectModulePrefab "{5D48E2F7DB0C3714}PrefabsEditable/EffectsModules/Mortar/EffectModule_Zoned_MortarBarrage_Small.et"
+ m_fInitialEffectDelay 2
  m_bAllowRetrigger 0
+ m_sTriggerFactionKey "USSR"
+ m_bAcceptInheritedFaction 0
+ m_bRequireBlockingFactionCleared 1
+ m_bRequireOnlyTriggerFactionPresent 1
+ m_sBlockingFactionKey "US"
+ m_fTriggerRadius 26.1
+ m_fRequiredPresenceTime 1
+ m_fCheckPeriod 0.1
 }
