@@ -1,0 +1,8 @@
+GameProject {
+ ID "ttvtcore"
+ GUID "6960CBC0DD73BC88"
+ TITLE "ttvt_core"
+ Dependencies {
+  "58D0FB3206B6F859"
+ }
+}
