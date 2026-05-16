@@ -10,9 +10,24 @@ class LCN_ModularMortarBarrageEntity : SCR_ExplosionGenerator
 	protected bool m_bConfigured;
 
 	//------------------------------------------------------------------------------------------------
+	void LCN_ModularMortarBarrageEntity(IEntitySource src, IEntity parent)
+	{
+		// SCR_ExplosionGenerator expects these arrays to exist during its own init path.
+		if (!m_ProjectilesToTrigger)
+			m_ProjectilesToTrigger = {};
+
+		if (!m_LoadedPrefabs)
+			m_LoadedPrefabs = {};
+	}
+
+	//------------------------------------------------------------------------------------------------
 	void Configure(notnull array<ResourceName> projectilePrefabs, float timeBetweenExplosions, float totalDuration, float spreadRadius, float initialDelay = 0)
 	{
-		m_ProjectilesToTrigger = {};
+		if (!m_ProjectilesToTrigger)
+			m_ProjectilesToTrigger = {};
+		else
+			m_ProjectilesToTrigger.Clear();
+
 		foreach (ResourceName projectilePrefab : projectilePrefabs)
 		{
 			if (!projectilePrefab)
@@ -21,7 +36,11 @@ class LCN_ModularMortarBarrageEntity : SCR_ExplosionGenerator
 			m_ProjectilesToTrigger.Insert(projectilePrefab);
 		}
 
-		m_LoadedPrefabs.Clear();
+		if (!m_LoadedPrefabs)
+			m_LoadedPrefabs = {};
+		else
+			m_LoadedPrefabs.Clear();
+
 		foreach (ResourceName projectileResourceName : m_ProjectilesToTrigger)
 		{
 			Resource loadedResource = Resource.Load(projectileResourceName);
