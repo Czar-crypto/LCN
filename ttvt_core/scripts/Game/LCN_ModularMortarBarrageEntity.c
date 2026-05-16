@@ -6,76 +6,67 @@ class LCN_FallingShellData
 }
 
 [EntityEditorProps(category: "LCN/Internal", description: "Internal helper for modular mortar barrages")]
-class LCN_ModularMortarBarrageEntityClass : SCR_ExplosionGeneratorClass
+class LCN_ModularMortarBarrageEntityClass : GenericEntityClass
 {
 }
 
-class LCN_ModularMortarBarrageEntity : SCR_ExplosionGenerator
+class LCN_ModularMortarBarrageEntity : GenericEntity
 {
+	protected ref array<ResourceName> m_aProjectilePrefabs = {};
+	protected ref array<ref Resource> m_aLoadedPrefabs = {};
+	protected ref array<ref LCN_FallingShellData> m_aActiveShells = {};
+
 	protected vector m_vBarrageCenter;
 	protected float m_fSpreadRadius;
 	protected float m_fShellSpawnHeight;
 	protected float m_fInitialShellSpeed;
+	protected float m_fTimeBetweenShots;
+	protected float m_fTimeUntilNextShot;
+	protected float m_fRemainingDuration;
+	protected int m_iCurrentProjectileIndex;
 	protected bool m_bConfigured;
-	protected ref array<ref LCN_FallingShellData> m_aActiveShells = {};
-
-	//------------------------------------------------------------------------------------------------
-	void LCN_ModularMortarBarrageEntity(IEntitySource src, IEntity parent)
-	{
-		// SCR_ExplosionGenerator expects these arrays to exist during its own init path.
-		if (!m_ProjectilesToTrigger)
-			m_ProjectilesToTrigger = {};
-
-		if (!m_LoadedPrefabs)
-			m_LoadedPrefabs = {};
-	}
 
 	//------------------------------------------------------------------------------------------------
 	void Configure(notnull array<ResourceName> projectilePrefabs, float timeBetweenExplosions, float totalDuration, float spreadRadius, float initialDelay = 0, float shellSpawnHeight = 120, float initialShellSpeed = 55)
 	{
-		if (!m_ProjectilesToTrigger)
-			m_ProjectilesToTrigger = {};
-		else
-			m_ProjectilesToTrigger.Clear();
-
+		m_aProjectilePrefabs.Clear();
 		foreach (ResourceName projectilePrefab : projectilePrefabs)
 		{
 			if (!projectilePrefab)
 				continue;
 
-			m_ProjectilesToTrigger.Insert(projectilePrefab);
+			m_aProjectilePrefabs.Insert(projectilePrefab);
 		}
 
-		if (!m_LoadedPrefabs)
-			m_LoadedPrefabs = {};
-		else
-			m_LoadedPrefabs.Clear();
-
-		foreach (ResourceName projectileResourceName : m_ProjectilesToTrigger)
+		m_aLoadedPrefabs.Clear();
+		foreach (ResourceName projectileResourceName : m_aProjectilePrefabs)
 		{
 			Resource loadedResource = Resource.Load(projectileResourceName);
 			if (loadedResource && loadedResource.IsValid())
-				m_LoadedPrefabs.Insert(loadedResource);
+				m_aLoadedPrefabs.Insert(loadedResource);
 		}
 
-		m_NumExplosions = 0;
-		m_TimeBetweenExplosions = timeBetweenExplosions;
-		m_TotalDuration = totalDuration;
-		m_RemainingExplosions = 0;
-		m_TimeUntilNextExplosion = initialDelay;
-		m_RemainingDuration = totalDuration;
-		m_CurrentExplosionPrefab = 0;
+		m_fTimeBetweenShots = timeBetweenExplosions;
+		m_fTimeUntilNextShot = initialDelay;
+		m_fRemainingDuration = totalDuration;
 		m_fSpreadRadius = spreadRadius;
 		m_fShellSpawnHeight = shellSpawnHeight;
 		m_fInitialShellSpeed = initialShellSpeed;
+		m_iCurrentProjectileIndex = 0;
 		m_vBarrageCenter = GetOrigin();
-		m_bConfigured = true;
+		m_bConfigured = !m_aLoadedPrefabs.IsEmpty();
+
+		if (!m_bConfigured)
+		{
+			Print("LCN_ModularMortarBarrageEntity: no valid loaded projectile prefabs");
+			return;
+		}
 
 		SetEventMask(EntityEvent.FRAME);
 	}
 
 	//------------------------------------------------------------------------------------------------
-	override protected void EOnFrame(IEntity owner, float timeSlice)
+	override void EOnFrame(IEntity owner, float timeSlice)
 	{
 		if (!m_bConfigured)
 		{
@@ -85,21 +76,22 @@ class LCN_ModularMortarBarrageEntity : SCR_ExplosionGenerator
 
 		UpdateFallingShells(owner, timeSlice);
 
-		if (m_NumExplosions == 0 && m_RemainingDuration < 0 || m_NumExplosions != 0 && m_RemainingExplosions <= 0)
+		m_fRemainingDuration -= timeSlice;
+		m_fTimeUntilNextShot -= timeSlice;
+
+		if (m_fRemainingDuration <= 0)
 		{
-			ClearEventMask(EntityEvent.FRAME);
+			if (m_aActiveShells.IsEmpty())
+				ClearEventMask(EntityEvent.FRAME);
+
 			return;
 		}
 
-		m_TimeUntilNextExplosion -= timeSlice;
-		m_RemainingDuration -= timeSlice;
-
-		if (m_TimeUntilNextExplosion > 0)
+		if (m_fTimeUntilNextShot > 0)
 			return;
 
-		m_TimeUntilNextExplosion += m_TimeBetweenExplosions;
-		MoveToRandomImpactPoint(owner);
-		CreateExplosion(owner);
+		m_fTimeUntilNextShot += m_fTimeBetweenShots;
+		SpawnShell(owner);
 	}
 
 	//------------------------------------------------------------------------------------------------
@@ -141,32 +133,32 @@ class LCN_ModularMortarBarrageEntity : SCR_ExplosionGenerator
 	}
 
 	//------------------------------------------------------------------------------------------------
-	protected void MoveToRandomImpactPoint(IEntity owner)
+	protected void SpawnShell(IEntity owner)
 	{
-		vector randomPoint = m_vBarrageCenter;
-		randomPoint[0] = randomPoint[0] + Math.RandomFloat(-m_fSpreadRadius, m_fSpreadRadius);
-		randomPoint[2] = randomPoint[2] + Math.RandomFloat(-m_fSpreadRadius, m_fSpreadRadius);
-		owner.SetOrigin(randomPoint);
-	}
+		if (m_aLoadedPrefabs.IsEmpty())
+			return;
 
-	//------------------------------------------------------------------------------------------------
-	override protected void CreateExplosion(IEntity owner)
-	{
-		ref Resource prefab = m_LoadedPrefabs[m_CurrentExplosionPrefab];
-		AdvanceExplosionPrefab();
-		m_RemainingExplosions--;
+		ref Resource prefab = m_aLoadedPrefabs[m_iCurrentProjectileIndex];
+		m_iCurrentProjectileIndex++;
+		if (m_iCurrentProjectileIndex >= m_aLoadedPrefabs.Count())
+			m_iCurrentProjectileIndex = 0;
 
 		if (!prefab)
 			return;
 
-		vector shellMat[4];
-		owner.GetTransform(shellMat);
-		shellMat[3][1] = shellMat[3][1] + m_fShellSpawnHeight;
+		vector spawnPos = m_vBarrageCenter;
+		spawnPos[0] = spawnPos[0] + Math.RandomFloat(-m_fSpreadRadius, m_fSpreadRadius);
+		spawnPos[2] = spawnPos[2] + Math.RandomFloat(-m_fSpreadRadius, m_fSpreadRadius);
+		spawnPos[1] = spawnPos[1] + m_fShellSpawnHeight;
+
+		vector transform[4];
+		Math3D.MatrixIdentity4(transform);
+		transform[3] = spawnPos;
 
 		EntitySpawnParams spawnParams = new EntitySpawnParams();
 		spawnParams.TransformMode = ETransformMode.WORLD;
 		for (int i = 0; i < 4; i++)
-			spawnParams.Transform[i] = shellMat[i];
+			spawnParams.Transform[i] = transform[i];
 
 		IEntity shellEntity = GetGame().SpawnEntityPrefab(prefab, owner.GetWorld(), spawnParams);
 		if (!shellEntity)
