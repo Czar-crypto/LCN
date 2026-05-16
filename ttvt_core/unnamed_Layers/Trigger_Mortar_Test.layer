@@ -4,22 +4,17 @@ GenericEntity Area1 : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compo
   GenericEntity Layer1 : "{5F9FFF4BF027B3A3}Prefabs/Systems/ScenarioFramework/Components/Layer.et" {
    coords 2.401 0.709 6.281
    {
-    LCN_MortarStrikeTriggerEntity : "{B4F20971358B6D41}Prefabs/Triggers/E_LCN_MortarStrikeTrigger.et" {
-     coords 23.875 0.863 7.5
-     m_sFallbackProjectilePrefab "{E15B8A4A6D904A2E}Prefabs/Weapons/Projectiles/Mortar/Ammo_Shell_82mm_HE_O832DU.et"
-     m_sTriggerFactionKey ""
-     m_bAcceptInheritedFaction 0
-     m_fTriggerRadius 26.1
-     m_fRequiredPresenceTime 1
-     m_fCheckPeriod 0.1
-     m_fBarrageDuration 15
-     m_fRoundInterval 0.2
-     m_fImpactRadius 16.5
-     m_fInitialBarrageDelay 0.1
-     m_fShellSpawnHeight 120
-     m_fInitialShellSpeed 55
-    }
+   LCN_MortarStrikeTriggerEntity : "{B4F20971358B6D41}Prefabs/Triggers/E_LCN_MortarStrikeTrigger.et" {
+    coords 23.875 0.863 7.5
+    m_sEffectModulePrefab "PrefabsEditable/EffectsModules/Mine/BaseEffectModule_MineField_Medium.et"
+    m_sTriggerFactionKey ""
+    m_bAcceptInheritedFaction 0
+    m_fTriggerRadius 26.1
+    m_fRequiredPresenceTime 1
+    m_fCheckPeriod 0.1
+    m_fInitialEffectDelay 0.1
    }
   }
  }
+}
 }
