@@ -23,7 +23,7 @@ class LCN_MortarZoneComponent : ScriptComponent
 	[Attribute("35", UIWidgets.EditBox, "Random impact radius around the zone center", params: "1 500 1", category: "Barrage")]
 	protected float m_fImpactRadius;
 
-	[Attribute("{E15B8A4A6D904A2E}Prefabs/Weapons/Projectiles/Mortar/Projectile_82mm_HE.et", desc: "Projectile prefab that will be triggered at each impact point", category: "Barrage")]
+	[Attribute("{E15B8A4A6D904A2E}Prefabs/Weapons/Projectiles/Mortar/Ammo_Shell_82mm_HE_O832DU.et", desc: "Projectile prefab that will be triggered at each impact point", category: "Barrage")]
 	protected ResourceName m_sProjectilePrefab;
 
 	[Attribute("0", UIWidgets.CheckBox, "Allow the barrage to trigger again after it has finished", category: "Barrage")]

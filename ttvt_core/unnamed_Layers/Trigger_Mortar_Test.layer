@@ -7,7 +7,7 @@ GenericEntity Area1 : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compo
    m_fBarrageDuration 300
    m_fRoundInterval 3.5
    m_fImpactRadius 35
-   m_sProjectilePrefab "{E15B8A4A6D904A2E}Prefabs/Weapons/Projectiles/Mortar/Projectile_82mm_HE.et"
+   m_sProjectilePrefab "{E15B8A4A6D904A2E}Prefabs/Weapons/Projectiles/Mortar/Ammo_Shell_82mm_HE_O832DU.et"
    m_bAllowRetrigger 0
   }
  }
