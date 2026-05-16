@@ -143,7 +143,7 @@ class LCN_MortarZoneComponent : ScriptComponent
 		m_fBarrageTimeRemaining -= timeSlice;
 		m_fRoundDelay -= timeSlice;
 
-		while (m_fRoundDelay <= 0 && m_bBarrageTimeRemaining > 0)
+		while (m_fRoundDelay <= 0 && m_fBarrageTimeRemaining > 0)
 		{
 			SpawnImpact(owner);
 			m_fRoundDelay += m_fRoundInterval;
