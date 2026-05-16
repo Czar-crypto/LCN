@@ -152,11 +152,11 @@ class LCN_MortarStrikeTriggerEntity : GenericEntity
 
 #ifdef WORKBENCH
 	//------------------------------------------------------------------------------------------------
-	override void _WB_GetBoundBox(inout vector mins, inout vector maxs, IEntitySource src)
+	override void _WB_GetBoundBox(inout vector min, inout vector max, IEntitySource src)
 	{
 		float radius = Math.Max(m_fTriggerRadius, 1.0);
-		mins = Vector(-radius, -1, -radius);
-		maxs = Vector(radius, 1, radius);
+		min = Vector(-radius, -1, -radius);
+		max = Vector(radius, 1, radius);
 	}
 #endif
 }
