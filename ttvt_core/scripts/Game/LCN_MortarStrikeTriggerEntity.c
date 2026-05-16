@@ -8,6 +8,12 @@ class LCN_MortarStrikeTriggerEntity : GenericEntity
 	[Attribute("", UIWidgets.ResourceAssignArray, "Projectile prefabs used by the modular mortar barrage effect", "et", category: "Barrage")]
 	ref array<ResourceName> m_aProjectilePrefabs = {};
 
+	[Attribute("", UIWidgets.EditBox, "Faction key that can trigger the barrage. Leave empty to allow any faction", category: "Filter")]
+	protected FactionKey m_sTriggerFactionKey;
+
+	[Attribute("1", UIWidgets.CheckBox, "Treat inherited factions as valid too", category: "Filter")]
+	protected bool m_bAcceptInheritedFaction;
+
 	[Attribute("25", UIWidgets.EditBox, "Zone radius in meters", params: "1 500 1", category: "Trigger")]
 	protected float m_fTriggerRadius;
 
@@ -95,11 +101,35 @@ class LCN_MortarStrikeTriggerEntity : GenericEntity
 		if (!entity)
 			return false;
 
-		if (!ChimeraCharacter.Cast(entity))
+		ChimeraCharacter character = ChimeraCharacter.Cast(entity);
+		if (!character)
+			return false;
+
+		if (!CanFactionTrigger(character))
 			return false;
 
 		m_aNearbyCharacters.Insert(entity);
 		return true;
+	}
+
+	//------------------------------------------------------------------------------------------------
+	protected bool CanFactionTrigger(ChimeraCharacter character)
+	{
+		if (m_sTriggerFactionKey.IsEmpty())
+			return true;
+
+		Faction faction = character.GetFaction();
+		if (!faction)
+			return false;
+
+		if (faction.GetFactionKey() == m_sTriggerFactionKey)
+			return true;
+
+		SCR_Faction scriptedFaction = SCR_Faction.Cast(faction);
+		if (m_bAcceptInheritedFaction && scriptedFaction && scriptedFaction.IsInherited(m_sTriggerFactionKey))
+			return true;
+
+		return false;
 	}
 
 	//------------------------------------------------------------------------------------------------
