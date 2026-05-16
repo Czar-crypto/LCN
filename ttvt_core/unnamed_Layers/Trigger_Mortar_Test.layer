@@ -1,37 +1,14 @@
-GenericEntity Area1 : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Components/Area.et" {
- components {
-  LCN_MortarZoneComponent "{D527832E3F344A12}" {
-   m_fTriggerRadius 28
-   m_fRequiredPresenceTime 20
-   m_fCheckPeriod 0.25
-   m_fBarrageDuration 300
-   m_fRoundInterval 3.5
-   m_fImpactRadius 35
-   m_sProjectilePrefab "{E15B8A4A6D904A2E}Prefabs/Weapons/Projectiles/Mortar/Ammo_Shell_82mm_HE_O832DU.et"
-   m_bAllowRetrigger 0
-  }
+LCN_MortarStrikeTriggerEntity Trigger_Mortar_Test {
+ m_aProjectilePrefabs {
+  "{E15B8A4A6D904A2E}Prefabs/Weapons/Projectiles/Mortar/Ammo_Shell_82mm_HE_O832DU.et"
  }
+ m_fTriggerRadius 28
+ m_fRequiredPresenceTime 20
+ m_fCheckPeriod 0.25
+ m_fBarrageDuration 300
+ m_fRoundInterval 3.5
+ m_fImpactRadius 35
+ m_fInitialBarrageDelay 0
+ m_bAllowRetrigger 0
  coords 1829.309 25.074 1930.036
- {
-  GenericEntity Layer1 : "{5F9FFF4BF027B3A3}Prefabs/Systems/ScenarioFramework/Components/Layer.et" {
-   coords 2.401 0.709 6.281
-   {
-    GenericEntity LayerTask1 : "{5AF3BFDA2EAE56EA}Prefabs/Systems/ScenarioFramework/Components/LayerTask.et" {
-     coords 6.279 0.502 1.768
-     scale 0.7
-     {
-      GenericEntity Slot1 : "{AA01691FDC4E9167}Prefabs/Systems/ScenarioFramework/Components/Slot.et" {
-       components {
-        SCR_ScenarioFrameworkSlotBase "{5A22E1D67E712EC8}" {
-         m_sObjectToSpawn "{B7AB0899A91A985D}Prefabs/Systems/ScenarioFramework/Triggers/Trigger_Base.et"
-        }
-       }
-       coords 8.299 0.243 -3.558
-       scale 1.429
-      }
-     }
-    }
-   }
-  }
- }
 }
