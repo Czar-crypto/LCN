@@ -1,0 +1,31 @@
+GenericEntity : "{92713263041A4756}Prefabs/Props/Military/AmmoBoxes/AmmoBox_P150_Hydra_Container_US/AmmoBox_P150_Hydra_Container_Pallet_Empty_US.et" {
+ ID "F0DBA538AC2A0552"
+ components {
+  MeshObject "{5872F0EB7FA40561}" {
+   Object "{94924D8A66F6C78C}Assets/Props/Military/AmmoBox/AmmoBox_P150_Hydra_Container_US/AmmoBox_P150_Hydra_Pallet_US.xob"
+  }
+  RigidBody "{5872F0EB7DFB5A9D}" {
+   ResponseIndex "MediumDestructible"
+  }
+  SCR_DestructionMultiPhaseComponent "{51E082CF9891AD6F}" {
+   Enabled 0
+   "Additional hit zones" {
+    SCR_HitZone Default {
+     "Explosive multiplier" 4
+    }
+   }
+   m_fBaseHealth 8000
+   m_DestroySpawnObjects {
+    SCR_DebrisSpawnable "{64E2735EB00677BF}" {
+     m_fMass 30
+     m_fRandomVelocityAngular 90
+    }
+    SCR_DebrisSpawnable "{648AA1C1FD55B54B}" {
+     m_ModelPrefabs {
+      "{A4C2AD19157E1D5F}Assets/Props/Military/AmmoBox/AmmoBox_P150_Hydra_Container_US/Dst/AmmoBox_P150_Hydra_Container_US_dst_01_dbr_01.xob" "{3DDC148008992CCF}Assets/Props/Military/AmmoBox/AmmoBox_P150_Hydra_Container_US/Dst/AmmoBox_P150_Hydra_Container_US_dst_01_dbr_02.xob" "{4AD67C08FC3BC3BF}Assets/Props/Military/AmmoBox/AmmoBox_P150_Hydra_Container_US/Dst/AmmoBox_P150_Hydra_Container_US_dst_01_dbr_03.xob" "{22EBE6787BF2D378}Assets/Props/Military/AmmoBox/AmmoBox_P150_Hydra_Container_US/Dst/AmmoBox_P150_Hydra_Pallet_US_dst_01.xob" "{633CBA74BED65E77}Assets/Props/Military/AmmoBox/AmmoBox_P150_Hydra_Container_US/Dst/AmmoBox_P150_Hydra_Pallet_US_dst_01_dbr_01.xob" "{FA2203EDA3316FE7}Assets/Props/Military/AmmoBox/AmmoBox_P150_Hydra_Container_US/Dst/AmmoBox_P150_Hydra_Pallet_US_dst_01_dbr_02.xob" "{8D286B6557938097}Assets/Props/Military/AmmoBox/AmmoBox_P150_Hydra_Container_US/Dst/AmmoBox_P150_Hydra_Pallet_US_dst_01_dbr_03.xob" "{8AEF913431153A54}Assets/Props/Military/AmmoBox/AmmoBox_P150_Hydra_Container_US/Dst/AmmoBox_P150_Hydra_Pallet_US_dst_01_dbr_04.xob" "{FDE5F9BCC5B7D524}Assets/Props/Military/AmmoBox/AmmoBox_P150_Hydra_Container_US/Dst/AmmoBox_P150_Hydra_Pallet_US_dst_01_dbr_05.xob" "{64FB4025D850E4B4}Assets/Props/Military/AmmoBox/AmmoBox_P150_Hydra_Container_US/Dst/AmmoBox_P150_Hydra_Pallet_US_dst_01_dbr_06.xob" "{13F128AD2CF20BC4}Assets/Props/Military/AmmoBox/AmmoBox_P150_Hydra_Container_US/Dst/AmmoBox_P150_Hydra_Pallet_US_dst_01_dbr_07.xob" "{6B74B487155D9132}Assets/Props/Military/AmmoBox/AmmoBox_P150_Hydra_Container_US/Dst/AmmoBox_P150_Hydra_Pallet_US_dst_01_dbr_08.xob" "{1C7EDC0FE1FF7E42}Assets/Props/Military/AmmoBox/AmmoBox_P150_Hydra_Container_US/Dst/AmmoBox_P150_Hydra_Pallet_US_dst_01_dbr_09.xob" "{E03E956447A9D973}Assets/Props/Military/AmmoBox/AmmoBox_P150_Hydra_Container_US/Dst/AmmoBox_P150_Hydra_Pallet_US_dst_01_dbr_10.xob" "{9734FDECB30B3603}Assets/Props/Military/AmmoBox/AmmoBox_P150_Hydra_Container_US/Dst/AmmoBox_P150_Hydra_Pallet_US_dst_01_dbr_11.xob" "{0E2A4475AEEC0793}Assets/Props/Military/AmmoBox/AmmoBox_P150_Hydra_Container_US/Dst/AmmoBox_P150_Hydra_Pallet_US_dst_01_dbr_12.xob" "{D0B76D9660C3A17C}Assets/Props/Military/AmmoBox/AmmoBox_P150_Hydra_Container_US/Dst/AmmoBox_P150_Hydra_Sledge_dst_01_dbr_01.xob" "{49A9D40F7D2490EC}Assets/Props/Military/AmmoBox/AmmoBox_P150_Hydra_Container_US/Dst/AmmoBox_P150_Hydra_Sledge_dst_01_dbr_02.xob" "{3EA3BC8789867F9C}Assets/Props/Military/AmmoBox/AmmoBox_P150_Hydra_Container_US/Dst/AmmoBox_P150_Hydra_Sledge_dst_01_dbr_03.xob"
+     }
+    }
+   }
+  }
+ }
+}
