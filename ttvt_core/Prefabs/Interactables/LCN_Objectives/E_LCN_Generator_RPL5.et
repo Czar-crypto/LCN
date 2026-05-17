@@ -20,5 +20,9 @@ GenericEntity : "{DC3973E3539A01C1}Prefabs/Structures/Military/Radar/ApproachRad
    }
    m_fBaseHealth 2200
   }
+  RplComponent "{5624A88DC2D9928D}" {
+   Enabled 1
+  }
  }
+ coords 1373.719 38.113 2938.829
 }
