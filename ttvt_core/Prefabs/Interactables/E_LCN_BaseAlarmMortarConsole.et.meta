@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{D079353092D50FD1}Prefabs/Interactables/E_LCN_BaseAlarmMortarConsole.et"
+ Configurations {
+  ETResourceClass PC {
+  }
+  ETResourceClass XBOX_ONE : PC {
+  }
+  ETResourceClass XBOX_SERIES : PC {
+  }
+  ETResourceClass PS4 : PC {
+  }
+  ETResourceClass PS5 : PC {
+  }
+  ETResourceClass HEADLESS : PC {
+  }
+ }
+}

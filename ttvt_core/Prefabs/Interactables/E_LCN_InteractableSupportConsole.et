@@ -1,0 +1,50 @@
+GenericEntity : "{B6B2AD00E71AD0B5}Prefabs/Props/Industrial/BarrelMetal_01_Base.et" {
+ ID "C1CF16D6601257A5"
+ components {
+  MeshObject "{5872F0EB7FA40561}" {
+   Object "{DBE3AEFE90AC25D0}Assets/Props/Military/Radios/RadioStation_R123M_01.xob"
+  }
+  RigidBody "{5872F0EB7DFB5A9D}" {
+   ResponseIndex "TinyDestructible"
+  }
+  ActionsManagerComponent "{AF2D42EA21C88CFC}" {
+   ActionContexts {
+    UserActionContext "{CC249B8F76E062EF}" {
+     ContextName "lcn_support"
+     Position PointInfo "{C648224EDA53BBF5}" {
+      Offset 0 0.7 0.15
+     }
+     Height 0
+     Omnidirectional 1
+    }
+   }
+   additionalActions {
+    LCN_InteractableSupportAction "{E2FE07A6CE66EFCB}" {
+     ParentContextList {
+      "lcn_support"
+     }
+     UIInfo SCR_ActionUIInfo "{8884A7545D8519D3}" {
+      Name "Call support"
+      Description "Call configured support effect"
+     }
+     VisibilityRange 4
+     Duration 3
+     m_sActionName "Call support"
+     m_sEffectModulePrefab "{5D48E2F7DB0C3714}PrefabsEditable/EffectsModules/Mortar/EffectModule_Zoned_MortarBarrage_Small.et"
+     m_fEffectDelay 10
+     m_bOneUse 1
+     m_fCooldown 0
+     m_sAllowedFactionKey ""
+     m_bAcceptInheritedFaction 1
+     m_sEffectTargetEntityName ""
+     m_sRequiredAliveEntityName ""
+     m_sBlockingAliveEntityName ""
+     m_bDebug 1
+    }
+   }
+  }
+  RplComponent "{E490AAAA0C678A3E}" {
+   Enabled 1
+  }
+ }
+}
