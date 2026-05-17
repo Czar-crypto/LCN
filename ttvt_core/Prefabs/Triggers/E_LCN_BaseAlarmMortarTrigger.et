@@ -1,16 +1,19 @@
-LCN_MortarStrikeTriggerEntity {
+LCN_BaseClearSupportTriggerEntity {
  ID "69629D336EF25679"
  coords 23.875 0.863 7.5
  m_sEffectModulePrefab "{5D48E2F7DB0C3714}PrefabsEditable/EffectsModules/Mortar/EffectModule_Zoned_MortarBarrage_Small.et"
- m_fInitialEffectDelay 10
+ m_fEffectDelay 10
  m_bAllowRetrigger 0
- m_sTriggerFactionKey "USSR"
- m_bAcceptInheritedFaction 1
- m_bRequireBlockingFactionCleared 1
- m_bRequireOnlyTriggerFactionPresent 1
- m_sBlockingFactionKey "US"
- m_bAcceptInheritedBlockingFaction 1
+ m_sAttackerFactionKey "USSR"
+ m_bAcceptInheritedAttackerFaction 1
+ m_sDefenderFactionKey "US"
+ m_bAcceptInheritedDefenderFaction 1
+ m_bRequireAttackerPresent 1
+ m_bRequireDefenderCleared 1
+ m_bIgnoreOtherFactions 1
+ m_bIgnoreDeadCharacters 1
  m_fTriggerRadius 25
- m_fRequiredPresenceTime 5
+ m_fRequiredClearTime 5
  m_fCheckPeriod 0.25
+ m_bDebug 1
 }
