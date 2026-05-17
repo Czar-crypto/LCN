@@ -1,4 +1,9 @@
-class LCN_InteractableSupportAction : SCR_ScriptedUserAction
+[ComponentEditorProps(category: "LCN/Support", description: "Configures an interactable support radio action")]
+class LCN_SupportConsoleComponentClass : ScriptComponentClass
+{
+}
+
+class LCN_SupportConsoleComponent : ScriptComponent
 {
 	[Attribute("Call support", UIWidgets.EditBox, "Action name shown to players", category: "LCN Support")]
 	protected string m_sActionName;
@@ -21,7 +26,7 @@ class LCN_InteractableSupportAction : SCR_ScriptedUserAction
 	[Attribute("1", UIWidgets.CheckBox, "Accept inherited factions when checking the allowed faction key", category: "LCN Faction")]
 	protected bool m_bAcceptInheritedFaction;
 
-	[Attribute("", UIWidgets.EditBox, "Optional entity name used as the effect spawn position. Leave empty to spawn at the console", category: "LCN Links")]
+	[Attribute("", UIWidgets.EditBox, "Optional entity name used as the effect spawn position. Leave empty to spawn at the radio", category: "LCN Links")]
 	protected string m_sEffectTargetEntityName;
 
 	[Attribute("0", UIWidgets.CheckBox, "If enabled, the action will fail when Effect Target Entity Name is empty or not found", category: "LCN Links")]
@@ -41,57 +46,14 @@ class LCN_InteractableSupportAction : SCR_ScriptedUserAction
 	protected float m_fNextUseTime;
 
 	//------------------------------------------------------------------------------------------------
-	override void PerformAction(IEntity pOwnerEntity, IEntity pUserEntity)
+	string GetActionName()
 	{
-		LCN_SupportConsoleComponent console = GetSupportConsoleComponent();
-		if (console)
-		{
-			console.PerformSupportAction(pOwnerEntity, pUserEntity);
-			return;
-		}
-
-		if (!IsMaster())
-			return;
-
-		if (!CanBePerformedScript(pUserEntity))
-			return;
-
-		m_bPending = true;
-		m_bUsed = true;
-
-		int reenableDelay = GetReenableDelayMs();
-		if (m_bOneUse || reenableDelay > 0)
-			SetActionEnabled_S(false);
-
-		if (!m_bOneUse && m_fCooldown > 0)
-			m_fNextUseTime = GetWorldTime() + Math.Round(m_fCooldown * 1000);
-
-		if (!m_bOneUse && reenableDelay > 0)
-			GetGame().GetCallqueue().CallLater(ReenableAction, reenableDelay, false);
-
-		if (m_fEffectDelay <= 0)
-		{
-			SpawnEffectModule(pOwnerEntity);
-			return;
-		}
-
-		GetGame().GetCallqueue().CallLater(SpawnEffectModule, Math.Round(m_fEffectDelay * 1000), false, pOwnerEntity);
-
-		if (m_bDebug)
-			Print(string.Format("LCN_InteractableSupportAction: '%1' queued by %2, effect delay=%3, cooldown=%4", m_sActionName, pUserEntity, m_fEffectDelay, m_fCooldown));
+		return m_sActionName;
 	}
 
 	//------------------------------------------------------------------------------------------------
-	override bool CanBeShownScript(IEntity user)
+	bool CanShowAction(IEntity owner, IEntity user)
 	{
-		if (!super.CanBeShownScript(user))
-			return false;
-
-		LCN_SupportConsoleComponent console = GetSupportConsoleComponent();
-		if (console)
-			return console.CanShowAction(GetOwner(), user);
-
-		IEntity owner = GetOwner();
 		if (!owner || !IsEntityAlive(owner))
 			return false;
 
@@ -102,65 +64,55 @@ class LCN_InteractableSupportAction : SCR_ScriptedUserAction
 	}
 
 	//------------------------------------------------------------------------------------------------
-	override bool CanBePerformedScript(IEntity user)
+	bool CanPerformAction(IEntity owner, IEntity user, out string reason)
 	{
-		LCN_SupportConsoleComponent console = GetSupportConsoleComponent();
-		if (console)
-		{
-			string reason;
-			bool canPerform = console.CanPerformAction(GetOwner(), user, reason);
-			if (!canPerform)
-				SetCannotPerformReason(reason);
-
-			return canPerform;
-		}
+		reason = "";
 
 		if (m_bOneUse && m_bUsed)
 		{
-			SetCannotPerformReason("Already used");
+			reason = "Already used";
 			return false;
 		}
 
 		if (m_bPending)
 		{
-			SetCannotPerformReason("Support already queued");
+			reason = "Support already queued";
 			return false;
 		}
 
-		IEntity owner = GetOwner();
 		if (!owner || !IsEntityAlive(owner))
 		{
-			SetCannotPerformReason("Station destroyed");
+			reason = "Station destroyed";
 			return false;
 		}
 
 		if (!IsUserFactionAllowed(user))
 		{
-			SetCannotPerformReason("Wrong faction");
+			reason = "Wrong faction";
 			return false;
 		}
 
 		if (!IsEffectTargetReady())
 		{
-			SetCannotPerformReason("Effect target missing");
+			reason = "Effect target missing";
 			return false;
 		}
 
 		if (!IsRequiredEntityReady())
 		{
-			SetCannotPerformReason("Required system offline");
+			reason = "Required system offline";
 			return false;
 		}
 
 		if (IsBlockingEntityActive())
 		{
-			SetCannotPerformReason("Blocked by active system");
+			reason = "Blocked by active system";
 			return false;
 		}
 
 		if (!m_bOneUse && m_fCooldown > 0 && GetWorldTime() < m_fNextUseTime)
 		{
-			SetCannotPerformReason("On cooldown");
+			reason = "On cooldown";
 			return false;
 		}
 
@@ -168,27 +120,31 @@ class LCN_InteractableSupportAction : SCR_ScriptedUserAction
 	}
 
 	//------------------------------------------------------------------------------------------------
-	override bool GetActionNameScript(out string outName)
+	void PerformSupportAction(IEntity owner, IEntity user)
 	{
-		LCN_SupportConsoleComponent console = GetSupportConsoleComponent();
-		if (console)
+		if (!IsMaster())
+			return;
+
+		string reason;
+		if (!CanPerformAction(owner, user, reason))
+			return;
+
+		m_bPending = true;
+		m_bUsed = true;
+
+		if (!m_bOneUse && m_fCooldown > 0)
+			m_fNextUseTime = GetWorldTime() + Math.Round(m_fCooldown * 1000);
+
+		if (m_fEffectDelay <= 0)
 		{
-			outName = console.GetActionName();
-			return !outName.IsEmpty();
+			SpawnEffectModule(owner);
+			return;
 		}
 
-		outName = m_sActionName;
-		return !outName.IsEmpty();
-	}
+		GetGame().GetCallqueue().CallLater(SpawnEffectModule, Math.Round(m_fEffectDelay * 1000), false, owner);
 
-	//------------------------------------------------------------------------------------------------
-	protected LCN_SupportConsoleComponent GetSupportConsoleComponent()
-	{
-		IEntity owner = GetOwner();
-		if (!owner)
-			return null;
-
-		return LCN_SupportConsoleComponent.Cast(owner.FindComponent(LCN_SupportConsoleComponent));
+		if (m_bDebug)
+			Print(string.Format("LCN_SupportConsoleComponent: '%1' queued by %2, effect delay=%3, cooldown=%4", m_sActionName, user, m_fEffectDelay, m_fCooldown));
 	}
 
 	//------------------------------------------------------------------------------------------------
@@ -209,19 +165,6 @@ class LCN_InteractableSupportAction : SCR_ScriptedUserAction
 			return 0;
 
 		return world.GetWorldTime();
-	}
-
-	//------------------------------------------------------------------------------------------------
-	protected int GetReenableDelayMs()
-	{
-		if (m_bOneUse)
-			return 0;
-
-		float delay = Math.Max(m_fEffectDelay, m_fCooldown);
-		if (delay <= 0)
-			return 0;
-
-		return Math.Round(delay * 1000);
 	}
 
 	//------------------------------------------------------------------------------------------------
@@ -301,11 +244,11 @@ class LCN_InteractableSupportAction : SCR_ScriptedUserAction
 
 			if (m_bRequireEffectTargetEntity)
 			{
-				Print(string.Format("LCN_InteractableSupportAction: required effect target entity '%1' was not found", m_sEffectTargetEntityName));
+				Print(string.Format("LCN_SupportConsoleComponent: required effect target entity '%1' was not found", m_sEffectTargetEntityName));
 				return null;
 			}
 
-			Print(string.Format("LCN_InteractableSupportAction: effect target entity '%1' was not found, using action owner", m_sEffectTargetEntityName));
+			Print(string.Format("LCN_SupportConsoleComponent: effect target entity '%1' was not found, using radio position", m_sEffectTargetEntityName));
 		}
 
 		return owner;
@@ -321,25 +264,20 @@ class LCN_InteractableSupportAction : SCR_ScriptedUserAction
 
 		if (!m_sEffectModulePrefab)
 		{
-			Print("LCN_InteractableSupportAction: no effect module prefab configured");
-			ReenableAction();
+			Print("LCN_SupportConsoleComponent: no effect module prefab configured");
 			return;
 		}
 
 		Resource effectResource = Resource.Load(m_sEffectModulePrefab);
 		if (!effectResource || !effectResource.IsValid())
 		{
-			Print(string.Format("LCN_InteractableSupportAction: failed to load effect module '%1'", m_sEffectModulePrefab));
-			ReenableAction();
+			Print(string.Format("LCN_SupportConsoleComponent: failed to load effect module '%1'", m_sEffectModulePrefab));
 			return;
 		}
 
 		IEntity anchor = GetEffectAnchor(owner);
 		if (!anchor)
-		{
-			ReenableAction();
 			return;
-		}
 
 		EntitySpawnParams spawnParams = new EntitySpawnParams();
 		spawnParams.TransformMode = ETransformMode.WORLD;
@@ -348,22 +286,12 @@ class LCN_InteractableSupportAction : SCR_ScriptedUserAction
 		IEntity effectEntity = GetGame().SpawnEntityPrefab(effectResource, anchor.GetWorld(), spawnParams);
 		if (!effectEntity)
 		{
-			Print("LCN_InteractableSupportAction: effect module spawn failed");
-			ReenableAction();
+			Print("LCN_SupportConsoleComponent: effect module spawn failed");
 			return;
 		}
 
 		if (m_bDebug)
-			Print(string.Format("LCN_InteractableSupportAction: effect module spawned '%1' at %2", m_sEffectModulePrefab, anchor.GetOrigin().ToString()));
+			Print(string.Format("LCN_SupportConsoleComponent: effect module spawned '%1' at %2", m_sEffectModulePrefab, anchor.GetOrigin().ToString()));
 	}
 
-	//------------------------------------------------------------------------------------------------
-	protected void ReenableAction()
-	{
-		if (m_bOneUse)
-			return;
-
-		m_bPending = false;
-		SetActionEnabled_S(true);
-	}
 }

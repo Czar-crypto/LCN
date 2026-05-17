@@ -12,6 +12,11 @@ GenericEntity Area1 : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compo
 }
 GenericEntity : "{D45C1E1487AB025B}Prefabs/Interactables/E_LCN_InteractableSupportConsole.et" {
  components {
+  LCN_SupportConsoleComponent "{FF0775A19CE46E11}" {
+   m_sActionName "Call test mortar"
+   m_sEffectTargetEntityName "DOM1"
+   m_bRequireEffectTargetEntity 1
+  }
   ActionsManagerComponent "{6962BC99199772BD}" {
    ActionContexts {
     UserActionContext "{CC249B8F76E062EF}" {

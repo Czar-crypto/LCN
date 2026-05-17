@@ -1,6 +1,20 @@
 GenericEntity : "{12DFA1CC555DFEF5}Prefabs/Props/Military/Compositions/RadioStation_base.et" {
  ID "C1CF16D6601257A5"
  components {
+  LCN_SupportConsoleComponent "{FF0775A19CE46E11}" {
+   m_sActionName "Call support"
+   m_sEffectModulePrefab "{5D48E2F7DB0C3714}PrefabsEditable/EffectsModules/Mortar/EffectModule_Zoned_MortarBarrage_Small.et"
+   m_fEffectDelay 10
+   m_bOneUse 1
+   m_fCooldown 0
+   m_sAllowedFactionKey ""
+   m_bAcceptInheritedFaction 1
+   m_sEffectTargetEntityName ""
+   m_bRequireEffectTargetEntity 0
+   m_sRequiredAliveEntityName ""
+   m_sBlockingAliveEntityName ""
+   m_bDebug 1
+  }
   ActionsManagerComponent "{6962BC99199772BD}" {
    ActionContexts {
     UserActionContext "{CC249B8F76E062EF}" {
@@ -18,23 +32,11 @@ GenericEntity : "{12DFA1CC555DFEF5}Prefabs/Props/Military/Compositions/RadioStat
       "lcn_support"
      }
      UIInfo SCR_ActionUIInfo "{8884A7545D8519D3}" {
-      Name "Call support"
-      Description "Call configured support effect"
+     Name "Call support"
+     Description "Call configured support effect"
      }
      VisibilityRange 4
      Duration 3
-     m_sActionName "Call support"
-     m_sEffectModulePrefab "{5D48E2F7DB0C3714}PrefabsEditable/EffectsModules/Mortar/EffectModule_Zoned_MortarBarrage_Small.et"
-     m_fEffectDelay 10
-     m_bOneUse 1
-     m_fCooldown 0
-     m_sAllowedFactionKey ""
-     m_bAcceptInheritedFaction 1
-     m_sEffectTargetEntityName ""
-     m_bRequireEffectTargetEntity 0
-     m_sRequiredAliveEntityName ""
-     m_sBlockingAliveEntityName ""
-     m_bDebug 1
     }
    }
   }
