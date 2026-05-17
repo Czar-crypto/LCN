@@ -1,7 +1,7 @@
 GenericEntity : "{D45C1E1487AB025B}Prefabs/Interactables/E_LCN_InteractableSupportConsole.et" {
  coords 1562.946 40.517 2368.265
  components {
-  ActionsManagerComponent "{AF2D42EA21C88CFC}" {
+  ActionsManagerComponent "{6962BC99199772BD}" {
    additionalActions {
     LCN_InteractableSupportAction "{E2FE07A6CE66EFCB}" {
      m_sActionName "Call test mortar"

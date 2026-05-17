@@ -1,7 +1,7 @@
-GenericEntity : "{B17411929589C43D}Prefabs/MP/Campaign/Assets/CampaignHQRadioEast.et" {
+GenericEntity : "{12DFA1CC555DFEF5}Prefabs/Props/Military/Compositions/RadioStation_base.et" {
  ID "2F1991CF70CE016E"
  components {
-  ActionsManagerComponent "{A6C897C092FCA39E}" {
+  ActionsManagerComponent "{6962BC99199772BD}" {
    ActionContexts {
     UserActionContext "{2767DDD3528B583A}" {
      ContextName "lcn_support"
