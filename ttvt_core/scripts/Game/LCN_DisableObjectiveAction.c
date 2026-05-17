@@ -36,7 +36,7 @@ class LCN_DisableObjectiveAction : SCR_ScriptedUserAction
 		if (!objective)
 			return;
 
-		objective.Disable();
+		objective.DisableObjective();
 		m_bUsed = true;
 
 		if (m_bOneUse)
@@ -56,7 +56,7 @@ class LCN_DisableObjectiveAction : SCR_ScriptedUserAction
 			return false;
 
 		LCN_ObjectiveStateComponent objective = ResolveTargetObjective(GetOwner());
-		return objective && objective.IsActive();
+		return objective && objective.IsObjectiveActive();
 	}
 
 	//------------------------------------------------------------------------------------------------
@@ -88,7 +88,7 @@ class LCN_DisableObjectiveAction : SCR_ScriptedUserAction
 			return false;
 		}
 
-		if (!objective.IsActive())
+		if (!objective.IsObjectiveActive())
 		{
 			SetCannotPerformReason("Already disabled");
 			return false;

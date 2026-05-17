@@ -252,7 +252,7 @@ class LCN_SupportConsoleComponent : ScriptComponent
 			world = owner.GetWorld();
 
 		LCN_ObjectiveStateComponent objective = LCN_ObjectiveStateComponent.FindObjective(m_sRequiredObjectiveKey, world);
-		return objective && objective.IsActive();
+		return objective && objective.IsObjectiveActive();
 	}
 
 	//------------------------------------------------------------------------------------------------
@@ -266,7 +266,7 @@ class LCN_SupportConsoleComponent : ScriptComponent
 			world = owner.GetWorld();
 
 		LCN_ObjectiveStateComponent objective = LCN_ObjectiveStateComponent.FindObjective(m_sBlockingObjectiveKey, world);
-		return objective && objective.IsActive();
+		return objective && objective.IsObjectiveActive();
 	}
 
 	//------------------------------------------------------------------------------------------------

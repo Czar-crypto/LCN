@@ -84,7 +84,7 @@ class LCN_ObjectiveStateComponent : ScriptComponent
 	}
 
 	//------------------------------------------------------------------------------------------------
-	bool IsActive()
+	bool IsObjectiveActive()
 	{
 		if (!m_bActive)
 			return false;
@@ -99,7 +99,7 @@ class LCN_ObjectiveStateComponent : ScriptComponent
 				world = m_Owner.GetWorld();
 
 			LCN_ObjectiveStateComponent required = FindObjective(m_sRequiredObjectiveKey, world);
-			if (!required || !required.IsActive())
+			if (!required || !required.IsObjectiveActive())
 				return false;
 		}
 
@@ -107,7 +107,7 @@ class LCN_ObjectiveStateComponent : ScriptComponent
 	}
 
 	//------------------------------------------------------------------------------------------------
-	void SetActive(bool active)
+	void SetObjectiveActive(bool active)
 	{
 		if (m_bActive == active)
 			return;
@@ -120,15 +120,15 @@ class LCN_ObjectiveStateComponent : ScriptComponent
 	}
 
 	//------------------------------------------------------------------------------------------------
-	void Disable()
+	void DisableObjective()
 	{
-		SetActive(false);
+		SetObjectiveActive(false);
 	}
 
 	//------------------------------------------------------------------------------------------------
-	void Enable()
+	void EnableObjective()
 	{
-		SetActive(true);
+		SetObjectiveActive(true);
 	}
 
 	//------------------------------------------------------------------------------------------------
