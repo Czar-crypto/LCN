@@ -3,7 +3,7 @@ GameProject {
  GUID "6960CBC0DD73BC88"
  TITLE "ttvt_core"
  Dependencies {
-  "58D0FB3206B6F859" "5F16D7E4A1CBE075" ""
+  "58D0FB3206B6F859" "" ""
  }
  Configurations {
   GameProjectConfig PC {
