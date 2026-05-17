@@ -7,6 +7,9 @@ SCR_AIGroup : "{657590C1EC9E27D3}Prefabs/Groups/OPFOR/Group_USSR_LightFireTeam.e
   ""
  }
 }
+LCN_MortarStrikeTriggerEntity : "{B4F20971358B6D41}Prefabs/Triggers/E_LCN_MortarStrikeTrigger.et" {
+ coords 1555.75 42.064 2387.999
+}
 GenericEntity Area1 : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Components/Area.et" {
  coords 1579.743 39.791 2354.555
  {

@@ -1,4 +1,6 @@
-LCN_MortarStrikeTriggerEntity E_LCN_BaseAlarmMortarTrigger {
+LCN_MortarStrikeTriggerEntity {
+ ID "69629D336EF25679"
+ coords 23.875 0.863 7.5
  m_sEffectModulePrefab "{5D48E2F7DB0C3714}PrefabsEditable/EffectsModules/Mortar/EffectModule_Zoned_MortarBarrage_Small.et"
  m_fInitialEffectDelay 10
  m_bAllowRetrigger 0
