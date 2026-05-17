@@ -13,6 +13,8 @@ GenericEntity : "{12DFA1CC555DFEF5}Prefabs/Props/Military/Compositions/RadioStat
    m_bRequireEffectTargetEntity 0
    m_sRequiredAliveEntityName ""
    m_sBlockingAliveEntityName ""
+   m_sRequiredObjectiveKey "LCN_COMMS_01"
+   m_sBlockingObjectiveKey ""
    m_bDebug 1
   }
   ActionsManagerComponent "{6962BC99199772BD}" {

@@ -10,9 +10,11 @@ GenericEntity : "{12DFA1CC555DFEF5}Prefabs/Props/Military/Compositions/RadioStat
    m_sAllowedFactionKey ""
    m_bAcceptInheritedFaction 1
    m_sEffectTargetEntityName "DOM1"
-   m_bRequireEffectTargetEntity 0
+   m_bRequireEffectTargetEntity 1
    m_sRequiredAliveEntityName ""
    m_sBlockingAliveEntityName ""
+   m_sRequiredObjectiveKey "LCN_COMMS_01"
+   m_sBlockingObjectiveKey ""
    m_bDebug 1
   }
   ActionsManagerComponent "{6962BC99199772BD}" {
@@ -42,5 +44,4 @@ GenericEntity : "{12DFA1CC555DFEF5}Prefabs/Props/Military/Compositions/RadioStat
    }
   }
  }
- coords 1563.356 40.901 2367.365
 }
