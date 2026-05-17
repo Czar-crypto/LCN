@@ -13,7 +13,7 @@ GenericEntity Area1 : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compo
   GenericEntity Layer1 : "{5F9FFF4BF027B3A3}Prefabs/Systems/ScenarioFramework/Components/Layer.et" {
    coords 2.401 0.709 6.281
    {
-    LCN_MortarStrikeTriggerEntity : "{B4F20971358B6D41}Prefabs/Triggers/E_LCN_MortarStrikeTrigger.et" {
+    LCN_MortarStrikeTriggerEntity : "{8A7C1D4E55B34D92}Prefabs/Triggers/E_LCN_BaseAlarmMortarTrigger.et" {
      coords 23.875 0.863 7.5
     }
    }

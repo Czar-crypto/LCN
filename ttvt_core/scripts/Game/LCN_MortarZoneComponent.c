@@ -118,11 +118,11 @@ class LCN_MortarZoneComponent : ScriptComponent
 	protected bool QueryEntitiesCallback(IEntity entity)
 	{
 		if (!entity)
-			return false;
+			return true;
 
 		ChimeraCharacter character = ChimeraCharacter.Cast(entity);
 		if (!character)
-			return false;
+			return true;
 
 		m_aNearbyCharacters.Insert(entity);
 		return true;

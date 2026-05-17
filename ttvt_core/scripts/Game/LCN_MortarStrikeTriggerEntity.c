@@ -108,11 +108,11 @@ class LCN_MortarStrikeTriggerEntity : GenericEntity
 	protected bool QueryEntitiesCallback(IEntity entity)
 	{
 		if (!entity)
-			return false;
+			return true;
 
 		ChimeraCharacter character = ChimeraCharacter.Cast(entity);
 		if (!character)
-			return false;
+			return true;
 
 		m_aNearbyCharacters.Insert(entity);
 		return true;
@@ -123,7 +123,6 @@ class LCN_MortarStrikeTriggerEntity : GenericEntity
 	{
 		bool blockingPresent = false;
 		bool triggeringPresent = false;
-		bool otherFactionPresent = false;
 		int triggerCount = 0;
 		int blockingCount = 0;
 		int otherCount = 0;
@@ -164,9 +163,8 @@ class LCN_MortarStrikeTriggerEntity : GenericEntity
 				triggeringPresent = true;
 				triggerCount++;
 			}
-			else
+			else if (!isBlockingFaction)
 			{
-				otherFactionPresent = true;
 				otherCount++;
 			}
 		}
