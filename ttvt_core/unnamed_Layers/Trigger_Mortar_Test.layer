@@ -1,4 +1,9 @@
-StaticModelEntity : "{27F67CEC91884895}Prefabs/Interactables/LCN_Objectives/E_LCN_CommsAntenna_BARS.et" {
+StaticModelEntity antenna_1 : "{27F67CEC91884895}Prefabs/Interactables/LCN_Objectives/E_LCN_CommsAntenna_BARS.et" {
+ components {
+  LCN_ObjectiveStateComponent "{E04E4B2A40414BBA}" {
+   m_sRequiredObjectiveKey "Gen_1"
+  }
+ }
  coords 1370.439 0.333 2928.874
 }
 SCR_AIGroup : "{30ED11AA4F0D41E5}Prefabs/Groups/OPFOR/Group_USSR_FireGroup.et" {
@@ -8,6 +13,11 @@ SCR_AIGroup : "{344B4B6F787CFB23}Prefabs/Groups/OPFOR/Group_USSR_EngineerTeam.et
  coords 1569.035 40.984 2704.809
 }
 GenericEntity : "{48B089D8C6824C11}Prefabs/Interactables/LCN_Objectives/E_LCN_Generator_RPL5.et" {
+ components {
+  LCN_ObjectiveStateComponent "{9991A261EF164D9E}" {
+   m_sObjectiveKey "Gen_1"
+  }
+ }
  coords 1373.719 38.113 2938.829
 }
 Vehicle UAZ452_cargo_FIA1 : "{5F5AAFE8465D9D62}Prefabs/Vehicles/Wheeled/UAZ452/UAZ452_cargo_FIA.et" {
@@ -38,6 +48,8 @@ GenericEntity Area1 : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compo
 GenericEntity : "{D079353092D50FD1}Prefabs/Interactables/E_LCN_BaseAlarmMortarConsole.et" {
  components {
   LCN_SupportConsoleComponent "{23E4844D2E5E6A58}" {
+   m_fEffectDelay 10
+   m_bOneUse 0
    m_sEffectTargetEntityName "DOM1"
   }
  }
