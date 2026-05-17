@@ -1,0 +1,38 @@
+GenericEntity : "{C4C9560520941BF9}Prefabs/Props/Military/Radios/RadioStation_RF10/RadioStation_RF10_base.et" {
+ ID "EC1F00DCCFCF4B14"
+ components {
+  ActionsManagerComponent "{B0AEC3C0194249D0}" {
+   ActionContexts {
+    UserActionContext "{79B36633C1C3427D}" {
+     ContextName "lcn_disable_comms"
+     Position PointInfo "{E45145ACFF0F43BC}" {
+      Offset 0 0.25 0
+     }
+     Radius 0.35
+     Height 0
+     Omnidirectional 1
+    }
+   }
+   additionalActions {
+    LCN_DisableObjectiveAction "{0FC36F2FC2264A72}" {
+     ParentContextList {
+      "lcn_disable_comms"
+     }
+     UIInfo SCR_ActionUIInfo "{762126923CD04398}" {
+      Name "Disable communications"
+      Description "Silently disable the linked communications objective"
+     }
+     VisibilityRange 3
+     Duration 8
+     m_sActionName "Disable communications"
+     m_sTargetObjectiveKey "LCN_COMMS_01"
+     m_sTargetEntityName ""
+     m_sAllowedFactionKey "USSR"
+     m_bAcceptInheritedFaction 1
+     m_bOneUse 1
+     m_bDebug 1
+    }
+   }
+  }
+ }
+}

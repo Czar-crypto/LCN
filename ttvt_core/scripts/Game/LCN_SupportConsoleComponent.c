@@ -38,6 +38,12 @@ class LCN_SupportConsoleComponent : ScriptComponent
 	[Attribute("", UIWidgets.EditBox, "Optional entity name that blocks this action while alive, for example a jammer", category: "LCN Links")]
 	protected string m_sBlockingAliveEntityName;
 
+	[Attribute("", UIWidgets.EditBox, "Optional LCN objective key that must be active for this action to work", category: "LCN Links")]
+	protected string m_sRequiredObjectiveKey;
+
+	[Attribute("", UIWidgets.EditBox, "Optional LCN objective key that blocks this action while active", category: "LCN Links")]
+	protected string m_sBlockingObjectiveKey;
+
 	[Attribute("1", UIWidgets.CheckBox, "Print action state to the script log", category: "LCN Debug")]
 	protected bool m_bDebug;
 
@@ -107,6 +113,18 @@ class LCN_SupportConsoleComponent : ScriptComponent
 		if (IsBlockingEntityActive())
 		{
 			reason = "Blocked by active system";
+			return false;
+		}
+
+		if (!IsRequiredObjectiveActive(owner))
+		{
+			reason = "Required objective offline";
+			return false;
+		}
+
+		if (IsBlockingObjectiveActive(owner))
+		{
+			reason = "Blocked by active objective";
 			return false;
 		}
 
@@ -221,6 +239,34 @@ class LCN_SupportConsoleComponent : ScriptComponent
 
 		IEntity entity = GetGame().GetWorld().FindEntityByName(m_sBlockingAliveEntityName);
 		return entity && IsEntityAlive(entity);
+	}
+
+	//------------------------------------------------------------------------------------------------
+	protected bool IsRequiredObjectiveActive(IEntity owner)
+	{
+		if (m_sRequiredObjectiveKey.IsEmpty())
+			return true;
+
+		BaseWorld world = null;
+		if (owner)
+			world = owner.GetWorld();
+
+		LCN_ObjectiveStateComponent objective = LCN_ObjectiveStateComponent.FindObjective(m_sRequiredObjectiveKey, world);
+		return objective && objective.IsActive();
+	}
+
+	//------------------------------------------------------------------------------------------------
+	protected bool IsBlockingObjectiveActive(IEntity owner)
+	{
+		if (m_sBlockingObjectiveKey.IsEmpty())
+			return false;
+
+		BaseWorld world = null;
+		if (owner)
+			world = owner.GetWorld();
+
+		LCN_ObjectiveStateComponent objective = LCN_ObjectiveStateComponent.FindObjective(m_sBlockingObjectiveKey, world);
+		return objective && objective.IsActive();
 	}
 
 	//------------------------------------------------------------------------------------------------

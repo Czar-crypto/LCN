@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{EC1F00DCCFCF4B14}Prefabs/Interactables/LCN_Objectives/E_LCN_CommsRadio_RF10_Disable.et"
+ Configurations {
+  ETResourceClass PC {
+  }
+  ETResourceClass XBOX_ONE : PC {
+  }
+  ETResourceClass XBOX_SERIES : PC {
+  }
+  ETResourceClass PS4 : PC {
+  }
+  ETResourceClass PS5 : PC {
+  }
+  ETResourceClass HEADLESS : PC {
+  }
+ }
+}
