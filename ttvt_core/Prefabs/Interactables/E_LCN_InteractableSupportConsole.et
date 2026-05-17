@@ -3,13 +3,13 @@ GenericEntity : "{12DFA1CC555DFEF5}Prefabs/Props/Military/Compositions/RadioStat
  components {
   LCN_SupportConsoleComponent "{FF0775A19CE46E11}" {
    m_sActionName "Call support"
-   m_sEffectModulePrefab "{5D48E2F7DB0C3714}PrefabsEditable/EffectsModules/Mortar/EffectModule_Zoned_MortarBarrage_Small.et"
+   m_sEffectModulePrefab "{E7B7D4467E9A82DD}PrefabsEditable/EffectsModules/Mortar/EffectModule_Zoned_MortarBarrage_Medium.et"
    m_fEffectDelay 10
    m_bOneUse 1
    m_fCooldown 0
    m_sAllowedFactionKey ""
    m_bAcceptInheritedFaction 1
-   m_sEffectTargetEntityName ""
+   m_sEffectTargetEntityName "DOM1"
    m_bRequireEffectTargetEntity 0
    m_sRequiredAliveEntityName ""
    m_sBlockingAliveEntityName ""
@@ -20,8 +20,9 @@ GenericEntity : "{12DFA1CC555DFEF5}Prefabs/Props/Military/Compositions/RadioStat
     UserActionContext "{CC249B8F76E062EF}" {
      ContextName "lcn_support"
      Position PointInfo "{C648224EDA53BBF5}" {
-      Offset 0 0.7 0.15
+      Offset -0.0919 0.1566 0.1094
      }
+     Radius 0.3
      Height 0
      Omnidirectional 1
     }
@@ -32,8 +33,8 @@ GenericEntity : "{12DFA1CC555DFEF5}Prefabs/Props/Military/Compositions/RadioStat
       "lcn_support"
      }
      UIInfo SCR_ActionUIInfo "{8884A7545D8519D3}" {
-     Name "Call support"
-     Description "Call configured support effect"
+      Name "Call support"
+      Description "Call configured support effect"
      }
      VisibilityRange 4
      Duration 3
@@ -41,4 +42,5 @@ GenericEntity : "{12DFA1CC555DFEF5}Prefabs/Props/Military/Compositions/RadioStat
    }
   }
  }
+ coords 1563.356 40.901 2367.365
 }
