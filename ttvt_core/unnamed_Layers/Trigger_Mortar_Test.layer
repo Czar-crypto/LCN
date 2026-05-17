@@ -13,11 +13,6 @@ SCR_AIGroup : "{344B4B6F787CFB23}Prefabs/Groups/OPFOR/Group_USSR_EngineerTeam.et
  coords 1569.035 40.984 2704.809
 }
 GenericEntity : "{48B089D8C6824C11}Prefabs/Interactables/LCN_Objectives/E_LCN_Generator_RPL5.et" {
- components {
-  LCN_ObjectiveStateComponent "{9991A261EF164D9E}" {
-   m_sObjectiveKey "Gen_1"
-  }
- }
  coords 1373.719 38.113 2938.829
 }
 Vehicle UAZ452_cargo_FIA1 : "{5F5AAFE8465D9D62}Prefabs/Vehicles/Wheeled/UAZ452/UAZ452_cargo_FIA.et" {

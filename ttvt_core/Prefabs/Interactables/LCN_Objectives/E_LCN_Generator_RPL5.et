@@ -2,7 +2,7 @@ GenericEntity : "{DC3973E3539A01C1}Prefabs/Structures/Military/Radar/ApproachRad
  ID "48B089D8C6824C11"
  components {
   LCN_ObjectiveStateComponent "{9991A261EF164D9E}" {
-   m_sObjectiveKey "LCN_GENERATOR_01"
+   m_sObjectiveKey "Gen_1"
    m_sRequiredObjectiveKey ""
    m_bStartActive 1
    m_bDestroyedMeansInactive 1
@@ -25,7 +25,7 @@ GenericEntity : "{DC3973E3539A01C1}Prefabs/Structures/Military/Radar/ApproachRad
     UserActionContext "{0DB3D474A0A64D48}" {
      ContextName "lcn_disable_generator"
      Position PointInfo "{6644C8A29A45459D}" {
-      Offset 0 1 0
+      Offset -0.7672 1 -2.4282
      }
      Radius 0.6
      Height 0
