@@ -1,12 +1,6 @@
-GenericEntity : "{B6B2AD00E71AD0B5}Prefabs/Props/Industrial/BarrelMetal_01_Base.et" {
+GenericEntity : "{B17411929589C43D}Prefabs/MP/Campaign/Assets/CampaignHQRadioEast.et" {
  ID "C1CF16D6601257A5"
  components {
-  MeshObject "{5872F0EB7FA40561}" {
-   Object "{DBE3AEFE90AC25D0}Assets/Props/Military/Radios/RadioStation_R123M_01.xob"
-  }
-  RigidBody "{5872F0EB7DFB5A9D}" {
-   ResponseIndex "TinyDestructible"
-  }
   ActionsManagerComponent "{AF2D42EA21C88CFC}" {
    ActionContexts {
     UserActionContext "{CC249B8F76E062EF}" {
@@ -37,14 +31,12 @@ GenericEntity : "{B6B2AD00E71AD0B5}Prefabs/Props/Industrial/BarrelMetal_01_Base.
      m_sAllowedFactionKey ""
      m_bAcceptInheritedFaction 1
      m_sEffectTargetEntityName ""
+     m_bRequireEffectTargetEntity 0
      m_sRequiredAliveEntityName ""
      m_sBlockingAliveEntityName ""
      m_bDebug 1
     }
    }
-  }
-  RplComponent "{E490AAAA0C678A3E}" {
-   Enabled 1
   }
  }
 }

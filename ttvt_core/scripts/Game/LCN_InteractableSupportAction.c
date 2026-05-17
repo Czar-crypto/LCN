@@ -24,6 +24,9 @@ class LCN_InteractableSupportAction : SCR_ScriptedUserAction
 	[Attribute("", UIWidgets.EditBox, "Optional entity name used as the effect spawn position. Leave empty to spawn at the console", category: "LCN Links")]
 	protected string m_sEffectTargetEntityName;
 
+	[Attribute("0", UIWidgets.CheckBox, "If enabled, the action will fail when Effect Target Entity Name is empty or not found", category: "LCN Links")]
+	protected bool m_bRequireEffectTargetEntity;
+
 	[Attribute("", UIWidgets.EditBox, "Optional entity name that must be alive for this action to work, for example a generator", category: "LCN Links")]
 	protected string m_sRequiredAliveEntityName;
 
@@ -77,6 +80,10 @@ class LCN_InteractableSupportAction : SCR_ScriptedUserAction
 		if (!super.CanBeShownScript(user))
 			return false;
 
+		IEntity owner = GetOwner();
+		if (!owner || !IsEntityAlive(owner))
+			return false;
+
 		if (m_bOneUse && m_bUsed)
 			return false;
 
@@ -98,9 +105,22 @@ class LCN_InteractableSupportAction : SCR_ScriptedUserAction
 			return false;
 		}
 
+		IEntity owner = GetOwner();
+		if (!owner || !IsEntityAlive(owner))
+		{
+			SetCannotPerformReason("Station destroyed");
+			return false;
+		}
+
 		if (!IsUserFactionAllowed(user))
 		{
 			SetCannotPerformReason("Wrong faction");
+			return false;
+		}
+
+		if (!IsEffectTargetReady())
+		{
+			SetCannotPerformReason("Effect target missing");
 			return false;
 		}
 
@@ -190,6 +210,18 @@ class LCN_InteractableSupportAction : SCR_ScriptedUserAction
 	}
 
 	//------------------------------------------------------------------------------------------------
+	protected bool IsEffectTargetReady()
+	{
+		if (!m_bRequireEffectTargetEntity)
+			return true;
+
+		if (m_sEffectTargetEntityName.IsEmpty())
+			return false;
+
+		return GetGame().GetWorld().FindEntityByName(m_sEffectTargetEntityName) != null;
+	}
+
+	//------------------------------------------------------------------------------------------------
 	protected bool IsRequiredEntityReady()
 	{
 		if (m_sRequiredAliveEntityName.IsEmpty())
@@ -227,6 +259,12 @@ class LCN_InteractableSupportAction : SCR_ScriptedUserAction
 			IEntity target = GetGame().GetWorld().FindEntityByName(m_sEffectTargetEntityName);
 			if (target)
 				return target;
+
+			if (m_bRequireEffectTargetEntity)
+			{
+				Print(string.Format("LCN_InteractableSupportAction: required effect target entity '%1' was not found", m_sEffectTargetEntityName));
+				return null;
+			}
 
 			Print(string.Format("LCN_InteractableSupportAction: effect target entity '%1' was not found, using action owner", m_sEffectTargetEntityName));
 		}

@@ -1,0 +1,17 @@
+GenericEntity : "{10C26F96EF7A8CF5}Prefabs/Props/Core/Props_Base.et" {
+ ID "F0DBA538AC2A0552"
+ components {
+  MeshObject "{5872F0EB7FA40561}" {
+   Object "{DBE3AEFE90AC25D0}Assets/Props/Military/Radios/RadioStation_R123M_01.xob"
+  }
+  RigidBody "{5872F0EB7DFB5A9D}" {
+   ModelGeometry 1
+  }
+  SCR_FactionAffiliationComponent "{6962BC9919977289}" {
+  }
+  ActionsManagerComponent "{6962BC99199772BD}" {
+  }
+  RplComponent "{6962BC99199772A6}" {
+  }
+ }
+}

@@ -1,5 +1,5 @@
 MetaFileClass {
- Name "{B17411929589C43D}Prefabs/MP/Campaign/Assets/CampaignHQRadioEast.et"
+ Name "{12DFA1CC555DFEF5}Prefabs/Props/Military/Compositions/RadioStation_base.et"
  Configurations {
   EntityTemplateResourceClass PC {
   }

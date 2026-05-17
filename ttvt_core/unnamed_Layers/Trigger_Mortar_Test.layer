@@ -1,3 +1,20 @@
+GenericEntity : "{D45C1E1487AB025B}Prefabs/Interactables/E_LCN_InteractableSupportConsole.et" {
+ coords 1562.946 40.517 2368.265
+ components {
+  ActionsManagerComponent "{AF2D42EA21C88CFC}" {
+   additionalActions {
+    LCN_InteractableSupportAction "{E2FE07A6CE66EFCB}" {
+     m_sActionName "Call test mortar"
+     m_sEffectTargetEntityName "LCN_TestSupportTarget"
+     m_bRequireEffectTargetEntity 1
+    }
+   }
+  }
+ }
+}
+LCN_SupportEffectTargetEntity LCN_TestSupportTarget : "{9670E8F8BB52056B}Prefabs/Interactables/E_LCN_SupportEffectTarget.et" {
+ coords 1555.75 42.064 2387.999
+}
 GenericEntity Area1 : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Components/Area.et" {
  coords 1579.743 39.791 2354.555
  {
