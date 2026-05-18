@@ -48,9 +48,6 @@ class LCN_BaseAlarmSirenComponent : ScriptComponent
 	//------------------------------------------------------------------------------------------------
 	override void EOnFrame(IEntity owner, float timeSlice)
 	{
-		if (!IsMaster())
-			return;
-
 		bool alarmActive = IsAlarmActive(owner);
 		if (alarmActive && !m_bWasAlarmActive)
 		{
@@ -140,10 +137,12 @@ class LCN_BaseAlarmSirenComponent : ScriptComponent
 			return;
 
 		PlaySirenSoundLocal(owner);
-		Rpc(RpcDo_PlaySirenSound);
+
+		if (IsMaster())
+			Rpc(RpcDo_PlaySirenSound);
 
 		if (m_bDebug)
-			Print(string.Format("LCN_BaseAlarmSirenComponent: sound event '%1' sent to clients", m_sSoundEventName));
+			Print(string.Format("LCN_BaseAlarmSirenComponent: sound event '%1' requested, master=%2", m_sSoundEventName, IsMaster()));
 	}
 
 	//------------------------------------------------------------------------------------------------
@@ -179,7 +178,9 @@ class LCN_BaseAlarmSirenComponent : ScriptComponent
 	protected void StopSirenSound()
 	{
 		StopSirenSoundLocal();
-		Rpc(RpcDo_StopSirenSound);
+
+		if (IsMaster())
+			Rpc(RpcDo_StopSirenSound);
 	}
 
 	//------------------------------------------------------------------------------------------------

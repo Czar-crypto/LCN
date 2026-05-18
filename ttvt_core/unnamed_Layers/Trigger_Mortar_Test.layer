@@ -80,5 +80,17 @@ GenericEntity : "{8BB9B8774F655CF7}Prefabs/Interactables/LCN_Objectives/E_LCN_Ba
    m_fInactiveHealthScaledThreshold 0
    m_bDebug 1
   }
+  SoundComponent "{B2B14A8CB24B6303}" {
+   Filenames {
+    "{6F18248533DE2C10}Sounds/Structures/Military/Sirens/Structures_Siren.acp"
+   }
+   DistanceManagement 0
+   IncludeInactive 1
+   SoundPoints {
+    SoundPointInfo Siren {
+     Offset 0 0.35 0
+    }
+   }
+  }
  }
 }
