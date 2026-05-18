@@ -11,6 +11,12 @@ class LCN_BaseAlarmZoneEntity : GenericEntity
 	[Attribute("Gen_1", UIWidgets.EditBox, "Optional objective key required for automatic alarm activation", category: "LCN Alarm")]
 	protected string m_sRequiredObjectiveKey;
 
+	[Attribute("", UIWidgets.EditBox, "Second optional objective key required for automatic alarm activation", category: "LCN Alarm")]
+	protected string m_sRequiredObjectiveKey2;
+
+	[Attribute("", UIWidgets.EditBox, "Third optional objective key required for automatic alarm activation", category: "LCN Alarm")]
+	protected string m_sRequiredObjectiveKey3;
+
 	[Attribute("1", UIWidgets.CheckBox, "Allow the zone to activate alarm again after alarm duration expires", category: "LCN Alarm")]
 	protected bool m_bAllowRetrigger;
 
@@ -220,14 +226,26 @@ class LCN_BaseAlarmZoneEntity : GenericEntity
 	//------------------------------------------------------------------------------------------------
 	protected bool IsRequiredObjectiveActive(IEntity owner)
 	{
-		if (m_sRequiredObjectiveKey.IsEmpty())
-			return true;
-
 		BaseWorld world = null;
 		if (owner)
 			world = owner.GetWorld();
 
-		return LCN_ObjectiveStateComponent.IsObjectiveKeyActive(m_sRequiredObjectiveKey, world);
+		if (!IsRequiredObjectiveKeyActive(m_sRequiredObjectiveKey, world))
+			return false;
+
+		if (!IsRequiredObjectiveKeyActive(m_sRequiredObjectiveKey2, world))
+			return false;
+
+		return IsRequiredObjectiveKeyActive(m_sRequiredObjectiveKey3, world);
+	}
+
+	//------------------------------------------------------------------------------------------------
+	protected bool IsRequiredObjectiveKeyActive(string objectiveKey, BaseWorld world)
+	{
+		if (objectiveKey.IsEmpty())
+			return true;
+
+		return LCN_ObjectiveStateComponent.IsObjectiveKeyActive(objectiveKey, world);
 	}
 
 	//------------------------------------------------------------------------------------------------

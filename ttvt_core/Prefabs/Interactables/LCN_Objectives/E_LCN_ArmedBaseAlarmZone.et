@@ -1,0 +1,4 @@
+LCN_BaseAlarmZoneEntity : "{334608E5580E45AA}Prefabs/Interactables/LCN_Objectives/E_LCN_BaseAlarmZone.et" {
+ ID "0CBFD535CEEA15D1"
+ m_sRequiredObjectiveKey2 "LCN_ALARM_ARMED_01"
+}
