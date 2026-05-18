@@ -55,6 +55,8 @@ class LCN_BaseAlarmSirenComponent : ScriptComponent
 			m_fRemainingDuration = m_fAlarmDuration;
 			if (m_bDebug)
 				Print(string.Format("LCN_BaseAlarmSirenComponent: alarm '%1' started", m_sAlarmObjectiveKey));
+
+			PlaySirenSound(owner);
 		}
 		else if (!alarmActive && m_bWasAlarmActive)
 		{

@@ -20,7 +20,7 @@ GenericEntity : "{868C7143DB9A4A37}Prefabs/Structures/BuildingParts/Eletrical/Fi
    m_sRequiredObjectiveKey "Gen_1"
    m_fAlarmDuration 30
    m_sSoundEventName "SOUND_SIREN_LP"
-   m_sSoundProject "{852528B9C262A607}Sounds/Structures/Military/Sirens/Structures_Siren.acp"
+   m_sSoundProject "{6F18248533DE2C10}Sounds/Structures/Military/Sirens/Structures_Siren.acp"
    m_fSoundRetriggerPeriod 8
    m_bDebug 1
   }
