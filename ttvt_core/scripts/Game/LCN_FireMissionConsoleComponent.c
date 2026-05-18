@@ -16,6 +16,7 @@ class LCN_FireMissionConsoleComponent : ScriptComponent
 	static const int ACTION_CORRECT_ADD = 6;
 	static const int ACTION_CORRECT_DROP = 7;
 	static const int ACTION_CLEAR_MISSION = 8;
+	static const int ACTION_SET_TARGET_FROM_COORDINATES = 9;
 
 	[Attribute("{5D48E2F7DB0C3714}PrefabsEditable/EffectsModules/Mortar/EffectModule_Zoned_MortarBarrage_Small.et", UIWidgets.ResourcePickerThumbnail, "GM effect module used for a spotting round", "et", category: "LCN Fire Mission")]
 	protected ResourceName m_sSpottingEffectModulePrefab;
@@ -176,6 +177,36 @@ class LCN_FireMissionConsoleComponent : ScriptComponent
 	}
 
 	//------------------------------------------------------------------------------------------------
+	bool HasMission()
+	{
+		return m_bHasMission;
+	}
+
+	//------------------------------------------------------------------------------------------------
+	vector GetBaseTargetPosition()
+	{
+		return GetBaseTarget();
+	}
+
+	//------------------------------------------------------------------------------------------------
+	vector GetAdjustedTargetPosition()
+	{
+		return GetAdjustedTarget();
+	}
+
+	//------------------------------------------------------------------------------------------------
+	float GetLateralCorrection()
+	{
+		return m_fCorrectionLateral;
+	}
+
+	//------------------------------------------------------------------------------------------------
+	float GetRangeCorrection()
+	{
+		return m_fCorrectionRange;
+	}
+
+	//------------------------------------------------------------------------------------------------
 	bool CanPerformAction(int actionType, IEntity user, out string reason)
 	{
 		reason = "";
@@ -204,7 +235,7 @@ class LCN_FireMissionConsoleComponent : ScriptComponent
 			return false;
 		}
 
-		if (actionType == ACTION_SET_TARGET_FROM_VIEW)
+		if (actionType == ACTION_SET_TARGET_FROM_VIEW || actionType == ACTION_SET_TARGET_FROM_COORDINATES)
 			return true;
 
 		if (actionType == ACTION_SET_TARGET_FROM_MARKER)
@@ -274,10 +305,33 @@ class LCN_FireMissionConsoleComponent : ScriptComponent
 	}
 
 	//------------------------------------------------------------------------------------------------
+	void RequestTargetCoordinates(float x, float z, int playerId, IEntity directUser = null)
+	{
+		if (IsMaster())
+		{
+			IEntity user = directUser;
+			if (!user)
+				user = GetPlayerControlledEntity(playerId);
+
+			ExecuteTargetCoordinates(x, z, playerId, user);
+			return;
+		}
+
+		Rpc(RpcAsk_RequestTargetCoordinates, x, z, playerId);
+	}
+
+	//------------------------------------------------------------------------------------------------
 	[RplRpc(RplChannel.Reliable, RplRcver.Server)]
 	protected void RpcAsk_RequestAction(int actionType, float amount, vector observedTarget, vector observerPosition, int playerId)
 	{
 		ExecuteAction(actionType, amount, observedTarget, observerPosition, playerId, GetPlayerControlledEntity(playerId));
+	}
+
+	//------------------------------------------------------------------------------------------------
+	[RplRpc(RplChannel.Reliable, RplRcver.Server)]
+	protected void RpcAsk_RequestTargetCoordinates(float x, float z, int playerId)
+	{
+		ExecuteTargetCoordinates(x, z, playerId, GetPlayerControlledEntity(playerId));
 	}
 
 	//------------------------------------------------------------------------------------------------
@@ -342,6 +396,23 @@ class LCN_FireMissionConsoleComponent : ScriptComponent
 
 		if (actionType == ACTION_CLEAR_MISSION)
 			ClearMission(user);
+	}
+
+	//------------------------------------------------------------------------------------------------
+	protected void ExecuteTargetCoordinates(float x, float z, int playerId, IEntity user)
+	{
+		string reason;
+		if (!CanPerformAction(ACTION_SET_TARGET_FROM_COORDINATES, user, reason))
+		{
+			if (m_bDebug)
+				Print(string.Format("LCN_FireMissionConsoleComponent: coordinate target rejected for player=%1 reason='%2'", playerId, reason));
+
+			return;
+		}
+
+		vector target = Vector(x, 0, z);
+		vector observerPosition = m_Owner.GetOrigin();
+		SetMissionTarget(target, observerPosition, user, "terminal");
 	}
 
 	//------------------------------------------------------------------------------------------------

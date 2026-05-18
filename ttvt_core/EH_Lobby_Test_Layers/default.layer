@@ -21,26 +21,23 @@ GenericEntity LCN_FDC_01 : "{076FAD5BE2438C19}Prefabs/Interactables/LCN_Objectiv
 GenericEntity : "{2A283EA7BADDBD28}Prefabs/Drones/FPVBase/FPVBase.et" {
  coords 2053.422 59.275 2133.726
 }
-GenericEntity : "{6356BFD802DEB290}Prefabs/Characters/Items/DroneCommandStation.et" {
- coords 2053.834 59.182 2133.601
- angles 0 0 0
-}
 GameEntity : "{8951045BFE8BC8E4}Prefabs/Characters/HeadGear/FPV_Goggles.et" {
  coords 2052.164 59.13 2132.918
 }
-GenericEntity : "{A3FDB67CE1982405}Prefabs/Interactables/LCN_Objectives/E_LCN_FireObserver_DroneController.et" {
- coords 2054.169 59.151 2132.543
- angles 0 0 0
+$grp GenericEntity : "{E2434ED1318D8476}Prefabs/Characters/Items/DroneController.et" {
+ {
+  coords 2054.169 59.151 2132.543
+ }
+ {
+  coords 2053.049 59.158 2132.06
+ }
 }
 LCN_SupportEffectTargetEntity LCN_FM_MARKER_01 : "{B39C67EAFD485210}Prefabs/Interactables/LCN_Objectives/E_LCN_FireMissionTargetMarker.et" {
  coords 2075.662 58.768 2154.669
  m_fMarkerRadius 10
 }
-GenericEntity : "{E2434ED1318D8476}Prefabs/Characters/Items/DroneController.et" {
- coords 2053.017 59.157 2133.08
-}
-GenericEntity : "{F07536ABCD2E1894}Prefabs/Interactables/LCN_Objectives/E_LCN_FireObserver_DroneCommandStation.et" {
- coords 2054.675 59.174 2132.702
+GenericEntity : "{6356BFD802DEB290}Prefabs/Characters/Items/DroneCommandStation.et" {
+ coords 2053.813 59.272 2131.789
  angles 0 0 0
 }
 GenericEntity : "{FDA92D590B9C633B}Prefabs/Drones/DJIBase/DJIBase.et" {

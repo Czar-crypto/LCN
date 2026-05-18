@@ -32,6 +32,18 @@ GenericEntity : "{C4C9560520941BF9}Prefabs/Props/Military/Radios/RadioStation_RF
     }
    }
    additionalActions {
+    LCN_OpenFireMissionTerminalAction "{515B5DB92E41D890}" {
+     ParentContextList {
+      "lcn_fire_direction_console"
+     }
+     UIInfo SCR_ActionUIInfo "{8A4E02D26B0198F1}" {
+      Name "Open fire mission terminal"
+      Description "Open coordinate entry and correction panel"
+     }
+     "Sort Priority" 10
+     VisibilityRange 3
+     Duration 1
+    }
     LCN_FireMissionAction "{D0C5FE9B7DFAD563}" {
      ParentContextList {
       "lcn_fire_direction_console"
