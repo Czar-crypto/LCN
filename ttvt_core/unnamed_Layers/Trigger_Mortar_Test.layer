@@ -1,23 +1,12 @@
 GenericEntity : "{48B089D8C6824C11}Prefabs/Interactables/LCN_Objectives/E_LCN_Generator_RPL5.et" {
- coords 1360.99 38 2932.673
+ coords 1369.906 38 2912.211
 }
 GenericEntity : "{8BB9B8774F655CF7}Prefabs/Interactables/LCN_Objectives/E_LCN_BaseAlarmSiren_30s.et" {
- coords 1363.285 51.658 2963.26
-}
-LCN_SupportEffectTargetEntity TARGET_1 : "{9670E8F8BB52056B}Prefabs/Interactables/E_LCN_SupportEffectTarget.et" {
- coords 1543.327 38.531 2736.237
- m_fMarkerRadius 20
+ coords 1363.255 47.924 2964.743
 }
 LCN_BaseAlarmZoneEntity : "{ADFB3827E454EE99}Prefabs/Interactables/LCN_Objectives/E_LCN_ArmedBaseAlarmZone.et" {
- coords 1440.366 38.722 2846.904
- m_fRequiredPresenceTime 1
+ coords 1435.782 37.97 2969.241
 }
 GenericEntity : "{F19571F7E8AA11EF}Prefabs/Interactables/LCN_Objectives/E_LCN_BaseAlarmArmStation_RF10.et" {
- components {
-  LCN_ObjectiveStateComponent "{CEB8ED0811943FBB}" {
-   m_sRequiredObjectiveKey "LCN_BASE_ALARM_01"
-  }
- }
- coords 1366.883 47.895 2962.107
- angles 0 -12.964 0
+ coords 1366.569 47.895 2962.035
 }
