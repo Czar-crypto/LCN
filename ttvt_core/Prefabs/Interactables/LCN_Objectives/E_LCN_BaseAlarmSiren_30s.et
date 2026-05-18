@@ -17,7 +17,7 @@ GenericEntity : "{868C7143DB9A4A37}Prefabs/Structures/BuildingParts/Eletrical/Fi
   }
   LCN_BaseAlarmSirenComponent "{D705ACFB3383D7AA}" {
    m_sAlarmObjectiveKey "LCN_BASE_ALARM_01"
-   m_sRequiredObjectiveKey "Gen_1"
+   m_sRequiredObjectiveKey ""
    m_fAlarmDuration 30
    m_sSoundEventName "SOUND_SIREN_LP"
    m_sSoundProject "{6F18248533DE2C10}Sounds/Structures/Military/Sirens/Structures_Siren.acp"
@@ -26,7 +26,7 @@ GenericEntity : "{868C7143DB9A4A37}Prefabs/Structures/BuildingParts/Eletrical/Fi
   }
   LCN_ObjectiveStateComponent "{738B8C5FE907CDE4}" {
    m_sObjectiveKey "LCN_BASE_ALARM_01"
-   m_sRequiredObjectiveKey "Gen_1"
+   m_sRequiredObjectiveKey ""
    m_bStartActive 0
    m_bDestroyedMeansInactive 1
    m_fInactiveHealthScaledThreshold 0
