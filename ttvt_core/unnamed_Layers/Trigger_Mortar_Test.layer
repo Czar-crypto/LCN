@@ -12,8 +12,8 @@ GenericEntity : "{48B089D8C6824C11}Prefabs/Interactables/LCN_Objectives/E_LCN_Ge
  angles 0 77.538 0
 }
 GenericEntity : "{8BB9B8774F655CF7}Prefabs/Interactables/LCN_Objectives/E_LCN_BaseAlarmSiren_30s.et" {
- coords 1363.255 47.924 2964.743
- angles 0 -15 0
+ coords 1362.771 47.603 2964.483
+ angles 0 0 0
 }
 LCN_BaseAlarmZoneEntity : "{ADFB3827E454EE99}Prefabs/Interactables/LCN_Objectives/E_LCN_ArmedBaseAlarmZone.et" {
  coords 1435.782 37.97 2969.241
