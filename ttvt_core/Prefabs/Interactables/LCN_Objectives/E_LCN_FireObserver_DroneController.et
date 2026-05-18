@@ -1,116 +1,105 @@
 GenericEntity : "{E2434ED1318D8476}Prefabs/Characters/Items/DroneController.et" {
  ID "A3FDB67CE1982405"
  components {
-  ActionsManagerComponent "{DEEC8A63F286F8CD}" {
-   ActionContexts {
-    UserActionContext "{D686FF2B9847C93B}" {
-     ContextName "lcn_fire_observer_controller"
-     Position PointInfo "{CA630814B2434A24}" {
-      Offset 0 0 0
-     }
-     Radius 0.5
-     Height 0
-     Omnidirectional 1
-    }
-   }
+  ActionsManagerComponent "{A29AE67FF4D82B0F}" {
    additionalActions {
     LCN_FireMissionAction "{AAB262B05CFE6D01}" {
-     ParentContextList {
-      "lcn_fire_observer_controller"
+     ParentContextList +{
      }
      UIInfo SCR_ActionUIInfo "{FEC3729FD5BBE438}" {
       Name "Transmit observed grid"
       Description "Send current camera center to the linked fire direction center"
      }
+     "Sort Priority" 20
      VisibilityRange 2
      Duration 1
      m_iActionType 0
      m_fMaxTraceDistance 8000
     }
     LCN_FireMissionAction "{F9AFA4023EB01BF8}" {
-     ParentContextList {
-      "lcn_fire_observer_controller"
+     ParentContextList +{
      }
      UIInfo SCR_ActionUIInfo "{1639AF4DBDEFEA1D}" {
       Name "Request spotting round"
       Description "Request one spotting round on the current corrected target"
      }
+     "Sort Priority" 21
      VisibilityRange 2
      Duration 2
      m_iActionType 2
     }
     LCN_FireMissionAction "{58CEAF1020B54325}" {
-     ParentContextList {
-      "lcn_fire_observer_controller"
+     ParentContextList +{
      }
      UIInfo SCR_ActionUIInfo "{316754BF5ABDD6A6}" {
       Name "Fire for effect"
       Description "Commit the main fire mission"
      }
+     "Sort Priority" 22
      VisibilityRange 2
      Duration 4
      m_iActionType 3
     }
     LCN_FireMissionAction "{E45A655C1E30A6F1}" {
-     ParentContextList {
-      "lcn_fire_observer_controller"
+     ParentContextList +{
      }
      UIInfo SCR_ActionUIInfo "{56812BB8FB538A8D}" {
       Name "Adjust left 50 m"
       Description "Move impact point left relative to observer-target line"
      }
+     "Sort Priority" 23
      VisibilityRange 2
      Duration 1
      m_iActionType 4
      m_fCorrectionAmount 50
     }
     LCN_FireMissionAction "{DEA5BEFC1A6CE883}" {
-     ParentContextList {
-      "lcn_fire_observer_controller"
+     ParentContextList +{
      }
      UIInfo SCR_ActionUIInfo "{93DE63DC4EAF298A}" {
       Name "Adjust right 50 m"
       Description "Move impact point right relative to observer-target line"
      }
+     "Sort Priority" 24
      VisibilityRange 2
      Duration 1
      m_iActionType 5
      m_fCorrectionAmount 50
     }
     LCN_FireMissionAction "{2E2FD2E4E162E9FD}" {
-     ParentContextList {
-      "lcn_fire_observer_controller"
+     ParentContextList +{
      }
      UIInfo SCR_ActionUIInfo "{2C7D1F3A90638BAD}" {
       Name "Add 100 m"
       Description "Move impact point farther from the observer"
      }
+     "Sort Priority" 25
      VisibilityRange 2
      Duration 1
      m_iActionType 6
      m_fCorrectionAmount 100
     }
     LCN_FireMissionAction "{CE4E4E6D79546902}" {
-     ParentContextList {
-      "lcn_fire_observer_controller"
+     ParentContextList +{
      }
      UIInfo SCR_ActionUIInfo "{AFC09421CCB3D62A}" {
       Name "Drop 100 m"
       Description "Move impact point closer to the observer"
      }
+     "Sort Priority" 26
      VisibilityRange 2
      Duration 1
      m_iActionType 7
      m_fCorrectionAmount 100
     }
     LCN_FireMissionAction "{33136D51134BFD66}" {
-     ParentContextList {
-      "lcn_fire_observer_controller"
+     ParentContextList +{
      }
      UIInfo SCR_ActionUIInfo "{D5A87587A879F964}" {
       Name "Clear fire mission"
       Description "Reset target and correction data"
      }
+     "Sort Priority" 27
      VisibilityRange 2
      Duration 1
      m_iActionType 8

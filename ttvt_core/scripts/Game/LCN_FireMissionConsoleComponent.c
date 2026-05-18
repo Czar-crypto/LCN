@@ -533,16 +533,32 @@ class LCN_FireMissionConsoleComponent : ScriptComponent
 	string GetStatusText()
 	{
 		if (!m_bHasMission)
-			return "No target";
+			return "FDC: no target";
 
 		vector target = GetAdjustedTarget();
-		string status = string.Format("Target %1 / L%2 Rng%3", target.ToString(), m_fCorrectionLateral.ToString(0, 0), m_fCorrectionRange.ToString(0, 0));
+		string status = string.Format("FDC grid X%1 Z%2", target[0].ToString(0, 0), target[2].ToString(0, 0));
+
+		if (m_fCorrectionLateral < 0)
+		{
+			float leftCorrection = -m_fCorrectionLateral;
+			status += string.Format(" | Left %1 m", leftCorrection.ToString(0, 0));
+		}
+		else if (m_fCorrectionLateral > 0)
+			status += string.Format(" | Right %1 m", m_fCorrectionLateral.ToString(0, 0));
+
+		if (m_fCorrectionRange < 0)
+		{
+			float dropCorrection = -m_fCorrectionRange;
+			status += string.Format(" | Drop %1 m", dropCorrection.ToString(0, 0));
+		}
+		else if (m_fCorrectionRange > 0)
+			status += string.Format(" | Add %1 m", m_fCorrectionRange.ToString(0, 0));
 
 		if (m_bSpottingPending)
-			status += " / spotting pending";
+			status += " | spotting pending";
 
 		if (m_bFirePending)
-			status += " / fire pending";
+			status += " | fire pending";
 
 		return status;
 	}

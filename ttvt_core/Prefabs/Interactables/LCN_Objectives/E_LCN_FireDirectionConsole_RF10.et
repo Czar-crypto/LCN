@@ -40,6 +40,7 @@ GenericEntity : "{C4C9560520941BF9}Prefabs/Props/Military/Radios/RadioStation_RF
       Name "Load target marker"
       Description "Use configured fire mission target marker"
      }
+     "Sort Priority" 20
      VisibilityRange 3
      Duration 2
      m_iActionType 1
@@ -52,6 +53,7 @@ GenericEntity : "{C4C9560520941BF9}Prefabs/Props/Military/Radios/RadioStation_RF
       Name "Request spotting round"
       Description "Fire one spotting effect on the corrected target"
      }
+     "Sort Priority" 21
      VisibilityRange 3
      Duration 3
      m_iActionType 2
@@ -64,6 +66,7 @@ GenericEntity : "{C4C9560520941BF9}Prefabs/Props/Military/Radios/RadioStation_RF
       Name "Fire for effect"
       Description "Commit the main fire mission on the corrected target"
      }
+     "Sort Priority" 22
      VisibilityRange 3
      Duration 5
      m_iActionType 3
@@ -76,6 +79,7 @@ GenericEntity : "{C4C9560520941BF9}Prefabs/Props/Military/Radios/RadioStation_RF
       Name "Adjust left 50 m"
       Description "Move impact point left relative to observer-target line"
      }
+     "Sort Priority" 23
      VisibilityRange 3
      Duration 1
      m_iActionType 4
@@ -89,6 +93,7 @@ GenericEntity : "{C4C9560520941BF9}Prefabs/Props/Military/Radios/RadioStation_RF
       Name "Adjust right 50 m"
       Description "Move impact point right relative to observer-target line"
      }
+     "Sort Priority" 24
      VisibilityRange 3
      Duration 1
      m_iActionType 5
@@ -102,6 +107,7 @@ GenericEntity : "{C4C9560520941BF9}Prefabs/Props/Military/Radios/RadioStation_RF
       Name "Add 100 m"
       Description "Move impact point farther from the observer"
      }
+     "Sort Priority" 25
      VisibilityRange 3
      Duration 1
      m_iActionType 6
@@ -115,6 +121,7 @@ GenericEntity : "{C4C9560520941BF9}Prefabs/Props/Military/Radios/RadioStation_RF
       Name "Drop 100 m"
       Description "Move impact point closer to the observer"
      }
+     "Sort Priority" 26
      VisibilityRange 3
      Duration 1
      m_iActionType 7
@@ -128,6 +135,7 @@ GenericEntity : "{C4C9560520941BF9}Prefabs/Props/Military/Radios/RadioStation_RF
       Name "Clear fire mission"
       Description "Reset target and correction data"
      }
+     "Sort Priority" 27
      VisibilityRange 3
      Duration 1
      m_iActionType 8
