@@ -1,12 +1,26 @@
 GenericEntity : "{868C7143DB9A4A37}Prefabs/Structures/BuildingParts/Eletrical/Firestation_siren_01.et" {
  ID "2B52B04072C39B45"
  components {
+  SignalsManagerComponent "{228CDDD84CE985DA}" {
+  }
+  SoundComponent "{B2B14A8CB24B6303}" {
+   Filenames {
+    "{6F18248533DE2C10}Sounds/Structures/Military/Sirens/Structures_Siren.acp"
+   }
+   DistanceManagement 0
+   IncludeInactive 1
+   SoundPoints {
+    SoundPointInfo Siren {
+     Offset 0 0.35 0
+    }
+   }
+  }
   LCN_BaseAlarmSirenComponent "{D705ACFB3383D7AA}" {
    m_sAlarmObjectiveKey "LCN_BASE_ALARM_01"
    m_sRequiredObjectiveKey "Gen_1"
    m_fAlarmDuration 30
    m_sSoundEventName "SOUND_SIREN_LP"
-   m_sSoundProject "{6F18248533DE2C10}Sounds/Structures/Military/Sirens/Structures_Siren.acp"
+   m_sSoundProject "{852528B9C262A607}Sounds/Structures/Military/Sirens/Structures_Siren.acp"
    m_fSoundRetriggerPeriod 8
    m_bDebug 1
   }
@@ -53,22 +67,10 @@ GenericEntity : "{868C7143DB9A4A37}Prefabs/Structures/BuildingParts/Eletrical/Fi
     }
    }
   }
-  SignalsManagerComponent "{228CDDD84CE985DA}" {
-  }
-  SoundComponent "{B2B14A8CB24B6303}" {
-   Filenames {
-    "{6F18248533DE2C10}Sounds/Structures/Military/Sirens/Structures_Siren.acp"
-   }
-   DistanceManagement 0
-   IncludeInactive 1
-   SoundPoints {
-    SoundPointInfo Siren {
-     Offset 0 0.35 0
-    }
-   }
-  }
   RplComponent "{4E4DB4BD11713084}" {
    Enabled 1
   }
  }
+ coords 1363.255 47.924 2964.743
+ angles 0 -15 0
 }

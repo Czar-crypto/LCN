@@ -1,6 +1,4 @@
 GenericEntity : "{48B089D8C6824C11}Prefabs/Interactables/LCN_Objectives/E_LCN_Generator_RPL5.et" {
- coords 1369.906 38 2912.211
- angles 0 77.538 0
  components {
   LCN_ObjectiveStateComponent "{9991A261EF164D9E}" {
    m_sObjectiveKey "Gen_1"
@@ -10,10 +8,33 @@ GenericEntity : "{48B089D8C6824C11}Prefabs/Interactables/LCN_Objectives/E_LCN_Ge
    m_bDebug 1
   }
  }
+ coords 1369.906 38 2912.211
+ angles 0 77.538 0
+}
+GenericEntity : "{8BB9B8774F655CF7}Prefabs/Interactables/LCN_Objectives/E_LCN_BaseAlarmSiren_30s.et" {
+ coords 1363.255 47.924 2964.743
+ angles 0 -15 0
+}
+LCN_BaseAlarmZoneEntity : "{ADFB3827E454EE99}Prefabs/Interactables/LCN_Objectives/E_LCN_ArmedBaseAlarmZone.et" {
+ coords 1435.782 37.97 2969.241
+ m_sAlarmObjectiveKey "LCN_BASE_ALARM_01"
+ m_sRequiredObjectiveKey "Gen_1"
+ m_sRequiredObjectiveKey2 "LCN_ALARM_ARMED_01"
+ m_sRequiredObjectiveKey3 ""
+ m_bAllowRetrigger 1
+ m_sTriggerFactionKey "USSR"
+ m_bAcceptInheritedFaction 1
+ m_bRequireBlockingFactionCleared 0
+ m_bRequireOnlyTriggerFactionPresent 0
+ m_sBlockingFactionKey "US"
+ m_bAcceptInheritedBlockingFaction 1
+ m_bIgnoreDeadCharacters 1
+ m_fTriggerRadius 45
+ m_fRequiredPresenceTime 2
+ m_fCheckPeriod 0.5
+ m_bDebug 1
 }
 GenericEntity : "{F19571F7E8AA11EF}Prefabs/Interactables/LCN_Objectives/E_LCN_BaseAlarmArmStation_RF10.et" {
- coords 1366.569 47.895 2962.035
- angles 0 -15 0
  components {
   LCN_ConfiguredObjectiveActionComponent "{4CF5A2F3AA95FF94}" {
    m_sActionName "Arm alarm system"
@@ -39,58 +60,6 @@ GenericEntity : "{F19571F7E8AA11EF}Prefabs/Interactables/LCN_Objectives/E_LCN_Ba
    m_bDebug 1
   }
  }
-}
-LCN_BaseAlarmZoneEntity : "{ADFB3827E454EE99}Prefabs/Interactables/LCN_Objectives/E_LCN_ArmedBaseAlarmZone.et" {
- coords 1435.782 37.97 2969.241
- m_sAlarmObjectiveKey "LCN_BASE_ALARM_01"
- m_sRequiredObjectiveKey "Gen_1"
- m_sRequiredObjectiveKey2 "LCN_ALARM_ARMED_01"
- m_sRequiredObjectiveKey3 ""
- m_bAllowRetrigger 1
- m_sTriggerFactionKey "USSR"
- m_bAcceptInheritedFaction 1
- m_bRequireBlockingFactionCleared 0
- m_bRequireOnlyTriggerFactionPresent 0
- m_sBlockingFactionKey "US"
- m_bAcceptInheritedBlockingFaction 1
- m_bIgnoreDeadCharacters 1
- m_fTriggerRadius 45
- m_fRequiredPresenceTime 2
- m_fCheckPeriod 0.5
- m_bDebug 1
-}
-GenericEntity : "{8BB9B8774F655CF7}Prefabs/Interactables/LCN_Objectives/E_LCN_BaseAlarmSiren_30s.et" {
- coords 1363.255 47.924 2964.743
+ coords 1366.569 47.895 2962.035
  angles 0 -15 0
- components {
-  LCN_BaseAlarmSirenComponent "{D705ACFB3383D7AA}" {
-   m_sAlarmObjectiveKey "LCN_BASE_ALARM_01"
-   m_sRequiredObjectiveKey "Gen_1"
-   m_fAlarmDuration 30
-   m_sSoundEventName "SOUND_SIREN_LP"
-   m_sSoundProject "{6F18248533DE2C10}Sounds/Structures/Military/Sirens/Structures_Siren.acp"
-   m_fSoundRetriggerPeriod 8
-   m_bDebug 1
-  }
-  LCN_ObjectiveStateComponent "{738B8C5FE907CDE4}" {
-   m_sObjectiveKey "LCN_BASE_ALARM_01"
-   m_sRequiredObjectiveKey "Gen_1"
-   m_bStartActive 0
-   m_bDestroyedMeansInactive 1
-   m_fInactiveHealthScaledThreshold 0
-   m_bDebug 1
-  }
-  SoundComponent "{B2B14A8CB24B6303}" {
-   Filenames {
-    "{6F18248533DE2C10}Sounds/Structures/Military/Sirens/Structures_Siren.acp"
-   }
-   DistanceManagement 0
-   IncludeInactive 1
-   SoundPoints {
-    SoundPointInfo Siren {
-     Offset 0 0.35 0
-    }
-   }
-  }
- }
 }
