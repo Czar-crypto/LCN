@@ -1,13 +1,6 @@
 GenericEntity : "{DC3973E3539A01C1}Prefabs/Structures/Military/Radar/ApproachRadar_RPL5_01/ApproachRadar_RPL5_01_generator.et" {
  ID "A5016F5C78B34E12"
  components {
-  LCN_ObjectiveStateComponent "{0AF383CDB22848B2}" {
-   m_sObjectiveKey "Gen_1"
-   m_sRequiredObjectiveKey ""
-   m_bStartActive 1
-   m_bDestroyedMeansInactive 1
-   m_bDebug 1
-  }
   LCN_FueledObjectiveComponent "{D0227D65D70E454F}" {
    m_sObjectiveKey "Gen_1"
    m_bApplyObjectiveKeyToOwnerObjective 1
@@ -17,7 +10,15 @@ GenericEntity : "{DC3973E3539A01C1}Prefabs/Structures/Military/Radar/ApproachRad
    m_bDisableObjectiveWhenEmpty 1
    m_bDebug 1
   }
+  LCN_ObjectiveStateComponent "{0AF383CDB22848B2}" {
+   m_sObjectiveKey "Gen_1"
+   m_sRequiredObjectiveKey ""
+   m_bStartActive 1
+   m_bDestroyedMeansInactive 1
+   m_bDebug 1
+  }
   RigidBody "{3541A87DF1B54939}" {
+   Enabled 0
    ResponseIndex "MediumDestructible"
   }
   SCR_DestructionMultiPhaseComponent "{5F08B7D0BCB94F80}" {
@@ -84,4 +85,5 @@ GenericEntity : "{DC3973E3539A01C1}Prefabs/Structures/Military/Radar/ApproachRad
    Enabled 1
   }
  }
+ coords 1377.745 38.469 2927.319
 }
