@@ -1,3 +1,7 @@
+StaticModelEntity : "{27F67CEC91884895}Prefabs/Interactables/LCN_Objectives/E_LCN_CommsAntenna_BARS.et" {
+ coords 1326.083 -0.146 2922.664
+ angles 0 0 0
+}
 GenericEntity : "{48B089D8C6824C11}Prefabs/Interactables/LCN_Objectives/E_LCN_Generator_RPL5.et" {
  components {
   LCN_ObjectiveStateComponent "{9991A261EF164D9E}" {
@@ -12,8 +16,17 @@ GenericEntity : "{48B089D8C6824C11}Prefabs/Interactables/LCN_Objectives/E_LCN_Ge
  angles 0 77.538 0
 }
 GenericEntity : "{8BB9B8774F655CF7}Prefabs/Interactables/LCN_Objectives/E_LCN_BaseAlarmSiren_30s.et" {
- coords 1362.771 47.603 2964.483
+ components {
+  LCN_BaseAlarmSirenComponent "{D705ACFB3383D7AA}" {
+   m_sRequiredObjectiveKey "Gen_1"
+  }
+ }
+ coords 1362.771 51.783 2964.483
  angles 0 0 0
+}
+LCN_SupportEffectTargetEntity Tr1 : "{9670E8F8BB52056B}Prefabs/Interactables/E_LCN_SupportEffectTarget.et" {
+ coords 1438.535 38.751 2968.135
+ m_fMarkerRadius 15
 }
 LCN_BaseAlarmZoneEntity : "{ADFB3827E454EE99}Prefabs/Interactables/LCN_Objectives/E_LCN_ArmedBaseAlarmZone.et" {
  coords 1435.782 37.97 2969.241
@@ -33,6 +46,15 @@ LCN_BaseAlarmZoneEntity : "{ADFB3827E454EE99}Prefabs/Interactables/LCN_Objective
  m_fRequiredPresenceTime 2
  m_fCheckPeriod 0.5
  m_bDebug 1
+}
+GenericEntity : "{B266BE2924334A9E}Prefabs/Interactables/LCN_Objectives/E_LCN_DefenseArtilleryConsole_CommsLinked.et" {
+ components {
+  LCN_SupportConsoleComponent "{820E621EC24F4FF8}" {
+   m_sEffectTargetEntityName "Tr1"
+   m_sBlockingObjectiveKey "Gen_1"
+  }
+ }
+ coords 1365.971 47.895 2961.74
 }
 GenericEntity : "{F19571F7E8AA11EF}Prefabs/Interactables/LCN_Objectives/E_LCN_BaseAlarmArmStation_RF10.et" {
  components {
