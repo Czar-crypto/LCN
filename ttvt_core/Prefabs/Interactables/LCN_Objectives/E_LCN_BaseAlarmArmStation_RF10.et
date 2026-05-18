@@ -1,6 +1,22 @@
 GenericEntity : "{C4C9560520941BF9}Prefabs/Props/Military/Radios/RadioStation_RF10/RadioStation_RF10_base.et" {
  ID "7FACC66ADF4F2572"
  components {
+  LCN_ConfiguredObjectiveActionComponent "{4CF5A2F3AA95FF94}" {
+   m_sActionName "Arm alarm system"
+   m_sActionDescription "Enable the linked alarm trigger zone"
+   m_fActionDuration 5
+   m_sTargetObjectiveKey "LCN_ALARM_ARMED_01"
+   m_bSetActive 1
+   m_bApplyTargetKeyToOwnerObjective 1
+   m_bRequireTargetStateDifferent 1
+   m_sRequiredObjectiveKey "Gen_1"
+   m_sRequiredObjectiveKey2 ""
+   m_sRequiredObjectiveKey3 ""
+   m_sAllowedFactionKey "US"
+   m_bAcceptInheritedFaction 1
+   m_bOneUse 1
+   m_bDebug 1
+  }
   LCN_ObjectiveStateComponent "{CEB8ED0811943FBB}" {
    m_sObjectiveKey "LCN_ALARM_ARMED_01"
    m_sRequiredObjectiveKey ""
@@ -21,7 +37,7 @@ GenericEntity : "{C4C9560520941BF9}Prefabs/Props/Military/Radios/RadioStation_RF
     }
    }
    additionalActions {
-    LCN_SetObjectiveAction "{61F81C93BCC8F112}" {
+    LCN_ConfiguredObjectiveAction "{61F81C93BCC8F112}" {
      ParentContextList {
       "lcn_arm_alarm_system"
      }
@@ -31,15 +47,6 @@ GenericEntity : "{C4C9560520941BF9}Prefabs/Props/Military/Radios/RadioStation_RF
      }
      VisibilityRange 3
      Duration 5
-     m_sActionName "Arm alarm system"
-     m_sTargetObjectiveKey "LCN_ALARM_ARMED_01"
-     m_sTargetEntityName ""
-     m_bSetActive 1
-     m_sRequiredObjectiveKey "Gen_1"
-     m_sAllowedFactionKey "US"
-     m_bAcceptInheritedFaction 1
-     m_bOneUse 1
-     m_bDebug 1
     }
    }
   }

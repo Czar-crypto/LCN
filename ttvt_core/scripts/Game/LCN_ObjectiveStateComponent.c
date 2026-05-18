@@ -140,6 +140,12 @@ class LCN_ObjectiveStateComponent : ScriptComponent
 	}
 
 	//------------------------------------------------------------------------------------------------
+	void SetObjectiveKey(string objectiveKey)
+	{
+		m_sObjectiveKey = objectiveKey;
+	}
+
+	//------------------------------------------------------------------------------------------------
 	IEntity GetOwnerEntity()
 	{
 		return m_Owner;
