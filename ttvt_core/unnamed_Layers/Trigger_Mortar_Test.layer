@@ -51,7 +51,10 @@ GenericEntity : "{B266BE2924334A9E}Prefabs/Interactables/LCN_Objectives/E_LCN_De
  components {
   LCN_SupportConsoleComponent "{820E621EC24F4FF8}" {
    m_sEffectTargetEntityName "Tr1"
-   m_sBlockingObjectiveKey "Gen_1"
+   m_sRequiredObjectiveKey "LCN_COMMS_01"
+   m_sRequiredObjectiveKey2 "LCN_BASE_ALARM_01"
+   m_sRequiredObjectiveKey3 "Gen_1"
+   m_sBlockingObjectiveKey ""
   }
  }
  coords 1365.971 47.895 2961.74
