@@ -1,0 +1,17 @@
+LCN_BaseAlarmZoneEntity {
+ ID "334608E5580E45AA"
+ m_sAlarmObjectiveKey "LCN_BASE_ALARM_01"
+ m_sRequiredObjectiveKey "LCN_GENERATOR_01"
+ m_bAllowRetrigger 1
+ m_sTriggerFactionKey "USSR"
+ m_bAcceptInheritedFaction 1
+ m_bRequireBlockingFactionCleared 0
+ m_bRequireOnlyTriggerFactionPresent 0
+ m_sBlockingFactionKey "US"
+ m_bAcceptInheritedBlockingFaction 1
+ m_bIgnoreDeadCharacters 1
+ m_fTriggerRadius 35
+ m_fRequiredPresenceTime 5
+ m_fCheckPeriod 0.5
+ m_bDebug 1
+}

@@ -14,6 +14,8 @@ GenericEntity : "{12DFA1CC555DFEF5}Prefabs/Props/Military/Compositions/RadioStat
    m_sRequiredAliveEntityName ""
    m_sBlockingAliveEntityName ""
    m_sRequiredObjectiveKey "LCN_COMMS_01"
+   m_sRequiredObjectiveKey2 "LCN_BASE_ALARM_01"
+   m_sRequiredObjectiveKey3 ""
    m_sBlockingObjectiveKey ""
    m_bDebug 1
   }
@@ -36,7 +38,7 @@ GenericEntity : "{12DFA1CC555DFEF5}Prefabs/Props/Military/Compositions/RadioStat
      }
      UIInfo SCR_ActionUIInfo "{8884A7545D8519D3}" {
       Name "Call support"
-      Description "Call configured support effect"
+      Description "Requires active alarm and communications"
      }
      VisibilityRange 4
      Duration 3

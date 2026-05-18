@@ -1,0 +1,59 @@
+GenericEntity : "{868C7143DB9A4A37}Prefabs/Structures/BuildingParts/Eletrical/Firestation_siren_01.et" {
+ ID "803D856ED77C41B9"
+ components {
+  LCN_ObjectiveStateComponent "{724DC672FBFE4EA0}" {
+   m_sObjectiveKey "LCN_BASE_ALARM_01"
+   m_sRequiredObjectiveKey "LCN_GENERATOR_01"
+   m_bStartActive 0
+   m_bDestroyedMeansInactive 1
+   m_fInactiveHealthScaledThreshold 0
+   m_bDebug 1
+  }
+  LCN_BaseAlarmSirenComponent "{9F86BBF3AA1C4F03}" {
+   m_sAlarmObjectiveKey "LCN_BASE_ALARM_01"
+   m_sRequiredObjectiveKey "LCN_GENERATOR_01"
+   m_fAlarmDuration 300
+   m_sSoundEventName "SOUND_SIREN_ALARM"
+   m_fSoundRetriggerPeriod 8
+   m_bDebug 1
+  }
+  ActionsManagerComponent "{47B8965F565E49A0}" {
+   ActionContexts {
+    UserActionContext "{15D71ADCA1144215}" {
+     ContextName "lcn_base_alarm"
+     Position PointInfo "{5C56FA1A42F9412C}" {
+      Offset 0 0.35 0
+     }
+     Radius 0.4
+     Height 0
+     Omnidirectional 1
+    }
+   }
+   additionalActions {
+    LCN_SetObjectiveAction "{1297E934D9C14090}" {
+     ParentContextList {
+      "lcn_base_alarm"
+     }
+     UIInfo SCR_ActionUIInfo "{B14CD8934EE840C1}" {
+      Name "Activate base alarm"
+      Description "Start the base alarm if power is online"
+     }
+     VisibilityRange 4
+     Duration 3
+     m_sActionName "Activate base alarm"
+     m_sTargetObjectiveKey "LCN_BASE_ALARM_01"
+     m_sTargetEntityName ""
+     m_bSetActive 1
+     m_sRequiredObjectiveKey "LCN_GENERATOR_01"
+     m_sAllowedFactionKey "US"
+     m_bAcceptInheritedFaction 1
+     m_bOneUse 0
+     m_bDebug 1
+    }
+   }
+  }
+  RplComponent "{3B69293B4A3C4FEE}" {
+   Enabled 1
+  }
+ }
+}

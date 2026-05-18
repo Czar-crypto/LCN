@@ -41,6 +41,12 @@ class LCN_SupportConsoleComponent : ScriptComponent
 	[Attribute("", UIWidgets.EditBox, "Optional LCN objective key that must be active for this action to work", category: "LCN Links")]
 	protected string m_sRequiredObjectiveKey;
 
+	[Attribute("", UIWidgets.EditBox, "Second optional LCN objective key that must be active for this action to work", category: "LCN Links")]
+	protected string m_sRequiredObjectiveKey2;
+
+	[Attribute("", UIWidgets.EditBox, "Third optional LCN objective key that must be active for this action to work", category: "LCN Links")]
+	protected string m_sRequiredObjectiveKey3;
+
 	[Attribute("", UIWidgets.EditBox, "Optional LCN objective key that blocks this action while active", category: "LCN Links")]
 	protected string m_sBlockingObjectiveKey;
 
@@ -244,14 +250,22 @@ class LCN_SupportConsoleComponent : ScriptComponent
 	//------------------------------------------------------------------------------------------------
 	protected bool IsRequiredObjectiveActive(IEntity owner)
 	{
-		if (m_sRequiredObjectiveKey.IsEmpty())
-			return true;
-
 		BaseWorld world = null;
 		if (owner)
 			world = owner.GetWorld();
 
-		return LCN_ObjectiveStateComponent.IsObjectiveKeyActive(m_sRequiredObjectiveKey, world);
+		return IsRequiredObjectiveKeyActive(m_sRequiredObjectiveKey, world)
+			&& IsRequiredObjectiveKeyActive(m_sRequiredObjectiveKey2, world)
+			&& IsRequiredObjectiveKeyActive(m_sRequiredObjectiveKey3, world);
+	}
+
+	//------------------------------------------------------------------------------------------------
+	protected bool IsRequiredObjectiveKeyActive(string objectiveKey, BaseWorld world)
+	{
+		if (objectiveKey.IsEmpty())
+			return true;
+
+		return LCN_ObjectiveStateComponent.IsObjectiveKeyActive(objectiveKey, world);
 	}
 
 	//------------------------------------------------------------------------------------------------
