@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{A3FDB67CE1982405}Prefabs/Interactables/LCN_Objectives/E_LCN_FireObserver_DroneController.et"
+ Configurations {
+  ETResourceClass PC {
+  }
+  ETResourceClass XBOX_ONE : PC {
+  }
+  ETResourceClass XBOX_SERIES : PC {
+  }
+  ETResourceClass PS4 : PC {
+  }
+  ETResourceClass PS5 : PC {
+  }
+  ETResourceClass HEADLESS : PC {
+  }
+ }
+}

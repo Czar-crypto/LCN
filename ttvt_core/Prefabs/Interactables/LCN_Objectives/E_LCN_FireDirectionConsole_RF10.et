@@ -1,0 +1,141 @@
+GenericEntity : "{C4C9560520941BF9}Prefabs/Props/Military/Radios/RadioStation_RF10/RadioStation_RF10_base.et" {
+ ID "076FAD5BE2438C19"
+ components {
+  LCN_FireMissionConsoleComponent "{4CA4F1C63C6723C6}" {
+   m_sSpottingEffectModulePrefab "{5D48E2F7DB0C3714}PrefabsEditable/EffectsModules/Mortar/EffectModule_Zoned_MortarBarrage_Small.et"
+   m_sFireForEffectModulePrefab "{E7B7D4467E9A82DD}PrefabsEditable/EffectsModules/Mortar/EffectModule_Zoned_MortarBarrage_Medium.et"
+   m_fSpottingDelay 8
+   m_fFireDelay 15
+   m_fFireCooldown 240
+   m_fDefaultLateralCorrection 50
+   m_fDefaultRangeCorrection 100
+   m_bSnapTargetToGround 1
+   m_sDefaultTargetEntityName "LCN_FM_MARKER_01"
+   m_sAllowedFactionKey "US"
+   m_bAcceptInheritedFaction 1
+   m_sRequiredObjectiveKey "LCN_COMMS_01"
+   m_sRequiredObjectiveKey2 ""
+   m_sRequiredObjectiveKey3 ""
+   m_sBlockingObjectiveKey ""
+   m_bDebug 1
+  }
+  ActionsManagerComponent "{6EBB0348196A03CB}" {
+   ActionContexts {
+    UserActionContext "{9723FE0D56A1224D}" {
+     ContextName "lcn_fire_direction_console"
+     Position PointInfo "{D01D78BB61997CA6}" {
+      Offset 0 0.25 0
+     }
+     Radius 0.4
+     Height 0
+     Omnidirectional 1
+    }
+   }
+   additionalActions {
+    LCN_FireMissionAction "{D0C5FE9B7DFAD563}" {
+     ParentContextList {
+      "lcn_fire_direction_console"
+     }
+     UIInfo SCR_ActionUIInfo "{51ACD96F00851D26}" {
+      Name "Load target marker"
+      Description "Use configured fire mission target marker"
+     }
+     VisibilityRange 3
+     Duration 2
+     m_iActionType 1
+    }
+    LCN_FireMissionAction "{F7B8701DE3F99852}" {
+     ParentContextList {
+      "lcn_fire_direction_console"
+     }
+     UIInfo SCR_ActionUIInfo "{078A62F0659EC161}" {
+      Name "Request spotting round"
+      Description "Fire one spotting effect on the corrected target"
+     }
+     VisibilityRange 3
+     Duration 3
+     m_iActionType 2
+    }
+    LCN_FireMissionAction "{ECE32FB72B72705E}" {
+     ParentContextList {
+      "lcn_fire_direction_console"
+     }
+     UIInfo SCR_ActionUIInfo "{65ABB94030C7A65A}" {
+      Name "Fire for effect"
+      Description "Commit the main fire mission on the corrected target"
+     }
+     VisibilityRange 3
+     Duration 5
+     m_iActionType 3
+    }
+    LCN_FireMissionAction "{B76771357330F070}" {
+     ParentContextList {
+      "lcn_fire_direction_console"
+     }
+     UIInfo SCR_ActionUIInfo "{205829B1B340DFBF}" {
+      Name "Adjust left 50 m"
+      Description "Move impact point left relative to observer-target line"
+     }
+     VisibilityRange 3
+     Duration 1
+     m_iActionType 4
+     m_fCorrectionAmount 50
+    }
+    LCN_FireMissionAction "{BF2FF29BC4E98EF6}" {
+     ParentContextList {
+      "lcn_fire_direction_console"
+     }
+     UIInfo SCR_ActionUIInfo "{D4445347F3CF945D}" {
+      Name "Adjust right 50 m"
+      Description "Move impact point right relative to observer-target line"
+     }
+     VisibilityRange 3
+     Duration 1
+     m_iActionType 5
+     m_fCorrectionAmount 50
+    }
+    LCN_FireMissionAction "{4F5375165E3B8C24}" {
+     ParentContextList {
+      "lcn_fire_direction_console"
+     }
+     UIInfo SCR_ActionUIInfo "{9CCA6E9C25F2338A}" {
+      Name "Add 100 m"
+      Description "Move impact point farther from the observer"
+     }
+     VisibilityRange 3
+     Duration 1
+     m_iActionType 6
+     m_fCorrectionAmount 100
+    }
+    LCN_FireMissionAction "{B700F60F9D5B0FE1}" {
+     ParentContextList {
+      "lcn_fire_direction_console"
+     }
+     UIInfo SCR_ActionUIInfo "{254FA624DCB41317}" {
+      Name "Drop 100 m"
+      Description "Move impact point closer to the observer"
+     }
+     VisibilityRange 3
+     Duration 1
+     m_iActionType 7
+     m_fCorrectionAmount 100
+    }
+    LCN_FireMissionAction "{D0239853DE13DFA6}" {
+     ParentContextList {
+      "lcn_fire_direction_console"
+     }
+     UIInfo SCR_ActionUIInfo "{9EAA58FAC25235BF}" {
+      Name "Clear fire mission"
+      Description "Reset target and correction data"
+     }
+     VisibilityRange 3
+     Duration 1
+     m_iActionType 8
+    }
+   }
+  }
+  RplComponent "{BA1490F344F6585F}" {
+   Enabled 1
+  }
+ }
+}

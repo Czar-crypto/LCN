@@ -1,0 +1,121 @@
+GenericEntity : "{6356BFD802DEB290}Prefabs/Characters/Items/DroneCommandStation.et" {
+ ID "F07536ABCD2E1894"
+ components {
+  ActionsManagerComponent "{9CA9B10B5970602A}" {
+   ActionContexts {
+    UserActionContext "{FD1CEA30CF4FA51C}" {
+     ContextName "lcn_fire_observer_station"
+     Position PointInfo "{B33BFED82333FFC0}" {
+      Offset 0 0.25 0
+     }
+     Radius 0.5
+     Height 0
+     Omnidirectional 1
+    }
+   }
+   additionalActions {
+    LCN_FireMissionAction "{76951F92A54CCB45}" {
+     ParentContextList {
+      "lcn_fire_observer_station"
+     }
+     UIInfo SCR_ActionUIInfo "{9FF0416E826F447A}" {
+      Name "Transmit observed grid"
+      Description "Send current camera center to the linked fire direction center"
+     }
+     VisibilityRange 3
+     Duration 1
+     m_iActionType 0
+     m_fMaxTraceDistance 8000
+    }
+    LCN_FireMissionAction "{C922CABD7F9E45F9}" {
+     ParentContextList {
+      "lcn_fire_observer_station"
+     }
+     UIInfo SCR_ActionUIInfo "{4DDA536EB79E2B9E}" {
+      Name "Request spotting round"
+      Description "Request one spotting round on the current corrected target"
+     }
+     VisibilityRange 3
+     Duration 2
+     m_iActionType 2
+    }
+    LCN_FireMissionAction "{69A355504FAD330D}" {
+     ParentContextList {
+      "lcn_fire_observer_station"
+     }
+     UIInfo SCR_ActionUIInfo "{B2F2FDDA90D46B77}" {
+      Name "Fire for effect"
+      Description "Commit the main fire mission"
+     }
+     VisibilityRange 3
+     Duration 4
+     m_iActionType 3
+    }
+    LCN_FireMissionAction "{E4D9D1778879C079}" {
+     ParentContextList {
+      "lcn_fire_observer_station"
+     }
+     UIInfo SCR_ActionUIInfo "{FD80C11D5D377492}" {
+      Name "Adjust left 50 m"
+      Description "Move impact point left relative to observer-target line"
+     }
+     VisibilityRange 3
+     Duration 1
+     m_iActionType 4
+     m_fCorrectionAmount 50
+    }
+    LCN_FireMissionAction "{1788E1E9E5535C34}" {
+     ParentContextList {
+      "lcn_fire_observer_station"
+     }
+     UIInfo SCR_ActionUIInfo "{999D32824E8251B2}" {
+      Name "Adjust right 50 m"
+      Description "Move impact point right relative to observer-target line"
+     }
+     VisibilityRange 3
+     Duration 1
+     m_iActionType 5
+     m_fCorrectionAmount 50
+    }
+    LCN_FireMissionAction "{CAD00568BA66B384}" {
+     ParentContextList {
+      "lcn_fire_observer_station"
+     }
+     UIInfo SCR_ActionUIInfo "{D39CCA7AC576679D}" {
+      Name "Add 100 m"
+      Description "Move impact point farther from the observer"
+     }
+     VisibilityRange 3
+     Duration 1
+     m_iActionType 6
+     m_fCorrectionAmount 100
+    }
+    LCN_FireMissionAction "{D0637C391125CA6D}" {
+     ParentContextList {
+      "lcn_fire_observer_station"
+     }
+     UIInfo SCR_ActionUIInfo "{4F0FFDE2D543E884}" {
+      Name "Drop 100 m"
+      Description "Move impact point closer to the observer"
+     }
+     VisibilityRange 3
+     Duration 1
+     m_iActionType 7
+     m_fCorrectionAmount 100
+    }
+    LCN_FireMissionAction "{21DD4154F4E4A1CB}" {
+     ParentContextList {
+      "lcn_fire_observer_station"
+     }
+     UIInfo SCR_ActionUIInfo "{83CE8B21AC34E332}" {
+      Name "Clear fire mission"
+      Description "Reset target and correction data"
+     }
+     VisibilityRange 3
+     Duration 1
+     m_iActionType 8
+    }
+   }
+  }
+ }
+}
