@@ -6,6 +6,7 @@ StaticModelEntity : "{82CCE96E35DC6A6F}Prefabs/Structures/Military/Antennas/Ante
    m_sRequiredObjectiveKey "LCN_GENERATOR_01"
    m_bStartActive 1
    m_bDestroyedMeansInactive 1
+   m_fInactiveHealthScaledThreshold 0.35
    m_bDebug 1
   }
   SCR_DestructionMultiPhaseComponent "{61349B73AE8FC1A2}" {
@@ -32,6 +33,9 @@ StaticModelEntity : "{82CCE96E35DC6A6F}Prefabs/Structures/Military/Antennas/Ante
      Prefab "{6FD54E69CFDD6B07}Prefabs/Props/Industrial/BarrelFuel_01_closed_old.et"
     }
    }
+  }
+  RplComponent "{617CD4B5CE084E1A}" {
+   Enabled 1
   }
  }
 }

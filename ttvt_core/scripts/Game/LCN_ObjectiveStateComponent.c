@@ -19,6 +19,9 @@ class LCN_ObjectiveStateComponent : ScriptComponent
 	[Attribute("1", UIWidgets.CheckBox, "Destroyed owner counts as inactive", category: "LCN Objective")]
 	protected bool m_bDestroyedMeansInactive;
 
+	[Attribute("0", UIWidgets.EditBox, "If above 0, objective becomes inactive when owner health scale is equal or below this value", params: "0 1 0.01", category: "LCN Objective")]
+	protected float m_fInactiveHealthScaledThreshold;
+
 	[Attribute("1", UIWidgets.CheckBox, "Print state changes to the script log", category: "LCN Debug")]
 	protected bool m_bDebug;
 
@@ -72,6 +75,65 @@ class LCN_ObjectiveStateComponent : ScriptComponent
 	}
 
 	//------------------------------------------------------------------------------------------------
+	static bool IsObjectiveKeyActive(string objectiveKey, BaseWorld world = null)
+	{
+		if (objectiveKey.IsEmpty())
+			return false;
+
+		array<LCN_ObjectiveStateComponent> objectives = GetObjectiveRegistry();
+		foreach (LCN_ObjectiveStateComponent objective : objectives)
+		{
+			if (!objective)
+				continue;
+
+			if (objective.GetObjectiveKey() != objectiveKey)
+				continue;
+
+			IEntity owner = objective.GetOwnerEntity();
+			if (!owner)
+				continue;
+
+			if (world && owner.GetWorld() != world)
+				continue;
+
+			if (objective.IsObjectiveActive())
+				return true;
+		}
+
+		return false;
+	}
+
+	//------------------------------------------------------------------------------------------------
+	static int SetObjectiveKeyActive(string objectiveKey, bool active, BaseWorld world = null)
+	{
+		if (objectiveKey.IsEmpty())
+			return 0;
+
+		int count = 0;
+		array<LCN_ObjectiveStateComponent> objectives = GetObjectiveRegistry();
+		foreach (LCN_ObjectiveStateComponent objective : objectives)
+		{
+			if (!objective)
+				continue;
+
+			if (objective.GetObjectiveKey() != objectiveKey)
+				continue;
+
+			IEntity owner = objective.GetOwnerEntity();
+			if (!owner)
+				continue;
+
+			if (world && owner.GetWorld() != world)
+				continue;
+
+			objective.SetObjectiveActive(active);
+			count++;
+		}
+
+		return count;
+	}
+
+	//------------------------------------------------------------------------------------------------
 	string GetObjectiveKey()
 	{
 		return m_sObjectiveKey;
@@ -98,8 +160,7 @@ class LCN_ObjectiveStateComponent : ScriptComponent
 			if (m_Owner)
 				world = m_Owner.GetWorld();
 
-			LCN_ObjectiveStateComponent required = FindObjective(m_sRequiredObjectiveKey, world);
-			if (!required || !required.IsObjectiveActive())
+			if (!IsObjectiveKeyActive(m_sRequiredObjectiveKey, world))
 				return false;
 		}
 
@@ -138,8 +199,17 @@ class LCN_ObjectiveStateComponent : ScriptComponent
 			return false;
 
 		SCR_DamageManagerComponent damageManager = SCR_DamageManagerComponent.GetDamageManager(entity);
-		if (damageManager && damageManager.GetState() == EDamageState.DESTROYED)
-			return false;
+		if (damageManager)
+		{
+			if (damageManager.IsDestroyed())
+				return false;
+
+			if (damageManager.GetState() == EDamageState.DESTROYED)
+				return false;
+
+			if (m_fInactiveHealthScaledThreshold > 0 && damageManager.GetHealthScaled() <= m_fInactiveHealthScaledThreshold)
+				return false;
+		}
 
 		return true;
 	}

@@ -32,18 +32,40 @@ class LCN_DisableObjectiveAction : SCR_ScriptedUserAction
 		if (!CanBePerformedScript(pUserEntity))
 			return;
 
-		LCN_ObjectiveStateComponent objective = ResolveTargetObjective(pOwnerEntity);
-		if (!objective)
-			return;
+		BaseWorld world = null;
+		if (pOwnerEntity)
+			world = pOwnerEntity.GetWorld();
 
-		objective.DisableObjective();
+		int disabledCount = 0;
+		LCN_ObjectiveStateComponent objective = null;
+		if (!m_sTargetObjectiveKey.IsEmpty())
+		{
+			disabledCount = LCN_ObjectiveStateComponent.SetObjectiveKeyActive(m_sTargetObjectiveKey, false, world);
+			if (disabledCount <= 0)
+				return;
+		}
+		else
+		{
+			objective = ResolveTargetObjective(pOwnerEntity);
+			if (!objective)
+				return;
+
+			objective.DisableObjective();
+			disabledCount = 1;
+		}
+
 		m_bUsed = true;
 
 		if (m_bOneUse)
 			SetActionEnabled_S(false);
 
 		if (m_bDebug)
-			Print(string.Format("LCN_DisableObjectiveAction: '%1' disabled by %2", objective.GetObjectiveKey(), pUserEntity));
+		{
+			if (!m_sTargetObjectiveKey.IsEmpty())
+				Print(string.Format("LCN_DisableObjectiveAction: key '%1' disabled by %2, count=%3", m_sTargetObjectiveKey, pUserEntity, disabledCount));
+			else if (objective)
+				Print(string.Format("LCN_DisableObjectiveAction: '%1' disabled by %2", objective.GetObjectiveKey(), pUserEntity));
+		}
 	}
 
 	//------------------------------------------------------------------------------------------------
@@ -55,8 +77,7 @@ class LCN_DisableObjectiveAction : SCR_ScriptedUserAction
 		if (m_bOneUse && m_bUsed)
 			return false;
 
-		LCN_ObjectiveStateComponent objective = ResolveTargetObjective(GetOwner());
-		return objective && objective.IsObjectiveActive();
+		return IsTargetObjectiveActive(GetOwner());
 	}
 
 	//------------------------------------------------------------------------------------------------
@@ -81,14 +102,13 @@ class LCN_DisableObjectiveAction : SCR_ScriptedUserAction
 			return false;
 		}
 
-		LCN_ObjectiveStateComponent objective = ResolveTargetObjective(owner);
-		if (!objective)
+		if (!HasTargetObjective(owner))
 		{
 			SetCannotPerformReason("Objective missing");
 			return false;
 		}
 
-		if (!objective.IsObjectiveActive())
+		if (!IsTargetObjectiveActive(owner))
 		{
 			SetCannotPerformReason("Already disabled");
 			return false;
@@ -122,6 +142,33 @@ class LCN_DisableObjectiveAction : SCR_ScriptedUserAction
 			return null;
 
 		return LCN_ObjectiveStateComponent.Cast(target.FindComponent(LCN_ObjectiveStateComponent));
+	}
+
+	//------------------------------------------------------------------------------------------------
+	protected bool HasTargetObjective(IEntity owner)
+	{
+		BaseWorld world = null;
+		if (owner)
+			world = owner.GetWorld();
+
+		if (!m_sTargetObjectiveKey.IsEmpty())
+			return LCN_ObjectiveStateComponent.FindObjective(m_sTargetObjectiveKey, world) != null;
+
+		return ResolveTargetObjective(owner) != null;
+	}
+
+	//------------------------------------------------------------------------------------------------
+	protected bool IsTargetObjectiveActive(IEntity owner)
+	{
+		BaseWorld world = null;
+		if (owner)
+			world = owner.GetWorld();
+
+		if (!m_sTargetObjectiveKey.IsEmpty())
+			return LCN_ObjectiveStateComponent.IsObjectiveKeyActive(m_sTargetObjectiveKey, world);
+
+		LCN_ObjectiveStateComponent objective = ResolveTargetObjective(owner);
+		return objective && objective.IsObjectiveActive();
 	}
 
 	//------------------------------------------------------------------------------------------------
