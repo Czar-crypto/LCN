@@ -1,20 +1,20 @@
 GenericEntity : "{868C7143DB9A4A37}Prefabs/Structures/BuildingParts/Eletrical/Firestation_siren_01.et" {
  ID "803D856ED77C41B9"
  components {
-  LCN_ObjectiveStateComponent "{724DC672FBFE4EA0}" {
-   m_sObjectiveKey "LCN_BASE_ALARM_01"
-   m_sRequiredObjectiveKey "LCN_GENERATOR_01"
-   m_bStartActive 0
-   m_bDestroyedMeansInactive 1
-   m_fInactiveHealthScaledThreshold 0
-   m_bDebug 1
-  }
   LCN_BaseAlarmSirenComponent "{9F86BBF3AA1C4F03}" {
    m_sAlarmObjectiveKey "LCN_BASE_ALARM_01"
    m_sRequiredObjectiveKey "LCN_GENERATOR_01"
    m_fAlarmDuration 300
    m_sSoundEventName "SOUND_SIREN_ALARM"
    m_fSoundRetriggerPeriod 8
+   m_bDebug 1
+  }
+  LCN_ObjectiveStateComponent "{724DC672FBFE4EA0}" {
+   m_sObjectiveKey "LCN_BASE_ALARM_01"
+   m_sRequiredObjectiveKey "Gen_1"
+   m_bStartActive 0
+   m_bDestroyedMeansInactive 1
+   m_fInactiveHealthScaledThreshold 0
    m_bDebug 1
   }
   ActionsManagerComponent "{47B8965F565E49A0}" {
@@ -56,4 +56,5 @@ GenericEntity : "{868C7143DB9A4A37}Prefabs/Structures/BuildingParts/Eletrical/Fi
    Enabled 1
   }
  }
+ coords 1363.47 50.56 2962.961
 }

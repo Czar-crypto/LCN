@@ -1,51 +1,24 @@
-StaticModelEntity antenna_1 : "{27F67CEC91884895}Prefabs/Interactables/LCN_Objectives/E_LCN_CommsAntenna_BARS.et" {
- components {
-  LCN_ObjectiveStateComponent "{E04E4B2A40414BBA}" {
-   m_sRequiredObjectiveKey "Gen_1"
-  }
- }
- coords 1370.439 0.333 2928.874
+StaticModelEntity : "{27F67CEC91884895}Prefabs/Interactables/LCN_Objectives/E_LCN_CommsAntenna_BARS.et" {
+ coords 1302.223 2.152 2916.255
+ angles 0 -12.895 0
 }
-SCR_AIGroup : "{30ED11AA4F0D41E5}Prefabs/Groups/OPFOR/Group_USSR_FireGroup.et" {
- coords 1560.828 42.634 2704.208
-}
-SCR_AIGroup : "{344B4B6F787CFB23}Prefabs/Groups/OPFOR/Group_USSR_EngineerTeam.et" {
- coords 1569.035 40.984 2704.809
+LCN_BaseAlarmZoneEntity : "{334608E5580E45AA}Prefabs/Interactables/LCN_Objectives/E_LCN_BaseAlarmZone.et" {
+ coords 1470.112 38.563 2664.568
 }
 GenericEntity : "{48B089D8C6824C11}Prefabs/Interactables/LCN_Objectives/E_LCN_Generator_RPL5.et" {
- coords 1373.719 38.113 2938.829
+ coords 1266.387 38 2903.694
+ angles 0 77.538 0
 }
-Vehicle UAZ452_cargo_FIA1 : "{5F5AAFE8465D9D62}Prefabs/Vehicles/Wheeled/UAZ452/UAZ452_cargo_FIA.et" {
- coords 1386.141 38.018 2914.122
+GenericEntity : "{803D856ED77C41B9}Prefabs/Interactables/LCN_Objectives/E_LCN_BaseAlarmSiren.et" {
+ coords 1363.47 50.56 2962.961
 }
-StaticModelEntity : "{82CCE96E35DC6A6F}Prefabs/Structures/Military/Antennas/Antenna_BARS_01/Antenna_BARS_01_transmitter.et" {
- coords 1392.405 -0.001 2920.395
+LCN_SupportEffectTargetEntity TARGET_1 : "{9670E8F8BB52056B}Prefabs/Interactables/E_LCN_SupportEffectTarget.et" {
+ coords 1543.327 38.531 2736.237
+ m_fMarkerRadius 20
 }
-GenericEntity : "{868C7143DB9A4A36}Prefabs/Structures/BuildingParts/Eletrical/Firestation_siren_01.et" {
- coords 1362.491 51.696 2963.738
+GenericEntity : "{B266BE2924334A9E}Prefabs/Interactables/LCN_Objectives/E_LCN_DefenseArtilleryConsole_CommsLinked.et" {
+ coords 1366.384 47.895 2961.915
 }
-LCN_SupportEffectTargetEntity DOM1 : "{9670E8F8BB52056B}Prefabs/Interactables/E_LCN_SupportEffectTarget.et" {
- coords 1567.878 41.41 2704.25
- scale 3.54
- m_fMarkerRadius 10
-}
-GenericEntity : "{B21DDC3EABA44BF0}Prefabs/Interactables/LCN_Objectives/E_LCN_AmmoDepot_Hydra_US.et" {
- coords 1377.847 38.503 2935.011
-}
-GenericEntity : "{C4C9560520941BF9}Prefabs/Props/Military/Radios/RadioStation_RF10/RadioStation_RF10_base.et" {
- coords 1390.066 38.099 2924.099
-}
-GenericEntity Area1 : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Components/Area.et" {
- coords 1579.743 39.791 2354.555
- {
-  GenericEntity Layer1 : "{5F9FFF4BF027B3A3}Prefabs/Systems/ScenarioFramework/Components/Layer.et" {
-   coords 2.401 0.709 6.281
-  }
- }
-}
-GenericEntity : "{D079353092D50FD1}Prefabs/Interactables/E_LCN_BaseAlarmMortarConsole.et" {
- coords 1366.181 47.895 2961.889
-}
-GenericEntity : "{EC1F00DCCFCF4B14}Prefabs/Interactables/LCN_Objectives/E_LCN_CommsRadio_RF10_Disable.et" {
- coords 1375.485 38.342 2934.855
+GenericEntity : "{D45C1E1487AB025B}Prefabs/Interactables/E_LCN_InteractableSupportConsole_ARTA.et" {
+ coords 1365.701 47.895 2961.716
 }

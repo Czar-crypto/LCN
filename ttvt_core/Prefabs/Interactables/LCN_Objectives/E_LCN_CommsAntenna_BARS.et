@@ -3,7 +3,7 @@ StaticModelEntity : "{82CCE96E35DC6A6F}Prefabs/Structures/Military/Antennas/Ante
  components {
   LCN_ObjectiveStateComponent "{E04E4B2A40414BBA}" {
    m_sObjectiveKey "LCN_COMMS_01"
-   m_sRequiredObjectiveKey "LCN_GENERATOR_01"
+   m_sRequiredObjectiveKey "Gen_1"
    m_bStartActive 1
    m_bDestroyedMeansInactive 1
    m_fInactiveHealthScaledThreshold 0.35
@@ -40,5 +40,6 @@ StaticModelEntity : "{82CCE96E35DC6A6F}Prefabs/Structures/Military/Antennas/Ante
    Enabled 1
   }
  }
- coords 1332.017 0 2922.888
+ coords 1302.223 2.152 2916.255
+ angles 0 -12.895 0
 }

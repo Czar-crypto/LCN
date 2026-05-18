@@ -9,12 +9,12 @@ GenericEntity : "{12DFA1CC555DFEF5}Prefabs/Props/Military/Compositions/RadioStat
    m_fCooldown 0
    m_sAllowedFactionKey ""
    m_bAcceptInheritedFaction 1
-   m_sEffectTargetEntityName "DOM1"
+   m_sEffectTargetEntityName "TARGET_1"
    m_bRequireEffectTargetEntity 1
    m_sRequiredAliveEntityName ""
    m_sBlockingAliveEntityName ""
    m_sRequiredObjectiveKey "LCN_COMMS_01"
-   m_sRequiredObjectiveKey2 "LCN_BASE_ALARM_01"
+   m_sRequiredObjectiveKey2 "Gen_1"
    m_sRequiredObjectiveKey3 ""
    m_sBlockingObjectiveKey ""
    m_bDebug 1
@@ -46,4 +46,5 @@ GenericEntity : "{12DFA1CC555DFEF5}Prefabs/Props/Military/Compositions/RadioStat
    }
   }
  }
+ coords 1365.701 47.895 2961.716
 }
