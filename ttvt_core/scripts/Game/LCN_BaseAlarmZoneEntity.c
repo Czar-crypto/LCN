@@ -8,7 +8,7 @@ class LCN_BaseAlarmZoneEntity : GenericEntity
 	[Attribute("LCN_BASE_ALARM_01", UIWidgets.EditBox, "LCN objective key activated by this zone", category: "LCN Alarm")]
 	protected string m_sAlarmObjectiveKey;
 
-	[Attribute("LCN_GENERATOR_01", UIWidgets.EditBox, "Optional objective key required for automatic alarm activation", category: "LCN Alarm")]
+	[Attribute("Gen_1", UIWidgets.EditBox, "Optional objective key required for automatic alarm activation", category: "LCN Alarm")]
 	protected string m_sRequiredObjectiveKey;
 
 	[Attribute("1", UIWidgets.CheckBox, "Allow the zone to activate alarm again after alarm duration expires", category: "LCN Alarm")]

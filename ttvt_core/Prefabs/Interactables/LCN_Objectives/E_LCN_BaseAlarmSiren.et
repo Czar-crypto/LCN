@@ -3,9 +3,9 @@ GenericEntity : "{868C7143DB9A4A37}Prefabs/Structures/BuildingParts/Eletrical/Fi
  components {
   LCN_BaseAlarmSirenComponent "{9F86BBF3AA1C4F03}" {
    m_sAlarmObjectiveKey "LCN_BASE_ALARM_01"
-   m_sRequiredObjectiveKey "LCN_GENERATOR_01"
+   m_sRequiredObjectiveKey "Gen_1"
    m_fAlarmDuration 300
-   m_sSoundEventName "SOUND_SIREN_ALARM"
+   m_sSoundEventName "SOUND_SIREN_LP"
    m_fSoundRetriggerPeriod 8
    m_bDebug 1
   }
@@ -44,11 +44,25 @@ GenericEntity : "{868C7143DB9A4A37}Prefabs/Structures/BuildingParts/Eletrical/Fi
      m_sTargetObjectiveKey "LCN_BASE_ALARM_01"
      m_sTargetEntityName ""
      m_bSetActive 1
-     m_sRequiredObjectiveKey "LCN_GENERATOR_01"
+     m_sRequiredObjectiveKey "Gen_1"
      m_sAllowedFactionKey "US"
      m_bAcceptInheritedFaction 1
      m_bOneUse 0
      m_bDebug 1
+    }
+   }
+  }
+  SignalsManagerComponent "{C5D0D8C350BB4C85}" {
+  }
+  SoundComponent "{C5D0D8C350BB4C84}" {
+   Filenames {
+    "{6F18248533DE2C10}Sounds/Structures/Military/Sirens/Structures_Siren.acp"
+   }
+   DistanceManagement 0
+   IncludeInactive 1
+   SoundPoints {
+    SoundPointInfo Siren {
+     Offset 0 0.35 0
     }
    }
   }

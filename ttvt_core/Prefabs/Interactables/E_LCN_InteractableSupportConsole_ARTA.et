@@ -14,7 +14,7 @@ GenericEntity : "{12DFA1CC555DFEF5}Prefabs/Props/Military/Compositions/RadioStat
    m_sRequiredAliveEntityName ""
    m_sBlockingAliveEntityName ""
    m_sRequiredObjectiveKey "LCN_COMMS_01"
-   m_sRequiredObjectiveKey2 "Gen_1"
+   m_sRequiredObjectiveKey2 "LCN_BASE_ALARM_01"
    m_sRequiredObjectiveKey3 ""
    m_sBlockingObjectiveKey ""
    m_bDebug 1

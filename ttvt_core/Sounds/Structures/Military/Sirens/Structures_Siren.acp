@@ -23,28 +23,6 @@ AudioClass {
    path "{A45B14CDEA2D5DCD}Sounds/_SharedData/Signals/Props/Props_Occlusion.sig"
   }
   SignalClass {
-   id 14349
-   name "Signal Siren"
-   tl 256 -208
-   res "{6EFD469AF1795961}Sounds/Structures/Millitary/Sirens/Structures_Siren.sig"
-   inputsport {
-    1
-   }
-   outputsport {
-    2
-   }
-   inputvalues {
-    1
-   }
-   inputvaluesmin {
-    0
-   }
-   inputvaluesmax {
-    1
-   }
-   path "{6EFD469AF1795961}Sounds/Structures/Millitary/Sirens/Structures_Siren.sig"
-  }
-  SignalClass {
    id 17421
    name "Signal Reverb"
    tl 512 -16
@@ -74,15 +52,6 @@ AudioClass {
    version 5
    tl 256 -128
    ins {
-    ConnectionsClass connections {
-     id 0
-     links {
-      ConnectionClass connection {
-       id 14349
-       port 2
-      }
-     }
-    }
     ConnectionsClass connections {
      id 64
      links {
@@ -306,7 +275,7 @@ AudioClass {
    "Terminate Loop" 0
    Samples {
     AudioBankSampleClass Sample {
-     Filename "{81FCCAC15B649602}Sounds/Structures/Millitary/Sirens/Samples/Structures_Siren_Close_LP.wav"
+     Filename "{376F3716F7957791}Sounds/Structures/Military/Sirens/Samples/Structures_Siren_Close_LP.wav"
     }
    }
   }
@@ -321,7 +290,7 @@ AudioClass {
    "Terminate Loop" 0
    Samples {
     AudioBankSampleClass Sample {
-     Filename "{89A48729875AD259}Sounds/Structures/Millitary/Sirens/Samples/Structures_Siren_Distant_LP.wav"
+     Filename "{376F3716F7957791}Sounds/Structures/Military/Sirens/Samples/Structures_Siren_Close_LP.wav"
     }
    }
   }
