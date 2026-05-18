@@ -68,6 +68,7 @@ GenericEntity : "{8BB9B8774F655CF7}Prefabs/Interactables/LCN_Objectives/E_LCN_Ba
    m_sRequiredObjectiveKey "Gen_1"
    m_fAlarmDuration 30
    m_sSoundEventName "SOUND_SIREN_LP"
+   m_sSoundProject "{6F18248533DE2C10}Sounds/Structures/Military/Sirens/Structures_Siren.acp"
    m_fSoundRetriggerPeriod 8
    m_bDebug 1
   }

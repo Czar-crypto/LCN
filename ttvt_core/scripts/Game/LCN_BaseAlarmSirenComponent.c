@@ -17,6 +17,9 @@ class LCN_BaseAlarmSirenComponent : ScriptComponent
 	[Attribute("SOUND_SIREN_LP", UIWidgets.EditBox, "Sound event name to call on the owner's SoundComponent", category: "LCN Sound")]
 	protected string m_sSoundEventName;
 
+	[Attribute("{6F18248533DE2C10}Sounds/Structures/Military/Sirens/Structures_Siren.acp", UIWidgets.ResourcePickerThumbnail, "ACP sound project used by the siren SoundComponent", "acp", category: "LCN Sound")]
+	protected ResourceName m_sSoundProject;
+
 	[Attribute("8", UIWidgets.EditBox, "How often the sound event is retriggered while the alarm is active", params: "1 120 1", category: "LCN Sound")]
 	protected float m_fSoundRetriggerPeriod;
 
@@ -28,18 +31,26 @@ class LCN_BaseAlarmSirenComponent : ScriptComponent
 	protected float m_fSoundDelay;
 	protected float m_fRemainingDuration;
 	protected AudioHandle m_hSirenSound;
+	protected IEntity m_Owner;
 
 	//------------------------------------------------------------------------------------------------
 	protected override void OnPostInit(IEntity owner)
 	{
 		super.OnPostInit(owner);
+		m_Owner = owner;
 		m_hSirenSound = AudioHandle.Invalid;
 		SetEventMask(owner, EntityEvent.FRAME);
+
+		if (m_bDebug)
+			Print(string.Format("LCN_BaseAlarmSirenComponent: initialized alarm='%1' required='%2' soundProject='%3' event='%4'", m_sAlarmObjectiveKey, m_sRequiredObjectiveKey, m_sSoundProject, m_sSoundEventName));
 	}
 
 	//------------------------------------------------------------------------------------------------
 	override void EOnFrame(IEntity owner, float timeSlice)
 	{
+		if (!IsMaster())
+			return;
+
 		bool alarmActive = IsAlarmActive(owner);
 		if (alarmActive && !m_bWasAlarmActive)
 		{
@@ -128,6 +139,25 @@ class LCN_BaseAlarmSirenComponent : ScriptComponent
 		if (m_sSoundEventName.IsEmpty())
 			return;
 
+		PlaySirenSoundLocal(owner);
+		Rpc(RpcDo_PlaySirenSound);
+
+		if (m_bDebug)
+			Print(string.Format("LCN_BaseAlarmSirenComponent: sound event '%1' sent to clients", m_sSoundEventName));
+	}
+
+	//------------------------------------------------------------------------------------------------
+	protected void PlaySirenSoundLocal(IEntity owner)
+	{
+		if (!owner)
+			return;
+
+		if (m_sSoundEventName.IsEmpty())
+			return;
+
+		if (AudioSystem.IsSoundPlayed(m_hSirenSound))
+			return;
+
 		SoundComponent soundComponent = SoundComponent.Cast(owner.FindComponent(SoundComponent));
 		if (!soundComponent)
 		{
@@ -142,16 +172,37 @@ class LCN_BaseAlarmSirenComponent : ScriptComponent
 		m_hSirenSound = soundComponent.SoundEvent(m_sSoundEventName);
 
 		if (m_bDebug)
-			Print(string.Format("LCN_BaseAlarmSirenComponent: sound event '%1' triggered", m_sSoundEventName));
+			Print(string.Format("LCN_BaseAlarmSirenComponent: local sound event '%1' triggered, playing=%2", m_sSoundEventName, AudioSystem.IsSoundPlayed(m_hSirenSound)));
 	}
 
 	//------------------------------------------------------------------------------------------------
 	protected void StopSirenSound()
 	{
+		StopSirenSoundLocal();
+		Rpc(RpcDo_StopSirenSound);
+	}
+
+	//------------------------------------------------------------------------------------------------
+	protected void StopSirenSoundLocal()
+	{
 		if (AudioSystem.IsSoundPlayed(m_hSirenSound))
 			AudioSystem.TerminateSoundFadeOut(m_hSirenSound, true, 1);
 
 		m_hSirenSound = AudioHandle.Invalid;
+	}
+
+	//------------------------------------------------------------------------------------------------
+	[RplRpc(RplChannel.Reliable, RplRcver.Broadcast)]
+	protected void RpcDo_PlaySirenSound()
+	{
+		PlaySirenSoundLocal(m_Owner);
+	}
+
+	//------------------------------------------------------------------------------------------------
+	[RplRpc(RplChannel.Reliable, RplRcver.Broadcast)]
+	protected void RpcDo_StopSirenSound()
+	{
+		StopSirenSoundLocal();
 	}
 
 	//------------------------------------------------------------------------------------------------
