@@ -4,12 +4,12 @@ GenericEntity : "{12DFA1CC555DFEF5}Prefabs/Props/Military/Compositions/RadioStat
   LCN_SupportConsoleComponent "{23E4844D2E5E6A58}" {
    m_sActionName "Trigger base alarm"
    m_sEffectModulePrefab "{5D48E2F7DB0C3714}PrefabsEditable/EffectsModules/Mortar/EffectModule_Zoned_MortarBarrage_Small.et"
-   m_fEffectDelay 20
-   m_bOneUse 1
+   m_fEffectDelay 10
+   m_bOneUse 0
    m_fCooldown 0
    m_sAllowedFactionKey "US"
    m_bAcceptInheritedFaction 1
-   m_sEffectTargetEntityName ""
+   m_sEffectTargetEntityName "DOM1"
    m_bRequireEffectTargetEntity 0
    m_sRequiredAliveEntityName ""
    m_sBlockingAliveEntityName ""
@@ -22,7 +22,7 @@ GenericEntity : "{12DFA1CC555DFEF5}Prefabs/Props/Military/Compositions/RadioStat
     UserActionContext "{2767DDD3528B583A}" {
      ContextName "lcn_support"
      Position PointInfo "{4BF6822A6D4ECAD8}" {
-      Offset 0 0.7 0.15
+      Offset 0 0.1149 0.1499
      }
      Height 0
      Omnidirectional 1
@@ -34,8 +34,8 @@ GenericEntity : "{12DFA1CC555DFEF5}Prefabs/Props/Military/Compositions/RadioStat
       "lcn_support"
      }
      UIInfo SCR_ActionUIInfo "{8A8D097860D2E38D}" {
-     Name "Trigger base alarm"
-     Description "Call a delayed mortar barrage"
+      Name "Trigger base alarm"
+      Description "Call a delayed mortar barrage"
      }
      VisibilityRange 4
      Duration 5
@@ -43,4 +43,5 @@ GenericEntity : "{12DFA1CC555DFEF5}Prefabs/Props/Military/Compositions/RadioStat
    }
   }
  }
+ coords 1366.181 47.895 2961.889
 }

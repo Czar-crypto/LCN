@@ -12,8 +12,7 @@ StaticModelEntity : "{82CCE96E35DC6A6F}Prefabs/Structures/Military/Antennas/Ante
   SCR_DestructionMultiPhaseComponent "{61349B73AE8FC1A2}" {
    "Additional hit zones" {
     SCR_HitZone hz {
-     ColliderNames {
-      "UTM_Antenna_BARS_01_transmitter_FV" "UCX_leg1_transmitter_FV" "UCX_leg2_transmitter_FV" "UCX_leg3_transmitter_FV" "UCX_leg4_transmitter_FV"
+     ColliderNames +{
      }
      "Explosive multiplier" 4
     }
@@ -34,8 +33,12 @@ StaticModelEntity : "{82CCE96E35DC6A6F}Prefabs/Structures/Military/Antennas/Ante
     }
    }
   }
+  RplComponent "{6134B407B859607F}" {
+   Enabled 0
+  }
   RplComponent "{617CD4B5CE084E1A}" {
    Enabled 1
   }
  }
+ coords 1332.017 0 2922.888
 }

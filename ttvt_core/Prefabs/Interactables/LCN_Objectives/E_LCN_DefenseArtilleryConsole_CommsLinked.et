@@ -17,6 +17,9 @@ GenericEntity : "{12DFA1CC555DFEF5}Prefabs/Props/Military/Compositions/RadioStat
    m_sBlockingObjectiveKey ""
    m_bDebug 1
   }
+  ActionsManagerComponent "{6962BC99199772BD}" {
+   Enabled 0
+  }
   ActionsManagerComponent "{C8BF25F092EF4419}" {
    ActionContexts {
     UserActionContext "{1362BDDEB1114D24}" {
@@ -44,4 +47,5 @@ GenericEntity : "{12DFA1CC555DFEF5}Prefabs/Props/Military/Compositions/RadioStat
    }
   }
  }
+ coords 1333.171 39.346 2923.089
 }

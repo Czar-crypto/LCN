@@ -21,6 +21,9 @@ Vehicle UAZ452_cargo_FIA1 : "{5F5AAFE8465D9D62}Prefabs/Vehicles/Wheeled/UAZ452/U
 StaticModelEntity : "{82CCE96E35DC6A6F}Prefabs/Structures/Military/Antennas/Antenna_BARS_01/Antenna_BARS_01_transmitter.et" {
  coords 1392.405 -0.001 2920.395
 }
+GenericEntity : "{868C7143DB9A4A36}Prefabs/Structures/BuildingParts/Eletrical/Firestation_siren_01.et" {
+ coords 1362.491 51.696 2963.738
+}
 LCN_SupportEffectTargetEntity DOM1 : "{9670E8F8BB52056B}Prefabs/Interactables/E_LCN_SupportEffectTarget.et" {
  coords 1567.878 41.41 2704.25
  scale 3.54
@@ -41,13 +44,6 @@ GenericEntity Area1 : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compo
  }
 }
 GenericEntity : "{D079353092D50FD1}Prefabs/Interactables/E_LCN_BaseAlarmMortarConsole.et" {
- components {
-  LCN_SupportConsoleComponent "{23E4844D2E5E6A58}" {
-   m_fEffectDelay 10
-   m_bOneUse 0
-   m_sEffectTargetEntityName "DOM1"
-  }
- }
  coords 1366.181 47.895 2961.889
 }
 GenericEntity : "{EC1F00DCCFCF4B14}Prefabs/Interactables/LCN_Objectives/E_LCN_CommsRadio_RF10_Disable.et" {
