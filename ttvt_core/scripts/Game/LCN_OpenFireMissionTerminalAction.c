@@ -13,8 +13,7 @@ class LCN_OpenFireMissionTerminalAction : SCR_ScriptedUserAction
 		if (!console)
 			return;
 
-		LCN_FireMissionTerminalMenu.SetPendingConsole(console, m_sConsoleEntityName);
-		GetGame().GetMenuManager().OpenMenu(ChimeraMenuPreset.LCN_FireMissionTerminal);
+		LCN_FireMissionTerminalWidgetComponent.OpenTerminal(console, m_sConsoleEntityName);
 	}
 
 	//------------------------------------------------------------------------------------------------

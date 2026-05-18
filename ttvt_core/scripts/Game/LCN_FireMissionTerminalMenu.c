@@ -1,8 +1,11 @@
-class LCN_FireMissionTerminalMenu : MenuBase
+class LCN_FireMissionTerminalWidgetComponent : ScriptedWidgetComponent
 {
+	protected static const ResourceName TERMINAL_LAYOUT = "{00C9E596F1F790A4}UI/layouts/LCN_FireMissionTerminal.layout";
 	protected static LCN_FireMissionConsoleComponent s_PendingConsole;
 	protected static string s_sPendingConsoleName;
+	protected static Widget s_ActiveRoot;
 
+	protected Widget m_Root;
 	protected LCN_FireMissionConsoleComponent m_Console;
 	protected SCR_EditBoxComponent m_CoordX;
 	protected SCR_EditBoxComponent m_CoordZ;
@@ -20,74 +23,142 @@ class LCN_FireMissionTerminalMenu : MenuBase
 	protected SCR_InputButtonComponent m_CloseButton;
 
 	//------------------------------------------------------------------------------------------------
-	static void SetPendingConsole(LCN_FireMissionConsoleComponent console, string consoleEntityName = "")
+	static void OpenTerminal(LCN_FireMissionConsoleComponent console, string consoleEntityName = "")
 	{
+		CloseActiveTerminal();
+
 		s_PendingConsole = console;
 		s_sPendingConsoleName = consoleEntityName;
+
+		WorkspaceWidget workspace = GetGame().GetWorkspace();
+		if (!workspace)
+		{
+			Print("LCN_FireMissionTerminalWidgetComponent: workspace missing");
+			return;
+		}
+
+		Widget root = workspace.CreateWidgets(TERMINAL_LAYOUT);
+		if (!root)
+		{
+			Print(string.Format("LCN_FireMissionTerminalWidgetComponent: failed to create layout '%1'", TERMINAL_LAYOUT));
+			return;
+		}
+
+		s_ActiveRoot = root;
+		workspace.AddModal(root, null);
+
+		if (!root.FindHandler(LCN_FireMissionTerminalWidgetComponent))
+			Print("LCN_FireMissionTerminalWidgetComponent: layout created but terminal component is missing");
 	}
 
 	//------------------------------------------------------------------------------------------------
-	override void OnMenuOpen()
+	static void CloseActiveTerminal()
 	{
-		super.OnMenuOpen();
+		if (s_ActiveRoot)
+		{
+			WorkspaceWidget workspace = GetGame().GetWorkspace();
+			if (workspace)
+				workspace.RemoveModal(s_ActiveRoot);
 
-		Widget root = GetRootWidget();
+			s_ActiveRoot.RemoveFromHierarchy();
+			s_ActiveRoot = null;
+		}
+	}
+
+	//------------------------------------------------------------------------------------------------
+	override void HandlerAttached(Widget w)
+	{
+		super.HandlerAttached(w);
+
+		m_Root = w;
+		s_ActiveRoot = w;
 		m_Console = s_PendingConsole;
 
 		if (!m_Console)
 			m_Console = LCN_FireMissionConsoleComponent.FindConsole(s_sPendingConsoleName, GetGame().GetWorld());
 
-		m_CoordX = SCR_EditBoxComponent.GetEditBoxComponent("CoordX", root);
-		m_CoordZ = SCR_EditBoxComponent.GetEditBoxComponent("CoordZ", root);
-		m_StatusText = RichTextWidget.Cast(root.FindAnyWidget("StatusText"));
-
-		m_SetTargetButton = SCR_InputButtonComponent.GetInputButtonComponent("SetTarget", root);
-		if (m_SetTargetButton)
-			m_SetTargetButton.m_OnClicked.Insert(SetTargetFromCoordinates);
-
-		m_LoadMarkerButton = SCR_InputButtonComponent.GetInputButtonComponent("LoadMarker", root);
-		if (m_LoadMarkerButton)
-			m_LoadMarkerButton.m_OnClicked.Insert(LoadMarkerTarget);
-
-		m_SpottingButton = SCR_InputButtonComponent.GetInputButtonComponent("Spotting", root);
-		if (m_SpottingButton)
-			m_SpottingButton.m_OnClicked.Insert(RequestSpottingRound);
-
-		m_FireButton = SCR_InputButtonComponent.GetInputButtonComponent("FireForEffect", root);
-		if (m_FireButton)
-			m_FireButton.m_OnClicked.Insert(RequestFireForEffect);
-
-		m_LeftButton = SCR_InputButtonComponent.GetInputButtonComponent("CorrectLeft", root);
-		if (m_LeftButton)
-			m_LeftButton.m_OnClicked.Insert(CorrectLeft);
-
-		m_RightButton = SCR_InputButtonComponent.GetInputButtonComponent("CorrectRight", root);
-		if (m_RightButton)
-			m_RightButton.m_OnClicked.Insert(CorrectRight);
-
-		m_AddButton = SCR_InputButtonComponent.GetInputButtonComponent("CorrectAdd", root);
-		if (m_AddButton)
-			m_AddButton.m_OnClicked.Insert(CorrectAdd);
-
-		m_DropButton = SCR_InputButtonComponent.GetInputButtonComponent("CorrectDrop", root);
-		if (m_DropButton)
-			m_DropButton.m_OnClicked.Insert(CorrectDrop);
-
-		m_ClearButton = SCR_InputButtonComponent.GetInputButtonComponent("ClearMission", root);
-		if (m_ClearButton)
-			m_ClearButton.m_OnClicked.Insert(ClearMission);
-
-		m_CloseButton = SCR_InputButtonComponent.GetInputButtonComponent("CloseTerminal", root);
-		if (m_CloseButton)
-			m_CloseButton.m_OnClicked.Insert(CloseTerminal);
-
+		BindWidgets();
+		BindButtons();
 		PrefillTargetFields();
 		RegisterMenuInput();
 		UpdateStatus();
+
+		GetGame().GetCallqueue().CallLater(UpdateStatus, 250, true);
 	}
 
 	//------------------------------------------------------------------------------------------------
-	override void OnMenuClose()
+	override void HandlerDeattached(Widget w)
+	{
+		Cleanup();
+
+		if (s_ActiveRoot == w)
+			s_ActiveRoot = null;
+
+		super.HandlerDeattached(w);
+	}
+
+	//------------------------------------------------------------------------------------------------
+	protected void BindWidgets()
+	{
+		m_CoordX = SCR_EditBoxComponent.GetEditBoxComponent("CoordX", m_Root);
+		m_CoordZ = SCR_EditBoxComponent.GetEditBoxComponent("CoordZ", m_Root);
+		m_StatusText = RichTextWidget.Cast(m_Root.FindAnyWidget("StatusText"));
+	}
+
+	//------------------------------------------------------------------------------------------------
+	protected void BindButtons()
+	{
+		m_SetTargetButton = SCR_InputButtonComponent.GetInputButtonComponent("SetTarget", m_Root);
+		if (m_SetTargetButton)
+			m_SetTargetButton.m_OnClicked.Insert(SetTargetFromCoordinates);
+
+		m_LoadMarkerButton = SCR_InputButtonComponent.GetInputButtonComponent("LoadMarker", m_Root);
+		if (m_LoadMarkerButton)
+			m_LoadMarkerButton.m_OnClicked.Insert(LoadMarkerTarget);
+
+		m_SpottingButton = SCR_InputButtonComponent.GetInputButtonComponent("Spotting", m_Root);
+		if (m_SpottingButton)
+			m_SpottingButton.m_OnClicked.Insert(RequestSpottingRound);
+
+		m_FireButton = SCR_InputButtonComponent.GetInputButtonComponent("FireForEffect", m_Root);
+		if (m_FireButton)
+			m_FireButton.m_OnClicked.Insert(RequestFireForEffect);
+
+		m_LeftButton = SCR_InputButtonComponent.GetInputButtonComponent("CorrectLeft", m_Root);
+		if (m_LeftButton)
+			m_LeftButton.m_OnClicked.Insert(CorrectLeft);
+
+		m_RightButton = SCR_InputButtonComponent.GetInputButtonComponent("CorrectRight", m_Root);
+		if (m_RightButton)
+			m_RightButton.m_OnClicked.Insert(CorrectRight);
+
+		m_AddButton = SCR_InputButtonComponent.GetInputButtonComponent("CorrectAdd", m_Root);
+		if (m_AddButton)
+			m_AddButton.m_OnClicked.Insert(CorrectAdd);
+
+		m_DropButton = SCR_InputButtonComponent.GetInputButtonComponent("CorrectDrop", m_Root);
+		if (m_DropButton)
+			m_DropButton.m_OnClicked.Insert(CorrectDrop);
+
+		m_ClearButton = SCR_InputButtonComponent.GetInputButtonComponent("ClearMission", m_Root);
+		if (m_ClearButton)
+			m_ClearButton.m_OnClicked.Insert(ClearMission);
+
+		m_CloseButton = SCR_InputButtonComponent.GetInputButtonComponent("CloseTerminal", m_Root);
+		if (m_CloseButton)
+			m_CloseButton.m_OnClicked.Insert(CloseTerminal);
+	}
+
+	//------------------------------------------------------------------------------------------------
+	protected void Cleanup()
+	{
+		GetGame().GetCallqueue().Remove(UpdateStatus);
+		UnbindButtons();
+		UnregisterMenuInput();
+	}
+
+	//------------------------------------------------------------------------------------------------
+	protected void UnbindButtons()
 	{
 		if (m_SetTargetButton)
 			m_SetTargetButton.m_OnClicked.Remove(SetTargetFromCoordinates);
@@ -118,26 +189,6 @@ class LCN_FireMissionTerminalMenu : MenuBase
 
 		if (m_CloseButton)
 			m_CloseButton.m_OnClicked.Remove(CloseTerminal);
-
-		InputManager inputManager = GetGame().GetInputManager();
-		if (inputManager)
-		{
-			inputManager.RemoveActionListener("MenuOpen", EActionTrigger.DOWN, Close);
-			inputManager.RemoveActionListener("MenuBack", EActionTrigger.DOWN, Close);
-			#ifdef WORKBENCH
-			inputManager.RemoveActionListener("MenuOpenWB", EActionTrigger.DOWN, Close);
-			inputManager.RemoveActionListener("MenuBackWB", EActionTrigger.DOWN, Close);
-			#endif
-		}
-
-		super.OnMenuClose();
-	}
-
-	//------------------------------------------------------------------------------------------------
-	override void OnMenuUpdate(float tDelta)
-	{
-		super.OnMenuUpdate(tDelta);
-		UpdateStatus();
 	}
 
 	//------------------------------------------------------------------------------------------------
@@ -210,7 +261,7 @@ class LCN_FireMissionTerminalMenu : MenuBase
 	//------------------------------------------------------------------------------------------------
 	protected void CloseTerminal()
 	{
-		Close();
+		CloseActiveTerminal();
 	}
 
 	//------------------------------------------------------------------------------------------------
@@ -299,11 +350,26 @@ class LCN_FireMissionTerminalMenu : MenuBase
 		if (!inputManager)
 			return;
 
-		inputManager.AddActionListener("MenuOpen", EActionTrigger.DOWN, Close);
-		inputManager.AddActionListener("MenuBack", EActionTrigger.DOWN, Close);
+		inputManager.AddActionListener("MenuOpen", EActionTrigger.DOWN, CloseTerminal);
+		inputManager.AddActionListener("MenuBack", EActionTrigger.DOWN, CloseTerminal);
 		#ifdef WORKBENCH
-		inputManager.AddActionListener("MenuOpenWB", EActionTrigger.DOWN, Close);
-		inputManager.AddActionListener("MenuBackWB", EActionTrigger.DOWN, Close);
+		inputManager.AddActionListener("MenuOpenWB", EActionTrigger.DOWN, CloseTerminal);
+		inputManager.AddActionListener("MenuBackWB", EActionTrigger.DOWN, CloseTerminal);
+		#endif
+	}
+
+	//------------------------------------------------------------------------------------------------
+	protected void UnregisterMenuInput()
+	{
+		InputManager inputManager = GetGame().GetInputManager();
+		if (!inputManager)
+			return;
+
+		inputManager.RemoveActionListener("MenuOpen", EActionTrigger.DOWN, CloseTerminal);
+		inputManager.RemoveActionListener("MenuBack", EActionTrigger.DOWN, CloseTerminal);
+		#ifdef WORKBENCH
+		inputManager.RemoveActionListener("MenuOpenWB", EActionTrigger.DOWN, CloseTerminal);
+		inputManager.RemoveActionListener("MenuBackWB", EActionTrigger.DOWN, CloseTerminal);
 		#endif
 	}
 
