@@ -272,7 +272,7 @@ AudioClass {
    tl -256 -256
    "Loop count" 255
    "Infinite loop" 1
-   "Terminate Loop" 0
+   "Terminate Loop" 1
    Samples {
     AudioBankSampleClass Sample {
      Filename "{376F3716F7957791}Sounds/Structures/Military/Sirens/Samples/Structures_Siren_Close_LP.wav"
@@ -287,7 +287,7 @@ AudioClass {
    Volume -3
    "Loop count" 255
    "Infinite loop" 1
-   "Terminate Loop" 0
+   "Terminate Loop" 1
    Samples {
     AudioBankSampleClass Sample {
      Filename "{376F3716F7957791}Sounds/Structures/Military/Sirens/Samples/Structures_Siren_Close_LP.wav"

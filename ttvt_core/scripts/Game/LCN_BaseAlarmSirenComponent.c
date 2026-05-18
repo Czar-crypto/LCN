@@ -71,7 +71,12 @@ class LCN_BaseAlarmSirenComponent : ScriptComponent
 		if (!alarmActive)
 			return;
 
-		UpdateAlarmDuration(owner, timeSlice);
+		if (UpdateAlarmDuration(owner, timeSlice))
+		{
+			m_bWasAlarmActive = false;
+			return;
+		}
+
 		UpdateSirenSound(owner, timeSlice);
 	}
 
@@ -97,29 +102,35 @@ class LCN_BaseAlarmSirenComponent : ScriptComponent
 	}
 
 	//------------------------------------------------------------------------------------------------
-	protected void UpdateAlarmDuration(IEntity owner, float timeSlice)
+	protected bool UpdateAlarmDuration(IEntity owner, float timeSlice)
 	{
 		if (m_fAlarmDuration <= 0)
-			return;
+			return false;
 
 		if (!IsMaster())
-			return;
+			return false;
 
 		m_fRemainingDuration -= timeSlice;
 		if (m_fRemainingDuration > 0)
-			return;
+			return false;
 
 		BaseWorld world = null;
 		if (owner)
 			world = owner.GetWorld();
 
 		LCN_ObjectiveStateComponent.SetObjectiveKeyActive(m_sAlarmObjectiveKey, false, world);
+		StopSirenSound();
+
+		if (m_bDebug)
+			Print(string.Format("LCN_BaseAlarmSirenComponent: alarm '%1' duration expired after %2 seconds", m_sAlarmObjectiveKey, m_fAlarmDuration));
+
+		return true;
 	}
 
 	//------------------------------------------------------------------------------------------------
 	protected void UpdateSirenSound(IEntity owner, float timeSlice)
 	{
-		if (m_bSirenSoundStarted && AudioSystem.IsSoundPlayed(m_hSirenSound))
+		if (m_bSirenSoundStarted)
 			return;
 
 		m_fSoundDelay -= timeSlice;
@@ -202,11 +213,12 @@ class LCN_BaseAlarmSirenComponent : ScriptComponent
 	//------------------------------------------------------------------------------------------------
 	protected void StopSirenSoundLocal()
 	{
-		if (AudioSystem.IsSoundPlayed(m_hSirenSound))
+		if (m_bSirenSoundStarted)
 			AudioSystem.TerminateSoundFadeOut(m_hSirenSound, true, 1);
 
 		m_hSirenSound = AudioHandle.Invalid;
 		m_bSirenSoundStarted = false;
+		m_fSoundDelay = 0;
 	}
 
 	//------------------------------------------------------------------------------------------------
