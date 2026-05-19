@@ -1,0 +1,18 @@
+SCR_AIWorld : "{E0A05C76552E7F58}Prefabs/AI/SCR_AIWorld.et" {
+ coords 2766.696 70.971 2924.168
+}
+PerceptionManager PerceptionManager1 : "{028DAEAD63E056BE}Prefabs/World/Game/PerceptionManager.et" {
+ coords 2710.459 64.094 3074.855
+}
+EH_LobbyGameMode EH_GameMode_Lobby1 : "{7240BE4FAD1572F0}Prefabs/MP/Modes/EH_GameMode_Lobby.et" {
+ coords 2868.706 64.291 2803.386
+ {
+  SCR_FactionManager {
+   ID "5ED9088735FF2D8B"
+   Factions {
+    SCR_Faction "{5978B9CE6585BBE8}" {
+    }
+   }
+  }
+ }
+}

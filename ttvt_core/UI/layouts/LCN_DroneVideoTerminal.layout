@@ -1,0 +1,206 @@
+FrameWidgetClass {
+ Name "rootFrame"
+ components {
+  LCN_DroneVideoTerminalWidgetComponent "{23C82EE2FD09F1E2}" {
+  }
+ }
+ {
+  BlurWidgetClass "{71FB254C4FA21462}" : "{352322057FD78AE1}UI/layouts/WidgetLibrary/BaseElements/WLib_Blur.layout" {
+   Name "Blur"
+   Slot FrameWidgetSlot "{980612EEFA1B4170}" {
+    SizeX 0
+    OffsetRight 0
+    SizeY 0
+    OffsetBottom 0
+   }
+  }
+  SizeLayoutWidgetClass "{8BD2AF326164F4F8}" {
+   Name "TerminalSize"
+   Slot FrameWidgetSlot "{B607DD2622D80C7F}" {
+    Anchor 0.5 0.5 0.5 0.5
+    Alignment 0.5 0.5
+    SizeToContent 1
+   }
+   AllowWidthOverride 1
+   WidthOverride 1040
+   {
+    OverlayWidgetClass "{27F292CE2281E483}" {
+     Name "TerminalPanel"
+     Slot AlignableSlot "{132555E53B55595A}" {
+      HorizontalAlign 3
+      VerticalAlign 3
+     }
+     {
+      ImageWidgetClass "{234C94359A65C7D0}" {
+       Name "PanelBackground"
+       Slot OverlayWidgetSlot "{E9F16BA0BBF9715D}" {
+       HorizontalAlign 3
+       VerticalAlign 3
+     }
+      Color 0.005 0.009 0.010 1
+      }
+      VerticalLayoutWidgetClass "{1C91E5DECE014524}" {
+       Name "MainLayout"
+       Slot OverlayWidgetSlot "{6B95484F069D8CB9}" {
+        HorizontalAlign 3
+        VerticalAlign 3
+       }
+       {
+        VerticalLayoutWidgetClass "{189E949A9168188C}" {
+         Name "Header"
+         Slot LayoutSlot "{481E8F209B059A31}" {
+          HorizontalAlign 3
+          Padding 28 24 28 12
+         }
+         {
+          RichTextWidgetClass "{7922674837BB9CC7}" {
+           Name "TitleText"
+           Slot LayoutSlot "{8D98FD891AA99526}" {
+            HorizontalAlign 3
+           }
+           Text "DRONE VIDEO POST"
+           Color 0.84 0.94 0.88 1
+          }
+          RichTextWidgetClass "{0143E73A22F182DF}" {
+           Name "StatusText"
+           Slot LayoutSlot "{375BE721B4674732}" {
+            HorizontalAlign 3
+            Padding 0 8 0 0
+           }
+           Text "source: searching"
+           Color 0.56 0.78 0.72 1
+          }
+         }
+        }
+        VerticalLayoutWidgetClass "{3FEAA98F15D1BD03}" {
+         Name "Content"
+         Slot LayoutSlot "{0279B0D737AF1C98}" {
+          HorizontalAlign 3
+          Padding 28 0 28 28
+         }
+         {
+          OverlayWidgetClass "{3DE13C1BC77B81FB}" {
+           Name "FeedFrame"
+           Slot LayoutSlot "{D74779D65FE20F9F}" {
+            HorizontalAlign 3
+            Padding 0 0 0 14
+           }
+           {
+            ImageWidgetClass "{58E2E89E347FEA8D}" {
+             Name "FeedBackground"
+             Slot OverlayWidgetSlot "{3D73E1DCE932CF1D}" {
+              HorizontalAlign 3
+              VerticalAlign 3
+             }
+             Color 0 0 0 1
+            }
+            SizeLayoutWidgetClass "{738B1785078A8305}" {
+             Name "FeedSize"
+             Slot OverlayWidgetSlot "{139408E24C79C2D6}" {
+              HorizontalAlign 3
+              VerticalAlign 3
+             }
+             AllowHeightOverride 1
+             HeightOverride 520
+             {
+              RenderTargetWidgetClass "{A3E9296D8B490456}" {
+               Name "DroneFeed"
+               Slot AlignableSlot "{A9CBBAB42A7619DF}" {
+                HorizontalAlign 3
+                VerticalAlign 3
+               }
+               Color 1 1 1 1
+              }
+             }
+            }
+            ImageWidgetClass "{336AC47FBF54BE7B}" {
+             Name "FeedTint"
+             Slot OverlayWidgetSlot "{641C5813E7A42212}" {
+              HorizontalAlign 3
+              VerticalAlign 3
+             }
+             Color 0 0 0 0
+            }
+            RichTextWidgetClass "{4835F9CB56440DA7}" {
+             Name "FeedLabelText"
+             Slot OverlayWidgetSlot "{1533B1EDC6782B5E}" {
+              HorizontalAlign 0
+              VerticalAlign 0
+              Padding 18 14 0 0
+             }
+             Text "LIVE FEED"
+             Color 0.72 0.95 0.82 1
+            }
+           }
+          }
+          HorizontalLayoutWidgetClass "{13DE5194535629F9}" {
+           Name "FooterRow"
+           Slot LayoutSlot "{85495AA7A4932442}" {
+            HorizontalAlign 2
+            Padding 0 2 0 0
+           }
+           {
+            ButtonWidgetClass "{F465C55947E1CF2F}" : "{C42847838185932E}UI/layouts/WidgetLibrary/Buttons/WLib_InputButton.layout" {
+             Name "RescanFeed"
+             Slot LayoutSlot "{4349ED6240272E24}" {
+              Padding 0 0 8 0
+             }
+             components {
+              SCR_InputButtonComponent "{5D346C3DD81D95CD}" {
+               m_sActionName "MenuSelect"
+               m_sLabel "RESCAN"
+               m_iHeightInPixel 48
+              }
+             }
+            }
+            ButtonWidgetClass "{46AEAE59B2AC095F}" : "{C42847838185932E}UI/layouts/WidgetLibrary/Buttons/WLib_InputButton.layout" {
+             Name "DroneView"
+             Slot LayoutSlot "{7795DBBA99C32BCA}" {
+              Padding 8 0 8 0
+             }
+             components {
+              SCR_InputButtonComponent "{5D346C3DD81D95CD}" {
+               m_sActionName "MenuSelect"
+               m_sLabel "DRONE VIEW"
+               m_iHeightInPixel 48
+              }
+             }
+            }
+            ButtonWidgetClass "{A1BD66976C827D51}" : "{C42847838185932E}UI/layouts/WidgetLibrary/Buttons/WLib_InputButton.layout" {
+             Name "PlayerView"
+             Slot LayoutSlot "{95E9CB009E68D30B}" {
+              Padding 8 0 8 0
+             }
+             components {
+              SCR_InputButtonComponent "{5D346C3DD81D95CD}" {
+               m_sActionName "MenuSelect"
+               m_sLabel "LOCAL VIEW"
+               m_iHeightInPixel 48
+              }
+             }
+            }
+            ButtonWidgetClass "{008C91D3BA730438}" : "{C42847838185932E}UI/layouts/WidgetLibrary/Buttons/WLib_InputButton.layout" {
+             Name "CloseTerminal"
+             Slot LayoutSlot "{B187FB9157C073EE}" {
+              Padding 8 0 0 0
+             }
+             components {
+              SCR_InputButtonComponent "{5D346C3DD81D95CD}" {
+               m_sActionName "MenuBack"
+               m_sLabel "CLOSE"
+               m_iHeightInPixel 48
+              }
+             }
+            }
+           }
+          }
+         }
+        }
+       }
+      }
+     }
+    }
+   }
+  }
+ }
+}

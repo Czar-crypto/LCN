@@ -1,0 +1,35 @@
+SCR_ChimeraCharacter : "{84E76180F787FFCC}Prefabs/Characters/Factions/OPFOR/RHS_AFRF/MSV/VKPO_Demiseason/Character_RHS_RF_MSV_VKPO_DS_Scout.et" {
+ ID "520EC961A090B1EE"
+ components {
+  EH_LobbyCharacterComponent "{6554FDD43DB961CC}" {
+   m_IsPlayable 1
+   m_Name "Стрелок"
+  }
+  SCR_CharacterFactionAffiliationComponent "{6062F6587469882D}" {
+   "faction affiliation" "USSR"
+  }
+  SCR_EditableCharacterComponent "{520EA1D2F659C85C}" {
+   m_UIInfo SCR_EditableEntityUIInfo "{5298E609432D192D}" {
+    m_aAuthoredLabels + {
+     TRAIT_RANDOMIZED
+    }
+   }
+   m_VariantData SCR_EditableEntityVariantData "{6966D0BFB03A1EC6}" {
+    m_bRandomizeDefaultVariant 0
+    m_aVariants {
+     SCR_EditableEntityVariant "{6966D0BFB03A1EF2}" {
+      m_sVariantPrefab "{84E76180F787FFCC}Prefabs/Characters/Factions/OPFOR/RHS_AFRF/MSV/VKPO_Demiseason/Character_RHS_RF_MSV_VKPO_DS_Scout.et"
+      m_iRandomizerWeight 3
+     }
+     SCR_EditableEntityVariant "{6966D0BFB03A1EF1}" {
+      m_sVariantPrefab "{82CB60CE5267943D}Prefabs/Characters/Factions/OPFOR/RHS_AFRF/MSV/VKPO_Demiseason/Character_RHS_RF_MSV_VKPO_DS_Scout_2.et"
+     }
+     SCR_EditableEntityVariant "{6966D0BFB03A1EF7}" {
+      m_sVariantPrefab "{67572C375E820356}Prefabs/Characters/Factions/OPFOR/RHS_AFRF/MSV/VKPO_Demiseason/Character_RHS_RF_MSV_VKPO_DS_Scout_3.et"
+     }
+    }
+   }
+  }
+ }
+ coords 3898.16 62.565 979.702
+}

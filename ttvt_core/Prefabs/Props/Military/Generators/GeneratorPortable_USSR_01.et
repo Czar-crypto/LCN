@@ -1,0 +1,50 @@
+GenericEntity : "{4CC2C69DE1AEF103}Prefabs/Props/Core/DestructibleMultiPhase_Props_Base.et" {
+ ID "F0DBA538AC2A0552"
+ components {
+  SignalsManagerComponent "{6966D0B27D7850D0}" {
+  }
+  SoundComponent "{6966D0B27D785056}" {
+   Filenames {
+    "{B32068D3B876A98E}Sounds/Props/Military/Generators/Props_PortableGenerator_Soviet.acp"
+   }
+   DistanceManagement 0
+   IncludeInactive 1
+  }
+  MeshObject "{5872F0EB7FA40561}" {
+   Object "{7674DD187C23B4CC}Assets/Props/Military/Generators/GeneratorPortable_USSR_01/GeneratorPortable_USSR_01.xob"
+   LODFactors {
+    1.5 1 0.5 0.3 0.3 0.3 0.3 0.3
+   }
+  }
+  RigidBody "{5872F0EB7DFB5A9D}" {
+   Mass 100
+   ResponseIndex "MediumDestructible"
+   ModelGeometry 1
+   Static 1
+  }
+  SCR_DestructionMultiPhaseComponent "{5624A88D86EFE8BA}" : "{76DA308CC9E2AB84}Prefabs/Props/Core/DestructionMultiPhase_Base.ct" {
+   m_fBaseHealth 1000
+   m_aDamagePhases {
+    SCR_DamagePhaseData "{6966D0B27D785041}" {
+     m_fPhaseHealth 2000
+     m_PhaseModel "{FA5A7EAC616E8593}Assets/Props/Military/Generators/GeneratorPortable_USSR_01/dst/GeneratorPortable_USSR_01_dst_01.xob"
+    }
+   }
+   m_eMaterialSoundType BREAK_METAL_GENERATOR
+  }
+  ActionsManagerComponent "{6966D0B27D785046}" {
+   ActionContexts {
+    UserActionContext "{6966D0B27D785044}" {
+     ContextName "powerswitch"
+     Position PointInfo "{6966D0B27D78504A}" {
+      Offset 0.2 0.35 -0.29
+     }
+    }
+   }
+  }
+  RplComponent "{5624A88DC2D9928D}" {
+   Enabled 1
+  }
+ }
+ coords -0.327 2.95 1.835
+}
