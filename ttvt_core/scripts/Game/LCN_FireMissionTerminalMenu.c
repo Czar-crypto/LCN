@@ -14,6 +14,9 @@ class LCN_FireMissionTerminalWidgetComponent : ScriptedWidgetComponent
 	[Attribute("InventoryContext", UIWidgets.EditBox, "Fallback input context also kept active while the terminal is open. Leave empty to disable", category: "LCN Terminal Input")]
 	protected string m_sFallbackInputContext;
 
+	[Attribute("250", UIWidgets.EditBox, "How long terminal input contexts stay active after each refresh, in milliseconds", params: "16 2000 1", category: "LCN Terminal Input")]
+	protected int m_iInputContextDurationMs;
+
 	[Attribute("1", UIWidgets.CheckBox, "Force mouse as current UI input device while the terminal is open", category: "LCN Terminal Input")]
 	protected bool m_bForceMouseInput;
 
@@ -302,7 +305,7 @@ class LCN_FireMissionTerminalWidgetComponent : ScriptedWidgetComponent
 		if (!inputManager || contextName.IsEmpty())
 			return;
 
-		inputManager.ActivateContext(contextName, 2);
+		inputManager.ActivateContext(contextName, m_iInputContextDurationMs);
 	}
 
 	//------------------------------------------------------------------------------------------------
