@@ -17,6 +17,9 @@ class LCN_FireMissionConsoleComponent : ScriptComponent
 	static const int ACTION_CORRECT_DROP = 7;
 	static const int ACTION_CLEAR_MISSION = 8;
 	static const int ACTION_SET_TARGET_FROM_COORDINATES = 9;
+	static const int COORDINATE_MODE_AUTO = 0;
+	static const int COORDINATE_MODE_WORLD = 1;
+	static const int COORDINATE_MODE_GRID_SQUARE = 2;
 
 	[Attribute("{5D48E2F7DB0C3714}PrefabsEditable/EffectsModules/Mortar/EffectModule_Zoned_MortarBarrage_Small.et", UIWidgets.ResourcePickerThumbnail, "GM effect module used for a spotting round", "et", category: "LCN Fire Mission")]
 	protected ResourceName m_sSpottingEffectModulePrefab;
@@ -33,6 +36,9 @@ class LCN_FireMissionConsoleComponent : ScriptComponent
 	[Attribute("240", UIWidgets.EditBox, "Cooldown in seconds after fire for effect", params: "0 3600 1", category: "LCN Fire Mission")]
 	protected float m_fFireCooldown;
 
+	[Attribute("0", UIWidgets.EditBox, "Maximum fire-for-effect calls this console can make. 0 means unlimited", params: "0 100 1", category: "LCN Fire Mission")]
+	protected int m_iMaxFireForEffectUses;
+
 	[Attribute("50", UIWidgets.EditBox, "Default left/right correction in metres", params: "1 1000 1", category: "LCN Fire Mission")]
 	protected float m_fDefaultLateralCorrection;
 
@@ -41,6 +47,25 @@ class LCN_FireMissionConsoleComponent : ScriptComponent
 
 	[Attribute("1", UIWidgets.CheckBox, "Snap requested target positions down to the ground before spawning effects", category: "LCN Fire Mission")]
 	protected bool m_bSnapTargetToGround;
+
+	[Attribute("0", UIWidgets.ComboBox, "How terminal X/Z fields are converted into world coordinates", "", enums: {
+		ParamEnum("Auto: small numbers are grid squares", "0"),
+		ParamEnum("World metres", "1"),
+		ParamEnum("Grid square", "2")
+	}, category: "LCN Terminal Coordinates")]
+	protected int m_iTerminalCoordinateMode;
+
+	[Attribute("100", UIWidgets.EditBox, "Grid square size in metres. Standard Reforger map squares use 100", params: "1 1000 1", category: "LCN Terminal Coordinates")]
+	protected float m_fTerminalGridCellSize;
+
+	[Attribute("999", UIWidgets.EditBox, "Auto mode treats coordinates with absolute value up to this as grid square numbers", params: "1 10000 1", category: "LCN Terminal Coordinates")]
+	protected float m_fTerminalGridAutoMaxCoordinate;
+
+	[Attribute("1", UIWidgets.CheckBox, "Randomize terminal grid-square target inside the selected square", category: "LCN Terminal Coordinates")]
+	protected bool m_bRandomizeTerminalGridSquare;
+
+	[Attribute("5", UIWidgets.EditBox, "Padding from grid square edges when randomizing, in metres", params: "0 100 1", category: "LCN Terminal Coordinates")]
+	protected float m_fTerminalGridRandomPadding;
 
 	[Attribute("LCN_FM_MARKER_01", UIWidgets.EditBox, "Optional entity name used by 'Set target from marker'", category: "LCN Links")]
 	protected string m_sDefaultTargetEntityName;
@@ -112,6 +137,9 @@ class LCN_FireMissionConsoleComponent : ScriptComponent
 
 	[RplProp()]
 	protected float m_fNextFireTime;
+
+	[RplProp()]
+	protected int m_iFireForEffectUses;
 
 	//------------------------------------------------------------------------------------------------
 	protected override void OnPostInit(IEntity owner)
@@ -272,6 +300,12 @@ class LCN_FireMissionConsoleComponent : ScriptComponent
 
 		if (actionType == ACTION_FIRE_FOR_EFFECT)
 		{
+			if (IsFireForEffectLimitReached())
+			{
+				reason = "No fire missions remaining";
+				return false;
+			}
+
 			if (m_bFirePending)
 			{
 				reason = "Fire mission pending";
@@ -410,9 +444,53 @@ class LCN_FireMissionConsoleComponent : ScriptComponent
 			return;
 		}
 
-		vector target = Vector(x, 0, z);
+		vector target = ConvertTerminalCoordinatesToTarget(x, z);
 		vector observerPosition = m_Owner.GetOrigin();
 		SetMissionTarget(target, observerPosition, user, "terminal");
+	}
+
+	//------------------------------------------------------------------------------------------------
+	protected vector ConvertTerminalCoordinatesToTarget(float x, float z)
+	{
+		if (!ShouldTreatTerminalCoordinatesAsGridSquare(x, z))
+			return Vector(x, 0, z);
+
+		float cellSize = Math.Max(m_fTerminalGridCellSize, 1);
+		float padding = Math.Clamp(m_fTerminalGridRandomPadding, 0, cellSize * 0.5);
+		float minOffset = padding;
+		float maxOffset = cellSize - padding;
+
+		float offsetX = cellSize * 0.5;
+		float offsetZ = cellSize * 0.5;
+
+		if (m_bRandomizeTerminalGridSquare && maxOffset > minOffset)
+		{
+			offsetX = Math.RandomFloat(minOffset, maxOffset);
+			offsetZ = Math.RandomFloat(minOffset, maxOffset);
+		}
+
+		return Vector(x * cellSize + offsetX, 0, z * cellSize + offsetZ);
+	}
+
+	//------------------------------------------------------------------------------------------------
+	protected bool ShouldTreatTerminalCoordinatesAsGridSquare(float x, float z)
+	{
+		if (m_iTerminalCoordinateMode == COORDINATE_MODE_GRID_SQUARE)
+			return true;
+
+		if (m_iTerminalCoordinateMode == COORDINATE_MODE_WORLD)
+			return false;
+
+		float autoMax = Math.Max(m_fTerminalGridAutoMaxCoordinate, 1);
+		float absX = x;
+		if (absX < 0)
+			absX = -absX;
+
+		float absZ = z;
+		if (absZ < 0)
+			absZ = -absZ;
+
+		return absX <= autoMax && absZ <= autoMax;
 	}
 
 	//------------------------------------------------------------------------------------------------
@@ -520,6 +598,7 @@ class LCN_FireMissionConsoleComponent : ScriptComponent
 	protected void QueueFireForEffect(IEntity user)
 	{
 		m_bFirePending = true;
+		m_iFireForEffectUses++;
 		vector target = GetAdjustedTarget();
 
 		if (m_fFireCooldown > 0)
@@ -529,7 +608,7 @@ class LCN_FireMissionConsoleComponent : ScriptComponent
 		GetGame().GetCallqueue().CallLater(SpawnFireForEffectAt, Math.Round(Math.Max(m_fFireDelay, 0) * 1000), false, target[0], target[1], target[2]);
 
 		if (m_bDebug)
-			Print(string.Format("LCN_FireMissionConsoleComponent: fire for effect queued by %1 delay=%2 cooldown=%3 target=%4", user, m_fFireDelay, m_fFireCooldown, target.ToString()));
+			Print(string.Format("LCN_FireMissionConsoleComponent: fire for effect queued by %1 delay=%2 cooldown=%3 uses=%4/%5 target=%6", user, m_fFireDelay, m_fFireCooldown, m_iFireForEffectUses, m_iMaxFireForEffectUses, target.ToString()));
 	}
 
 	//------------------------------------------------------------------------------------------------
@@ -604,7 +683,7 @@ class LCN_FireMissionConsoleComponent : ScriptComponent
 	string GetStatusText()
 	{
 		if (!m_bHasMission)
-			return "FDC: no target";
+			return BuildFireAvailabilityStatus("FDC: no target");
 
 		vector target = GetAdjustedTarget();
 		string status = string.Format("FDC grid X%1 Z%2", target[0].ToString(0, 0), target[2].ToString(0, 0));
@@ -631,7 +710,41 @@ class LCN_FireMissionConsoleComponent : ScriptComponent
 		if (m_bFirePending)
 			status += " | fire pending";
 
+		return BuildFireAvailabilityStatus(status);
+	}
+
+	//------------------------------------------------------------------------------------------------
+	protected string BuildFireAvailabilityStatus(string status)
+	{
+		if (m_iMaxFireForEffectUses > 0)
+		{
+			int remaining = Math.Max(m_iMaxFireForEffectUses - m_iFireForEffectUses, 0);
+			status += string.Format(" | fire calls %1/%2", remaining, m_iMaxFireForEffectUses);
+		}
+
+		int cooldownRemaining = GetFireCooldownRemainingSeconds();
+		if (cooldownRemaining > 0)
+			status += string.Format(" | reload %1s", cooldownRemaining);
+
 		return status;
+	}
+
+	//------------------------------------------------------------------------------------------------
+	protected int GetFireCooldownRemainingSeconds()
+	{
+		if (m_fFireCooldown <= 0)
+			return 0;
+
+		float remainingMs = m_fNextFireTime - GetWorldTime();
+		if (remainingMs <= 0)
+			return 0;
+
+		float remainingSeconds = remainingMs * 0.001;
+		int roundedSeconds = Math.Round(remainingSeconds);
+		if (roundedSeconds < remainingSeconds)
+			roundedSeconds++;
+
+		return Math.Max(roundedSeconds, 1);
 	}
 
 	//------------------------------------------------------------------------------------------------
@@ -743,6 +856,12 @@ class LCN_FireMissionConsoleComponent : ScriptComponent
 			world = m_Owner.GetWorld();
 
 		return LCN_ObjectiveStateComponent.IsObjectiveKeyActive(m_sBlockingObjectiveKey, world);
+	}
+
+	//------------------------------------------------------------------------------------------------
+	protected bool IsFireForEffectLimitReached()
+	{
+		return m_iMaxFireForEffectUses > 0 && m_iFireForEffectUses >= m_iMaxFireForEffectUses;
 	}
 
 	//------------------------------------------------------------------------------------------------
