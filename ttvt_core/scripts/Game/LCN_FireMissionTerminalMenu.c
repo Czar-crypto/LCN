@@ -8,13 +8,16 @@ class LCN_FireMissionTerminalWidgetComponent : ScriptedWidgetComponent
 	protected static LCN_OpenFireMissionTerminalAction s_PendingActionSettings;
 	protected static Widget s_ActiveRoot;
 
-	[Attribute("MenuContext", UIWidgets.EditBox, "Input context kept active while the terminal is open. Leave empty to disable context forcing", category: "LCN Terminal Input")]
-	protected string m_sInputContext;
+	[Attribute("InGameMenuContext", UIWidgets.EditBox, "Primary input context kept active while the terminal is open. Must have CursorVisible flag", category: "LCN Terminal Input")]
+	protected string m_sPrimaryInputContext;
+
+	[Attribute("InventoryContext", UIWidgets.EditBox, "Fallback input context also kept active while the terminal is open. Leave empty to disable", category: "LCN Terminal Input")]
+	protected string m_sFallbackInputContext;
 
 	[Attribute("1", UIWidgets.CheckBox, "Force mouse as current UI input device while the terminal is open", category: "LCN Terminal Input")]
 	protected bool m_bForceMouseInput;
 
-	[Attribute("1", UIWidgets.CheckBox, "Ask InputManager to show the cursor while the terminal is open", category: "LCN Terminal Input")]
+	[Attribute("0", UIWidgets.CheckBox, "Legacy fallback: ask InputManager to show a loading cursor while the terminal is open", category: "LCN Terminal Input")]
 	protected bool m_bShowCursor;
 
 	[Attribute("FIRE DIRECTION TERMINAL", UIWidgets.EditBox, "Terminal title text", category: "LCN Terminal Labels")]
@@ -102,6 +105,7 @@ class LCN_FireMissionTerminalWidgetComponent : ScriptedWidgetComponent
 
 		s_ActiveRoot = root;
 		workspace.AddModal(root, null);
+		workspace.SetFocusedWidget(root);
 
 		if (!root.FindHandler(LCN_FireMissionTerminalWidgetComponent))
 			Print("LCN_FireMissionTerminalWidgetComponent: layout created but terminal component is missing");
@@ -288,8 +292,17 @@ class LCN_FireMissionTerminalWidgetComponent : ScriptedWidgetComponent
 		if (m_bForceMouseInput)
 			inputManager.SetLastUsedInputDevice(EInputDeviceType.MOUSE);
 
-		if (!m_sInputContext.IsEmpty())
-			inputManager.ActivateContext(m_sInputContext, 2);
+		ActivateTerminalContext(inputManager, m_sPrimaryInputContext);
+		ActivateTerminalContext(inputManager, m_sFallbackInputContext);
+	}
+
+	//------------------------------------------------------------------------------------------------
+	protected void ActivateTerminalContext(InputManager inputManager, string contextName)
+	{
+		if (!inputManager || contextName.IsEmpty())
+			return;
+
+		inputManager.ActivateContext(contextName, 2);
 	}
 
 	//------------------------------------------------------------------------------------------------
@@ -302,14 +315,23 @@ class LCN_FireMissionTerminalWidgetComponent : ScriptedWidgetComponent
 		if (m_bShowCursor)
 			inputManager.SetLoading(false);
 
-		if (!m_sInputContext.IsEmpty())
-			inputManager.ResetContext(m_sInputContext);
+		ResetTerminalContext(inputManager, m_sPrimaryInputContext);
+		ResetTerminalContext(inputManager, m_sFallbackInputContext);
 
 		if (m_bTerminalInputApplied && m_ePreviousInputDevice != EInputDeviceType.INVALID)
 			inputManager.SetLastUsedInputDevice(m_ePreviousInputDevice);
 
 		m_bTerminalInputApplied = false;
 		m_ePreviousInputDevice = EInputDeviceType.INVALID;
+	}
+
+	//------------------------------------------------------------------------------------------------
+	protected void ResetTerminalContext(InputManager inputManager, string contextName)
+	{
+		if (!inputManager || contextName.IsEmpty())
+			return;
+
+		inputManager.ResetContext(contextName);
 	}
 
 	//------------------------------------------------------------------------------------------------

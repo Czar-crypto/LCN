@@ -59,7 +59,6 @@ FrameWidgetClass {
             HorizontalAlign 3
            }
            Text "FIRE DIRECTION TERMINAL"
-           FontSize 36
            Color 0.88 0.93 0.86 1
           }
           RichTextWidgetClass "{6AE2A44AF59B3385}" {
@@ -69,7 +68,6 @@ FrameWidgetClass {
             Padding 0 10 0 0
            }
            Text "FDC: no target"
-           FontSize 22
            Color 0.65 0.78 0.62 1
           }
          }
