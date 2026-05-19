@@ -11,12 +11,13 @@ $grp GenericEntity : "{076FAD5BE2438C19}Prefabs/Interactables/LCN_Objectives/E_L
  LCN_FDC_01 {
   components {
    LCN_FireMissionConsoleComponent "{4CA4F1C63C6723C6}" {
+    m_sAllowedFactionKey "RHS_AFRF"
     m_sRequiredObjectiveKey ""
     m_sRequiredObjectiveKey2 ""
     m_sRequiredObjectiveKey3 ""
    }
   }
-  coords 2055.224 59.365 2132.242
+  coords 2055.224 59.21 2132.242
   angles 0 -45 0
  }
  {

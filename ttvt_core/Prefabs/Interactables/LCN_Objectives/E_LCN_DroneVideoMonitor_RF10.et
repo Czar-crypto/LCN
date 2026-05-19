@@ -65,10 +65,10 @@ GenericEntity : "{C4C9560520941BF9}Prefabs/Props/Military/Radios/RadioStation_RF
      VisibilityRange 3
      Duration 1
      m_sSourceKey "DJI"
-     m_bUseRegisteredVideoSources 1
-     m_sSourceKeywords "djibase,fpvbase,quadcopter,uav"
+     m_bUseRegisteredVideoSources 0
+     m_sSourceKeywords "djibase,dji81dropper,djisupplydrone,fpvbase,quadcopter,uav,dji"
      m_sExcludedKeywords "battery,goggles,commandstation,controller,antenna,tripod,radio,station,item,headgear,placeholder,grenade,shell,mortar,ammo,projectile"
-     m_bUseKeywordFallback 0
+     m_bUseKeywordFallback 1
      m_fScanRadius 5000
      m_iCameraIndex 27
      m_fVerticalFOV 55
