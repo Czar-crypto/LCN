@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{62C7CAF603A2328C}Prefabs/Characters/Factions/OPFOR/PMC_Fortex_Only/LCN_PMC_Fortex_04_BlackAssault.et"
+ Configurations {
+  EntityTemplateResourceClass PC {
+  }
+  EntityTemplateResourceClass XBOX_ONE : PC {
+  }
+  EntityTemplateResourceClass XBOX_SERIES : PC {
+  }
+  EntityTemplateResourceClass PS4 : PC {
+  }
+  EntityTemplateResourceClass PS5 : PC {
+  }
+  EntityTemplateResourceClass HEADLESS : PC {
+  }
+ }
+}

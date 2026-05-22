@@ -1,0 +1,59 @@
+SCR_ChimeraCharacter : "{0A13FFE3C85BF1D6}Prefabs/Characters/Factions/OPFOR/USSR_Army/LCN_Wagner_08_BPLA.et" {
+ coords 117.37 1 166.723
+}
+SCR_ChimeraCharacter : "{12764A99F9B87A4D}Prefabs/Characters/Factions/OPFOR/USSR_Army/LCN_Wagner_05_Scout.et" {
+ coords 121.293 1 166.666
+}
+$grp GenericEntity : "{16FAC787A141CB9C}Prefabs/Weapons/Rifles/AK74M/Rifle_AK74M_base_BPLA.et" {
+ {
+  coords 126.288 1.142 169.317
+ }
+ {
+  coords 125.355 1.342 169.16
+ }
+}
+GenericEntity : "{1BA813CBB76FB5B8}Prefabs/Weapons/Rifles/AK74M/Rifle_AK74M_Custom_v2.et" {
+ coords 124.894 1.18 168.23
+}
+SCR_ChimeraCharacter : "{68C1BF78092A70AE}Prefabs/Characters/Factions/OPFOR/USSR_Army/LCN_Wagner_02_Radio.et" {
+ coords 125.077 1 166.564
+}
+SCR_ChimeraCharacter : "{6928678FF091B8EB}Prefabs/Characters/Factions/OPFOR/USSR_Army/LCN_Wagner_03_Medic.et" {
+ coords 123.821 1 166.516
+}
+SCR_ChimeraCharacter : "{74F0F40F88E82E14}Prefabs/Characters/Factions/OPFOR/USSR_Army/LCN_Wagner_06_Heavy.et" {
+ coords 120.094 1 166.758
+}
+GenericEntity : "{77FC272B0BAB3A96}Prefabs/Weapons/Rifles/AK74M/Rifle_AK74M_Custom_v1.et" {
+ coords 125.674 1.146 168.164
+}
+GenericEntity : "{790359391710007A}Prefabs/Weapons/Rifles/AK74M/Rifle_AK74M_561.et" {
+ coords 127.871 1.38 167.74
+}
+SCR_ChimeraCharacter : "{7F815C47FD45B6BE}Prefabs/Characters/Factions/OPFOR/USSR_Army/LCN_Wagner_04_Engineer.et" {
+ coords 122.495 1 166.681
+}
+GenericEntity : "{80DFB5CCB3524F9E}Prefabs/Characters/Ratnik/6B45 Vest/Pounch_EMR_V4.et" {
+ coords 128.839 0.999 169.433
+}
+GenericEntity : "{B51C0DD47B8E7691}Prefabs/Characters/Ratnik/6B45 Vest/Smersh_preset.et" {
+ coords 129.416 1 169.566
+}
+GenericEntity : "{D59AC63FA62B921E}Prefabs/Weapons/Attachments/Muzzle/Suppressor_AK100/Suppressor_DTKP_Camo.et" {
+ coords 126.613 1 168.167
+}
+GenericEntity : "{D7629F119F8F3473}Prefabs/Weapons/Rifles/AK74M/Rifle_AK74M.et" {
+ coords 127.161 1.203 168.392
+}
+GenericEntity : "{D89C0E54FDF36D52}Prefabs/Weapons/Attachments/Muzzle/Suppressor_AK100/Suppressor_DTK4M.et" {
+ coords 126.613 1.193 167.817
+}
+SCR_ChimeraCharacter : "{DE94A93490FEC1C0}Prefabs/Characters/Factions/OPFOR/USSR_Army/LCN_Wagner_02_Komandir.et" {
+ coords 126.289 0.999 166.54
+}
+SCR_ChimeraCharacter : "{FDA3B286BADB7DD5}Prefabs/Characters/Factions/OPFOR/USSR_Army/LCN_Wagner_07_Rifleman.et" {
+ coords 118.815 1 166.815
+}
+GenericEntity : "{FE345F32BB8A22D3}Prefabs/Weapons/Rifles/AK74M/Rifle_AK74M_Custom_v3.et" {
+ coords 124.279 1.207 168.384
+}

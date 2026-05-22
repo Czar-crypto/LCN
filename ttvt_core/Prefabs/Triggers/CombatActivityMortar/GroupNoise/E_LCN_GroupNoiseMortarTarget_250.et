@@ -1,0 +1,42 @@
+LCN_CombatActivityMortarZoneEntity {
+ ID "AD5A5C56F9A14721"
+ coords 0 0 0
+ m_sZoneName "GroupNoiseMortarTarget_250"
+ m_fActivityRadius 125
+ m_iActivityShape 1
+ m_fActivitySizeX 250
+ m_fActivitySizeZ 250
+ m_fRequiredActivityScore 999999
+ m_fWeaponFireActivity 1
+ m_fActivityDecayPerSecond 0.5
+ m_bAllowRetrigger 0
+ m_fRetriggerCooldown 0
+ m_sRequiredObjectiveKey ""
+ m_sRequiredObjectiveKey2 ""
+ m_sBlockingObjectiveKey ""
+ m_sImpactProjectilePrefab "{E15B8A4A6D904A2E}Prefabs/Weapons/Projectiles/Mortar/Ammo_Shell_82mm_HE_O832DU.et"
+ m_sImpactEffectModulePrefab ""
+ m_bSnapImpactToGround 1
+ m_fImpactRadius 125
+ m_iImpactShape 1
+ m_fImpactSizeX 250
+ m_fImpactSizeZ 250
+ m_sImpactCenterEntityName ""
+ m_fImpactCenterOffsetX 0
+ m_fImpactCenterOffsetZ 0
+ m_fFirstRoundDelayMin 3
+ m_fFirstRoundDelayMax 8
+ m_fRoundDelayMin 15
+ m_fRoundDelayMax 20
+ m_iMinRoundsBeforeStop 7
+ m_iMaxRounds 7
+ m_fContinueChance 1
+ m_bProgressiveAccuracy 1
+ m_fFinalAccuracyScale 0.22
+ m_iAccuracyRounds 5
+ m_fEarlyCenterMissDistance 55
+ m_fEarlyImpactMinSpacing 60
+ m_fFinalImpactMinSpacing 12
+ m_iImpactPositionAttempts 24
+ m_bDebug 0
+}

@@ -1,0 +1,81 @@
+SCR_ChimeraCharacter : "{37578B1666981FCE}Prefabs/Characters/Core/Character_Base.et" {
+ ID "167FAD3AA9B6E713"
+ components {
+  SCR_CommunicationSoundComponent "{54FD05D0C92D071F}" {
+   Filenames {
+    "{B42CA0D861799AE9}Sounds/RadioProtocol/RadioProtocol_Report_RU.acp" "{B9FE251CCD133367}Sounds/RadioProtocol/RadioProtocol_Movement_RU.acp" "{BB0B5594F3102B9F}Sounds/RadioProtocol/RadioProtocol_Confirmations_RU.acp" "{B3A7EF95B5D7D620}Sounds/RadioProtocol/RadioProtocol_Combat_RU.acp" "{30C6D89341B1EA1A}Sounds/Character/Character_Voice_Code.acp" "{C9BE186498C3B447}Sounds/Character/Character_Voice_Animations.acp" "{A34E22579FE69E03}Sounds/RadioProtocol/RadioProtocol_Actions_RU.acp" "{3D410BABAA71418D}Sounds/RadioProtocol/RadioProtocol_Report_2_RU.acp" "{20418BE22B3B9008}Sounds/VO/SP01/VO_Ambient.acp" "{44EED84235D5EB87}Sounds/VO/KS/Ingame/VO_KS_SovietOfficer_Direct.acp"
+   }
+  }
+  EH_LobbyCharacterComponent "{6554FDD43DB961CC}" {
+   m_IsPlayable 1
+   m_Name "Commander MC"
+  }
+  SCR_CharacterFactionAffiliationComponent "{694D265BCA992E09}" {
+   "faction affiliation" "USSR"
+  }
+  SCR_EditableCharacterComponent "{520EA1D2F659C85C}" {
+   m_UIInfo SCR_EditableEntityUIInfo "{5298E609432D192D}" {
+    Name "LCN PMC Fortex Commander MC"
+    Icon "{A489F552FB7489C3}UI/Textures/Editor/EditableEntities/Characters/EditableEntity_Character_Custom.edds"
+    m_sFaction "USSR"
+    m_aAuthoredLabels + {
+     ENTITYTYPE_CHARACTER FACTION_USSR
+    }
+    m_aAutoLabels {
+    }
+   }
+  }
+  SCR_ExtendedCharacterIdentityComponent "{5AEEA3C8B2AA118B}" {
+   m_iMaxRandomAge 42
+  }
+  CharacterWeaponSlotComponent "{520EA1D2F659CFAB}" {
+   WeaponSlotIndex 0
+  }
+  CharacterWeaponSlotComponent "{520EA1D2F659CFB7}" {
+   WeaponSlotIndex 1
+  }
+  SCR_CharacterIdentityComponent "{5584CBC63E092DBC}" {
+   Identity Identity "{5584CBC6363C648B}" {
+    VisualIdentity VisualIdentity "{56E6D9456009D1C4}" {
+     Head "{2F3375E395C46AB3}Prefabs/Characters/Heads/Head_BaseBody_01.et"
+     Body "{0023F898C0FF18AA}Prefabs/Characters/Basebody/CharacterBasebody.et"
+    }
+    SoundIdentity SoundIdentity "{56E6D945D8F79290}" {
+     VoiceID 100
+    }
+   }
+  }
+  BaseLoadoutManagerComponent "{520EA1D2DB11821E}" {
+   Slots {
+    LoadoutSlotInfo Hat {
+     Prefab "{743314AD50AF0959}Prefabs/Characters/HeadGear/Helmet_Spartan3/Variants/SSO/Helmet_Spartan3_MC_Peltor_SSO.et"
+    }
+    LoadoutSlotInfo Jacket {
+     Prefab "{285C5B6CBBBBAF0F}Prefabs/Characters/Uniforms/Crye_Shirt/Jacket_Crye_Combat_Shirt_Rolled_ATACS.et"
+    }
+    LoadoutSlotInfo ArmoredVest {
+     Prefab "{D7BB19FB0AAEA4D7}Prefabs/Characters/Vests/Vest_TV102/Vest_TV102_Neck_MC.et"
+    }
+    LoadoutSlotInfo Pants {
+     Prefab "{DE2F0A4C83BD3A6F}Prefabs/Characters/Uniforms/Crye_Pants/crye_pants_atacs.et"
+    }
+    LoadoutSlotInfo Boots {
+     Prefab "{24F6795DC36C79D7}Prefabs/Characters/Footwear/Boots_Luma/Footwear_Luma.et"
+    }
+    LoadoutSlotInfo Back {
+     Prefab "{4A93B3F0B33FF104}Prefabs/Items/Equipment/Backpacks/backpack_511_rush12/Backpack_511_rush12_MC.et"
+    }
+    LoadoutSlotInfo Vest {
+     Prefab "{7037EC6C2C7E96A7}Prefabs/Characters/Vests/Vest_TV102/variants/Vest_TV102_rifleman_MC_3.et"
+    }
+    LoadoutSlotInfo HandWear {
+     Prefab "{B9FA26F5990CDEDD}Prefabs/Characters/Handwear/Gloves_MechanixMpact/Gloves_mpack_MC.et"
+    }
+   }
+  }
+  SCR_InventoryStorageManagerComponent "{520EA1D2DB118DE5}" {
+   InitialInventoryItems {
+   }
+  }
+ }
+}

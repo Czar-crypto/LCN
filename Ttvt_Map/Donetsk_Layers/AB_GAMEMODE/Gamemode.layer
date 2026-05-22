@@ -1,0 +1,8 @@
+SCR_AIWorld : "{E0A05C76552E7F58}Prefabs/AI/SCR_AIWorld.et" {
+ coords 2766.696 70.971 2924.168
+}
+EH_LobbyGameMode EH_GameMode_Lobby1 : "{7240BE4FAD1572F0}Prefabs/MP/Modes/EH_GameMode_Lobby.et" {
+ coords 3652.763 11.75 3092.435
+ m_CommonFreezetime 10
+ m_ShowCommonFreezetimeForAll 1
+}

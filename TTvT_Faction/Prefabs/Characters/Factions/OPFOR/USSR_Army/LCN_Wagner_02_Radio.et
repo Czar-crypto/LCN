@@ -1,0 +1,129 @@
+SCR_ChimeraCharacter : "{37578B1666981FCE}Prefabs/Characters/Core/Character_Base.et" {
+ ID "520EC961A090B1EE"
+ components {
+  SCR_CommunicationSoundComponent "{54FD05D0C92D071F}" {
+   Filenames {
+    "{B42CA0D861799AE9}Sounds/RadioProtocol/RadioProtocol_Report_RU.acp" "{B9FE251CCD133367}Sounds/RadioProtocol/RadioProtocol_Movement_RU.acp" "{BB0B5594F3102B9F}Sounds/RadioProtocol/RadioProtocol_Confirmations_RU.acp" "{B3A7EF95B5D7D620}Sounds/RadioProtocol/RadioProtocol_Combat_RU.acp" "{30C6D89341B1EA1A}Sounds/Character/Character_Voice_Code.acp" "{C9BE186498C3B447}Sounds/Character/Character_Voice_Animations.acp" "{A34E22579FE69E03}Sounds/RadioProtocol/RadioProtocol_Actions_RU.acp" "{3D410BABAA71418D}Sounds/RadioProtocol/RadioProtocol_Report_2_RU.acp" "{20418BE22B3B9008}Sounds/VO/SP01/VO_Ambient.acp" "{44EED84235D5EB87}Sounds/VO/KS/Ingame/VO_KS_SovietOfficer_Direct.acp"
+   }
+  }
+  SCR_CharacterInventoryStorageComponent "{520EA1D2DB118DAC}" {
+   components {
+    SCR_EquipmentStorageComponent "{56B49DA9722B635D}" {
+     InitialStorageSlots {
+      SCR_EquipmentStorageSlot BinocularSlot {
+       Prefab "{BCEA0EB0D764D8DD}Prefabs/Items/Equipment/Binoculars/Rangefinder_PDU4.et"
+      }
+      SCR_EquipmentStorageSlot WristwatchSlot {
+       Prefab "{7C53E6DE2E4BD8CB}Prefabs/Items/Equipment/Watches/Watch_GarminTactixBravo.et"
+      }
+     }
+    }
+   }
+  }
+  EH_LobbyCharacterComponent "{6554FDD43DB961CC}" {
+   m_IsPlayable 1
+  }
+  SCR_CharacterFactionAffiliationComponent "{69507469F29A614B}" {
+   "faction affiliation" "USSR"
+  }
+  SCR_EditableCharacterComponent "{520EA1D2F659C85C}" {
+   m_UIInfo SCR_EditableEntityUIInfo "{5298E609432D192D}" {
+    Name "LCN PMC Radio"
+    Icon "{A489F552FB7489C3}UI/Textures/Editor/EditableEntities/Characters/EditableEntity_Character_Custom.edds"
+    m_sFaction "USSR"
+    m_aAuthoredLabels + {
+     ENTITYTYPE_CHARACTER FACTION_USSR
+    }
+    m_aAutoLabels {
+    }
+   }
+  }
+  SCR_ExtendedCharacterIdentityComponent "{5AEEA3C8B2AA118B}" {
+   m_iMaxRandomAge 28
+  }
+  CharacterWeaponSlotComponent "{520EA1D2F659CFAB}" {
+   WeaponSlotIndex 0
+  }
+  CharacterWeaponSlotComponent "{520EA1D2F659CFB7}" {
+   WeaponSlotIndex 1
+  }
+  SCR_CharacterIdentityComponent "{5584CBC63E092DBC}" {
+   Identity Identity "{5584CBC6363C648B}" {
+    VisualIdentity VisualIdentity "{56E6D9456009D1C4}" {
+     Head "{2F3375E395C46AB3}Prefabs/Characters/Heads/Head_BaseBody_01.et"
+     Body "{0023F898C0FF18AA}Prefabs/Characters/Basebody/CharacterBasebody.et"
+    }
+    SoundIdentity SoundIdentity "{56E6D945D8F79290}" {
+     VoiceID 100
+    }
+   }
+  }
+  BaseLoadoutManagerComponent "{520EA1D2DB11821E}" {
+   Slots {
+    LoadoutSlotInfo Hat {
+     Prefab "{AA3D15FAFAA6E33D}Prefabs/Characters/Ratnik/Helmet/Helmet_6B47_Close_Tape.et"
+    }
+    LoadoutSlotInfo Jacket {
+     Prefab "{78373A3426EF1B01}Prefabs/Characters/Uniforms/Jacket_FrogWaffle/Jacket_FrogWaffle.et"
+    }
+    LoadoutSlotInfo ArmoredVest {
+     Prefab "{4D91DADBB0AFD61B}Prefabs/Characters/Vest/TV110/TV110_V1_MC.et"
+    }
+    LoadoutSlotInfo Pants {
+     Prefab "{377F46CA868E13EF}Prefabs/Characters/Uniform/Tactical_Pants/G3_V1/G3_Pants_MC.et"
+    }
+    LoadoutSlotInfo Boots {
+     Prefab "{278F5A6B40EC0216}Prefabs/Characters/Uniform/Footwear/LowaBoots/Lowa_boots_Tan.et"
+    }
+    LoadoutSlotInfo Back {
+     Prefab "{D669067281ABC1EB}Prefabs/Characters/Ratnik/6B45 Vest/Molly_Bag_EMR_RatnikOP.et"
+    }
+    LoadoutSlotInfo Vest {
+     Prefab "{280BC3717A49F7B9}Prefabs/Characters/Ratnik/6B45 Vest/Ratnik_Pouch_V2.et"
+    }
+    LoadoutSlotInfo Head {
+     Prefab "{50AECADE7647E941}Prefabs/Characters/HeadGear/Baff/Baff_FG.et"
+    }
+    LoadoutSlotInfo Extra {
+     Prefab "{478878218BFF48B4}Prefabs/Clothing/TacPro.et"
+    }
+    LoadoutSlotInfo Extra3 {
+     Prefab "{733376664C3B618D}Prefabs/Characters/Vest/TV110/Parts/Tourniquet/Tourniquet_Sholder_Right.et"
+    }
+    LoadoutSlotInfo Extra4 {
+     Prefab "{405D2B1B26ED40B5}Prefabs/Characters/Vest/TV110/Parts/GroinPouch/A20 Pacman/ArsArma_A20_Pacman_Multicam.et"
+    }
+    LoadoutSlotInfo Extra5 {
+     Prefab "{A6E851E97DD5B406}Prefabs/Characters/Vest/TV110/Parts/GroinProtectors/A-21/MarsArmaA-21V2_MC2.et"
+    }
+    LoadoutSlotInfo Extra6 {
+     Prefab "{EC8A6D4245577C21}Prefabs/Characters/Vest/TV110/Parts/Seats/TacticalSeat/Seat protection_MC2.et"
+    }
+    LoadoutSlotInfo Waist {
+     Prefab "{4B183EA6EF6ADAB1}Prefabs/Characters/Uniform/Belt/warbeltV3 FG.et"
+    }
+   }
+  }
+  SCR_InventoryStorageManagerComponent "{520EA1D2DB118DE5}" {
+   InitialInventoryItems {
+    ItemsInitConfigurationItem "{69507476C57F3818}" {
+     TargetStorage "Jacket/MI_TOR_FG.et"
+     PrefabsToSpawn {
+      "{35121D232FE844C4}Prefabs/Items/Equipment/Maps/Map_Paper_01/PaperMap_01_folded_USSR_PDA.et" "{3DD801347D0E7CCA}Prefabs/Items/Equipment/Radios/Radio_R187P1_OLD_Komandirskay.et"
+     }
+    }
+    ItemsInitConfigurationItem "{69507476C59DB51B}" {
+     TargetStorage "ArmoredVest/TV110_V1_MC_Custom_V1_Strelok_Ratnik.et/Waist/warbelt_Ratnik_V4.et"
+     PrefabsToSpawn {
+     }
+    }
+    ItemsInitConfigurationItem "{69507476C5BCB11F}" {
+     TargetStorage "Back/Molly_Bag_EMR_RatnikOP.et"
+     PrefabsToSpawn {
+     }
+    }
+   }
+  }
+ }
+ coords 3654.898 11.75 3095.559
+}

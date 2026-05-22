@@ -1,0 +1,24 @@
+GameProject {
+ ID "TTvTFaction"
+ GUID "696AECF85B0A1208"
+ TITLE "TTvT_Faction"
+ Dependencies {
+  "64CE78AB140E3EC9" "58D0FB3206B6F859" "65AD60E204191D37" "" "" "" "" "" "" "" "" "" "" "" "595F2BF2F44836FB" "647CB046E0EDE0D9" "672A0B369A06F398" "650EAAF7FBE7D583" "6152CB0BD0684837" "6602C1EC7E5A4A87" "66C2ED22F25B05C9" "" "66AC2E9049E2F8EF" "" "" "" "67051DADBC1A5BC3" "" "686E5016E253BD7C"
+ }
+ Configurations {
+  GameProjectConfig PC {
+  }
+  GameProjectConfig XBOX_ONE {
+  }
+  GameProjectConfig XBOX_SERIES {
+  }
+  GameProjectConfig PS4 {
+  }
+  GameProjectConfig PS5 {
+  }
+  GameProjectConfig HEADLESS {
+  }
+  GameProjectConfig Xbox {
+  }
+ }
+}

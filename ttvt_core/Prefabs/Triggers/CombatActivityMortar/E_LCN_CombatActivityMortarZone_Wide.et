@@ -1,0 +1,26 @@
+LCN_CombatActivityMortarZoneEntity {
+ ID "5C5C0117B38B471D"
+ coords 0 0 0
+ m_sZoneName "AutoMortar_Wide"
+ m_fActivityRadius 220
+ m_fRequiredActivityScore 170
+ m_fWeaponFireActivity 1
+ m_fActivityDecayPerSecond 0.22
+ m_bAllowRetrigger 1
+ m_fRetriggerCooldown 300
+ m_sRequiredObjectiveKey ""
+ m_sRequiredObjectiveKey2 ""
+ m_sBlockingObjectiveKey ""
+ m_sImpactProjectilePrefab "{E15B8A4A6D904A2E}Prefabs/Weapons/Projectiles/Mortar/Ammo_Shell_82mm_HE_O832DU.et"
+ m_sImpactEffectModulePrefab ""
+ m_bSnapImpactToGround 1
+ m_fImpactRadius 115
+ m_fFirstRoundDelayMin 10
+ m_fFirstRoundDelayMax 24
+ m_fRoundDelayMin 18
+ m_fRoundDelayMax 40
+ m_iMinRoundsBeforeStop 3
+ m_iMaxRounds 12
+ m_fContinueChance 0.76
+ m_bDebug 0
+}

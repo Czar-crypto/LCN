@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{DB97D086EA7C49E7}Prefabs/Triggers/CombatActivityMortar/Square250_Impact1000/E_LCN_CombatActivityMortarImpactCenterMarker.et"
+ Configurations {
+  ETResourceClass PC {
+  }
+  ETResourceClass XBOX_ONE : PC {
+  }
+  ETResourceClass XBOX_SERIES : PC {
+  }
+  ETResourceClass PS4 : PC {
+  }
+  ETResourceClass PS5 : PC {
+  }
+  ETResourceClass HEADLESS : PC {
+  }
+ }
+}

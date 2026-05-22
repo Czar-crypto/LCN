@@ -1,0 +1,26 @@
+LCN_CombatActivityMortarZoneEntity {
+ ID "D8D4F6336CC7479C"
+ coords 0 0 0
+ m_sZoneName "AutoMortar_AmmoLinked"
+ m_fActivityRadius 140
+ m_fRequiredActivityScore 115
+ m_fWeaponFireActivity 1
+ m_fActivityDecayPerSecond 0.18
+ m_bAllowRetrigger 1
+ m_fRetriggerCooldown 240
+ m_sRequiredObjectiveKey "LCN_AMMO_DEPOT_01"
+ m_sRequiredObjectiveKey2 ""
+ m_sBlockingObjectiveKey ""
+ m_sImpactProjectilePrefab "{E15B8A4A6D904A2E}Prefabs/Weapons/Projectiles/Mortar/Ammo_Shell_82mm_HE_O832DU.et"
+ m_sImpactEffectModulePrefab ""
+ m_bSnapImpactToGround 1
+ m_fImpactRadius 70
+ m_fFirstRoundDelayMin 8
+ m_fFirstRoundDelayMax 18
+ m_fRoundDelayMin 14
+ m_fRoundDelayMax 32
+ m_iMinRoundsBeforeStop 3
+ m_iMaxRounds 10
+ m_fContinueChance 0.72
+ m_bDebug 0
+}

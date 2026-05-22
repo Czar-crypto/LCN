@@ -1,0 +1,11 @@
+SCR_AIWorld : "{E0A05C76552E7F58}Prefabs/AI/SCR_AIWorld.et" {
+ coords 3023.419 65.432 1903.933
+}
+EH_LobbyGameMode EH_GameMode_Lobby1 : "{7240BE4FAD1572F0}Prefabs/MP/Modes/EH_GameMode_Lobby.et" {
+ coords 3027.269 65.455 1904.056
+ {
+  PerceptionManager PerceptionManager1 : "{028DAEAD63E056BE}Prefabs/World/Game/PerceptionManager.et" {
+   coords -0.819 -0.168 2.845
+  }
+ }
+}

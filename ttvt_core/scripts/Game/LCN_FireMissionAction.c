@@ -209,7 +209,10 @@ class LCN_FireMissionAction : SCR_ScriptedUserAction
 			return false;
 
 		vector direction = vector.Zero;
-		CameraBase camera = GetGame().GetCameraManager().CurrentCamera();
+		CameraManager cameraManager = GetGame().GetCameraManager();
+		CameraBase camera;
+		if (cameraManager)
+			camera = cameraManager.CurrentCamera();
 		if (camera)
 		{
 			vector cameraTransform[4];

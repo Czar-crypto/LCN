@@ -1,0 +1,84 @@
+SCR_AIGroup : "{8DE0C0830FE0C33D}Prefabs/Groups/OPFOR/Group_USSR_Base.et" {
+ ID "0000000000000001"
+ components {
+  AIFormationComponent "{507E9DC12F541FE6}" {
+   Enabled 0
+  }
+  SCR_EditableGroupComponent "{50D291F6C83FA532}" {
+   m_UIInfo SCR_EditableGroupUIInfo "{5298E609432D192D}" {
+    Name "#AR-Group_EngineerTeam"
+    m_Image "{9B070FBC2520ED2F}UI/Textures/EditorPreviews/Groups/OPFOR/Group_USSR_SapperTeam.edds"
+    m_aAuthoredLabels +{
+    }
+    m_aAutoLabels {
+     GROUPSIZE_SMALL
+    }
+    m_EntityBudgetCost {
+     SCR_EntityBudgetValue "{604482963251834C}" {
+      m_Value 150
+     }
+     SCR_EntityBudgetValue "{609AE1834A64CEC1}" {
+      m_Value 2
+     }
+    }
+    m_EntityChildrenBudgetCost {
+     SCR_EntityBudgetValue "{696B1C77347F0188}" {
+      m_BudgetType AI
+      m_Value 2
+     }
+    }
+    m_bUseUIInfoName 0
+    m_MilitarySymbol SCR_MilitarySymbol "{696B1C77347F01C8}" {
+     m_Identity OPFOR
+     m_Dimension LAND
+     m_Icons MAINTENANCE
+     m_Amplifier NONE
+    }
+   }
+  }
+  SCR_PreviewEntityComponent "{696B1C77347F01F2}" {
+   m_bRuntime 0
+   m_aEntries {
+    SCR_BasePreviewEntry "{696B1C77347F01F0}" {
+     m_iParentID -1
+     m_Mesh ""
+     m_Flags 259
+     m_Shape MESH
+     m_iPivotID ""
+     m_vScale 1 1 1
+     m_vPosition 0 -5 0
+     m_vAngles 0 0 0
+    }
+    SCR_BasePreviewEntry "{696B1C77347F01F7}" {
+     m_iParentID 0
+     m_Mesh "{7B2420C8BC72373A}Prefabs/Characters/Core/Character_Base_Preview.et"
+     m_Flags 0
+     m_Shape PREFAB
+     m_iPivotID ""
+     m_vScale 1 1 1
+     m_vPosition 0 0 0
+     m_vAngles 0 0 0
+    }
+    SCR_BasePreviewEntry "{696B1C77347F01F6}" {
+     m_iParentID 0
+     m_Mesh "{7B2420C8BC72373A}Prefabs/Characters/Core/Character_Base_Preview.et"
+     m_Flags 0
+     m_Shape PREFAB
+     m_iPivotID ""
+     m_vScale 1 1 1
+     m_vPosition 3 0 -3
+     m_vAngles 0 0 0
+    }
+   }
+  }
+  LCN_GroupNoiseMortarTargetComponent "{696CA096422A379B}" {
+   m_sImpactProjectilePrefab "{98EC9C526AFBA282}Prefabs/Weapons/Ammo/Ammo_Shell_82mm_HE_O832DU.et"
+   m_sImpactEffectModulePrefab "{3A3331F61766D055}PrefabsEditable/EffectsModules/Mortar/EffectModule_MortarShell.et"
+  }
+ }
+ coords 3651.052 11.75 3095.114
+ m_aUnitPrefabSlots {
+  "{DE94A93490FEC1C0}Prefabs/Characters/Factions/OPFOR/USSR_Army/LCN_Wagner_02_Komandir.et" "{68C1BF78092A70AE}Prefabs/Characters/Factions/OPFOR/USSR_Army/LCN_Wagner_02_Radio.et" "{6928678FF091B8EB}Prefabs/Characters/Factions/OPFOR/USSR_Army/LCN_Wagner_03_Medic.et" "" "" "" ""
+ }
+ m_GroupName "STURM"
+}

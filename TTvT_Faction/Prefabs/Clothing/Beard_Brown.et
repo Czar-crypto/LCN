@@ -1,0 +1,32 @@
+GameEntity : "{C07A52D13353AB2E}Prefabs/Clothing/ZEL_FaceClothing_Base.et" {
+ ID "5D054161007B53E9"
+ components {
+  InventoryItemComponent "{696C7AB01A3D2B46}" {
+   Attributes SCR_ItemAttributeCollection "{696C7AB01A3D2AC7}" {
+    ItemDisplayName UIInfo "{696C7AB01A3D2AC5}" {
+     Name "Beard Brown"
+    }
+   }
+  }
+  MeshObject "{5CDD764EFD8327C0}" {
+   Enabled 0
+  }
+  MeshObject "{696C7AB01A3D2AC8}" {
+   Object "{8B8645F30FD73578}Assets/WIPBEARDV1.xob"
+   Materials {
+    MaterialAssignClass "{696C7AB01A3D2ACE}" {
+     SourceMaterial "Beard"
+     AssignedMaterial "{6CF7DCF94B1B746D}Assets/Data/Beard_brown.emat"
+    }
+   }
+  }
+  BaseLoadoutClothComponent "{5CDD764EFD8327CA}" {
+   Enabled 0
+  }
+  BaseLoadoutClothComponent "{696C7AB01A3D2AF3}" {
+   WornModel "{8B8645F30FD73578}Assets/WIPBEARDV1.xob"
+   ItemModel "{C9B547D1C711AC5E}Assets/WIPBEARDV1_Item.xob"
+  }
+ }
+ coords 119.615 1.045 168.338
+}

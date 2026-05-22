@@ -4,61 +4,36 @@ SCR_AIWorld : "{E0A05C76552E7F58}Prefabs/AI/SCR_AIWorld.et" {
 PerceptionManager PerceptionManager1 : "{028DAEAD63E056BE}Prefabs/World/Game/PerceptionManager.et" {
  coords 2052.465 44.259 2062.422
 }
-EH_LobbyGameMode EH_GameMode_Lobby1 : "{7240BE4FAD1572F0}Prefabs/MP/Modes/EH_GameMode_Lobby.et" {
- coords 3035.654 65.194 1906.575
+SCR_GameModeEditor GameMode_Editor_Full1 : "{DA3986AF1B5032B7}Prefabs/MP/Modes/Editor/GameMode_Editor_Full.et" {
+ coords 2052.595 59.144 2131.751
+ {
+  SCR_FactionManager {
+   ID "56E685E92F1B7E7A"
+   coords -4.337 -1.387 0.496
+  }
+ }
 }
 $grp GenericEntity : "{076FAD5BE2438C19}Prefabs/Interactables/LCN_Objectives/E_LCN_FireDirectionConsole_RF10.et" {
  LCN_FDC_01 {
   components {
    LCN_FireMissionConsoleComponent "{4CA4F1C63C6723C6}" {
-    m_sAllowedFactionKey "RHS_AFRF"
+    m_sAllowedFactionKey ""
     m_sRequiredObjectiveKey ""
     m_sRequiredObjectiveKey2 ""
     m_sRequiredObjectiveKey3 ""
    }
   }
-  coords 2055.224 59.21 2132.242
-  angles 0 -45 0
+  coords 2054.594 62.326 2132.924
+  angles 0 -54.333 0
  }
  {
   coords 2054.378 59.194 2134.774
  }
 }
-GenericEntity : "{6356BFD802DEB290}Prefabs/Characters/Items/DroneCommandStation.et" {
- coords 2053.813 59.272 2131.789
+StaticModelEntity : "{27F67CEC91884895}Prefabs/Interactables/LCN_Objectives/E_LCN_CommsAntenna_BARS.et" {
+ coords 2046.789 1.113 2166.312
  angles 0 0 0
 }
-GenericEntity : "{77CA4803A4A2B8E3}Prefabs/Drones/FPVBase/FPVRPG.et" {
- coords 2053.422 59.275 2133.726
-}
-GameEntity : "{8951045BFE8BC8E4}Prefabs/Characters/HeadGear/FPV_Goggles.et" {
- coords 2052.164 59.13 2132.918
-}
-GenericEntity : "{C07C56F97DAB2DEE}Prefabs/Drones/DJIBase/DJI81Dropper.et" {
- coords 2052.18 59.131 2133.829
-}
-$grp GenericEntity : "{E2434ED1318D8476}Prefabs/Characters/Items/DroneController.et" {
- {
-  coords 2054.169 59.151 2132.543
- }
- {
-  coords 2053.049 59.158 2132.06
- }
-}
-$grp GenericEntity : "{F584C3AE107C825F}Prefabs/Interactables/LCN_Objectives/E_LCN_DroneVideoMonitor_RF10.et" {
- {
-  coords 2055.832 59.204 2132.966
-  angles 0 -48.54 0
- }
- {
-  components {
-   LCN_DroneVideoSourceComponent "{B6848B20374E2392}" {
-    m_bDebug 1
-   }
-  }
-  coords 2056.478 59.201 2134.278
- }
-}
-GenericEntity : "{FDA92D590B9C633B}Prefabs/Drones/DJIBase/DJIBase.et" {
- coords 2054.842 59.193 2133.661
+GenericEntity : "{A5016F5C78B34E12}Prefabs/Interactables/LCN_Objectives/E_LCN_FueledGenerator_RPL5.et" {
+ coords 2047.072 59.243 2137.846
 }

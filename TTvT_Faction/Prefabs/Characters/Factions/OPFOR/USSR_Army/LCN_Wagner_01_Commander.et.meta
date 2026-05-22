@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{7EE8D22B9836145F}Prefabs/Characters/Factions/OPFOR/USSR_Army/LCN_Wagner_01_Commander.et"
+ Configurations {
+  EntityTemplateResourceClass PC {
+  }
+  EntityTemplateResourceClass XBOX_ONE : PC {
+  }
+  EntityTemplateResourceClass XBOX_SERIES : PC {
+  }
+  EntityTemplateResourceClass PS4 : PC {
+  }
+  EntityTemplateResourceClass PS5 : PC {
+  }
+  EntityTemplateResourceClass HEADLESS : PC {
+  }
+ }
+}
