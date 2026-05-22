@@ -1,0 +1,50 @@
+GenericEntity : "{12DFA1CC555DFEF5}Prefabs/Props/Military/Compositions/RadioStation_base.et" {
+ ID "C1CF16D6601257A5"
+ components {
+  LCN_SupportConsoleComponent "{FF0775A19CE46E11}" {
+   m_sActionName "Call support"
+   m_sEffectModulePrefab "{E7B7D4467E9A82DD}PrefabsEditable/EffectsModules/Mortar/EffectModule_Zoned_MortarBarrage_Medium.et"
+   m_fEffectDelay 10
+   m_bOneUse 1
+   m_fCooldown 0
+   m_sAllowedFactionKey ""
+   m_bAcceptInheritedFaction 1
+   m_sEffectTargetEntityName "TARGET_1"
+   m_bRequireEffectTargetEntity 1
+   m_sRequiredAliveEntityName ""
+   m_sBlockingAliveEntityName ""
+   m_sRequiredObjectiveKey "LCN_COMMS_01"
+   m_sRequiredObjectiveKey2 "LCN_BASE_ALARM_01"
+   m_sRequiredObjectiveKey3 ""
+   m_sBlockingObjectiveKey ""
+   m_bDebug 1
+  }
+  ActionsManagerComponent "{6962BC99199772BD}" {
+   ActionContexts {
+    UserActionContext "{CC249B8F76E062EF}" {
+     ContextName "lcn_support"
+     Position PointInfo "{C648224EDA53BBF5}" {
+      Offset -0.0919 0.1566 0.1094
+     }
+     Radius 0.3
+     Height 0
+     Omnidirectional 1
+    }
+   }
+   additionalActions {
+    LCN_InteractableSupportAction "{E2FE07A6CE66EFCB}" {
+     ParentContextList {
+      "lcn_support"
+     }
+     UIInfo SCR_ActionUIInfo "{8884A7545D8519D3}" {
+      Name "Call support"
+      Description "Requires active alarm and communications"
+     }
+     VisibilityRange 4
+     Duration 3
+    }
+   }
+  }
+ }
+ coords 1365.701 47.895 2961.716
+}

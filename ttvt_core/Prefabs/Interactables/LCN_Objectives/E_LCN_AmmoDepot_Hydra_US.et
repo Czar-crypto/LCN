@@ -1,0 +1,21 @@
+GenericEntity : "{5D5C9864ACE7E573}Prefabs/Props/Military/AmmoBoxes/AmmoBox_P150_Hydra_Container_US/AmmoBox_P150_Hydra_Container_Pallet_US.et" {
+ ID "B21DDC3EABA44BF0"
+ components {
+  LCN_ObjectiveStateComponent "{548D15421A1A443A}" {
+   m_sObjectiveKey "LCN_AMMO_DEPOT_01"
+   m_sRequiredObjectiveKey ""
+   m_bStartActive 1
+   m_bDestroyedMeansInactive 1
+   m_bDebug 1
+  }
+  SCR_DestructionMultiPhaseComponent "{51E082CF9891AD6F}" {
+   Enabled 1
+   "Additional hit zones" {
+    SCR_HitZone Default {
+     "Explosive multiplier" 6
+    }
+   }
+   m_fBaseHealth 1800
+  }
+ }
+}

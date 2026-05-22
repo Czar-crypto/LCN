@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{5BF480E6EB4C3FC0}Prefabs/Characters/Factions/OPFOR/PMC_Custom_Diverse/LCN_PMC_Diverse_05_FieldMedic.et"
+ Configurations {
+  EntityTemplateResourceClass PC {
+  }
+  EntityTemplateResourceClass XBOX_ONE : PC {
+  }
+  EntityTemplateResourceClass XBOX_SERIES : PC {
+  }
+  EntityTemplateResourceClass PS4 : PC {
+  }
+  EntityTemplateResourceClass PS5 : PC {
+  }
+  EntityTemplateResourceClass HEADLESS : PC {
+  }
+ }
+}

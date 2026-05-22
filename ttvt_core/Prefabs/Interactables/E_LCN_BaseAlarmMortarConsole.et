@@ -1,0 +1,49 @@
+GenericEntity : "{12DFA1CC555DFEF5}Prefabs/Props/Military/Compositions/RadioStation_base.et" {
+ ID "2F1991CF70CE016E"
+ components {
+  LCN_SupportConsoleComponent "{23E4844D2E5E6A58}" {
+   m_sActionName "Trigger base alarm"
+   m_sEffectModulePrefab "{5D48E2F7DB0C3714}PrefabsEditable/EffectsModules/Mortar/EffectModule_Zoned_MortarBarrage_Small.et"
+   m_fEffectDelay 10
+   m_bOneUse 0
+   m_fCooldown 0
+   m_sAllowedFactionKey "US"
+   m_bAcceptInheritedFaction 1
+   m_sEffectTargetEntityName "DOM1"
+   m_bRequireEffectTargetEntity 0
+   m_sRequiredAliveEntityName ""
+   m_sBlockingAliveEntityName ""
+   m_sRequiredObjectiveKey "LCN_COMMS_01"
+   m_sRequiredObjectiveKey2 "LCN_BASE_ALARM_01"
+   m_sRequiredObjectiveKey3 ""
+   m_sBlockingObjectiveKey ""
+   m_bDebug 1
+  }
+  ActionsManagerComponent "{6962BC99199772BD}" {
+   ActionContexts {
+    UserActionContext "{2767DDD3528B583A}" {
+     ContextName "lcn_support"
+     Position PointInfo "{4BF6822A6D4ECAD8}" {
+      Offset 0 0.1149 0.1499
+     }
+     Height 0
+     Omnidirectional 1
+    }
+   }
+   additionalActions {
+    LCN_InteractableSupportAction "{A4A70D8B0E8327B1}" {
+     ParentContextList {
+      "lcn_support"
+     }
+     UIInfo SCR_ActionUIInfo "{8A8D097860D2E38D}" {
+     Name "Trigger base alarm"
+     Description "Requires active alarm and communications"
+     }
+     VisibilityRange 4
+     Duration 5
+    }
+   }
+  }
+ }
+ coords 1366.181 47.895 2961.889
+}

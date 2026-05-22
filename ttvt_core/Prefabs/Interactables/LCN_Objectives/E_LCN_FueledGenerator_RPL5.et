@@ -1,0 +1,89 @@
+GenericEntity : "{DC3973E3539A01C1}Prefabs/Structures/Military/Radar/ApproachRadar_RPL5_01/ApproachRadar_RPL5_01_generator.et" {
+ ID "A5016F5C78B34E12"
+ components {
+  LCN_FueledObjectiveComponent "{D0227D65D70E454F}" {
+   m_sObjectiveKey "Gen_1"
+   m_bApplyObjectiveKeyToOwnerObjective 1
+   m_fMaxFuelSeconds 600
+   m_fStartFuelSeconds 600
+   m_fFuelDrainPerSecond 1
+   m_bDisableObjectiveWhenEmpty 1
+   m_bDebug 1
+  }
+  LCN_ObjectiveStateComponent "{0AF383CDB22848B2}" {
+   m_sObjectiveKey "Gen_1"
+   m_sRequiredObjectiveKey ""
+   m_bStartActive 1
+   m_bDestroyedMeansInactive 1
+   m_bDebug 1
+  }
+  RigidBody "{3541A87DF1B54939}" {
+   Enabled 0
+   ResponseIndex "MediumDestructible"
+  }
+  SCR_DestructionMultiPhaseComponent "{5F08B7D0BCB94F80}" {
+   Enabled 1
+   "Additional hit zones" {
+    SCR_HitZone Default {
+     "Explosive multiplier" 5
+    }
+   }
+   m_fBaseHealth 2200
+  }
+  ActionsManagerComponent "{52984243041D4DCE}" {
+   ActionContexts {
+    UserActionContext "{18B23664EA9940C0}" {
+     ContextName "lcn_fueled_generator"
+     Position PointInfo "{577748E1D4A0469D}" {
+      Offset -0.7672 1 -2.4282
+     }
+     Radius 0.6
+     Height 0
+     Omnidirectional 1
+    }
+   }
+   additionalActions {
+    LCN_DisableObjectiveAction "{4C3594B7417F42E2}" {
+     ParentContextList {
+      "lcn_fueled_generator"
+     }
+     UIInfo SCR_ActionUIInfo "{CA072564179E48CF}" {
+      Name "Shut down generator"
+      Description "Silently stop the fueled generator"
+     }
+     VisibilityRange 4
+     Duration 10
+     m_sActionName "Shut down generator"
+     m_sTargetObjectiveKey "Gen_1"
+     m_sTargetEntityName ""
+     m_sAllowedFactionKey "USSR"
+     m_bAcceptInheritedFaction 1
+     m_bOneUse 0
+     m_bDebug 1
+    }
+    LCN_StartFueledObjectiveAction "{5743D09D72FE4C23}" {
+     ParentContextList {
+      "lcn_fueled_generator"
+     }
+     UIInfo SCR_ActionUIInfo "{77D56C25A5B94B46}" {
+      Name "Start generator"
+      Description "Start the generator if fuel is available"
+     }
+     VisibilityRange 4
+     Duration 8
+     m_sActionName "Start generator"
+     m_sTargetObjectiveKey "Gen_1"
+     m_sTargetEntityName ""
+     m_sAllowedFactionKey "US"
+     m_bAcceptInheritedFaction 1
+     m_bOneUse 0
+     m_bDebug 1
+    }
+   }
+  }
+  RplComponent "{A0FE82E3D0964D9D}" {
+   Enabled 1
+  }
+ }
+ coords 1377.745 38.469 2927.319
+}

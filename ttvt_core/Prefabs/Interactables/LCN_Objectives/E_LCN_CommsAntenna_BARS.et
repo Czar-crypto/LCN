@@ -1,0 +1,45 @@
+StaticModelEntity : "{82CCE96E35DC6A6F}Prefabs/Structures/Military/Antennas/Antenna_BARS_01/Antenna_BARS_01_transmitter.et" {
+ ID "27F67CEC91884895"
+ components {
+  LCN_ObjectiveStateComponent "{E04E4B2A40414BBA}" {
+   m_sObjectiveKey "LCN_COMMS_01"
+   m_sRequiredObjectiveKey "Gen_1"
+   m_bStartActive 1
+   m_bDestroyedMeansInactive 1
+   m_fInactiveHealthScaledThreshold 0.35
+   m_bDebug 1
+  }
+  SCR_DestructionMultiPhaseComponent "{61349B73AE8FC1A2}" {
+   "Additional hit zones" {
+    SCR_HitZone hz {
+     ColliderNames +{
+     }
+     "Explosive multiplier" 4
+    }
+   }
+   m_fBaseHealth 6000
+   m_fDamageThresholdMaximum 12000
+  }
+  SlotManagerComponent "{6962C459EEFB66F8}" {
+   Slots {
+    EntitySlotInfo Radio {
+     Offset -1.6219 34.7563 1.2341
+     Angles 0 121.8808 0
+     Prefab "{EC1F00DCCFCF4B14}Prefabs/Interactables/LCN_Objectives/E_LCN_CommsRadio_RF10_Disable.et"
+    }
+    EntitySlotInfo Box {
+     Offset -1.6259 33.7561 1.2295
+     Prefab "{6FD54E69CFDD6B07}Prefabs/Props/Industrial/BarrelFuel_01_closed_old.et"
+    }
+   }
+  }
+  RplComponent "{6134B407B859607F}" {
+   Enabled 0
+  }
+  RplComponent "{617CD4B5CE084E1A}" {
+   Enabled 1
+  }
+ }
+ coords 1302.223 2.152 2916.255
+ angles 0 -12.895 0
+}

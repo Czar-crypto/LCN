@@ -1,0 +1,311 @@
+FrameWidgetClass {
+ Name "rootFrame"
+ components {
+  LCN_FireMissionTerminalWidgetComponent "{1E6F47660E34355D}" {
+  }
+ }
+ {
+  BlurWidgetClass "{6AE2A44AF59B3371}" : "{352322057FD78AE1}UI/layouts/WidgetLibrary/BaseElements/WLib_Blur.layout" {
+   Name "Blur"
+   Slot FrameWidgetSlot "{6AE2A44AF59B3372}" {
+    SizeX 0
+    OffsetRight 0
+    SizeY 0
+    OffsetBottom 0
+   }
+  }
+  SizeLayoutWidgetClass "{6AE2A44AF59B3373}" {
+   Name "TerminalSize"
+   Slot FrameWidgetSlot "{6AE2A44AF59B3374}" {
+    Anchor 0.5 0.5 0.5 0.5
+    Alignment 0.5 0.5
+    SizeToContent 1
+   }
+   AllowWidthOverride 1
+   WidthOverride 920
+   {
+    OverlayWidgetClass "{6AE2A44AF59B3375}" {
+     Name "TerminalPanel"
+     Slot AlignableSlot "{6AE2A44AF59B3376}" {
+      HorizontalAlign 3
+      VerticalAlign 3
+     }
+     {
+      ImageWidgetClass "{6AE2A44AF59B3377}" {
+       Name "PanelBackground"
+       Slot OverlayWidgetSlot "{6AE2A44AF59B3378}" {
+        HorizontalAlign 3
+        VerticalAlign 3
+       }
+       Color 0.008 0.011 0.010 0.96
+      }
+      VerticalLayoutWidgetClass "{6AE2A44AF59B3379}" {
+       Name "MainLayout"
+       Slot OverlayWidgetSlot "{6AE2A44AF59B3380}" {
+        HorizontalAlign 3
+        VerticalAlign 3
+       }
+       {
+        VerticalLayoutWidgetClass "{6AE2A44AF59B3381}" {
+         Name "Header"
+         Slot LayoutSlot "{6AE2A44AF59B3382}" {
+          HorizontalAlign 3
+          Padding 30 28 30 10
+         }
+         {
+          RichTextWidgetClass "{6AE2A44AF59B3383}" {
+           Name "TitleText"
+           Slot LayoutSlot "{6AE2A44AF59B3384}" {
+            HorizontalAlign 3
+           }
+           Text "FIRE DIRECTION TERMINAL"
+           Color 0.88 0.93 0.86 1
+          }
+          RichTextWidgetClass "{6AE2A44AF59B3385}" {
+           Name "StatusText"
+           Slot LayoutSlot "{6AE2A44AF59B3386}" {
+            HorizontalAlign 3
+            Padding 0 10 0 0
+           }
+           Text "FDC: no target"
+           Color 0.65 0.78 0.62 1
+          }
+         }
+        }
+        VerticalLayoutWidgetClass "{6AE2A44AF59B3387}" {
+         Name "Content"
+         Slot LayoutSlot "{6AE2A44AF59B3388}" {
+          HorizontalAlign 3
+          Padding 30 0 30 30
+         }
+         {
+          HorizontalLayoutWidgetClass "{6AE2A44AF59B3389}" {
+           Name "CoordinateRow"
+           Slot LayoutSlot "{6AE2A44AF59B3390}" {
+            HorizontalAlign 3
+            Padding 0 0 0 14
+           }
+           {
+            ButtonWidgetClass "{6AE2A44AF59B3391}" : "{0022F0B45ADBC5AC}UI/layouts/WidgetLibrary/EditBox/WLib_EditBox.layout" {
+             Name "CoordX"
+             Slot LayoutSlot "{6AE2A44AF59B3392}" {
+              HorizontalAlign 3
+              Padding 0 0 8 0
+              SizeMode Fill
+              FillWeight 1
+             }
+             components {
+              SCR_EditBoxComponent "{547290FFBD5B33E9}" {
+               m_sLabel "Grid X"
+               m_sWarningText "Enter map X coordinate"
+              }
+             }
+            }
+            ButtonWidgetClass "{6AE2A44AF59B3393}" : "{0022F0B45ADBC5AC}UI/layouts/WidgetLibrary/EditBox/WLib_EditBox.layout" {
+             Name "CoordZ"
+             Slot LayoutSlot "{6AE2A44AF59B3394}" {
+              HorizontalAlign 3
+              Padding 8 0 8 0
+              SizeMode Fill
+              FillWeight 1
+             }
+             components {
+              SCR_EditBoxComponent "{547290FFBD5B33E9}" {
+               m_sLabel "Grid Z"
+               m_sWarningText "Enter map Z coordinate"
+              }
+             }
+            }
+            ButtonWidgetClass "{6AE2A44AF59B3395}" : "{C42847838185932E}UI/layouts/WidgetLibrary/Buttons/WLib_InputButton.layout" {
+             Name "SetTarget"
+             Slot LayoutSlot "{6AE2A44AF59B3396}" {
+              HorizontalAlign 3
+              Padding 8 0 0 0
+              SizeMode Fill
+              FillWeight 0.82
+             }
+             components {
+              SCR_InputButtonComponent "{5D346C3DD81D95CD}" {
+               m_sActionName "MenuSelect"
+               m_sLabel "SET TARGET"
+               m_iHeightInPixel 48
+              }
+             }
+            }
+           }
+          }
+          HorizontalLayoutWidgetClass "{6AE2A44AF59B3397}" {
+           Name "MissionRow"
+           Slot LayoutSlot "{6AE2A44AF59B3398}" {
+            HorizontalAlign 3
+            Padding 0 0 0 14
+           }
+           {
+            ButtonWidgetClass "{6AE2A44AF59B3399}" : "{C42847838185932E}UI/layouts/WidgetLibrary/Buttons/WLib_InputButton.layout" {
+             Name "LoadMarker"
+             Slot LayoutSlot "{6AE2A44AF59B33A0}" {
+              HorizontalAlign 3
+              Padding 0 0 8 0
+              SizeMode Fill
+              FillWeight 1
+             }
+             components {
+              SCR_InputButtonComponent "{5D346C3DD81D95CD}" {
+               m_sActionName "MenuSelect"
+               m_sLabel "LOAD MARKER"
+               m_iHeightInPixel 48
+              }
+             }
+            }
+            ButtonWidgetClass "{6AE2A44AF59B33A1}" : "{C42847838185932E}UI/layouts/WidgetLibrary/Buttons/WLib_InputButton.layout" {
+             Name "Spotting"
+             Slot LayoutSlot "{6AE2A44AF59B33A2}" {
+              HorizontalAlign 3
+              Padding 8 0 8 0
+              SizeMode Fill
+              FillWeight 1
+             }
+             components {
+              SCR_InputButtonComponent "{5D346C3DD81D95CD}" {
+               m_sActionName "MenuSelect"
+               m_sLabel "SPOTTING ROUND"
+               m_iHeightInPixel 48
+              }
+             }
+            }
+            ButtonWidgetClass "{6AE2A44AF59B33A3}" : "{C42847838185932E}UI/layouts/WidgetLibrary/Buttons/WLib_InputButton.layout" {
+             Name "FireForEffect"
+             Slot LayoutSlot "{6AE2A44AF59B33A4}" {
+              HorizontalAlign 3
+              Padding 8 0 0 0
+              SizeMode Fill
+              FillWeight 1
+             }
+             components {
+              SCR_InputButtonComponent "{5D346C3DD81D95CD}" {
+               m_sActionName "MenuSelectHold"
+               m_sLabel "FIRE FOR EFFECT"
+               m_iHeightInPixel 48
+              }
+             }
+            }
+           }
+          }
+          HorizontalLayoutWidgetClass "{6AE2A44AF59B33A5}" {
+           Name "CorrectionRow"
+           Slot LayoutSlot "{6AE2A44AF59B33A6}" {
+            HorizontalAlign 3
+            Padding 0 0 0 14
+           }
+           {
+            ButtonWidgetClass "{6AE2A44AF59B33A7}" : "{C42847838185932E}UI/layouts/WidgetLibrary/Buttons/WLib_InputButton.layout" {
+             Name "CorrectLeft"
+             Slot LayoutSlot "{6AE2A44AF59B33A8}" {
+              HorizontalAlign 3
+              Padding 0 0 8 0
+              SizeMode Fill
+              FillWeight 1
+             }
+             components {
+              SCR_InputButtonComponent "{5D346C3DD81D95CD}" {
+               m_sActionName "MenuSelect"
+               m_sLabel "< LEFT"
+               m_iHeightInPixel 48
+              }
+             }
+            }
+            ButtonWidgetClass "{6AE2A44AF59B33A9}" : "{C42847838185932E}UI/layouts/WidgetLibrary/Buttons/WLib_InputButton.layout" {
+             Name "CorrectRight"
+             Slot LayoutSlot "{6AE2A44AF59B33AA}" {
+              HorizontalAlign 3
+              Padding 8 0 8 0
+              SizeMode Fill
+              FillWeight 1
+             }
+             components {
+              SCR_InputButtonComponent "{5D346C3DD81D95CD}" {
+               m_sActionName "MenuSelect"
+               m_sLabel "RIGHT >"
+               m_iHeightInPixel 48
+              }
+             }
+            }
+            ButtonWidgetClass "{6AE2A44AF59B33AB}" : "{C42847838185932E}UI/layouts/WidgetLibrary/Buttons/WLib_InputButton.layout" {
+             Name "CorrectAdd"
+             Slot LayoutSlot "{6AE2A44AF59B33AC}" {
+              HorizontalAlign 3
+              Padding 8 0 8 0
+              SizeMode Fill
+              FillWeight 1
+             }
+             components {
+              SCR_InputButtonComponent "{5D346C3DD81D95CD}" {
+               m_sActionName "MenuSelect"
+               m_sLabel "ADD +"
+               m_iHeightInPixel 48
+              }
+             }
+            }
+            ButtonWidgetClass "{6AE2A44AF59B33AD}" : "{C42847838185932E}UI/layouts/WidgetLibrary/Buttons/WLib_InputButton.layout" {
+             Name "CorrectDrop"
+             Slot LayoutSlot "{6AE2A44AF59B33AE}" {
+              HorizontalAlign 3
+              Padding 8 0 0 0
+              SizeMode Fill
+              FillWeight 1
+             }
+             components {
+              SCR_InputButtonComponent "{5D346C3DD81D95CD}" {
+               m_sActionName "MenuSelect"
+               m_sLabel "DROP -"
+               m_iHeightInPixel 48
+              }
+             }
+            }
+           }
+          }
+          HorizontalLayoutWidgetClass "{6AE2A44AF59B33AF}" {
+           Name "FooterRow"
+           Slot LayoutSlot "{6AE2A44AF59B33B0}" {
+            HorizontalAlign 2
+            Padding 0 12 0 0
+           }
+           {
+            ButtonWidgetClass "{6AE2A44AF59B33B1}" : "{C42847838185932E}UI/layouts/WidgetLibrary/Buttons/WLib_InputButton.layout" {
+             Name "ClearMission"
+             Slot LayoutSlot "{6AE2A44AF59B33B2}" {
+              Padding 0 0 8 0
+             }
+             components {
+              SCR_InputButtonComponent "{5D346C3DD81D95CD}" {
+               m_sActionName "MenuSelect"
+               m_sLabel "CLEAR"
+               m_iHeightInPixel 48
+              }
+             }
+            }
+            ButtonWidgetClass "{6AE2A44AF59B33B3}" : "{C42847838185932E}UI/layouts/WidgetLibrary/Buttons/WLib_InputButton.layout" {
+             Name "CloseTerminal"
+             Slot LayoutSlot "{6AE2A44AF59B33B4}" {
+              Padding 8 0 0 0
+             }
+             components {
+              SCR_InputButtonComponent "{5D346C3DD81D95CD}" {
+               m_sActionName "MenuBack"
+               m_sLabel "CLOSE"
+               m_iHeightInPixel 48
+              }
+             }
+            }
+           }
+          }
+         }
+        }
+       }
+      }
+     }
+    }
+   }
+  }
+ }
+}

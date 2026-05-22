@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{D45C1E1487AB025B}Prefabs/Interactables/E_LCN_InteractableSupportConsole_ARTA.et"
+ Configurations {
+  ETResourceClass PC {
+  }
+  ETResourceClass XBOX_ONE : PC {
+  }
+  ETResourceClass XBOX_SERIES : PC {
+  }
+  ETResourceClass PS4 : PC {
+  }
+  ETResourceClass PS5 : PC {
+  }
+  ETResourceClass HEADLESS : PC {
+  }
+ }
+}

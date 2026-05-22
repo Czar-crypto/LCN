@@ -1,0 +1,16 @@
+LCN_MortarStrikeTriggerEntity {
+ ID "6960FEB64C67EE4B"
+ coords 1555.75 42.064 2387.999
+ m_sEffectModulePrefab "{5D48E2F7DB0C3714}PrefabsEditable/EffectsModules/Mortar/EffectModule_Zoned_MortarBarrage_Small.et"
+ m_fInitialEffectDelay 2
+ m_bAllowRetrigger 0
+ m_sTriggerFactionKey ""
+ m_bAcceptInheritedFaction 1
+ m_bRequireBlockingFactionCleared 0
+ m_bRequireOnlyTriggerFactionPresent 0
+ m_sBlockingFactionKey ""
+ m_bAcceptInheritedBlockingFaction 1
+ m_fTriggerRadius 25
+ m_fRequiredPresenceTime 30
+ m_fCheckPeriod 0.25
+}

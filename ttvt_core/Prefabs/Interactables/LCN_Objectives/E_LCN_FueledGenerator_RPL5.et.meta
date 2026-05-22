@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{A5016F5C78B34E12}Prefabs/Interactables/LCN_Objectives/E_LCN_FueledGenerator_RPL5.et"
+ Configurations {
+  ETResourceClass PC {
+  }
+  ETResourceClass XBOX_ONE : PC {
+  }
+  ETResourceClass XBOX_SERIES : PC {
+  }
+  ETResourceClass PS4 : PC {
+  }
+  ETResourceClass PS5 : PC {
+  }
+  ETResourceClass HEADLESS : PC {
+  }
+ }
+}

@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{D181993FAFDE23F3}Prefabs/Characters/Factions/OPFOR/PMC_Fortex_Only/LCN_PMC_Fortex_07_BronikMix.et"
+ Configurations {
+  EntityTemplateResourceClass PC {
+  }
+  EntityTemplateResourceClass XBOX_ONE : PC {
+  }
+  EntityTemplateResourceClass XBOX_SERIES : PC {
+  }
+  EntityTemplateResourceClass PS4 : PC {
+  }
+  EntityTemplateResourceClass PS5 : PC {
+  }
+  EntityTemplateResourceClass HEADLESS : PC {
+  }
+ }
+}

@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{AD5A5C56F9A14721}Prefabs/Triggers/CombatActivityMortar/GroupNoise/E_LCN_GroupNoiseMortarTarget_250.et"
+ Configurations {
+  ETResourceClass PC {
+  }
+  ETResourceClass XBOX_ONE : PC {
+  }
+  ETResourceClass XBOX_SERIES : PC {
+  }
+  ETResourceClass PS4 : PC {
+  }
+  ETResourceClass PS5 : PC {
+  }
+  ETResourceClass HEADLESS : PC {
+  }
+ }
+}

@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{87D8DA9509641F6D}Prefabs/Characters/Factions/OPFOR/PMC_Custom/LCN_PMC_Custom_04_Engineer.et"
+ Configurations {
+  EntityTemplateResourceClass PC {
+  }
+  EntityTemplateResourceClass XBOX_ONE : PC {
+  }
+  EntityTemplateResourceClass XBOX_SERIES : PC {
+  }
+  EntityTemplateResourceClass PS4 : PC {
+  }
+  EntityTemplateResourceClass PS5 : PC {
+  }
+  EntityTemplateResourceClass HEADLESS : PC {
+  }
+ }
+}

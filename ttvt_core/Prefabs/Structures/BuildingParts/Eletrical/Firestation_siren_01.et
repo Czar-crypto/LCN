@@ -1,0 +1,12 @@
+GenericEntity : "{533AC2E8A0F5272A}Prefabs/Structures/BuildingParts/BuildingParts_Base.et" {
+ ID "5111E74D4E7A8DB6"
+ components {
+  MeshObject "{5111E74D5E891458}" {
+   Object "{9D3B6683A20BCF9D}Assets/Structures/BuildingsParts/Electrical/Firestation/Firestation_siren_01.xob"
+  }
+  RigidBody "{5111E74C06F5C1E1}" {
+   ResponseIndex "MediumDestructible"
+  }
+ }
+ coords 9874.438 4.14 1491.361
+}

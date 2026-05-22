@@ -1,0 +1,61 @@
+GenericEntity : "{DC3973E3539A01C1}Prefabs/Structures/Military/Radar/ApproachRadar_RPL5_01/ApproachRadar_RPL5_01_generator.et" {
+ ID "48B089D8C6824C11"
+ components {
+  LCN_ObjectiveStateComponent "{9991A261EF164D9E}" {
+   m_sObjectiveKey "Gen_1"
+   m_sRequiredObjectiveKey ""
+   m_bStartActive 1
+   m_bDestroyedMeansInactive 1
+   m_bDebug 1
+  }
+  RigidBody "{5872F0EB7DFB5A9D}" {
+   ResponseIndex "MediumDestructible"
+  }
+  SCR_DestructionMultiPhaseComponent "{E6A48E304D834F04}" {
+   Enabled 1
+   "Additional hit zones" {
+    SCR_HitZone Default {
+     "Explosive multiplier" 5
+    }
+   }
+   m_fBaseHealth 2200
+  }
+  ActionsManagerComponent "{D9381E59D72147E2}" {
+   ActionContexts {
+    UserActionContext "{0DB3D474A0A64D48}" {
+     ContextName "lcn_disable_generator"
+     Position PointInfo "{6644C8A29A45459D}" {
+      Offset -0.7672 1 -2.4282
+     }
+     Radius 0.6
+     Height 0
+     Omnidirectional 1
+    }
+   }
+   additionalActions {
+    LCN_DisableObjectiveAction "{C59C46C220024C36}" {
+     ParentContextList {
+      "lcn_disable_generator"
+     }
+     UIInfo SCR_ActionUIInfo "{3144737B3AF845D8}" {
+      Name "Shut down generator"
+      Description "Silently disable the generator objective"
+     }
+     VisibilityRange 4
+     Duration 10
+     m_sActionName "Shut down generator"
+     m_sTargetObjectiveKey ""
+     m_sTargetEntityName ""
+     m_sAllowedFactionKey "USSR"
+     m_bAcceptInheritedFaction 1
+     m_bOneUse 1
+     m_bDebug 1
+    }
+   }
+  }
+  RplComponent "{5624A88DC2D9928D}" {
+   Enabled 1
+  }
+ }
+ coords 1373.719 38.113 2938.829
+}

@@ -1,0 +1,29 @@
+GenericEntity : "{95CB42A26DE581B0}Prefabs/Items/Equipment/Backpacks/backpack_511_rush12/Backpack_511_rush12_base.et" {
+ ID "511E9C6ADE70F798"
+ components {
+  SCR_UniversalInventoryStorageComponent "{5222CB03A40528FA}" {
+   Attributes SCR_ItemAttributeCollection "{5222CB039E9715D1}" {
+    ItemDisplayName UIInfo "{5222CB03904B414C}" {
+     Name "#RHS-Backpack_511rush12_Name - #RHS-Color_BLK"
+    }
+   }
+   MultiSlots {
+    MultiSlotConfiguration "{696AA47561295A42}" {
+     SlotTemplate InventoryStorageSlot RDG {
+      Prefab "{645C73791ECA1698}Prefabs/Weapons/Grenades/Grenade_RGD5.et"
+     }
+     NumSlots 10
+    }
+   }
+  }
+  BaseLoadoutClothComponent "{511E9C6ADE70F7BB}" {
+   WornMaterialsOverride {
+    "{305F7AAD205EC966}Assets/Items/Equipment/Backpacks/511_Rush12_Backpack/data/511rush_blk.emat"
+   }
+   ItemMaterialsOverride {
+    "{305F7AAD205EC966}Assets/Items/Equipment/Backpacks/511_Rush12_Backpack/data/511rush_blk.emat"
+   }
+  }
+ }
+ coords 2057.481 59.219 2130.502
+}

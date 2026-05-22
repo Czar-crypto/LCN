@@ -1,0 +1,76 @@
+GenericEntity : "{868C7143DB9A4A37}Prefabs/Structures/BuildingParts/Eletrical/Firestation_siren_01.et" {
+ ID "2B52B04072C39B45"
+ components {
+  SignalsManagerComponent "{228CDDD84CE985DA}" {
+  }
+  SoundComponent "{B2B14A8CB24B6303}" {
+   Filenames {
+    "{6F18248533DE2C10}Sounds/Structures/Military/Sirens/Structures_Siren.acp"
+   }
+   DistanceManagement 0
+   IncludeInactive 1
+   SoundPoints {
+    SoundPointInfo Siren {
+     Offset 0 0.35 0
+    }
+   }
+  }
+  LCN_BaseAlarmSirenComponent "{D705ACFB3383D7AA}" {
+   m_sAlarmObjectiveKey "LCN_BASE_ALARM_01"
+   m_sRequiredObjectiveKey ""
+   m_fAlarmDuration 30
+   m_sSoundEventName "SOUND_SIREN_LP"
+   m_sSoundProject "{6F18248533DE2C10}Sounds/Structures/Military/Sirens/Structures_Siren.acp"
+   m_fSoundRetriggerPeriod 8
+   m_bDebug 1
+  }
+  LCN_ObjectiveStateComponent "{738B8C5FE907CDE4}" {
+   m_sObjectiveKey "LCN_BASE_ALARM_01"
+   m_sRequiredObjectiveKey ""
+   m_bStartActive 0
+   m_bDestroyedMeansInactive 1
+   m_fInactiveHealthScaledThreshold 0
+   m_bDebug 1
+  }
+  ActionsManagerComponent "{4338347ED54BAE9C}" {
+   ActionContexts {
+    UserActionContext "{5ACEAF385A7EAE3E}" {
+     ContextName "lcn_base_alarm"
+     Position PointInfo "{955984734F2BBDD2}" {
+      Offset 0 0.35 0
+     }
+     Radius 0.4
+     Height 0
+     Omnidirectional 1
+    }
+   }
+   additionalActions {
+    LCN_SetObjectiveAction "{A990B162BF00E3D8}" {
+     ParentContextList {
+      "lcn_base_alarm"
+     }
+     UIInfo SCR_ActionUIInfo "{0943F17D0A18E034}" {
+      Name "Activate base alarm"
+      Description "Start the base alarm if power is online"
+     }
+     VisibilityRange 4
+     Duration 3
+     m_sActionName "Activate base alarm"
+     m_sTargetObjectiveKey "LCN_BASE_ALARM_01"
+     m_sTargetEntityName ""
+     m_bSetActive 1
+     m_sRequiredObjectiveKey "Gen_1"
+     m_sAllowedFactionKey "US"
+     m_bAcceptInheritedFaction 1
+     m_bOneUse 0
+     m_bDebug 1
+    }
+   }
+  }
+  RplComponent "{4E4DB4BD11713084}" {
+   Enabled 1
+  }
+ }
+ coords 1363.255 47.924 2964.743
+ angles 0 -15 0
+}

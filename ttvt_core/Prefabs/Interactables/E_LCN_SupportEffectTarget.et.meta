@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{9670E8F8BB52056B}Prefabs/Interactables/E_LCN_SupportEffectTarget.et"
+ Configurations {
+  ETResourceClass PC {
+  }
+  ETResourceClass XBOX_ONE : PC {
+  }
+  ETResourceClass XBOX_SERIES : PC {
+  }
+  ETResourceClass PS4 : PC {
+  }
+  ETResourceClass PS5 : PC {
+  }
+  ETResourceClass HEADLESS : PC {
+  }
+ }
+}

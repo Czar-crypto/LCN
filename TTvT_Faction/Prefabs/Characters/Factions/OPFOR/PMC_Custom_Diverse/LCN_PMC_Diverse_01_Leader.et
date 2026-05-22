@@ -1,0 +1,99 @@
+SCR_ChimeraCharacter : "{37578B1666981FCE}Prefabs/Characters/Core/Character_Base.et" {
+ ID "02FA3F3F19A961D4"
+ components {
+  SCR_CommunicationSoundComponent "{54FD05D0C92D071F}" {
+   Filenames {
+    "{B42CA0D861799AE9}Sounds/RadioProtocol/RadioProtocol_Report_RU.acp" "{B9FE251CCD133367}Sounds/RadioProtocol/RadioProtocol_Movement_RU.acp" "{BB0B5594F3102B9F}Sounds/RadioProtocol/RadioProtocol_Confirmations_RU.acp" "{B3A7EF95B5D7D620}Sounds/RadioProtocol/RadioProtocol_Combat_RU.acp" "{30C6D89341B1EA1A}Sounds/Character/Character_Voice_Code.acp" "{C9BE186498C3B447}Sounds/Character/Character_Voice_Animations.acp" "{A34E22579FE69E03}Sounds/RadioProtocol/RadioProtocol_Actions_RU.acp" "{3D410BABAA71418D}Sounds/RadioProtocol/RadioProtocol_Report_2_RU.acp" "{20418BE22B3B9008}Sounds/VO/SP01/VO_Ambient.acp" "{44EED84235D5EB87}Sounds/VO/KS/Ingame/VO_KS_SovietOfficer_Direct.acp"
+   }
+  }
+  EH_LobbyCharacterComponent "{6554FDD43DB961CC}" {
+   m_IsPlayable 1
+   m_Name "Leader"
+  }
+  SCR_CharacterFactionAffiliationComponent "{694D265BCA992E09}" {
+   "faction affiliation" "USSR"
+  }
+  SCR_EditableCharacterComponent "{520EA1D2F659C85C}" {
+   m_UIInfo SCR_EditableEntityUIInfo "{5298E609432D192D}" {
+    Name "LCN PMC Diverse Leader"
+    Icon "{A489F552FB7489C3}UI/Textures/Editor/EditableEntities/Characters/EditableEntity_Character_Custom.edds"
+    m_sFaction "USSR"
+    m_aAuthoredLabels + {
+     ENTITYTYPE_CHARACTER FACTION_USSR
+    }
+    m_aAutoLabels {
+    }
+   }
+  }
+  SCR_ExtendedCharacterIdentityComponent "{5AEEA3C8B2AA118B}" {
+   m_iMaxRandomAge 38
+  }
+  CharacterWeaponSlotComponent "{520EA1D2F659CFAB}" {
+   WeaponSlotIndex 0
+  }
+  CharacterWeaponSlotComponent "{520EA1D2F659CFB7}" {
+   WeaponSlotIndex 1
+  }
+  SCR_CharacterIdentityComponent "{5584CBC63E092DBC}" {
+   Identity Identity "{5584CBC6363C648B}" {
+    VisualIdentity VisualIdentity "{56E6D9456009D1C4}" {
+     Head "{2F3375E395C46AB3}Prefabs/Characters/Heads/Head_BaseBody_01.et"
+     Body "{0023F898C0FF18AA}Prefabs/Characters/Basebody/CharacterBasebody.et"
+    }
+    SoundIdentity SoundIdentity "{56E6D945D8F79290}" {
+     VoiceID 100
+    }
+   }
+  }
+  BaseLoadoutManagerComponent "{520EA1D2DB11821E}" {
+   Slots {
+    LoadoutSlotInfo Hat {
+     Prefab "{488E3EBBDEF3F3D4}Prefabs/Characters/HeadGear/Helm/LshZ/Helmet_LshZ_HeadPhones_Skladnie_Oliva_v2.et"
+    }
+    LoadoutSlotInfo Jacket {
+     Prefab "{3A19A3722C4CAAD5}Prefabs/Characters/Uniform/Jacket/Tor/MI_TOR_FG.et"
+    }
+    LoadoutSlotInfo ArmoredVest {
+     Prefab "{BB469CA61FDCB743}Prefabs/Characters/Vest/TV110/TV110_V1_MC_Custom_V1(Comandir).et"
+    }
+    LoadoutSlotInfo Pants {
+     Prefab "{2781A287DD848C7F}Prefabs/Characters/Uniform/Tactical_Pants/G3_V2/G3_Rusich_FG.et"
+    }
+    LoadoutSlotInfo Boots {
+     Prefab "{278F5A6B40EC0216}Prefabs/Characters/Uniform/Footwear/LowaBoots/Lowa_boots_Tan.et"
+    }
+    LoadoutSlotInfo Back {
+     Prefab "{01AA1CAEAF7E64DA}Prefabs/Characters/Ratnik/6B45 Vest/Molly_Bag_EMR_RatnikOP_V3.et"
+    }
+    LoadoutSlotInfo Vest {
+     Prefab "{ADEE56F5AF5F88BA}Prefabs/Characters/Vest/TV110/TV110_PounchV2_FG.et"
+    }
+    LoadoutSlotInfo HandWear {
+     Prefab "{0FE42F6C09C6C0C5}Prefabs/Characters/Uniform/Handwear/Gloves_Rus_tan.et"
+    }
+    LoadoutSlotInfo Head {
+     Prefab "{C54221F666A35899}Prefabs/Characters/HeadGear/Baff/Baff_Tan.et"
+    }
+    LoadoutSlotInfo Extra {
+     Prefab "{A6E851E97DD5B406}Prefabs/Characters/Vest/TV110/Parts/GroinProtectors/A-21/MarsArmaA-21V2_MC2.et"
+    }
+    LoadoutSlotInfo Extra2 {
+     Prefab "{96D21A4DE2896764}Prefabs/Characters/Vest/TV110/Parts/Tourniquet/Tourniquet_Sholder_Left.et"
+    }
+    LoadoutSlotInfo Waist {
+     Prefab "{6954184A90C6B7BB}Prefabs/Characters/Uniform/Belt/warbeltV2 atacs-FG.et"
+    }
+   }
+  }
+  SCR_InventoryStorageManagerComponent "{520EA1D2DB118DE5}" {
+   InitialInventoryItems {
+    ItemsInitConfigurationItem "{C5CEBD4F81A8BF86}" {
+     TargetStorage "Jacket/MI_TOR_FG.et"
+     PrefabsToSpawn {
+      "{35121D232FE844C4}Prefabs/Items/Equipment/Maps/Map_Paper_01/PaperMap_01_folded_USSR_PDA.et" "{3DD801347D0E7CCA}Prefabs/Items/Equipment/Radios/Radio_R187P1_OLD_Komandirskay.et" "{7C53E6DE2E4BD8CB}Prefabs/Items/Equipment/Watches/Watch_GarminTactixBravo.et" "{C3F1FA1E2EC2B345}Prefabs/Items/Medicine/FieldDressing_01/FieldDressing_USSR_01.et" "{80E75A71C29190DB}Prefabs/Items/Medicine/Tourniquet_01/Tourniquet_USSR_01.et"
+     }
+    }
+   }
+  }
+ }
+}

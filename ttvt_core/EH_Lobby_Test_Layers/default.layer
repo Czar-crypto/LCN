@@ -1,0 +1,39 @@
+SCR_AIWorld : "{E0A05C76552E7F58}Prefabs/AI/SCR_AIWorld.et" {
+ coords 2047.145 43.435 2060.314
+}
+PerceptionManager PerceptionManager1 : "{028DAEAD63E056BE}Prefabs/World/Game/PerceptionManager.et" {
+ coords 2052.465 44.259 2062.422
+}
+SCR_GameModeEditor GameMode_Editor_Full1 : "{DA3986AF1B5032B7}Prefabs/MP/Modes/Editor/GameMode_Editor_Full.et" {
+ coords 2052.595 59.144 2131.751
+ {
+  SCR_FactionManager {
+   ID "56E685E92F1B7E7A"
+   coords -4.337 -1.387 0.496
+  }
+ }
+}
+$grp GenericEntity : "{076FAD5BE2438C19}Prefabs/Interactables/LCN_Objectives/E_LCN_FireDirectionConsole_RF10.et" {
+ LCN_FDC_01 {
+  components {
+   LCN_FireMissionConsoleComponent "{4CA4F1C63C6723C6}" {
+    m_sAllowedFactionKey ""
+    m_sRequiredObjectiveKey ""
+    m_sRequiredObjectiveKey2 ""
+    m_sRequiredObjectiveKey3 ""
+   }
+  }
+  coords 2054.594 62.326 2132.924
+  angles 0 -54.333 0
+ }
+ {
+  coords 2054.378 59.194 2134.774
+ }
+}
+StaticModelEntity : "{27F67CEC91884895}Prefabs/Interactables/LCN_Objectives/E_LCN_CommsAntenna_BARS.et" {
+ coords 2046.789 1.113 2166.312
+ angles 0 0 0
+}
+GenericEntity : "{A5016F5C78B34E12}Prefabs/Interactables/LCN_Objectives/E_LCN_FueledGenerator_RPL5.et" {
+ coords 2047.072 59.243 2137.846
+}

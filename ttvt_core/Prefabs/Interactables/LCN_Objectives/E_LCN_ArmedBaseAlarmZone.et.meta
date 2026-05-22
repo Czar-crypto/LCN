@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{ADFB3827E454EE99}Prefabs/Interactables/LCN_Objectives/E_LCN_ArmedBaseAlarmZone.et"
+ Configurations {
+  ETResourceClass PC {
+  }
+  ETResourceClass XBOX_ONE : PC {
+  }
+  ETResourceClass XBOX_SERIES : PC {
+  }
+  ETResourceClass PS4 : PC {
+  }
+  ETResourceClass PS5 : PC {
+  }
+  ETResourceClass HEADLESS : PC {
+  }
+ }
+}

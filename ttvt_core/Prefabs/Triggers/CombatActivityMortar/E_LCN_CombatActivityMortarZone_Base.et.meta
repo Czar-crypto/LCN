@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{C0C8B8D9EAA14F01}Prefabs/Triggers/CombatActivityMortar/E_LCN_CombatActivityMortarZone_Base.et"
+ Configurations {
+  ETResourceClass PC {
+  }
+  ETResourceClass XBOX_ONE : PC {
+  }
+  ETResourceClass XBOX_SERIES : PC {
+  }
+  ETResourceClass PS4 : PC {
+  }
+  ETResourceClass PS5 : PC {
+  }
+  ETResourceClass HEADLESS : PC {
+  }
+ }
+}

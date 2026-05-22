@@ -1,0 +1,75 @@
+GenericEntity : "{070711EC19FDF25E}Prefabs/Characters/Vests/Vest_Type56/Vest_Type56_base.et" {
+ ID "50D8C49B3558F152"
+ components {
+  SignalsManagerComponent "{696B138C1EC9E427}" {
+  }
+  ClothNodeStorageComponent "{696B138C1EC9E7A5}" {
+   Attributes SCR_ItemAttributeCollection "{696B138C1EC9E7A9}" {
+    ItemDisplayName UIInfo "{696B138C1EC9E7A8}" {
+     Name "Smersh vest"
+    }
+    ItemPhysAttributes ItemPhysicalAttributes "{696B138C1EC9E7AE}" {
+     Weight 0.1
+     SizeSetupStrategy Manual
+     ItemDimensions 25 25 25
+     ItemVolume 25001
+    }
+    ItemAnimationAttributes ItemAnimationAttributes "{696B138C1EC9E7AC}" {
+    }
+    CustomAttributes {
+     PreviewRenderAttributes "{696B138C1EC9E7D1}" {
+      CameraOrbitAngles 0 0 0
+      CameraDistanceToItem 3
+      FOV 10
+      PreviewWornModel 1
+      PreviewModel ""
+     }
+    }
+    m_Size SLOT_2x2
+   }
+   Priority 1
+   StoragePurpose 0x40 0
+   CapacityCoefficient 100
+  }
+  MeshObject "{5312D798A817A294}" {
+   Object "{3432051903D69544}Assets/Empty/Empty.xob"
+   LODFactors {
+   }
+  }
+  SCR_UniversalInventoryStorageComponent "{56F28B905B975CAA}" {
+   Enabled 0
+   components {
+    SCR_EquipmentStorageComponent "{56F28B9DD73784BB}" {
+     Enabled 0
+    }
+   }
+  }
+  BaseLoadoutClothComponent "{5312D798A71DFBB1}" {
+   Slots {
+    LoadoutSlotInfo BeltSlot {
+     Prefab "{F0A0212FBF40F9EE}Prefabs/Characters/Ratnik/6B45 Vest/warbelt_Ratnik_V4.et"
+     AreaType LoadoutBeltRatnikSlotArea "{696B138C1EC9E7C1}" {
+     }
+    }
+    LoadoutSlotInfo PouchSlot {
+     Prefab "{0AB2BE47407765EB}Prefabs/Characters/Ratnik/6B45 Vest/Pounch_EMR_V1.et"
+     AreaType Loadoutratnikpouch "{696B138C1EC9E7C0}" {
+     }
+    }
+    LoadoutSlotInfo BackSlot {
+     Prefab "{01AA1CAEAF7E64DA}Prefabs/Characters/Ratnik/6B45 Vest/Molly_Bag_EMR_RatnikOP_V3.et"
+     AreaType LoadoutArmorRatnikBackSlotArea "{696B138C1EC9E7C7}" {
+     }
+    }
+   }
+   WornModel "{7E4A0DAA2BF27FBB}Assets/Characters/Vest/RatnikPounch/Razgruzka_Novest.xob"
+   ItemModel "{60CE00F246E2FF29}Assets/Characters/Vest/RatnikPounch/Razgruzka_Item.xob"
+   SoundInt 430
+   DepthFront 0.058
+   DepthLeft 0.016
+   DepthRight 0.016
+   DeflatedModel "{CE5FB44075D4AFCC}Assets/Characters/Vest/RatnikPounch/Razgruzka.xob"
+  }
+ }
+ coords 125.149 1 168.048
+}

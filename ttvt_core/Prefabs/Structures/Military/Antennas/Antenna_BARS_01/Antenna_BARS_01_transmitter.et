@@ -1,0 +1,137 @@
+StaticModelEntity : "{98AF8550D18D2507}Prefabs/Structures/Military/Antennas/Antenna_BARS_01/Antenna_BARS_01_base.et" {
+ ID "56ACD1C4DB91DB10"
+ components {
+  MapDescriptorComponent "{6962C45963FF4CCF}" {
+   MainType Transmitter
+  }
+  MeshObject "{56ACD1C4DC78C87B}" {
+   Object "{C1B4E557FB2126ED}Assets/Structures/Military/Antennas/Antenna_BARS_01/Antenna_BARS_01_transmitter.xob"
+  }
+  SCR_DestructionMultiPhaseComponent "{61349B73AE8FC1A2}" {
+   "Additional hit zones" {
+    SCR_HitZone hz {
+     ColliderNames {
+      "UTM_Antenna_BARS_01_transmitter_FV" "UCX_leg1_transmitter_FV" "UCX_leg2_transmitter_FV" "UCX_leg3_transmitter_FV" "UCX_leg4_transmitter_FV"
+     }
+     "Explosive multiplier" 2
+    }
+   }
+   m_fBaseHealth 15000
+   m_fDamageThresholdMaximum 30000
+   m_aDamagePhases {
+    SCR_DamagePhaseData "{61349B73E7C7D2C4}" {
+     m_PhaseModel "{7DC25CFF87B7A764}Assets/Structures/Military/Antennas/Antenna_BARS_01/Dst/Antenna_BARS_01_transmitter_Ruin.xob"
+     m_PhaseDestroySpawnObjects {
+      SCR_DebrisSpawnable "{6962C45963FF4CFE}" {
+       m_ModelPrefabs {
+        "{E81EDAF0B4AD8CF7}Assets/Structures/Military/Antennas/Antenna_BARS_01/Dst/Antenna_BARS_01_transmitter_dst_01_dbr_18.xob" "{145E939B12FB2BC6}Assets/Structures/Military/Antennas/Antenna_BARS_01/Dst/Antenna_BARS_01_transmitter_dst_01_dbr_01.xob" "{8D402A020F1C1A56}Assets/Structures/Military/Antennas/Antenna_BARS_01/Dst/Antenna_BARS_01_transmitter_dst_01_dbr_02.xob" "{FA4A428AFBBEF526}Assets/Structures/Military/Antennas/Antenna_BARS_01/Dst/Antenna_BARS_01_transmitter_dst_01_dbr_03.xob" "{FD8DB8DB9D384FE5}Assets/Structures/Military/Antennas/Antenna_BARS_01/Dst/Antenna_BARS_01_transmitter_dst_01_dbr_04.xob" "{1C169D68B970E483}Assets/Structures/Military/Antennas/Antenna_BARS_01/Dst/Antenna_BARS_01_transmitter_dst_01_dbr_08.xob" "{975CBC8BEB84ACC2}Assets/Structures/Military/Antennas/Antenna_BARS_01/Dst/Antenna_BARS_01_transmitter_dst_01_dbr_10.xob" "{79486D9A02C17222}Assets/Structures/Military/Antennas/Antenna_BARS_01/Dst/Antenna_BARS_01_transmitter_dst_01_dbr_12.xob" "{0E420512F6639D52}Assets/Structures/Military/Antennas/Antenna_BARS_01/Dst/Antenna_BARS_01_transmitter_dst_01_dbr_13.xob" "{0985FF4390E52791}Assets/Structures/Military/Antennas/Antenna_BARS_01/Dst/Antenna_BARS_01_transmitter_dst_01_dbr_14.xob"
+       }
+       m_fMass 50
+       m_fLifetimeMin 25
+       m_fLifetimeMax 100
+       m_fRandomVelocityAngular 30
+       m_eMaterialSoundType METAL_HEAVY
+      }
+      SCR_DebrisSpawnable "{6962C45963FF4CE2}" {
+       m_ModelPrefabs {
+        "{8A87D053699AA095}Assets/Structures/Military/Antennas/Antenna_BARS_01/Dst/Antenna_BARS_01_transmitter_dst_01_dbr_05.xob" "{139969CA747D9105}Assets/Structures/Military/Antennas/Antenna_BARS_01/Dst/Antenna_BARS_01_transmitter_dst_01_dbr_06.xob" "{6493014280DF7E75}Assets/Structures/Military/Antennas/Antenna_BARS_01/Dst/Antenna_BARS_01_transmitter_dst_01_dbr_07.xob" "{6B1CF5E04DD20BF3}Assets/Structures/Military/Antennas/Antenna_BARS_01/Dst/Antenna_BARS_01_transmitter_dst_01_dbr_09.xob" "{E056D4031F2643B2}Assets/Structures/Military/Antennas/Antenna_BARS_01/Dst/Antenna_BARS_01_transmitter_dst_01_dbr_11.xob" "{7E8F97CB6447C8E1}Assets/Structures/Military/Antennas/Antenna_BARS_01/Dst/Antenna_BARS_01_transmitter_dst_01_dbr_15.xob" "{E7912E5279A0F971}Assets/Structures/Military/Antennas/Antenna_BARS_01/Dst/Antenna_BARS_01_transmitter_dst_01_dbr_16.xob" "{909B46DA8D021601}Assets/Structures/Military/Antennas/Antenna_BARS_01/Dst/Antenna_BARS_01_transmitter_dst_01_dbr_17.xob"
+       }
+       m_fMass 100
+       m_fLifetimeMin 25
+       m_fLifetimeMax 100
+       m_fRandomVelocityAngular 30
+       m_eMaterialSoundType METAL_HUGE
+      }
+      SCR_ParticleSpawnable "{6962C45963FF4CE0}" {
+       m_vOffsetPosition 0 10.549 -3.711
+       m_Particle "{66DAEB775AA8CA4C}Particles/Props/Dest_Prop_Metal_Medium.ptc"
+       m_bAtCenter 0
+      }
+      SCR_ParticleSpawnable "{6962C45963FF4CE7}" {
+       m_vOffsetPosition 0 7.609 1.308
+       m_Particle "{66DAEB775AA8CA4C}Particles/Props/Dest_Prop_Metal_Medium.ptc"
+       m_bAtCenter 0
+      }
+      SCR_ParticleSpawnable "{6962C45963FF4CE6}" {
+       m_vOffsetPosition -1.567 9.054 1.553
+       m_Particle "{66DAEB775AA8CA4C}Particles/Props/Dest_Prop_Metal_Medium.ptc"
+       m_bAtCenter 0
+      }
+      SCR_ParticleSpawnable "{6962C45963FF4CE4}" {
+       m_vOffsetPosition 1.505 16.215 -1.503
+       m_Particle "{66DAEB775AA8CA4C}Particles/Props/Dest_Prop_Metal_Medium.ptc"
+       m_bAtCenter 0
+      }
+      SCR_ParticleSpawnable "{6962C45963FF4CEB}" {
+       m_vOffsetPosition 1.34 18.23 1.357
+       m_Particle "{66DAEB775AA8CA4C}Particles/Props/Dest_Prop_Metal_Medium.ptc"
+       m_bAtCenter 0
+      }
+      SCR_ParticleSpawnable "{6962C45963FF4CEA}" {
+       m_vOffsetPosition -0.526 22.976 -1.207
+       m_Particle "{66DAEB775AA8CA4C}Particles/Props/Dest_Prop_Metal_Medium.ptc"
+       m_bAtCenter 0
+      }
+     }
+    }
+   }
+  }
+  SlotManagerComponent "{6962C459EEFB66F8}" {
+   Slots {
+    EntitySlotInfo Radio {
+     Offset -1.6219 34.7563 1.2341
+     Angles 0 121.8808 0
+     Prefab "{C4C9560520941BF9}Prefabs/Props/Military/Radios/RadioStation_RF10/RadioStation_RF10_base.et"
+    }
+    EntitySlotInfo Box {
+     Offset -1.6259 33.7561 1.2295
+     Prefab "{6FD54E69CFDD6B07}Prefabs/Props/Industrial/BarrelFuel_01_closed_old.et"
+    }
+   }
+  }
+ }
+ coords 1392.405 -0.001 2920.395
+ {
+  GameEntity : "{8315605316A35899}Prefabs/Structures/BuildingParts/Ladders/Ladder_Antenna_BARS_01/Ladder_Antenna_BARS_01_transmitter_short.et" {
+   ID "6962C45963FF4CC3"
+   components {
+    SCR_DestructionMultiPhaseComponent "{664AC1F756DC8366}" : "{76DA308CC9E2AB84}Prefabs/Props/Core/DestructionMultiPhase_Base.ct" {
+     Enabled 1
+     "Additional hit zones" {
+      SCR_HitZone Default {
+       BaseDamageMultiplier 0
+      }
+     }
+    }
+    Hierarchy "{557E8CF8B87AB6F6}" {
+     PivotID "Socket_Ladder_Antenna_BARS_01_transmitter_short"
+    }
+   }
+  }
+  GameEntity : "{9F96DB876B13F2A9}Prefabs/Structures/BuildingParts/Ladders/Ladder_Antenna_BARS_01/Ladder_Antenna_BARS_01_transmitter_long.et" {
+   ID "6962C45963FF4CC2"
+   components {
+    SCR_DestructionMultiPhaseComponent "{664AC1F52EEDE7B6}" : "{76DA308CC9E2AB84}Prefabs/Props/Core/DestructionMultiPhase_Base.ct" {
+     Enabled 1
+     "Additional hit zones" {
+      SCR_HitZone Default {
+       BaseDamageMultiplier 0
+      }
+     }
+    }
+    Hierarchy "{557E8CF8B87AB6F6}" {
+     PivotID "Socket_Ladder_Antenna_BARS_01_transmitter_long"
+    }
+   }
+  }
+  GenericEntity : "{A3C0CF9F97FBCDDC}Prefabs/Structures/BuildingParts/Eletrical/HazardBeacon_01/HazardBeacon_01.et" {
+   ID "6962C45963FF4CC1"
+   components {
+    SCR_DestructionMultiPhaseComponent "{58F896B4CD371A8B}" {
+     m_bDeleteAfterFinalPhase 1
+    }
+   }
+   coords -0.004 49.25 0.015
+  }
+ }
+}

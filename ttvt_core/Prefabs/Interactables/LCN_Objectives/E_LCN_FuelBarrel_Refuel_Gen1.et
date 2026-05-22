@@ -1,0 +1,56 @@
+GenericEntity : "{6FD54E69CFDD6B07}Prefabs/Props/Industrial/BarrelFuel_01_closed_old.et" {
+ ID "BFE2C66D328E4A31"
+ components {
+  SCR_DestructionMultiPhaseComponent "{D3C1F3DB004248E9}" {
+   Enabled 0
+   "Additional hit zones" {
+    SCR_HitZone Default {
+     "Explosive multiplier" 4
+    }
+   }
+   m_fBaseHealth 300
+  }
+  ActionsManagerComponent "{58D3F37D46424846}" {
+   ActionContexts {
+    UserActionContext "{594F9D02D79A4695}" {
+     ContextName "lcn_refuel_generator"
+     Position PointInfo "{F1B87E66363B46DD}" {
+      Offset 0 0.7 0
+     }
+     Radius 0.6
+     Height 0
+     Omnidirectional 1
+    }
+   }
+   additionalActions {
+    LCN_RefuelObjectiveAction "{E83B7E5933BD45BC}" {
+     ParentContextList {
+      "lcn_refuel_generator"
+     }
+     UIInfo SCR_ActionUIInfo "{FD787E7CF7B94395}" {
+      Name "Refuel generator"
+      Description "Add fuel to the linked fueled generator"
+     }
+     VisibilityRange 3
+     Duration 8
+     m_sActionName "Refuel generator"
+     m_sTargetObjectiveKey "Gen_1"
+     m_sTargetEntityName ""
+     m_fRefuelSeconds 300
+     m_bStartAfterRefuel 0
+     m_sAllowedFactionKey "US"
+     m_bAcceptInheritedFaction 1
+     m_bOneUse 1
+     m_bDebug 1
+    }
+   }
+  }
+  RplComponent "{0C338D5B72974D1C}" {
+   Enabled 1
+  }
+  RplComponent "{5624A88DC2D9928D}" {
+   Enabled 0
+  }
+ }
+ coords 1373.558 38.355 2926.906
+}

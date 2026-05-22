@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{076FAD5BE2438C19}Prefabs/Interactables/LCN_Objectives/E_LCN_FireDirectionConsole_RF10.et"
+ Configurations {
+  ETResourceClass PC {
+  }
+  ETResourceClass XBOX_ONE : PC {
+  }
+  ETResourceClass XBOX_SERIES : PC {
+  }
+  ETResourceClass PS4 : PC {
+  }
+  ETResourceClass PS5 : PC {
+  }
+  ETResourceClass HEADLESS : PC {
+  }
+ }
+}

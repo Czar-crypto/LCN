@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{D2F98AA5C114B8E7}Prefabs/Characters/Factions/OPFOR/PMC_Custom/LCN_PMC_Custom_07_Rifleman.et"
+ Configurations {
+  EntityTemplateResourceClass PC {
+  }
+  EntityTemplateResourceClass XBOX_ONE : PC {
+  }
+  EntityTemplateResourceClass XBOX_SERIES : PC {
+  }
+  EntityTemplateResourceClass PS4 : PC {
+  }
+  EntityTemplateResourceClass PS5 : PC {
+  }
+  EntityTemplateResourceClass HEADLESS : PC {
+  }
+ }
+}

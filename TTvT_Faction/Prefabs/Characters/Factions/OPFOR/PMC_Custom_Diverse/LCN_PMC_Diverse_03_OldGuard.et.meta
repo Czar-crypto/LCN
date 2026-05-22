@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{C2E65D0D36EB3ADD}Prefabs/Characters/Factions/OPFOR/PMC_Custom_Diverse/LCN_PMC_Diverse_03_OldGuard.et"
+ Configurations {
+  EntityTemplateResourceClass PC {
+  }
+  EntityTemplateResourceClass XBOX_ONE : PC {
+  }
+  EntityTemplateResourceClass XBOX_SERIES : PC {
+  }
+  EntityTemplateResourceClass PS4 : PC {
+  }
+  EntityTemplateResourceClass PS5 : PC {
+  }
+  EntityTemplateResourceClass HEADLESS : PC {
+  }
+ }
+}

@@ -1,0 +1,53 @@
+GenericEntity : "{12DFA1CC555DFEF5}Prefabs/Props/Military/Compositions/RadioStation_base.et" {
+ ID "B266BE2924334A9E"
+ components {
+  LCN_SupportConsoleComponent "{820E621EC24F4FF8}" {
+   m_sActionName "Call artillery support"
+   m_sEffectModulePrefab "{E7B7D4467E9A82DD}PrefabsEditable/EffectsModules/Mortar/EffectModule_Zoned_MortarBarrage_Medium.et"
+   m_fEffectDelay 15
+   m_bOneUse 0
+   m_fCooldown 300
+   m_sAllowedFactionKey "US"
+   m_bAcceptInheritedFaction 1
+   m_sEffectTargetEntityName "DOM1"
+   m_bRequireEffectTargetEntity 1
+   m_sRequiredAliveEntityName ""
+   m_sBlockingAliveEntityName ""
+   m_sRequiredObjectiveKey "LCN_COMMS_01"
+   m_sRequiredObjectiveKey2 "LCN_BASE_ALARM_01"
+   m_sRequiredObjectiveKey3 ""
+   m_sBlockingObjectiveKey ""
+   m_bDebug 1
+  }
+  ActionsManagerComponent "{6962BC99199772BD}" {
+   Enabled 0
+  }
+  ActionsManagerComponent "{C8BF25F092EF4419}" {
+   ActionContexts {
+    UserActionContext "{1362BDDEB1114D24}" {
+     ContextName "lcn_artillery_support"
+     Position PointInfo "{AB26AE2F23484C29}" {
+      Offset -0.0919 0.1566 0.1094
+     }
+     Radius 0.3
+     Height 0
+     Omnidirectional 1
+    }
+   }
+   additionalActions {
+    LCN_InteractableSupportAction "{6C56AD763C694857}" {
+     ParentContextList {
+      "lcn_artillery_support"
+     }
+     UIInfo SCR_ActionUIInfo "{770F1A4D0FB745D7}" {
+      Name "Call artillery support"
+      Description "Requires active alarm and communications"
+     }
+     VisibilityRange 4
+     Duration 5
+    }
+   }
+  }
+ }
+ coords 1333.171 39.346 2923.089
+}

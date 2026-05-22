@@ -1,0 +1,53 @@
+GenericEntity : "{C4C9560520941BF9}Prefabs/Props/Military/Radios/RadioStation_RF10/RadioStation_RF10_base.et" {
+ ID "076FAD5BE2438C19"
+ components {
+  LCN_FireMissionConsoleComponent "{4CA4F1C63C6723C6}" {
+   m_sSpottingEffectModulePrefab "{5D48E2F7DB0C3714}PrefabsEditable/EffectsModules/Mortar/EffectModule_Zoned_MortarBarrage_Small.et"
+   m_sFireForEffectModulePrefab "{E7B7D4467E9A82DD}PrefabsEditable/EffectsModules/Mortar/EffectModule_Zoned_MortarBarrage_Medium.et"
+   m_fSpottingDelay 8
+   m_fFireDelay 15
+   m_fFireCooldown 240
+   m_fDefaultLateralCorrection 50
+   m_fDefaultRangeCorrection 100
+   m_bSnapTargetToGround 1
+   m_sDefaultTargetEntityName "LCN_FM_MARKER_01"
+   m_sAllowedFactionKey "US"
+   m_bAcceptInheritedFaction 1
+   m_sRequiredObjectiveKey "LCN_COMMS_01"
+   m_sRequiredObjectiveKey2 ""
+   m_sRequiredObjectiveKey3 ""
+   m_sBlockingObjectiveKey ""
+   m_bDebug 1
+  }
+  ActionsManagerComponent "{6EBB0348196A03CB}" {
+   ActionContexts {
+    UserActionContext "{9723FE0D56A1224D}" {
+     ContextName "lcn_fire_direction_console"
+     Position PointInfo "{D01D78BB61997CA6}" {
+      Offset 0 0.25 0
+     }
+     Radius 0.4
+     Height 0
+     Omnidirectional 1
+    }
+   }
+   additionalActions {
+    LCN_OpenFireMissionTerminalAction "{515B5DB92E41D890}" {
+     ParentContextList {
+      "lcn_fire_direction_console"
+     }
+     UIInfo SCR_ActionUIInfo "{8A4E02D26B0198F1}" {
+      Name "Open fire mission terminal"
+      Description "Open coordinate entry and correction panel"
+     }
+     "Sort Priority" 10
+     VisibilityRange 3
+     Duration 1
+    }
+   }
+  }
+  RplComponent "{BA1490F344F6585F}" {
+   Enabled 1
+  }
+ }
+}

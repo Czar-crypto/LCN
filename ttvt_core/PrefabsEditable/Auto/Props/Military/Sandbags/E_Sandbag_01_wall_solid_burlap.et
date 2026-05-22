@@ -1,0 +1,18 @@
+GenericEntity : "{9C9C4BED9E19C374}Prefabs/Props/Military/Sandbags/Sandbag_01_wall_solid_burlap.et" {
+ ID "F0DBA538AC2A0552"
+ components {
+  MeshObject "{5872F0EB7FA40561}" {
+   Materials {
+    MaterialAssignClass "{556AA09F8BA81D4C}" {
+     SourceMaterial "Sandbags_01_wall"
+     AssignedMaterial "{0413350B09D8D623}Assets/Props/Military/Sandbags/Data/Sandbags_01_wall.emat"
+    }
+    MaterialAssignClass "{556AA09F8BA81D64}" {
+     SourceMaterial "Sandbags_01_Wall_MLOD"
+     AssignedMaterial "{EB1461D010879CA5}Assets/Props/Military/Sandbags/Data/Sandbags_01_Wall_Burlap_MLOD.emat"
+    }
+   }
+  }
+ }
+ coords 3653.172 11.75 3124.66
+}
