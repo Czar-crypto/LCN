@@ -1,0 +1,95 @@
+$grp ParticleEffectEntity {
+ {
+  coords 2677.827 18.304 3188.471
+  EffectPath "{B073169BAA0BDD62}Particles/Logistics/Fire/Ammunition_Fire/Ammunition_Fire_Medium.ptc"
+ }
+ {
+  coords 2581.998 18.985 3170.362
+  EffectPath "{42917AAB29152360}Particles/Vehicle/Cinematic_Kolguyev_Fire.ptc"
+ }
+ {
+  coords 2658.377 20.608 3206.157
+  EffectPath "{93CAB5E5559B5C32}Particles/Vehicle/Vehicle_fire_engine_big.ptc"
+ }
+ {
+  coords 2635.848 20.123 3218.521
+  EffectPath "{3FEEFBF34A5A515C}Particles/Vehicle/Vehicle_fire_engine_BTR70_01.ptc"
+ }
+ {
+  coords 2595.234 16.57 3319.12
+  EffectPath "{42917AAB29152360}Particles/Vehicle/Cinematic_Kolguyev_Fire.ptc"
+ }
+ {
+  coords 2711.338 16.763 3314.452
+  EffectPath "{42917AAB29152360}Particles/Vehicle/Cinematic_Kolguyev_Fire.ptc"
+ }
+ {
+  coords 2689.602 18.313 3329.079
+  EffectPath "{42917AAB29152360}Particles/Vehicle/Cinematic_Kolguyev_Fire.ptc"
+ }
+ {
+  coords 2674.314 17.435 3351.742
+  EffectPath "{79DD3A5F1F3069CD}Particles/Vehicle/Vehicle_fire_engine_small.ptc"
+ }
+ {
+  coords 2676.109 18.312 3459.441
+  EffectPath "{79DD3A5F1F3069CD}Particles/Vehicle/Vehicle_fire_engine_small.ptc"
+ }
+ {
+  coords 2675.436 18.342 3411.483
+  scale 2.173
+  EffectPath "{93CAB5E5559B5C32}Particles/Vehicle/Vehicle_fire_engine_big.ptc"
+ }
+}
+$grp GenericEntity : "{207019216BEC135C}Prefabs/Vehicles/Missles/kh55/kh55_mesh.et" {
+ {
+  coords 2675.914 18.605 3411.072
+  angles 0 0 -34.562
+ }
+ {
+  coords 2659.992 18.464 3207.632
+  angles 0 0 -51.783
+ }
+ {
+  coords 2743.658 21.907 3073.241
+  angles 0 -53.993 -36.819
+ }
+ {
+  coords 2607.365 19.458 3365.788
+  angles 0 0 -50.567
+ }
+}
+$grp GenericEntity : "{25B265F3E7CBDFC8}Prefabs/Props/Wrecks/BMP1_wreck/BMP1_wreck.et" {
+ {
+  coords 2677.802 18.031 3187.838
+  angles 0 -24.503 0
+ }
+ {
+  coords 2633.606 18.681 3215.493
+  angles 0 17.803 0
+ }
+ {
+  coords 2582.819 18.469 3169.361
+  angles 0 86.745 0
+ }
+}
+$grp GenericEntity : "{AE57C45CB32D6168}Prefabs/Props/Wrecks/M113_wreck/M113_wreck_static.et" {
+ {
+  coords 2684.271 18.969 3245.493
+  angles 0 127.384 0
+ }
+ {
+  coords 2658.618 18.451 3207.019
+  angles 14.701 166.558 0
+ }
+}
+$grp GenericEntity : "{B90E5414AB7C325B}Prefabs/Props/Wrecks/BTR70_Wreck/BTR70_wreck_static.et" {
+ {
+  coords 2609.276 19 3221.43
+  angles 0 20.421 0
+ }
+ {
+  coords 2482.072 17.054 3234.727
+  angles 0 32.912 0
+ }
+}

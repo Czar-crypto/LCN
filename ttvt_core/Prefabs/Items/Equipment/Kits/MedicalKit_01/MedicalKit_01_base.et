@@ -1,0 +1,240 @@
+GenericEntity : "{C95E11C60810F432}Prefabs/Items/Core/Item_Base.et" {
+ ID "508AB2013EEE1E00"
+ components {
+  InventoryItemComponent "{5222EB4D0C73006B}" {
+   Enabled 0
+   Attributes SCR_ItemAttributeCollection "{5222EB4D0A2B466B}" {
+    ItemDisplayName SCR_InventoryUIInfo "{5222EB4D07D865FA}" {
+     Name "#AR-Item_MedicalKit_Name"
+     Description "#AR-Item_MedicalKit_Description"
+     m_aItemHints {
+      SCR_SupplyAvailableItemHintUIInfo "{696CE0107AA57849}" {
+       Name "#AR-Item_SupplyConsumer_Hint1"
+       Icon "{8EB808BFA227C080}UI/Textures/Icons/InventoryHints/InventoryHint_SuppliesStored.edds"
+      }
+      SCR_InventoryItemHintUIInfo "{696CE0107AA5787E}" {
+       Name "#AR-Item_MedicalKit_Hint1"
+      }
+      SCR_InventoryItemHintUIInfo "{696CE0107AA5787C}" {
+       Name "#AR-Item_MedicalKit_Hint2"
+      }
+      SCR_InventoryItemHintUIInfo "{696CE0107AA57862}" {
+       Name "#AR-Item_MedicalKit_Hint3"
+      }
+     }
+    }
+    ItemPhysAttributes ItemPhysicalAttributes PhysicalAttributes {
+     Weight 1
+     SizeSetupStrategy Manual
+    }
+    ItemAnimationAttributes ItemAnimationAttributes "{696CE0107AA57866}" {
+     AnimationAttachments {
+      AnimationAttachmentInfo "{696CE0107AA57868}" {
+       AnimGraph "{44A1E0130301E5F5}Assets/Items/Equipment/workspaces/MedicalKit_supplies.agr"
+       AnimInstance "{A9CBB5C81F08B71B}Assets/Items/Equipment/workspaces/MedicalKit_supplies.asi"
+       BindingName "Gadget"
+      }
+     }
+    }
+    CustomAttributes {
+     PreviewRenderAttributes "{696CE0107AA5786E}" {
+      CameraOrbitAngles 0 0 0
+      CameraDistanceToItem 0.325
+     }
+     CharacterModifierAttributes "{696CE0107AA5786C}" {
+      SpeedLimit 9999
+      ADSSpeedLimit 9999
+      SpeedLimitItemPrimaryAction 9999
+      SpeedLimitHighready 9999
+      Supress1hShooting 1
+      AllowGadgetUse 1
+     }
+    }
+    m_Size SLOT_2x2
+    m_eQuickSlotSize SLOT_1x1
+    m_SlotType SLOT_GADGETS_STORAGE
+   }
+  }
+  MeshObject "{696CE0107AA57B90}" {
+   Object "{79CA5DD14C0940E9}Assets/Items/Equipment/Kits/MedicalKit_01/MedicalKit_01.xob"
+   InheritVisibility 1
+  }
+  RigidBody "{696CE0107AA57B96}" {
+   ModelGeometry 1
+  }
+  SCR_ArsenalComponent "{696CE0107AA57B95}" {
+   Enabled 0
+   m_eSupplyCostType GADGET_ARSENAL
+   m_eSupportedArsenalItemTypes HEAL
+   m_eSupportedArsenalItemModes 34
+   m_bGetDefaultIfNoFaction 0
+   m_eArsenalTypes GADGETS
+   m_bAlwaysUseDefaultFaction 1
+  }
+  SCR_FactionAffiliationComponent "{696CE0107AA57B9B}" {
+   "faction affiliation" "USSR"
+  }
+  SCR_HealSupportStationComponent "{5E68A54C698EFD84}" : "{5DE8B7E486173279}Prefabs/Components/SupportStations/Heal/HealSupportStation_Gadget.ct" {
+   m_iDamageHealedEachExecution 10
+   m_iSupplyCostDamageHealed 0
+   m_fMaxHealScaled 1
+   m_iSuppliesPerDoTHealed 0
+   m_iSupplyCostBloodHealed 0
+  }
+  SCR_ResourceComponent "{696CE0107AA57B99}" {
+   m_aContainers {
+    SCR_ResourceContainer "{696CE0107AA57B8B}" {
+     m_eResourceRights ALL
+     m_eStorageType CARGO_PROP
+     m_fResourceValueCurrent 20
+     m_fResourceValueMax 20
+    }
+   }
+   m_aConsumers {
+    SCR_ResourceConsumer "{5E4EDEA541710E5E}" : "{68639073C2937EE6}Configs/Resources/Supplies/Consumers/Generic/Consumer_Gadget.conf" {
+    }
+    SCR_ResourceConsumer "{696CE0107AA57B88}" {
+     m_sDebugName "gadget - load"
+     m_eResourceRights ALL
+     m_fResourceRange 15
+     m_ContainerQueue SCR_ResourceConsumerContainerQueue "{696CE0107AA57B8F}" {
+      m_StoragePolicies {
+       SCR_ResourceConsumerStoragePolicy "{696CE0107AA57B8D}" {
+        m_StorageQueue SCR_ResourceConsumerContainerStorageQueueExtended "{696CE0107AA57B8C}" {
+        }
+       }
+       SCR_ResourceConsumerStoragePolicy "{696CE0107AA57BB3}" {
+        m_StorageQueue SCR_ResourceConsumerContainerStorageQueueExtended "{696CE0107AA5B02E}" {
+        }
+        m_eStorageType STORED
+       }
+      }
+     }
+    }
+   }
+   m_aGenerators {
+    SCR_ResourceGenerator "{696CE0107AA5B02D}" {
+     m_eResourceRights ALL
+     m_fStorageRange 15
+     m_ContainerQueue SCR_ResourceGeneratorContainerQueue "{696CE0107AA5B02B}" {
+      m_StoragePolicies {
+       SCR_ResourceGeneratorStoragePolicyGeneric "{696CE0107AA5B028}" {
+        m_StorageQueue SCR_ResourceGeneratorContainerStorageQueue "{696CE0107AA5B029}" {
+        }
+       }
+      }
+     }
+    }
+   }
+  }
+  SCR_ResupplyMedicalGadgetSupportStationComponent "{5E3CC26A2C28361C}" : "{8C4B2A9532A9D7AD}Prefabs/Components/SupportStations/Resupply/ResupplyMedicalGadgetComponent.ct" {
+   m_eSupplyCostType GADGET_ARSENAL
+  }
+  SCR_SoundDataComponent "{5B18D20ED0099A17}" {
+   m_aAudioSourceConfiguration {
+    SCR_AudioSourceConfiguration "{5B18D209080A5D15}" {
+     m_sSoundProject "{80AA85EEB39A28DF}Sounds/Items/_SharedData/PickUp/Items_PickUp_MedicKit.acp"
+    }
+    SCR_AudioSourceConfiguration "{5B18D2091B885AE6}" {
+     m_sSoundProject "{80AA85EEB39A28DF}Sounds/Items/_SharedData/PickUp/Items_PickUp_MedicKit.acp"
+    }
+    SCR_AudioSourceConfiguration "{5B18D20930D9E274}" {
+     m_sSoundProject "{DF0D4A647CE68E77}Sounds/Items/_SharedData/Drop/Items_Drop_MedicKit.acp"
+    }
+   }
+  }
+  SCR_SupportStationGadgetComponent "{696CE0107AA5B035}" {
+   m_eAnimVariable ADRIANOV
+   m_aSupportStationTypes {
+    HEAL RESUPPLY_MEDICAL
+   }
+  }
+  SCR_UniversalInventoryStorageComponent "{696CE0107AA5B033}" {
+   Attributes SCR_ItemAttributeCollection "{696CE0107AA5B030}" {
+    ItemDisplayName SCR_InventoryUIInfo "{696CE0107AA5B031}" {
+     Name "#AR-Item_MedicalKit_Name"
+     Description "#AR-Item_MedicalKit_Description"
+     m_aItemHints {
+      SCR_SupplyAvailableItemHintUIInfo "{5EA892822FE84A7E}" : "{020B1B6977455200}Configs/Inventory/ItemHints/GadgetSupplyAvailable_ItemHint.conf" {
+      }
+      SCR_InventoryItemHintUIInfo "{696CE0107AA5B04F}" {
+       Name "#AR-Item_MedicalKit_Hint1"
+       Icon "{889DEEAE12D64559}UI/Imagesets/SupportStations/InventoryHints.imageset"
+       IconSetName "heal-1"
+      }
+      SCR_InventoryItemHintUIInfo "{696CE0107AA5B04C}" {
+       Name "#AR-Item_MedicalKit_Hint2"
+       Icon "{889DEEAE12D64559}UI/Imagesets/SupportStations/InventoryHints.imageset"
+       IconSetName "heal-3"
+      }
+      SCR_InventoryItemHintUIInfo "{696CE0107AA5B04D}" {
+       Name "#AR-Item_MedicalKit_Hint3"
+       Icon "{889DEEAE12D64559}UI/Imagesets/SupportStations/InventoryHints.imageset"
+       IconSetName "heal-2"
+      }
+     }
+    }
+    ItemPhysAttributes ItemPhysicalAttributes "{696CE0107AA5B04A}" {
+     Weight 1
+     SizeSetupStrategy Manual
+     ItemDimensions 15 15 15
+     ItemVolume 3000
+    }
+    ItemAnimationAttributes ItemAnimationAttributes "{696CE0107AA5B048}" {
+     AnimationAttachments {
+      AnimationAttachmentInfo "{696CE0107AA5B049}" {
+       AnimGraph "{44A1E0130301E5F5}Assets/Items/Equipment/workspaces/MedicalKit_supplies.agr"
+       AnimInstance "{A9CBB5C81F08B71B}Assets/Items/Equipment/workspaces/MedicalKit_supplies.asi"
+       BindingName "Gadget"
+      }
+     }
+    }
+    CustomAttributes {
+     PreviewRenderAttributes "{696CE0107AA5B047}" {
+      CameraOrbitAngles -10 10 0
+      CameraDistanceToItem 0.325
+      LodModel 1
+     }
+     CharacterModifierAttributes "{696CE0107AA5B044}" {
+      SpeedLimit 9999
+      ADSSpeedLimit 9999
+      SpeedLimitItemPrimaryAction 9999
+      SpeedLimitHighready 9999
+      Supress1hShooting 1
+      AllowGadgetUse 1
+     }
+    }
+    m_Size SLOT_2x2
+    m_eQuickSlotSize SLOT_1x1
+    m_SlotType SLOT_GADGETS_STORAGE
+    m_bStackable 0
+   }
+   UseCapacityCoefficient 0
+   MaxCumulativeVolume 0
+   MaxItemSize 0 0 0
+  }
+  SCR_ArsenalInventoryStorageManagerComponent "{696CE0107AA5B040}" {
+   Enabled 0
+  }
+  ActionsManagerComponent "{508AB5952B584B2E}" {
+   additionalActions {
+    SCR_PickUpItemAction "{51EC842E3A187379}" {
+     "Sort Priority" -100
+    }
+    SCR_OpenStorageAction "{696CE0107AA5B05E}" {
+     ParentContextList {
+      "default"
+     }
+     UIInfo UIInfo "{696CE0107AA5B05C}" {
+      Name "#AR-Inventory_OpenArsenalStorage"
+     }
+    }
+    SCR_ResupplySelfSupportStationAction "{5E3CC268E10A1B09}" : "{4A58FDEB4E722044}Configs/Actions/SupportStationActions/Resupply/Gadget/ResupplyAction_Bandage_Gadget.conf" {
+    }
+    SCR_ResupplySelfSupportStationAction "{5E3CC268E31927C2}" : "{ECBE5AE1A45F4646}Configs/Actions/SupportStationActions/Resupply/Gadget/ResupplyAction_Morphine_Gadget.conf" {
+    }
+   }
+  }
+ }
+ coords 1224.4 51 1337.099
+}

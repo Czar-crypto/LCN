@@ -1,0 +1,57 @@
+SCR_MapEntity SCR_MapEntity1 {
+ coords 1348.152 27.906 3941.52
+ "Map Geometry Data" "{B4900FB4A9A6E72D}images/gm.topo"
+ "Satellite background image" "{1812190E3BB80574}images/50_045_36_841_13_1500_1500_albedo_imagery.edds"
+}
+StaticModelEntity GRAY_ANTENNA : "{27F67CEC91884895}Prefabs/Interactables/LCN_Objectives/E_LCN_CommsAntenna_BARS.et" {
+ components {
+  LCN_ObjectiveStateComponent "{E04E4B2A40414BBA}" {
+   m_sObjectiveKey "GRAY_COMMS_1"
+   m_sRequiredObjectiveKey "GRAY_GENERATOR_1"
+  }
+ }
+ coords 3166.944 0.001 3557.575
+ angles 0 0 0
+}
+GenericEntity GRAY_GEN : "{48B089D8C6824C11}Prefabs/Interactables/LCN_Objectives/E_LCN_Generator_RPL5.et" {
+ components {
+  LCN_ObjectiveStateComponent "{9991A261EF164D9E}" {
+   m_sObjectiveKey "GRAY_GENERATOR_1"
+  }
+ }
+ coords 3167.543 12.924 3543.712
+ angles 0 92.018 0
+}
+PolylineShapeEntity : "{DAF19B75A7EF14E6}Prefabs/Zones/EH_Polyline_Zone.et" {
+ components {
+  EH_MapOverlayComponent "{65CF4E9A3C1D359A}" {
+   m_FillColor 1 0 0 0.482
+   m_OutlineColor 0 0 0 1
+   m_ShowForEveryone 1
+  }
+ }
+ coords 2862.559 21.721 2941.133
+ Points {
+  ShapePoint "{696D0E05FED4C1BB}" {
+   Position 9.927 0 456.428
+  }
+  ShapePoint "{696D0E05FC2462D7}" {
+   Position -268.868 0 755.467
+  }
+  ShapePoint "{696D0E05FCA0C48D}" {
+   Position -482.628 0 655.047
+  }
+  ShapePoint "{696D0E05FD50F3DA}" {
+   Position -480.607 0 224.82
+  }
+  ShapePoint "{696D0E05FDF32505}" {
+   Position -322.055 0 -23.873
+  }
+  ShapePoint "{696D0E05FAD021B4}" {
+   Position -93.642 0 -24.586
+  }
+  ShapePoint "{696D0E05FB8C5CF1}" {
+   Position 8.605 0 98.341
+  }
+ }
+}

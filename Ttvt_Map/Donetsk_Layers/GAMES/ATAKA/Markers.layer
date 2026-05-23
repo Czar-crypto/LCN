@@ -1,0 +1,273 @@
+$grp GenericEntity : "{1CA61020AC2D9239}Prefabs/Editor/MapMarker/MapMarkerDefault.et" {
+ Marker_US_Cagi_SOF4_Verde11 {
+  components {
+   EH_MapIconComponent "{6595577697ED0CF1}" {
+    m_IconTexture "{0BC628FAB38283C4}Assets/Images/EH_VehicleIcons.imageset"
+    m_IconName "helicopter"
+    m_ShowForEveryone 0
+    m_TargetFactions {
+     "USSR"
+    }
+    m_ShowOnlyOnSpecificGamemodeStates {
+     BRIEFING
+    }
+    m_ColorTint 0.016 0.552 0.905 1
+    m_Size 1.944
+    m_ScaleOnZoom 1
+    m_MarkerText "Cagiva A8 W8 Verde"
+   }
+  }
+  coords 3623.568 11.75 3123.992
+  angles 0 46.71 0
+ }
+ Marker_US_Cagi_SOF4_Verde12 {
+  components {
+   EH_MapIconComponent "{6595577697ED0CF1}" {
+    m_IconTexture "{0BC628FAB38283C4}Assets/Images/EH_VehicleIcons.imageset"
+    m_IconName "helicopter"
+    m_ShowForEveryone 0
+    m_TargetFactions {
+     "USSR"
+    }
+    m_ShowOnlyOnSpecificGamemodeStates {
+     BRIEFING
+    }
+    m_ColorTint 0.016 0.552 0.905 1
+    m_Size 1.944
+    m_ScaleOnZoom 1
+    m_MarkerText "Cagiva A8 W8 Verde"
+   }
+  }
+  coords 3624.809 11.75 3122.674
+  angles 0 46.71 0
+ }
+ Marker_US_Cagi_SOF4_Verde13 {
+  components {
+   EH_MapIconComponent "{6595577697ED0CF1}" {
+    m_IconTexture "{0BC628FAB38283C4}Assets/Images/EH_VehicleIcons.imageset"
+    m_IconName "helicopter"
+    m_ShowForEveryone 0
+    m_TargetFactions {
+     "USSR"
+    }
+    m_ShowOnlyOnSpecificGamemodeStates {
+     BRIEFING
+    }
+    m_ColorTint 0.016 0.552 0.905 1
+    m_Size 1.944
+    m_ScaleOnZoom 1
+    m_MarkerText "Cagiva A8 W8 Verde"
+   }
+  }
+  coords 3622.206 11.75 3125.438
+  angles 0 46.71 0
+ }
+ Marker_US_Cagi_SOF4_Verde14 {
+  components {
+   EH_MapIconComponent "{6595577697ED0CF1}" {
+    m_IconTexture "{0BC628FAB38283C4}Assets/Images/EH_VehicleIcons.imageset"
+    m_IconName "helicopter"
+    m_ShowForEveryone 0
+    m_TargetFactions {
+     "USSR"
+    }
+    m_ShowOnlyOnSpecificGamemodeStates {
+     BRIEFING
+    }
+    m_ColorTint 0.016 0.552 0.905 1
+    m_Size 1.944
+    m_ScaleOnZoom 1
+    m_MarkerText "Cagiva A8 W8 Verde"
+   }
+  }
+  coords 3620.501 11.75 3127.247
+  angles 0 46.71 0
+ }
+ Marker_US_Cagi_SOF4_Verde15 {
+  components {
+   EH_MapIconComponent "{6595577697ED0CF1}" {
+    m_IconTexture "{0BC628FAB38283C4}Assets/Images/EH_VehicleIcons.imageset"
+    m_IconName "helicopter"
+    m_ShowForEveryone 0
+    m_TargetFactions {
+     "USSR"
+    }
+    m_ShowOnlyOnSpecificGamemodeStates {
+     BRIEFING
+    }
+    m_ColorTint 0.016 0.552 0.905 1
+    m_Size 1.944
+    m_ScaleOnZoom 1
+    m_MarkerText "Cagiva A8 W8 Verde"
+   }
+  }
+  coords 3625.691 11.75 3133.153
+  angles 0 -132.802 0
+ }
+ Marker_US_Cagi_SOF4_Verde16 {
+  components {
+   EH_MapIconComponent "{6595577697ED0CF1}" {
+    m_IconTexture "{0BC628FAB38283C4}Assets/Images/EH_VehicleIcons.imageset"
+    m_IconName "helicopter"
+    m_ShowForEveryone 0
+    m_TargetFactions {
+     "USSR"
+    }
+    m_ShowOnlyOnSpecificGamemodeStates {
+     BRIEFING
+    }
+    m_ColorTint 0.016 0.552 0.905 1
+    m_Size 1.944
+    m_ScaleOnZoom 1
+    m_MarkerText "Cagiva A8 W8 Verde"
+   }
+  }
+  coords 3627.363 11.75 3131.332
+  angles 0 -129.726 0
+ }
+ Marker_US_Cagi_SOF4_Verde17 {
+  components {
+   EH_MapIconComponent "{6595577697ED0CF1}" {
+    m_IconTexture "{0BC628FAB38283C4}Assets/Images/EH_VehicleIcons.imageset"
+    m_IconName "helicopter"
+    m_ShowForEveryone 0
+    m_TargetFactions {
+     "USSR"
+    }
+    m_ShowOnlyOnSpecificGamemodeStates {
+     BRIEFING
+    }
+    m_ColorTint 0.016 0.552 0.905 1
+    m_Size 1.944
+    m_ScaleOnZoom 1
+    m_MarkerText "Cagiva A8 W8 Verde"
+   }
+  }
+  coords 3628.415 11.75 3129.2
+  angles 0 -127.286 0
+ }
+ Marker_US_Cagi_SOF4_Verde18 {
+  components {
+   EH_MapIconComponent "{6595577697ED0CF1}" {
+    m_IconTexture "{0BC628FAB38283C4}Assets/Images/EH_VehicleIcons.imageset"
+    m_IconName "helicopter"
+    m_ShowForEveryone 0
+    m_TargetFactions {
+     "USSR"
+    }
+    m_ShowOnlyOnSpecificGamemodeStates {
+     BRIEFING
+    }
+    m_ColorTint 0.016 0.552 0.905 1
+    m_Size 1.944
+    m_ScaleOnZoom 1
+    m_MarkerText "Cagiva A8 W8 Verde"
+   }
+  }
+  coords 3629.835 11.75 3127.249
+  angles 0 -129.387 0
+ }
+ Marker_CIV_UAZ452_transport_CIV_base1 {
+  components {
+   EH_MapIconComponent "{6595577697ED0CF1}" {
+    m_IconTexture "{0BC628FAB38283C4}Assets/Images/EH_VehicleIcons.imageset"
+    m_IconName "car"
+    m_ShowForEveryone 0
+    m_TargetFactions {
+     "USSR"
+    }
+    m_ShowOnlyOnSpecificGamemodeStates {
+     BRIEFING
+    }
+    m_ColorTint 0.392 0.157 0.624 1
+    m_Size 4.529
+    m_ScaleOnZoom 1
+    m_MarkerText "UAZ-452 Transport Van"
+   }
+  }
+  coords 3616.664 11.75 3131.415
+ }
+ Marker_CIV_UAZ452_transport_CIV_base2 {
+  components {
+   EH_MapIconComponent "{6595577697ED0CF1}" {
+    m_IconTexture "{0BC628FAB38283C4}Assets/Images/EH_VehicleIcons.imageset"
+    m_IconName "car"
+    m_ShowForEveryone 0
+    m_TargetFactions {
+     "USSR"
+    }
+    m_ShowOnlyOnSpecificGamemodeStates {
+     BRIEFING
+    }
+    m_ColorTint 0.392 0.157 0.624 1
+    m_Size 4.529
+    m_ScaleOnZoom 1
+    m_MarkerText "UAZ-452 Transport Van"
+   }
+  }
+  coords 3627.524 11.87 3114.068
+  angles 0 -38.196 0
+ }
+}
+$grp GenericEntity : "{5B1586AD29363B9F}Prefabs/Editor/MapMarker/MapMarkerFaction.et" {
+ Marker_USSR_0_0_0 {
+  components {
+   EH_GroupMapIconComponent "{658D0B40B2A4169B}" {
+    m_IconTexture "{7CD99D22C7AE8195}UI/Textures/GroupManagement/FlagIcons/GroupFlagsOpfor.imageset"
+    m_IconName "undefined"
+    m_ShowForEveryone 0
+    m_TargetFactions {
+     "USSR"
+    }
+    m_ShowOnlyOnSpecificGamemodeStates {
+     BRIEFING
+    }
+    m_ColorTint 1 1 1 1
+    m_Size 60
+    m_MarkerText "Aktiv-11"
+    m_GroupEntityName ""
+   }
+  }
+  coords 3632.859 11.75 3098.571
+ }
+ Marker_USSR_0_1_0 {
+  components {
+   EH_GroupMapIconComponent "{658D0B40B2A4169B}" {
+    m_IconTexture "{7CD99D22C7AE8195}UI/Textures/GroupManagement/FlagIcons/GroupFlagsOpfor.imageset"
+    m_IconName "undefined"
+    m_ShowForEveryone 0
+    m_TargetFactions {
+     "USSR"
+    }
+    m_ShowOnlyOnSpecificGamemodeStates {
+     BRIEFING
+    }
+    m_ColorTint 1 1 1 1
+    m_Size 60
+    m_MarkerText "Aktiv-21"
+    m_GroupEntityName ""
+   }
+  }
+  coords 3663.274 11.75 3100.422
+ }
+ Marker_USSR_0_1_1 {
+  components {
+   EH_GroupMapIconComponent "{658D0B40B2A4169B}" {
+    m_IconTexture "{7CD99D22C7AE8195}UI/Textures/GroupManagement/FlagIcons/GroupFlagsOpfor.imageset"
+    m_IconName "undefined"
+    m_ShowForEveryone 0
+    m_TargetFactions {
+     "USSR"
+    }
+    m_ShowOnlyOnSpecificGamemodeStates {
+     BRIEFING
+    }
+    m_ColorTint 1 1 1 1
+    m_Size 60
+    m_MarkerText "Aktiv-22"
+    m_GroupEntityName ""
+   }
+  }
+  coords 3659.891 11.75 3120.267
+ }
+}

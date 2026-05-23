@@ -1,0 +1,147 @@
+GenericEntity : "{42894F191BC9EDE1}Prefabs/Props/Core/AmmoBox_Base.et" {
+ ID "F0DBA538AC2A0552"
+ components {
+  MeshObject "{5872F0EB7FA40561}" {
+   Object "{5043F460C7AF4BD4}Assets/Props/Military/AmmoBox/AmmoBox_545x39_2160rnd/AmmoBox_545x39_2160rnd.xob"
+  }
+  RigidBody "{5872F0EB7DFB5A9D}" {
+   LinearDamping 0.3
+   AngularDamping 0.3
+   ResponseIndex "TinyDestructible"
+   Static 1
+  }
+  SCR_DestructionMultiPhaseComponent "{58F89684469E44B1}" {
+   m_DestroySpawnObjects {
+    SCR_DebrisSpawnable "{58F8968452F049CA}" {
+     m_ModelPrefabs {
+      "{CEA3E9AEBE3C3492}Assets/Props/Debris/Wood/BeamWooden_dbr_01.xob" "{B83F6469D7CA3459}Assets/Props/Debris/Wood/PlankWooden_Big_dbr_01.xob" "{2121DDF0CA2D05C9}Assets/Props/Debris/Wood/PlankWooden_Big_dbr_02.xob" "{68E2A8F815B4FD59}Assets/Props/Debris/Wood/PlankWooden_dbr_01.xob"
+     }
+     m_eMaterialSoundType WOOD_PLANK_SMALL
+    }
+   }
+  }
+  SCR_SoundDataComponent "{5C53391603B5CF41}" {
+   m_aAudioSourceConfiguration {
+    SCR_AudioSourceConfiguration "{5C5339160C8869E2}" {
+     m_sSoundProject "{2285D7ED0CE3463E}Sounds/Props/Military/AmmoBoxes/AmmoBox_Small_Wooden/Props_AmmoBox_Small_Wooden.acp"
+    }
+    SCR_AudioSourceConfiguration "{5C533916090D28B6}" {
+     m_sSoundProject "{2285D7ED0CE3463E}Sounds/Props/Military/AmmoBoxes/AmmoBox_Small_Wooden/Props_AmmoBox_Small_Wooden.acp"
+    }
+   }
+  }
+  SCR_UniversalInventoryStorageComponent "{5476A2F100DF4EFF}" {
+   Enabled 1
+   Attributes SCR_ItemAttributeCollection "{5476CDB2EAD8225E}" {
+    ItemDisplayName SCR_InventoryUIInfo "{54F48AF1F3C103C1}" {
+     Name "#AR-EditableEntity_AmmoBox_545x39_2160rnd_Name"
+    }
+    CustomAttributes {
+     PreviewRenderAttributes "{696D0E01A4A0ABEA}" {
+      CameraPreset Right
+      CameraOrbitAngles -25 25 0
+      CameraDistanceToItem 2
+      FOV 12
+      AspectRatio 1
+      LodModel 1
+     }
+    }
+   }
+   MultiSlots {
+    MultiSlotConfiguration "{696D0E03B8B762B3}" {
+     SlotTemplate InventoryStorageSlot FPV {
+      Prefab "{77CA4803A4A2B8E3}Prefabs/Drones/FPVBase/FPVRPG.et"
+     }
+     NumSlots 5
+    }
+    MultiSlotConfiguration "{696D0E025BEC77E6}" {
+     SlotTemplate InventoryStorageSlot DJI_BASE {
+      Prefab "{FDA92D590B9C633B}Prefabs/Drones/DJIBase/DJIBase.et"
+     }
+     NumSlots 1
+    }
+    MultiSlotConfiguration "{696D0E026E9F2530}" {
+     SlotTemplate InventoryStorageSlot DJI_DROPPER_82mm {
+      Prefab "{EA58715A8B454BC1}Prefabs/Drones/DJIBase/DJI82Dropper.et"
+     }
+     NumSlots 1
+    }
+    MultiSlotConfiguration "{696D0E0272CB768B}" {
+     SlotTemplate InventoryStorageSlot DJI_Supply {
+      Prefab "{36E4A935C9B1E54A}Prefabs/Drones/DJIBase/DJISupplyDrone.et"
+     }
+     NumSlots 1
+    }
+    MultiSlotConfiguration "{696D0E02787A31A2}" {
+     SlotTemplate InventoryStorageSlot BATTERY {
+      Prefab "{EF1E4AA6DCD2D982}Prefabs/Drones/DJIBase/DJIBattery.et"
+     }
+     NumSlots 5
+    }
+    MultiSlotConfiguration "{696D0E020A95C583}" {
+     SlotTemplate InventoryStorageSlot Mine_82mm {
+      Prefab "{98EC9C526AFBA282}Prefabs/Weapons/Ammo/Ammo_Shell_82mm_HE_O832DU.et"
+     }
+     NumSlots 10
+    }
+   }
+  }
+  ActionsManagerComponent "{5476B36C403D4CC0}" {
+   ActionContexts {
+    UserActionContext "{5476B36C47B0461A}" {
+     Position PointInfo "{5476B36C45ADDA89}" {
+      Offset 0 0.0769 0
+     }
+    }
+   }
+  }
+  UniversalInventoryStorageComponent "{696D0E01B362CC7E}" {
+   MultiSlots {
+    MultiSlotConfiguration "{696D0E01B0CB6B74}" {
+     SlotTemplate InventoryStorageSlot DJI_BASE {
+      Prefab "{FDA92D590B9C633B}Prefabs/Drones/DJIBase/DJIBase.et"
+     }
+     NumSlots 1
+    }
+    MultiSlotConfiguration "{696D0E0047C76C44}" {
+     SlotTemplate InventoryStorageSlot DJI_Dropper {
+      Prefab "{EA58715A8B454BC1}Prefabs/Drones/DJIBase/DJI82Dropper.et"
+     }
+     NumSlots 1
+    }
+    MultiSlotConfiguration "{696D0E004DCF1073}" {
+     SlotTemplate InventoryStorageSlot DJI_Supply {
+      Prefab "{36E4A935C9B1E54A}Prefabs/Drones/DJIBase/DJISupplyDrone.et"
+     }
+     NumSlots 1
+    }
+    MultiSlotConfiguration "{696D0E005F634E18}" {
+     SlotTemplate InventoryStorageSlot Mines_82mm {
+      Prefab "{98EC9C526AFBA282}Prefabs/Weapons/Ammo/Ammo_Shell_82mm_HE_O832DU.et"
+     }
+     NumSlots 10
+    }
+    MultiSlotConfiguration "{696D0E006D9E2666}" {
+     SlotTemplate InventoryStorageSlot Battery {
+      Prefab "{EF1E4AA6DCD2D982}Prefabs/Drones/DJIBase/DJIBattery.et"
+     }
+     NumSlots 10
+    }
+    MultiSlotConfiguration "{696D0E001E6CAF89}" {
+     SlotTemplate InventoryStorageSlot FPV {
+      Prefab "{77CA4803A4A2B8E3}Prefabs/Drones/FPVBase/FPVRPG.et"
+     }
+     NumSlots 5
+    }
+    MultiSlotConfiguration "{696D0E002DC3385F}" {
+     SlotTemplate InventoryStorageSlot Antenna {
+      Prefab "{F09518802063A355}Prefabs/Items/Equipment/DroneAntenna/DroneAntenna.et"
+     }
+     NumSlots 0
+    }
+   }
+  }
+ }
+ coords 2606.465 17.605 3328.429
+ angles 0 152.969 0
+}

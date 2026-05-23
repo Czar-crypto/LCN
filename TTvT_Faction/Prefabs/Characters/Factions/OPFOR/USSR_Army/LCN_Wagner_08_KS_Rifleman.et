@@ -22,14 +22,14 @@ SCR_ChimeraCharacter : "{37578B1666981FCE}Prefabs/Characters/Core/Character_Base
   }
   EH_LobbyCharacterComponent "{6554FDD43DB961CC}" {
    m_IsPlayable 1
-   m_Name "Командир отряда"
+   m_Name "Стрелок"
   }
-  SCR_CharacterFactionAffiliationComponent "{696B17EE8EDE1199}" {
+  SCR_CharacterFactionAffiliationComponent "{696CE015DA01A3D2}" {
    "faction affiliation" "USSR"
   }
   SCR_EditableCharacterComponent "{520EA1D2F659C85C}" {
    m_UIInfo SCR_EditableEntityUIInfo "{5298E609432D192D}" {
-    Name "LCN PMC Radio"
+    Name "LCN PMC BPLA"
     Icon "{A489F552FB7489C3}UI/Textures/Editor/EditableEntities/Characters/EditableEntity_Character_Custom.edds"
     m_sFaction "USSR"
     m_aAuthoredLabels + {
@@ -44,12 +44,16 @@ SCR_ChimeraCharacter : "{37578B1666981FCE}Prefabs/Characters/Core/Character_Base
   }
   CharacterWeaponSlotComponent "{520EA1D2F659CFAB}" {
    AttachType InventoryStorageSlot "{0C3DA650B52E120B}" {
-    Prefab "{D7629F119F8F3473}Prefabs/Weapons/Rifles/AK74M/Rifle_AK74M.et"
+    Prefab "{16FAC787A141CB9C}Prefabs/Weapons/Rifles/AK74M/Rifle_AK74M_base_BPLA.et"
    }
-   WeaponTemplate "{D7629F119F8F3473}Prefabs/Weapons/Rifles/AK74M/Rifle_AK74M.et"
+   WeaponTemplate "{16FAC787A141CB9C}Prefabs/Weapons/Rifles/AK74M/Rifle_AK74M_base_BPLA.et"
    WeaponSlotIndex 0
   }
   CharacterWeaponSlotComponent "{520EA1D2F659CFB7}" {
+   AttachType InventoryStorageSlot "{0C3DA650B52E127A}" {
+    Prefab "{E2434ED1318D8476}Prefabs/Characters/Items/DroneController.et"
+   }
+   WeaponTemplate ""
    WeaponSlotIndex 1
   }
   SCR_CharacterIdentityComponent "{5584CBC63E092DBC}" {
@@ -66,43 +70,34 @@ SCR_ChimeraCharacter : "{37578B1666981FCE}Prefabs/Characters/Core/Character_Base
   BaseLoadoutManagerComponent "{520EA1D2DB11821E}" {
    Slots {
     LoadoutSlotInfo Hat {
-     Prefab "{9C8828B4F73A643E}Prefabs/Characters/HeadGear/Hats/Hat_Ballcap/Hat_Ballcap_MC_Flipped.et"
+     Prefab "{E6B2B7A5C8AE3EFB}Prefabs/Characters/HeadGear/Hats/Hat_Ballcap/Hat_Ballcap_ATACSFG_Flipped.et"
     }
     LoadoutSlotInfo Jacket {
-     Prefab "{55E58BCA40C228F7}Prefabs/Characters/Uniform/Jacket/Tor/MI_TOR_Black.et"
+     Prefab "{78373A3426EF1B01}Prefabs/Characters/Uniforms/Jacket_FrogWaffle/Jacket_FrogWaffle.et"
     }
     LoadoutSlotInfo ArmoredVest {
-     Prefab "{4D91DADBB0AFD61B}Prefabs/Characters/Vest/TV110/TV110_V1_MC.et"
+     Prefab "{60494D38DD2A44B2}Prefabs/Characters/Vests/Vest_TV102/Vest_TV102_FG_Groin.et"
     }
     LoadoutSlotInfo Pants {
-     Prefab "{52BA737372E801A3}Prefabs/Characters/Uniform/Tactical_Pants/G3_V2/G3_Rusich.et"
+     Prefab "{377F46CA868E13EF}Prefabs/Characters/Uniform/Tactical_Pants/G3_V1/G3_Pants_MC.et"
     }
     LoadoutSlotInfo Boots {
-     Prefab "{278F5A6B40EC0216}Prefabs/Characters/Uniform/Footwear/LowaBoots/Lowa_boots_Tan.et"
+     Prefab "{19128249023B1B8A}Prefabs/Characters/Uniform/Footwear/LowaBoots/Lowa_boots_Olive.et"
     }
     LoadoutSlotInfo Back {
-     Prefab "{D669067281ABC1EB}Prefabs/Characters/Ratnik/6B45 Vest/Molly_Bag_EMR_RatnikOP.et"
+     Prefab "{72DB97161FBA7AF0}Prefabs/Items/Equipment/Backpacks/backpack_Wartech_BB102/Backpack_Wartech_BB102_FG.et"
     }
     LoadoutSlotInfo Vest {
-     Prefab "{B51C0DD47B8E7691}Prefabs/Characters/Ratnik/6B45 Vest/Smersh_preset.et"
+     Prefab "{16DCD91910201E99}Prefabs/Characters/Vests/Vest_TV102/variants/Vest_TV102_rifleman_FG_1.et"
+    }
+    LoadoutSlotInfo HandWear {
+     Prefab "{0FE42F6C09C6C0C5}Prefabs/Characters/Uniform/Handwear/Gloves_Rus_tan.et"
     }
     LoadoutSlotInfo Head {
-     Prefab "{50AECADE7647E941}Prefabs/Characters/HeadGear/Baff/Baff_FG.et"
+     Prefab "{B59C41746429B73C}Prefabs/Clothing/Beard_Brown.et"
     }
     LoadoutSlotInfo Eyes {
-     Prefab "{059BBD768632F474}Prefabs/Characters/Eyewear/npp_kondor/Eyewear_npp_kondor_smoke.et"
-    }
-    LoadoutSlotInfo Extra3 {
-     Prefab "{733376664C3B618D}Prefabs/Characters/Vest/TV110/Parts/Tourniquet/Tourniquet_Sholder_Right.et"
-    }
-    LoadoutSlotInfo Extra5 {
-     Prefab "{A6E851E97DD5B406}Prefabs/Characters/Vest/TV110/Parts/GroinProtectors/A-21/MarsArmaA-21V2_MC2.et"
-    }
-    LoadoutSlotInfo Extra6 {
-     Prefab "{EC8A6D4245577C21}Prefabs/Characters/Vest/TV110/Parts/Seats/TacticalSeat/Seat protection_MC2.et"
-    }
-    LoadoutSlotInfo Waist {
-     Prefab "{4B183EA6EF6ADAB1}Prefabs/Characters/Uniform/Belt/warbeltV3 FG.et"
+     Prefab ""
     }
     LoadoutSlotInfo Armband {
      Prefab "{6353534ADC6D67B4}Prefabs/Characters/Armbands/Single/Armband_Single_White.et"
@@ -111,30 +106,71 @@ SCR_ChimeraCharacter : "{37578B1666981FCE}Prefabs/Characters/Core/Character_Base
   }
   SCR_InventoryStorageManagerComponent "{520EA1D2DB118DE5}" {
    InitialInventoryItems {
-    ItemsInitConfigurationItem "{6C4E010000000201}" {
-     TargetStorage "Back/Molly_Bag_EMR_RatnikOP.et"
+    ItemsInitConfigurationItem "{696CE015DA01A2B2}" {
+     TargetStorage "Back/Backpack_Wartech_BB102_FG.et"
      PrefabsToSpawn {
       "{F849217AB3BA88BE}Prefabs/Items/Equipment/Maps/Map_Paper_01/PaperMap_01_folded_USSR.et" "{B343AB76B0725657}Prefabs/Items/Equipment/Radios/Radio_R187P1_OLD.et" "{7CEF68E2BC68CE71}Prefabs/Items/Equipment/Compass/Compass_Adrianov.et" "{062E2F1D7F6739D6}Prefabs/Items/Equipment/Accessories/ETool_MPL50/ETool_MPL50_FreeRoamBuilding_Gadget.et" "{C3F1FA1E2EC2B345}Prefabs/Items/Medicine/FieldDressing_01/FieldDressing_USSR_01.et" "{C3F1FA1E2EC2B345}Prefabs/Items/Medicine/FieldDressing_01/FieldDressing_USSR_01.et" "{C3F1FA1E2EC2B345}Prefabs/Items/Medicine/FieldDressing_01/FieldDressing_USSR_01.et" "{C3F1FA1E2EC2B345}Prefabs/Items/Medicine/FieldDressing_01/FieldDressing_USSR_01.et" "{80E75A71C29190DB}Prefabs/Items/Medicine/Tourniquet_01/Tourniquet_USSR_01.et" "{80E75A71C29190DB}Prefabs/Items/Medicine/Tourniquet_01/Tourniquet_USSR_01.et" "{80E75A71C29190DB}Prefabs/Items/Medicine/Tourniquet_01/Tourniquet_USSR_01.et" "{80E75A71C29190DB}Prefabs/Items/Medicine/Tourniquet_01/Tourniquet_USSR_01.et" "{645C73791ECA1698}Prefabs/Weapons/Grenades/Grenade_RGD5.et" "{645C73791ECA1698}Prefabs/Weapons/Grenades/Grenade_RGD5.et" "{FD34D121FA55CB10}Prefabs/Weapons/Magazines/6l23_plastic/Magazine_545x39_plastic_AK_30rnd_Last_5Tracer.et" "{FD34D121FA55CB10}Prefabs/Weapons/Magazines/6l23_plastic/Magazine_545x39_plastic_AK_30rnd_Last_5Tracer.et" "{FD34D121FA55CB10}Prefabs/Weapons/Magazines/6l23_plastic/Magazine_545x39_plastic_AK_30rnd_Last_5Tracer.et" "{FD34D121FA55CB10}Prefabs/Weapons/Magazines/6l23_plastic/Magazine_545x39_plastic_AK_30rnd_Last_5Tracer.et" "{FD34D121FA55CB10}Prefabs/Weapons/Magazines/6l23_plastic/Magazine_545x39_plastic_AK_30rnd_Last_5Tracer.et" "{FD34D121FA55CB10}Prefabs/Weapons/Magazines/6l23_plastic/Magazine_545x39_plastic_AK_30rnd_Last_5Tracer.et"
      }
     }
-    ItemsInitConfigurationItem "{696B17EE8EDE11F5}" {
-     TargetStorage "Jacket/MI_TOR_FG.et"
-     PrefabsToSpawn {
-      "{35121D232FE844C4}Prefabs/Items/Equipment/Maps/Map_Paper_01/PaperMap_01_folded_USSR_PDA.et" "{3DD801347D0E7CCA}Prefabs/Items/Equipment/Radios/Radio_R187P1_OLD_Komandirskay.et"
-     }
-    }
-    ItemsInitConfigurationItem "{696B17EE8EDE11FB}" {
-     TargetStorage "ArmoredVest/TV110_V1_MC_Custom_V1_Strelok_Ratnik.et/Waist/warbelt_Ratnik_V4.et"
+    ItemsInitConfigurationItem "{696CE015DA01A2B7}" {
+     TargetStorage "Jacket/Jacket_SSO_AtacsFG.et"
      PrefabsToSpawn {
      }
     }
-    ItemsInitConfigurationItem "{696B17EE8EDE11F9}" {
-     TargetStorage "Back/Molly_Bag_EMR_RatnikOP.et"
+    ItemsInitConfigurationItem "{696CE015DA01A2B5}" {
+     TargetStorage "Vest/Vest_TV102_rifleman_FG_1.et/radio/Pouch_UP111_radioClosed_FG.et"
+     PrefabsToSpawn {
+      "{713F903FD1E67998}Prefabs/Items/Equipment/Radios/Radio_ANPRC162.et"
+     }
+    }
+    ItemsInitConfigurationItem "{696CE015DA01A2BA}" {
+     TargetStorage "Vest/Vest_TV102_rifleman_FG_1.et/placard/pouch_tv115_FG.et"
      PrefabsToSpawn {
      }
+    }
+    ItemsInitConfigurationItem "{696CE015DA01A2B9}" {
+     TargetStorage "Vest/Vest_TV102_rifleman_FG_1.et/arsbelt/Pouch_ArsArma_magouch_morphed_ATACS.et"
+     PrefabsToSpawn {
+     }
+    }
+    ItemsInitConfigurationItem "{696CE015DA01A2B8}" {
+     TargetStorage "Vest/Vest_TV102_rifleman_FG_1.et/arsbelt2/Pouch_ArsArma_magouch_morphed_ATACS.et"
+     PrefabsToSpawn {
+     }
+    }
+    ItemsInitConfigurationItem "{696CE015DA01A2BF}" {
+     TargetStorage "Vest/Vest_TV102_rifleman_FG_1.et/Grenade/Pouch_GP106_RGD_Pouch_FG.et"
+     PrefabsToSpawn {
+     }
+    }
+    ItemsInitConfigurationItem "{696CE015DA01A2BE}" {
+     TargetStorage "Vest/Vest_TV102_rifleman_FG_1.et/grenade2/Pouch_GP106_RGD_Pouch_2_FG.et"
+     PrefabsToSpawn {
+     }
+    }
+    ItemsInitConfigurationItem "{696CE015DA01A2AA}" {
+     TargetStorage "Vest/Vest_TV102_rifleman_FG_1.et/pistol/Pouch_GP106_RGD_Pouch_2_FG.et"
+     PrefabsToSpawn {
+     }
+    }
+    ItemsInitConfigurationItem "{696CE015DA01A2A8}" {
+     TargetStorage "Vest/Vest_TV102_rifleman_FG_1.et/up101/Pouch_UP101_Admin_big_FG.et"
+     PrefabsToSpawn {
+      "{0D9A5DCF89AE7AA9}Prefabs/Items/Medicine/MorphineInjection_01/MorphineInjection_01.et" "{0D9A5DCF89AE7AA9}Prefabs/Items/Medicine/MorphineInjection_01/MorphineInjection_01.et" "{0D9A5DCF89AE7AA9}Prefabs/Items/Medicine/MorphineInjection_01/MorphineInjection_01.et" "{C3F1FA1E2EC2B345}Prefabs/Items/Medicine/FieldDressing_01/FieldDressing_USSR_01.et"
+     }
+    }
+    ItemsInitConfigurationItem "{696CE015DA01A2AF}" {
+     TargetStorage "Back/Backpack_Wartech_BB102_FG.et"
+     PrefabsToSpawn {
+      "{F849217AB3BA88BE}Prefabs/Items/Equipment/Maps/Map_Paper_01/PaperMap_01_folded_USSR.et" "{7CEF68E2BC68CE71}Prefabs/Items/Equipment/Compass/Compass_Adrianov.et" "{C3F1FA1E2EC2B345}Prefabs/Items/Medicine/FieldDressing_01/FieldDressing_USSR_01.et" "{C3F1FA1E2EC2B345}Prefabs/Items/Medicine/FieldDressing_01/FieldDressing_USSR_01.et" "{C3F1FA1E2EC2B345}Prefabs/Items/Medicine/FieldDressing_01/FieldDressing_USSR_01.et" "{C3F1FA1E2EC2B345}Prefabs/Items/Medicine/FieldDressing_01/FieldDressing_USSR_01.et" "{C3F1FA1E2EC2B345}Prefabs/Items/Medicine/FieldDressing_01/FieldDressing_USSR_01.et" "{C3F1FA1E2EC2B345}Prefabs/Items/Medicine/FieldDressing_01/FieldDressing_USSR_01.et" "{C3F1FA1E2EC2B345}Prefabs/Items/Medicine/FieldDressing_01/FieldDressing_USSR_01.et"
+     }
+    }
+    ItemsInitConfigurationItem "{696CE015DA01A2AE}" {
+    }
+    ItemsInitConfigurationItem "{696CE015DA01A2FE}" {
     }
    }
   }
  }
- coords 126.289 0.999 166.54
+ coords 117.37 1 166.723
 }

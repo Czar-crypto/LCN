@@ -14,11 +14,15 @@ SCR_ChimeraCharacter : "{37578B1666981FCE}Prefabs/Characters/Core/Character_Base
        Prefab "{BCEA0EB0D764D8DD}Prefabs/Items/Equipment/Binoculars/Rangefinder_PDU4.et"
       }
       SCR_EquipmentStorageSlot WristwatchSlot {
-       Prefab "{7C53E6DE2E4BD8CB}Prefabs/Items/Equipment/Watches/Watch_GarminTactixBravo.et"
+       Prefab "{C5C3EFA0B77F202D}Prefabs/Items/Equipment/Watches/Watch_GarminTactixBravo_Red.et"
       }
      }
     }
    }
+  }
+  EH_LobbyCharacterComponent "{6554FDD43DB961CC}" {
+   m_IsPlayable 1
+   m_Name "Командир стороны"
   }
   SCR_CharacterFactionAffiliationComponent "{694D265BCA992E09}" {
    "faction affiliation" "USSR"
@@ -39,6 +43,10 @@ SCR_ChimeraCharacter : "{37578B1666981FCE}Prefabs/Characters/Core/Character_Base
    m_iMaxRandomAge 28
   }
   CharacterWeaponSlotComponent "{520EA1D2F659CFAB}" {
+   AttachType InventoryStorageSlot "{0C3DA650B52E120B}" {
+    Prefab "{FA8BE6075AFFBCA8}Prefabs/Weapons/Rifles/AK74M/Rifle_AK74M.et"
+   }
+   WeaponTemplate "{FA8BE6075AFFBCA8}Prefabs/Weapons/Rifles/AK74M/Rifle_AK74M.et"
    WeaponSlotIndex 0
   }
   CharacterWeaponSlotComponent "{520EA1D2F659CFB7}" {
@@ -58,13 +66,13 @@ SCR_ChimeraCharacter : "{37578B1666981FCE}Prefabs/Characters/Core/Character_Base
   BaseLoadoutManagerComponent "{520EA1D2DB11821E}" {
    Slots {
     LoadoutSlotInfo Hat {
-     Prefab "{F5A931C9F77D7F8B}Prefabs/Characters/Ratnik/Helmet/Helmet_6B47_MC_Tape.et"
+     Prefab "{8142DCBA6FCD8CF1}Prefabs/Characters/HeadGear/Hats/Hat_Boonie/Hat_Boonie_MC.et"
     }
     LoadoutSlotInfo Jacket {
      Prefab "{3A19A3722C4CAAD5}Prefabs/Characters/Uniform/Jacket/Tor/MI_TOR_FG.et"
     }
     LoadoutSlotInfo ArmoredVest {
-     Prefab "{BB469CA61FDCB743}Prefabs/Characters/Vest/TV110/TV110_V1_MC_Custom_V1(Comandir).et"
+     Prefab "{35FF6F97064F26B1}Prefabs/Characters/Vests/Vest_TV150/Vest_TV150_RGR.et"
     }
     LoadoutSlotInfo Pants {
      Prefab "{2781A287DD848C7F}Prefabs/Characters/Uniform/Tactical_Pants/G3_V2/G3_Rusich_FG.et"
@@ -73,10 +81,10 @@ SCR_ChimeraCharacter : "{37578B1666981FCE}Prefabs/Characters/Core/Character_Base
      Prefab "{278F5A6B40EC0216}Prefabs/Characters/Uniform/Footwear/LowaBoots/Lowa_boots_Tan.et"
     }
     LoadoutSlotInfo Back {
-     Prefab "{01AA1CAEAF7E64DA}Prefabs/Characters/Ratnik/6B45 Vest/Molly_Bag_EMR_RatnikOP_V3.et"
+     Prefab ""
     }
     LoadoutSlotInfo Vest {
-     Prefab "{ADEE56F5AF5F88BA}Prefabs/Characters/Vest/TV110/TV110_PounchV2_FG.et"
+     Prefab ""
     }
     LoadoutSlotInfo Head {
      Prefab "{C07A52D13353AB2F}Prefabs/Characters/HeadGear/Baff/Baff_AU.et"
@@ -85,15 +93,21 @@ SCR_ChimeraCharacter : "{37578B1666981FCE}Prefabs/Characters/Core/Character_Base
      Prefab ""
     }
     LoadoutSlotInfo Extra6 {
-     Prefab "{A9E55FA2C85A4676}Prefabs/Characters/HeadGear/Helm/BTSH6Sapsan/BTSH6Sapsan_Oliva_High.et"
+     Prefab ""
     }
     LoadoutSlotInfo Waist {
-     Prefab ""
+     Prefab "{9899896146908697}Prefabs/Characters/Uniform/Belt/warbelt multicam.et"
     }
    }
   }
   SCR_InventoryStorageManagerComponent "{520EA1D2DB118DE5}" {
    InitialInventoryItems {
+    ItemsInitConfigurationItem "{6C4E010000000101}" {
+     TargetStorage "Back/Molly_Bag_EMR_RatnikOP_V3.et"
+     PrefabsToSpawn {
+      "{F849217AB3BA88BE}Prefabs/Items/Equipment/Maps/Map_Paper_01/PaperMap_01_folded_USSR.et" "{B343AB76B0725657}Prefabs/Items/Equipment/Radios/Radio_R187P1_OLD.et" "{7CEF68E2BC68CE71}Prefabs/Items/Equipment/Compass/Compass_Adrianov.et" "{062E2F1D7F6739D6}Prefabs/Items/Equipment/Accessories/ETool_MPL50/ETool_MPL50_FreeRoamBuilding_Gadget.et" "{C3F1FA1E2EC2B345}Prefabs/Items/Medicine/FieldDressing_01/FieldDressing_USSR_01.et" "{C3F1FA1E2EC2B345}Prefabs/Items/Medicine/FieldDressing_01/FieldDressing_USSR_01.et" "{C3F1FA1E2EC2B345}Prefabs/Items/Medicine/FieldDressing_01/FieldDressing_USSR_01.et" "{C3F1FA1E2EC2B345}Prefabs/Items/Medicine/FieldDressing_01/FieldDressing_USSR_01.et" "{80E75A71C29190DB}Prefabs/Items/Medicine/Tourniquet_01/Tourniquet_USSR_01.et" "{80E75A71C29190DB}Prefabs/Items/Medicine/Tourniquet_01/Tourniquet_USSR_01.et" "{80E75A71C29190DB}Prefabs/Items/Medicine/Tourniquet_01/Tourniquet_USSR_01.et" "{80E75A71C29190DB}Prefabs/Items/Medicine/Tourniquet_01/Tourniquet_USSR_01.et" "{645C73791ECA1698}Prefabs/Weapons/Grenades/Grenade_RGD5.et" "{645C73791ECA1698}Prefabs/Weapons/Grenades/Grenade_RGD5.et" "{FD34D121FA55CB10}Prefabs/Weapons/Magazines/6l23_plastic/Magazine_545x39_plastic_AK_30rnd_Last_5Tracer.et" "{FD34D121FA55CB10}Prefabs/Weapons/Magazines/6l23_plastic/Magazine_545x39_plastic_AK_30rnd_Last_5Tracer.et" "{FD34D121FA55CB10}Prefabs/Weapons/Magazines/6l23_plastic/Magazine_545x39_plastic_AK_30rnd_Last_5Tracer.et" "{FD34D121FA55CB10}Prefabs/Weapons/Magazines/6l23_plastic/Magazine_545x39_plastic_AK_30rnd_Last_5Tracer.et" "{FD34D121FA55CB10}Prefabs/Weapons/Magazines/6l23_plastic/Magazine_545x39_plastic_AK_30rnd_Last_5Tracer.et" "{FD34D121FA55CB10}Prefabs/Weapons/Magazines/6l23_plastic/Magazine_545x39_plastic_AK_30rnd_Last_5Tracer.et"
+     }
+    }
     ItemsInitConfigurationItem "{6950746076EF6481}" {
      TargetStorage "Jacket/MI_TOR_FG.et"
      PrefabsToSpawn {
@@ -103,6 +117,7 @@ SCR_ChimeraCharacter : "{37578B1666981FCE}Prefabs/Characters/Core/Character_Base
     ItemsInitConfigurationItem "{69507460772AFC28}" {
      TargetStorage "Vest/TV110_PounchV2_FG.et"
      PrefabsToSpawn {
+      "{9B25A8E58B74AE14}Prefabs/Equipment/Radios/Radio.et" "{F849217AB3BA88BE}Prefabs/Items/Equipment/Maps/Map_Paper_01/PaperMap_01_folded_USSR.et"
      }
     }
     ItemsInitConfigurationItem "{695074607730309C}" {
@@ -116,5 +131,5 @@ SCR_ChimeraCharacter : "{37578B1666981FCE}Prefabs/Characters/Core/Character_Base
    }
   }
  }
- coords 125.714 1 166.792
+ coords 3633.247 11.75 3100.797
 }

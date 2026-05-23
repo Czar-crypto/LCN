@@ -1,0 +1,100 @@
+SCR_ChimeraCharacter : "{24DE9928E7720F09}Prefabs/Characters/Factions/BLUFOR/US_Army/LCN_UAF_01_KS.et" {
+ ID "520EC961A090B1EE"
+ components {
+  EH_LobbyCharacterComponent "{6554FDD43DB961CC}" {
+   m_IsPlayable 1
+   m_Name "Дозорщик"
+  }
+  SCR_EditableCharacterComponent "{520EA1D2F659C85C}" {
+   m_UIInfo SCR_EditableEntityUIInfo "{5298E609432D192D}" {
+    Name "LCN UAF Scout"
+    Icon "{EE0B4CDEA86FC24A}UI/Textures/DeployMenu/LoadoutIcons/LoadoutIcons.imageset"
+    IconSetName "EditableEntity_Character_Custom"
+    m_sFaction "US"
+    m_aAuthoredLabels + {
+     ENTITYTYPE_CHARACTER FACTION_US
+    }
+    m_aAutoLabels {
+    }
+   }
+  }
+  CharacterWeaponSlotComponent "{520EA1D2F659CFAB}" {
+   AttachType InventoryStorageSlot "{0C3DA650B52E120B}" {
+   }
+   WeaponTemplate "{483961E053510D90}Prefabs/Weapons/Rifles/AK200/Rifle_AK200_B30_B31S_RailCover.et"
+   WeaponSlotIndex 0
+  }
+  BaseLoadoutManagerComponent "{520EA1D2DB11821E}" {
+   Slots {
+    LoadoutSlotInfo Hat {
+     Prefab "{8142DCBA6FCD8CF1}Prefabs/Characters/HeadGear/Hats/Hat_Boonie/Hat_Boonie_MC.et"
+    }
+    LoadoutSlotInfo Jacket {
+     Prefab "{C95930151E670974}Prefabs/Characters/Uniforms/Jacket_Parka/Jacket_Parka_CADPAT_MT.et"
+    }
+    LoadoutSlotInfo ArmoredVest {
+     Prefab "{CC2EB875CD75A43F}Prefabs/Characters/Vest/AVS/AVS_MC.et"
+    }
+    LoadoutSlotInfo Pants {
+     Prefab "{1818EE8132E2C650}Prefabs/Characters/Uniforms/Pants_CryeG3/Pants_CryeG3_MM14.et"
+    }
+    LoadoutSlotInfo Boots {
+     Prefab "{24F6795DC36C79D7}Prefabs/Characters/Footwear/Boots_Luma/Footwear_Luma.et"
+    }
+    LoadoutSlotInfo Vest {
+     Prefab "{ADEE56F5AF5F88BA}Prefabs/Characters/Vest/TV110/TV110_PounchV2_FG.et"
+    }
+    LoadoutSlotInfo HandWear {
+     Prefab "{66B75B15AF250BDA}Prefabs/Characters/Handwear/Gloves_MechanixMpact/Gloves_MechanixMpact_Brown.et"
+    }
+    LoadoutSlotInfo Face {
+     Prefab "{5AD1D8D9436B342F}Prefabs/Characters/HeadGear/Balaclavas/Balaclava_LShZ/Balaclava_LShZ_base.et"
+    }
+    LoadoutSlotInfo Extra {
+     Prefab "{7A323AD44F06920D}Prefabs/Characters/Vest/TV110/Chest and Groin pouch/Groin_PouchV1_Tan.et"
+    }
+    LoadoutSlotInfo Extra2 {
+     Prefab "{733376664C3B618D}Prefabs/Characters/Vest/TV110/Parts/Tourniquet/Tourniquet_Sholder_Right.et"
+    }
+    LoadoutSlotInfo Extra3 {
+     Prefab "{FDFA52E9F7E2A74E}Prefabs/Characters/Vest/TV110/Parts/GroinProtectors/A1/A1_Multicam.et"
+    }
+    LoadoutSlotInfo Extra4 {
+     Prefab "{405D2B1B26ED40B5}Prefabs/Characters/Vest/TV110/Parts/GroinPouch/A20 Pacman/ArsArma_A20_Pacman_Multicam.et"
+    }
+    LoadoutSlotInfo Extra5 {
+     Prefab "{A0F5B0EC6E33F08B}Prefabs/Characters/Vest/TV110/Parts/Seats/TacticalSeat/Seat protection_Olive.et"
+    }
+    LoadoutSlotInfo Waist {
+     Prefab "{F7DDB1EFC941BDFE}Prefabs/Characters/Uniform/Belt/warbeltV2 olive.et"
+    }
+    LoadoutSlotInfo Armband {
+     Prefab "{0A92A2AAAC9E0623}Prefabs/Characters/Armbands/Tape/Armband_Tape_Green.et"
+    }
+   }
+  }
+  SCR_InventoryStorageManagerComponent "{520EA1D2DB118DE5}" {
+   InitialInventoryItems {
+    ItemsInitConfigurationItem "{75A1100000000005}" {
+     TargetStorage "Vest/TV110_PounchV2_FG.et"
+     PrefabsToSpawn {
+      "{713F903FD1E67998}Prefabs/Items/Equipment/Radios/Radio_ANPRC162.et" "{645C73791ECA1698}Prefabs/Weapons/Grenades/Grenade_RGD5.et" "{645C73791ECA1698}Prefabs/Weapons/Grenades/Grenade_RGD5.et" "{FD34D121FA55CB10}Prefabs/Weapons/Magazines/6l23_plastic/Magazine_545x39_plastic_AK_30rnd_Last_5Tracer.et" "{FD34D121FA55CB10}Prefabs/Weapons/Magazines/6l23_plastic/Magazine_545x39_plastic_AK_30rnd_Last_5Tracer.et" "{FD34D121FA55CB10}Prefabs/Weapons/Magazines/6l23_plastic/Magazine_545x39_plastic_AK_30rnd_Last_5Tracer.et" "{FD34D121FA55CB10}Prefabs/Weapons/Magazines/6l23_plastic/Magazine_545x39_plastic_AK_30rnd_Last_5Tracer.et" "{FD34D121FA55CB10}Prefabs/Weapons/Magazines/6l23_plastic/Magazine_545x39_plastic_AK_30rnd_Last_5Tracer.et" "{FD34D121FA55CB10}Prefabs/Weapons/Magazines/6l23_plastic/Magazine_545x39_plastic_AK_30rnd_Last_5Tracer.et"
+     }
+    }
+    ItemsInitConfigurationItem "{75A1200000000005}" {
+     TargetStorage "Jacket/Jacket_Parka_CADPAT_MT.et"
+     PrefabsToSpawn {
+      "{C3F1FA1E2EC2B345}Prefabs/Items/Medicine/FieldDressing_01/FieldDressing_USSR_01.et" "{C3F1FA1E2EC2B345}Prefabs/Items/Medicine/FieldDressing_01/FieldDressing_USSR_01.et" "{C3F1FA1E2EC2B345}Prefabs/Items/Medicine/FieldDressing_01/FieldDressing_USSR_01.et" "{C3F1FA1E2EC2B345}Prefabs/Items/Medicine/FieldDressing_01/FieldDressing_USSR_01.et" "{80E75A71C29190DB}Prefabs/Items/Medicine/Tourniquet_01/Tourniquet_USSR_01.et" "{80E75A71C29190DB}Prefabs/Items/Medicine/Tourniquet_01/Tourniquet_USSR_01.et" "{80E75A71C29190DB}Prefabs/Items/Medicine/Tourniquet_01/Tourniquet_USSR_01.et" "{80E75A71C29190DB}Prefabs/Items/Medicine/Tourniquet_01/Tourniquet_USSR_01.et"
+     }
+    }
+    ItemsInitConfigurationItem "{75A1300000000005}" {
+     TargetStorage "Waist/warbeltV2 olive.et"
+     PrefabsToSpawn {
+      "{922F95F91943F69A}Prefabs/Items/Equipment/Maps/Map_Paper_01/PaperMap_01_folded_US.et" "{7CEF68E2BC68CE71}Prefabs/Items/Equipment/Compass/Compass_Adrianov.et" "{062E2F1D7F6739D6}Prefabs/Items/Equipment/Accessories/ETool_MPL50/ETool_MPL50_FreeRoamBuilding_Gadget.et" "{BCEA0EB0D764D8DD}Prefabs/Items/Equipment/Binoculars/Rangefinder_PDU4.et" "{C5C3EFA0B77F202D}Prefabs/Items/Equipment/Watches/Watch_GarminTactixBravo_Red.et"
+     }
+    }
+   }
+  }
+ }
+ coords 2591.563 17.625 3367.765
+}

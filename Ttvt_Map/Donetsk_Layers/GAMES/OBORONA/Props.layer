@@ -1,0 +1,96 @@
+GenericEntity XOXOL_TERMINAL : "{076FAD5BE2438C19}Prefabs/Interactables/LCN_Objectives/E_LCN_FireDirectionConsole_RF10.et" {
+ components {
+  LCN_FireMissionConsoleComponent "{4CA4F1C63C6723C6}" {
+   m_sAllowedFactionKey "US"
+   m_sRequiredObjectiveKey "GRAY_COMMS_1"
+   m_sRequiredObjectiveKey2 "XOXOL_GENERATOR_1"
+   m_sRequiredObjectiveKey3 ""
+  }
+ }
+ coords 2605.138 17.618 3328.441
+ angles 0 20.188 0
+}
+$grp GenericEntity : "{19560B3020E62B24}Prefabs/Items/Equipment/Kits/SupplyBoxes/LCN_SupplyBox_UAF.et" {
+ {
+  coords 2608.827 16.882 3330.785
+  angles 0 88.9 0
+ }
+ {
+  coords 2608.838 17.051 3330.224
+  angles 0 88.9 0
+ }
+ {
+  coords 2608.827 17.051 3330.799
+  angles 0 88.9 0
+ }
+ {
+  coords 2608.828 16.718 3330.759
+  angles 0 88.9 0
+ }
+ {
+  coords 2608.838 16.882 3330.227
+  angles 0 88.9 0
+ }
+ {
+  coords 2598.31 18.015 3352.986
+  angles 0 96.807 0
+ }
+ {
+  coords 2612.362 17.805 3342.924
+  angles 0 93.519 0
+ }
+ {
+  coords 2608.838 16.718 3330.234
+  angles 0 88.9 0
+ }
+}
+GenericEntity : "{1BFCA9525E528626}Prefabs/Compositions/Misc/SubCompositions/TableMilitary_Cluttered_US_02.et" {
+ coords 2605.094 16.718 3328.406
+ angles 0 0 0
+}
+GenericEntity XOXOL_GEN : "{48B089D8C6824C11}Prefabs/Interactables/LCN_Objectives/E_LCN_Generator_RPL5.et" {
+ components {
+  LCN_ObjectiveStateComponent "{9991A261EF164D9E}" {
+   m_sObjectiveKey "XOXOL_GENERATOR_1"
+  }
+  MeshObject "{5872F0EB7FA40561}" {
+   Object "{F23DCCEDB351435E}Assets/Structures/Military/Radar/ApproachRadar_01/ApproachRadar_TPN19_01_generator.xob"
+  }
+ }
+ coords 2428.853 14.382 3335.743
+}
+GenericEntity : "{7A4A0A8283210784}Prefabs/Compositions/Misc/SubCompositions/TableMilitary_Cluttered_US_01.et" {
+ coords 2606.434 16.718 3328.437
+ angles 0 0 0
+}
+$grp GenericEntity : "{B21DDC3EABA44BF0}Prefabs/Interactables/LCN_Objectives/E_LCN_AmmoDepot_Hydra_US.et" {
+ XOXOL_AMMO_MORTAR_1 {
+  components {
+   LCN_ObjectiveStateComponent "{548D15421A1A443A}" {
+    m_sObjectiveKey "XOXOL_AMMO_1"
+   }
+  }
+  coords 2710.368 17.953 3110.75
+  angles 0 100.277 0
+ }
+ XOXOL_AMMO_MORTAR_2 {
+  components {
+   LCN_ObjectiveStateComponent "{548D15421A1A443A}" {
+    m_sObjectiveKey "XOXOL_AMMO_2"
+   }
+  }
+  coords 2708.406 17.953 3111.105
+  angles 0 100.277 0
+ }
+}
+GenericEntity : "{F09518802063A355}Prefabs/Items/Equipment/DroneAntenna/DroneAntenna.et" {
+ components {
+  SAL_DroneAntennaComponent "{65D6B8BC8812D2C4}" {
+   m_iAntennaDistance 50
+  }
+  SAL_DroneCleanUpComponent "{65EA1CA22D8FB35E}" {
+   m_fMinutesTillCleanup 10
+  }
+ }
+ coords 2606.342 18.921 3331.919
+}

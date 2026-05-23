@@ -1,0 +1,188 @@
+GenericEntity : "{989117B162663E1F}Prefabs/Items/Equipment/Kits/MedicalKit_01/MedicalKit_01_base.et" {
+ ID "B76418C814A95EE8"
+ components {
+  InventoryItemComponent "{5222EB4D0C73006B}" {
+   Attributes SCR_ItemAttributeCollection "{34592F745120B633}" {
+    ItemDisplayName SCR_InventoryUIInfo "{A79974A425B68FB0}" {
+     Name "LCN UAF Supply Box"
+     Description "Portable squad resupply box."
+    }
+    ItemPhysAttributes ItemPhysicalAttributes PhysicalAttributes {
+     Weight 8
+     SizeSetupStrategy Manual
+    }
+    ItemAnimationAttributes ItemAnimationAttributes "{170EA49E90269D9D}" {
+     AnimationAttachments {
+      AnimationAttachmentInfo "{A106E85B9C59AD03}" {
+       AnimGraph "{44A1E0130301E5F5}Assets/Items/Equipment/workspaces/MedicalKit_supplies.agr"
+       AnimInstance "{A9CBB5C81F08B71B}Assets/Items/Equipment/workspaces/MedicalKit_supplies.asi"
+       BindingName "Gadget"
+      }
+     }
+    }
+    CustomAttributes {
+     PreviewRenderAttributes "{8E2E2BFCB50323B4}" {
+      CameraOrbitAngles -10 10 0
+      CameraDistanceToItem 0.45
+      LodModel 1
+     }
+     CharacterModifierAttributes "{D2D2310B3F9D1653}" {
+      SpeedLimit 9999
+      ADSSpeedLimit 9999
+      SpeedLimitItemPrimaryAction 9999
+      SpeedLimitHighready 9999
+      Supress1hShooting 1
+      AllowGadgetUse 1
+     }
+    }
+    m_Size SLOT_2x2
+    m_eQuickSlotSize SLOT_1x1
+    m_SlotType SLOT_GADGETS_STORAGE
+    m_bStackable 0
+   }
+  }
+  MeshObject "{696CE0107AA57B90}" {
+   Object "{5043F460C7AF4BD4}Assets/Props/Military/AmmoBox/AmmoBox_545x39_2160rnd/AmmoBox_545x39_2160rnd.xob"
+   InheritVisibility 1
+  }
+  RigidBody "{696CE0107AA57B96}" {
+   ModelGeometry 1
+   Active AlwaysActive
+  }
+  SCR_HealSupportStationComponent "{5E68A54C698EFD84}" {
+   Enabled 0
+  }
+  SCR_ResupplyMedicalGadgetSupportStationComponent "{5E3CC26A2C28361C}" {
+   Enabled 0
+  }
+  SCR_FactionAffiliationComponent "{696CE0107AA57B9B}" {
+   "faction affiliation" "US"
+  }
+  SCR_UniversalInventoryStorageComponent "{696CE0107AA5B033}" {
+   Attributes SCR_ItemAttributeCollection "{090518F9427E0AAD}" {
+    ItemDisplayName SCR_InventoryUIInfo "{566C90AF04A3540D}" {
+     Name "LCN UAF Supply Box"
+     Description "Portable squad resupply box."
+    }
+    ItemPhysAttributes ItemPhysicalAttributes "{DED34454D50974E1}" {
+     Weight 8
+     SizeSetupStrategy Manual
+     ItemDimensions 30 30 30
+     ItemVolume 12000
+    }
+    CustomAttributes {
+     PreviewRenderAttributes "{75BAC2D492134C41}" {
+      CameraOrbitAngles -10 10 0
+      CameraDistanceToItem 0.45
+      LodModel 1
+     }
+     CharacterModifierAttributes "{53589B1BED2DA8AB}" {
+      SpeedLimit 9999
+      ADSSpeedLimit 9999
+      SpeedLimitItemPrimaryAction 9999
+      SpeedLimitHighready 9999
+      Supress1hShooting 1
+      AllowGadgetUse 1
+     }
+    }
+    m_Size SLOT_2x2
+    m_eQuickSlotSize SLOT_1x1
+    m_SlotType SLOT_GADGETS_STORAGE
+    m_bStackable 0
+   }
+   UseCapacityCoefficient 0
+   MaxCumulativeVolume 0
+   MaxItemSize 0 0 0
+   MultiSlots {
+    MultiSlotConfiguration "{C31F2342E57A2356}" {
+     SlotTemplate LoadoutSlotInfo STANAG_M855A1 {
+      Enabled 1
+      Prefab "{A3BA4C11E2DA07D3}Prefabs/Weapons/Magazines/Magazine_556x45_STANAG_SP_T_30rnd_M855A1_Last5Tracer.et"
+     }
+     NumSlots 40
+    }
+    MultiSlotConfiguration "{F451CD3BC438F13B}" {
+     SlotTemplate LoadoutSlotInfo M27_M995 {
+      Enabled 1
+      Prefab "{F1F31C6E2BCFFDC8}Prefabs/Weapons/Magazines/Magazine_556x45_STANAG_SP_B_30rnd_M995.et"
+     }
+     NumSlots 10
+    }
+    MultiSlotConfiguration "{72E91C0BA318F341}" {
+     SlotTemplate LoadoutSlotInfo AK74M_Mag {
+      Enabled 1
+      Prefab "{FD34D121FA55CB10}Prefabs/Weapons/Magazines/6l23_plastic/Magazine_545x39_plastic_AK_30rnd_Last_5Tracer.et"
+     }
+     NumSlots 20
+    }
+    MultiSlotConfiguration "{0444956EBFDA9AF9}" {
+     SlotTemplate LoadoutSlotInfo FieldDressing {
+      Enabled 1
+      Prefab "{C3F1FA1E2EC2B345}Prefabs/Items/Medicine/FieldDressing_01/FieldDressing_USSR_01.et"
+     }
+     NumSlots 25
+    }
+    MultiSlotConfiguration "{5A718AC66423DBCD}" {
+     SlotTemplate LoadoutSlotInfo Tourniquet {
+      Enabled 1
+      Prefab "{80E75A71C29190DB}Prefabs/Items/Medicine/Tourniquet_01/Tourniquet_USSR_01.et"
+     }
+     NumSlots 25
+    }
+    MultiSlotConfiguration "{3A2440705CF7BB7E}" {
+     SlotTemplate LoadoutSlotInfo Morphine {
+      Enabled 1
+      Prefab "{0D9A5DCF89AE7AA9}Prefabs/Items/Medicine/MorphineInjection_01/MorphineInjection_01.et"
+     }
+     NumSlots 25
+    }
+    MultiSlotConfiguration "{DCC4FEB48657B4A7}" {
+     SlotTemplate LoadoutSlotInfo Epinephrine {
+      Enabled 1
+      Prefab "{5B2FD067D70C1E8F}Prefabs/Items/Medicine/EpinephrineInjection/ACE_Medical_EpinephrineInjection.et"
+     }
+     NumSlots 25
+    }
+    MultiSlotConfiguration "{590DAB0693840B64}" {
+     SlotTemplate LoadoutSlotInfo Saline {
+      Enabled 1
+      Prefab "{527D7C5D2E476BDC}Prefabs/Items/Medicine/SalineBag_01/SalineBag_USSR_01.et"
+     }
+     NumSlots 10
+    }
+    MultiSlotConfiguration "{3DA85468F0D90D71}" {
+     SlotTemplate LoadoutSlotInfo RGD5 {
+      Enabled 1
+      Prefab "{645C73791ECA1698}Prefabs/Weapons/Grenades/Grenade_RGD5.et"
+     }
+     NumSlots 30
+    }
+    MultiSlotConfiguration "{7974D9B21A3E00B1}" {
+     SlotTemplate LoadoutSlotInfo RDG2 {
+      Enabled 1
+      Prefab "{77EAE5E07DC4678A}Prefabs/Weapons/Grenades/Smoke_RDG2.et"
+     }
+     NumSlots 30
+    }
+   }
+   m_aSlotsToShow {
+   }
+  }
+  ActionsManagerComponent "{508AB5952B584B2E}" {
+   additionalActions {
+    SCR_PickUpItemAction "{1DEDAC252CB129DC}" {
+     "Sort Priority" -100
+    }
+    SCR_OpenStorageAction "{57F3A6E7D5D3E8DE}" {
+     ParentContextList {
+      "default"
+     }
+     UIInfo UIInfo "{DAEA0DF17010C9F5}" {
+      Name "#AR-Inventory_OpenArsenalStorage"
+     }
+    }
+   }
+  }
+ }
+ coords 0 0 0
+}

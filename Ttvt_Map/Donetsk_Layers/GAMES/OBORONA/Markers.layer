@@ -1,0 +1,59 @@
+$grp GenericEntity : "{5B1586AD29363B9F}Prefabs/Editor/MapMarker/MapMarkerFaction.et" {
+ Marker_US_0_1_1 {
+  components {
+   EH_GroupMapIconComponent "{658D0B40B2A4169B}" {
+    m_IconTexture "{1228936E5DB30403}UI/Textures/GroupManagement/FlagIcons/GroupFlagsBlufor.imageset"
+    m_IconName "undefined"
+    m_ShowForEveryone 0
+    m_TargetFactions +{
+    }
+    m_ShowOnlyOnSpecificGamemodeStates {
+     BRIEFING
+    }
+    m_ColorTint 1 1 1 1
+    m_Size 60
+    m_MarkerText "Atlas White 2"
+    m_GroupEntityName ""
+   }
+  }
+  coords 2613.913 18.312 3342.205
+ }
+ Marker_US_0_0_0 {
+  components {
+   EH_GroupMapIconComponent "{658D0B40B2A4169B}" {
+    m_IconTexture "{1228936E5DB30403}UI/Textures/GroupManagement/FlagIcons/GroupFlagsBlufor.imageset"
+    m_IconName "undefined"
+    m_ShowForEveryone 0
+    m_TargetFactions +{
+    }
+    m_ShowOnlyOnSpecificGamemodeStates {
+     BRIEFING
+    }
+    m_ColorTint 1 1 1 1
+    m_Size 60
+    m_MarkerText "Atlas Red 1"
+    m_GroupEntityName ""
+   }
+  }
+  coords 2615.702 17.977 3328.504
+ }
+ Marker_US_0_1_0 {
+  components {
+   EH_GroupMapIconComponent "{658D0B40B2A4169B}" {
+    m_IconTexture "{1228936E5DB30403}UI/Textures/GroupManagement/FlagIcons/GroupFlagsBlufor.imageset"
+    m_IconName "undefined"
+    m_ShowForEveryone 0
+    m_TargetFactions +{
+    }
+    m_ShowOnlyOnSpecificGamemodeStates {
+     BRIEFING
+    }
+    m_ColorTint 1 1 1 1
+    m_Size 60
+    m_MarkerText "Atlas White 1"
+    m_GroupEntityName ""
+   }
+  }
+  coords 2596.926 18.018 3353.161
+ }
+}

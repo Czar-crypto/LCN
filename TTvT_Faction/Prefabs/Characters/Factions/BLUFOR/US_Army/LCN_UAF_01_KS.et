@@ -1,0 +1,77 @@
+SCR_ChimeraCharacter : "{37578B1666981FCE}Prefabs/Characters/Core/Character_Base.et" {
+ ID "520EC961A090B1EE"
+ components {
+  SCR_CommunicationSoundComponent "{54FD05D0C92D071F}" {
+   Filenames + {
+    "{04548C6D4A936054}Sounds/RadioProtocol/RadioProtocol_Report_2_US.acp"
+   }
+  }
+  EH_LobbyCharacterComponent "{6554FDD43DB961CC}" {
+   m_IsPlayable 1
+   m_Name "Командир стороны"
+  }
+  SCR_CharacterFactionAffiliationComponent "{696CBD856A9B48CE}" {
+   "faction affiliation" "US"
+  }
+  SCR_EditableCharacterComponent "{520EA1D2F659C85C}" {
+   m_UIInfo SCR_EditableEntityUIInfo "{5298E609432D192D}" {
+    Name "#AR-Role_Rifleman"
+    Icon "{EE0B4CDEA86FC24A}UI/Textures/DeployMenu/LoadoutIcons/LoadoutIcons.imageset"
+    IconSetName "EditableEntity_Character_Custom"
+    m_sFaction "US"
+    m_aAuthoredLabels + {
+     ENTITYTYPE_CHARACTER FACTION_US
+    }
+    m_aAutoLabels {
+    }
+   }
+  }
+  CharacterWeaponSlotComponent "{520EA1D2F659CFAB}" {
+   AttachType InventoryStorageSlot "{0C3DA650B52E120B}" {
+    Prefab "{FA8BE6075AFFBCA8}Prefabs/Weapons/Rifles/AK74M/Rifle_AK74M.et"
+   }
+   WeaponTemplate "{FA8BE6075AFFBCA8}Prefabs/Weapons/Rifles/AK74M/Rifle_AK74M.et"
+   WeaponSlotIndex 0
+  }
+  CharacterWeaponSlotComponent "{520EA1D2F659CFB7}" {
+   WeaponSlotIndex 1
+  }
+  SCR_CharacterIdentityComponent "{5584CBC63E092DBC}" {
+   Identity Identity "{5584CBC6363C648B}" {
+    VisualIdentity VisualIdentity "{56E6D9456009D1C4}" {
+     Head "{04F4D8CBA36A534B}Prefabs/Characters/Heads/Head_Black_02.et"
+     Body "{6253161EEAB88EAB}Prefabs/Characters/Basebody/CharacterBasebody_Black_02.et"
+    }
+    SoundIdentity SoundIdentity "{56E6D945D8F79290}" {
+     VoiceID 0
+    }
+   }
+  }
+  BaseLoadoutManagerComponent "{520EA1D2DB11821E}" {
+   Slots {
+    LoadoutSlotInfo Hat {
+     Prefab "{8142DCBA6FCD8CF1}Prefabs/Characters/HeadGear/Hats/Hat_Boonie/Hat_Boonie_MC.et"
+    }
+    LoadoutSlotInfo Jacket {
+     Prefab "{53E8315F68039B46}Prefabs/Characters/Uniforms/Shirt_CryeG3/Shirt_CryeG3_MM14.et"
+    }
+    LoadoutSlotInfo ArmoredVest {
+     Prefab "{CC2EB875CD75A43F}Prefabs/Characters/Vest/AVS/AVS_MC.et"
+    }
+    LoadoutSlotInfo Pants {
+     Prefab "{1818EE8132E2C650}Prefabs/Characters/Uniforms/Pants_CryeG3/Pants_CryeG3_MM14.et"
+    }
+    LoadoutSlotInfo Boots {
+     Prefab "{E716F95F4C7407BB}Prefabs/Characters/Footwear/Boots_Faradey_1085/Boots_Faradey_1085_Tan.et"
+    }
+    LoadoutSlotInfo Waist {
+     Prefab "{9899896146908697}Prefabs/Characters/Uniform/Belt/warbelt multicam.et"
+    }
+    LoadoutSlotInfo Armband {
+     Prefab "{0A92A2AAAC9E0623}Prefabs/Characters/Armbands/Tape/Armband_Tape_Green.et"
+    }
+   }
+  }
+ }
+ coords 2614.984 17.933 3327.283
+}

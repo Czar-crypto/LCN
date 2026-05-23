@@ -1,3 +1,15 @@
+GenericEntity WAG_TERMINAL_1 : "{076FAD5BE2438C19}Prefabs/Interactables/LCN_Objectives/E_LCN_FireDirectionConsole_RF10.et" {
+ components {
+  LCN_FireMissionConsoleComponent "{4CA4F1C63C6723C6}" {
+   m_sAllowedFactionKey "USSR"
+   m_sRequiredObjectiveKey "GRAY_COMMS_1"
+   m_sRequiredObjectiveKey2 "WAG_GENERATOR_1"
+   m_sRequiredObjectiveKey3 ""
+  }
+ }
+ coords 3631.519 12.74 3098.494
+ angles 0 64.436 0
+}
 GenericEntity : "{1AC31E2AF0C54F8A}Prefabs/Props/Military/Camps/PalletAmmo_01_Soviet_camo.et" {
  coords 3641.67 11.802 3099.903
  angles 0 53.441 0
@@ -90,6 +102,18 @@ $grp GenericEntity : "{47F6266AE7B9B0F6}Prefabs/Trenches_V2/TrenchJunction02.et"
   angles 0 -126.916 0
  }
 }
+GenericEntity WAG_GENERATOR : "{48B089D8C6824C11}Prefabs/Interactables/LCN_Objectives/E_LCN_Generator_RPL5.et" {
+ components {
+  LCN_ObjectiveStateComponent "{9991A261EF164D9E}" {
+   m_sObjectiveKey "WAG_GENERATOR_1"
+  }
+  MeshObject "{5872F0EB7FA40561}" {
+   Object "{F23DCCEDB351435E}Assets/Structures/Military/Radar/ApproachRadar_01/ApproachRadar_TPN19_01_generator.xob"
+  }
+ }
+ coords 3646.763 11.75 3088.839
+ angles 0 96.063 0
+}
 GenericEntity : "{5019513019F0885A}Prefabs/Props/Military/Furniture/TableMilitary_US_02.et" {
  coords 3633.309 11.895 3096.195
  angles 0 56.546 0
@@ -142,6 +166,10 @@ $grp GenericEntity : "{869914063728EFF8}Prefabs/Props/Forest/WoodPile/WoodLog_01
   angles 0 -38.398 0
  }
 }
+GameEntity : "{8951045BFE8BC8E4}Prefabs/Characters/HeadGear/FPV_Goggles.et" {
+ coords 3630.101 12.91 3100.438
+ angles 0 122.809 0
+}
 $grp StaticModelEntity : "{929564697C6FBF5D}Prefabs/Terrain/Erosion/ErodedEmbankment_01/ErodedEmbankment_01_terrainmat_straight.et" {
  {
   coords 3640.704 11.913 3090.514
@@ -167,32 +195,6 @@ GenericEntity : "{998E801FB34C4C28}Prefabs/Props/Military/Posters/Poster_USSR_cu
  angles 0 -34.186 0
  scale 1.86
 }
-$grp GenericEntity : "{A5016F5C78B34E12}Prefabs/Interactables/LCN_Objectives/E_LCN_FueledGenerator_RPL5.et" {
- {
-  components {
-   LCN_FueledObjectiveComponent "{D0227D65D70E454F}" {
-    m_sObjectiveKey "Gen_2"
-   }
-   LCN_ObjectiveStateComponent "{0AF383CDB22848B2}" {
-    m_sObjectiveKey "Gen_2"
-   }
-   MeshObject "{5872F0EB7FA40561}" {
-    Object "{7674DD187C23B4CC}Assets/Props/Military/Generators/GeneratorPortable_USSR_01/GeneratorPortable_USSR_01.xob"
-   }
-  }
-  coords 3631.624 11.826 3098.582
-  angles 0 146.613 0
- }
- {
-  components {
-   MeshObject "{5872F0EB7FA40561}" {
-    Object "{7674DD187C23B4CC}Assets/Props/Military/Generators/GeneratorPortable_USSR_01/GeneratorPortable_USSR_01.xob"
-   }
-  }
-  coords 3634.003 11.826 3095.13
-  angles 0 -128.219 0
- }
-}
 $grp GenericEntity : "{AC5172F00941C060}PrefabsEditable/Auto/Props/Military/Sandbags/E_Sandbag_01_wall_burlap.et" {
  {
   coords 3636.196 11.739 3105.071
@@ -201,6 +203,44 @@ $grp GenericEntity : "{AC5172F00941C060}PrefabsEditable/Auto/Props/Military/Sand
  {
   coords 3640.297 11.739 3099.596
   angles 0 -126.813 0
+ }
+}
+$grp GenericEntity : "{B2D8C8A8000F53BA}Prefabs/Items/Equipment/Kits/SupplyBoxes/LCN_SupplyBox_Wagner.et" {
+ {
+  coords 3658.01 11.75 3119.658
+  angles 0 54.654 0
+ }
+ {
+  coords 3661.771 11.75 3101.964
+  angles 0 -38.184 0
+ }
+ {
+  coords 3637.708 12.676 3106.449
+  angles 0 -32.326 0
+ }
+ {
+  coords 3637.212 12.676 3106.135
+  angles 0 -32.326 0
+ }
+ {
+  coords 3637.212 12.835 3106.135
+  angles 0 -32.326 0
+ }
+ {
+  coords 3637.695 12.835 3106.441
+  angles 0 -32.326 0
+ }
+ {
+  coords 3637.695 12.985 3106.441
+  angles 0 -32.326 0
+ }
+ {
+  coords 3637.21 12.985 3106.134
+  angles 0 -32.326 0
+ }
+ {
+  coords 3630.073 12.756 3100.405
+  angles 0 81.069 0
  }
 }
 GenericEntity : "{B4633650E85A552A}Prefabs/Trenches/TrenchExit01.et" {
@@ -422,6 +462,16 @@ $grp GenericEntity : "{BBAD313E424466CF}Prefabs/Props/Forest/WoodPile/WoodLog_01
   coords 3636.204 13.979 3100.867
   angles 0 -37.625 0
   scale 1.54
+ }
+}
+$grp GenericEntity : "{BF07882C0C076E4C}Prefabs/Props/Military/AmmoBoxes/AmmoBox_DRONE.et" {
+ {
+  coords 2606.465 17.605 3328.429
+  angles 0 152.969 0
+ }
+ {
+  coords 3634.33 12.258 3103.282
+  angles 0 -29.148 0
  }
 }
 $grp GenericEntity : "{C6BFE324CCCFE6C4}Prefabs/Props/Military/Furniture/CotMilitary_USSR_01.et" {
@@ -815,9 +865,50 @@ GenericEntity : "{DB4F61D5F37432F7}Prefabs/Props/Military/Camps/PalletFuel_01.et
  coords 3642.513 11.788 3101.41
  angles 0 -36.48 0
 }
+GenericEntity : "{E2434ED1318D8476}Prefabs/Characters/Items/DroneController.et" {
+ coords 3630.802 12.752 3099.58
+ angles 0 47.072 0
+}
 GenericEntity : "{EDC0E6EC951DA0B7}Prefabs/Trenches_V2/TrenchExit01.et" {
  coords 3637.644 12.517 3122.71
  angles 0 -125.247 0
+}
+$grp GenericEntity : "{EF1E4AA6DCD2D982}Prefabs/Drones/DJIBase/DJIBattery.et" {
+ {
+  coords 3632.248 12.764 3097.415
+  angles 0 57.781 0
+ }
+ {
+  coords 3632.203 12.764 3097.487
+  angles 0 57.781 0
+ }
+ {
+  coords 3632.156 12.764 3097.561
+  angles 0 57.781 0
+ }
+ {
+  coords 3632.112 12.764 3097.631
+  angles 0 57.781 0
+ }
+ {
+  coords 3632.06 12.764 3097.713
+  angles 0 57.781 0
+ }
+ {
+  coords 3632.004 12.764 3097.801
+  angles 0 57.781 0
+ }
+}
+GenericEntity : "{F09518802063A355}Prefabs/Items/Equipment/DroneAntenna/DroneAntenna.et" {
+ components {
+  SAL_DroneAntennaComponent "{65D6B8BC8812D2C4}" {
+   m_iAntennaDistance 50
+  }
+  SAL_DroneCleanUpComponent "{65EA1CA22D8FB35E}" {
+   m_fMinutesTillCleanup 10
+  }
+ }
+ coords 3635.585 15.22 3099.06
 }
 GenericEntity : "{F1065B95CFB83A42}Prefabs/Trenches_V2/TrenchStraight01.et" {
  coords 3646.715 12.748 3121.868

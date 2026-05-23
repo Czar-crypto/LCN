@@ -20,6 +20,10 @@ SCR_ChimeraCharacter : "{37578B1666981FCE}Prefabs/Characters/Core/Character_Base
     }
    }
   }
+  EH_LobbyCharacterComponent "{6554FDD43DB961CC}" {
+   m_IsPlayable 1
+   m_Name "Пулеметчик"
+  }
   SCR_CharacterFactionAffiliationComponent "{6950746A06DD07C8}" {
    "faction affiliation" "USSR"
   }
@@ -68,7 +72,7 @@ SCR_ChimeraCharacter : "{37578B1666981FCE}Prefabs/Characters/Core/Character_Base
      Prefab "{55E58BCA40C228F7}Prefabs/Characters/Uniform/Jacket/Tor/MI_TOR_Black.et"
     }
     LoadoutSlotInfo ArmoredVest {
-     Prefab "{5DCB805194526516}Prefabs/Characters/Vest/AVS/AVS_FG.et"
+     Prefab "{4D91DADBB0AFD61B}Prefabs/Characters/Vest/TV110/TV110_V1_MC.et"
     }
     LoadoutSlotInfo Pants {
      Prefab "{8C7F985327003618}Prefabs/Characters/Uniform/6SH122/6SH122_Pants_Refil.et"
@@ -80,7 +84,7 @@ SCR_ChimeraCharacter : "{37578B1666981FCE}Prefabs/Characters/Core/Character_Base
      Prefab "{99B347D92F16A6D3}Prefabs/Items/Equipment/Backpacks/backpack_511_rush12/Backpack_511_rush12_od.et"
     }
     LoadoutSlotInfo Vest {
-     Prefab "{6EAF16F58A111439}Prefabs/Characters/Vests/Vest_AACPC/variants/Vest_AACPC_arsarmaHSGI_FG_MG.et"
+     Prefab "{50A879C61DABCC2F}Prefabs/Characters/Vests/Vest_AACPC/variants/Vest_AACPC_arsarmaHSGI_FG_MG2.et"
     }
     LoadoutSlotInfo HandWear {
      Prefab "{E9BD1B8888B6F37D}Prefabs/Characters/Handwear/Ratnik_gloves/Ratnik_gloves.et"
@@ -96,6 +100,9 @@ SCR_ChimeraCharacter : "{37578B1666981FCE}Prefabs/Characters/Core/Character_Base
     }
     LoadoutSlotInfo Waist {
     }
+    LoadoutSlotInfo Armband {
+     Prefab "{6353534ADC6D67B4}Prefabs/Characters/Armbands/Single/Armband_Single_White.et"
+    }
    }
   }
   SCR_InventoryStorageManagerComponent "{520EA1D2DB118DE5}" {
@@ -109,6 +116,7 @@ SCR_ChimeraCharacter : "{37578B1666981FCE}Prefabs/Characters/Core/Character_Base
     ItemsInitConfigurationItem "{69507468F78E0089}" {
      TargetStorage "Vest/Smersh_preset_MG.et/PouchSlot/Pounch_FG_PKM.et"
      PrefabsToSpawn {
+      "{0110F6D92703114A}Prefabs/Weapons/Magazines/Box_762x54_PK_100rnd_7N13_4Ball_1Tracer.et" "{0110F6D92703114A}Prefabs/Weapons/Magazines/Box_762x54_PK_100rnd_7N13_4Ball_1Tracer.et"
      }
     }
     ItemsInitConfigurationItem "{69507468B2125BFF}" {

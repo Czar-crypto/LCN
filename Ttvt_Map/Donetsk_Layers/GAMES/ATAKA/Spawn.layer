@@ -1,3 +1,75 @@
-SCR_AIGroup : "{344B4B6F787CFB24}Prefabs/Groups/OPFOR/Group_USSR_EngineerTeam.et" {
- coords 3651.052 11.75 3095.114
+$grp Vehicle : "{1F514A6916B34568}Prefabs/Vehicles/Wheeled/UAZ452/UAZ452_transport_CIV_base.et" {
+ UAZ452_transport_CIV_base1 {
+  coords 3616.664 11.75 3131.415
+  m_AssignedGroupEntityName "Shturm_2"
+ }
+ UAZ452_transport_CIV_base2 {
+  coords 3627.524 11.87 3114.068
+  angles 0 -38.196 0
+  m_AssignedGroupEntityName "Shturm_1"
+ }
+}
+SCR_AIGroup : "{3366B9E7522C2BF9}Prefabs/Groups/OPFOR/Group_USSR_KS.et" {
+ coords 3632.859 11.75 3098.571
+ angles 0 54.515 0
+}
+$grp SCR_AIGroup : "{344B4B6F787CFB24}Prefabs/Groups/OPFOR/Group_USSR_EngineerTeam.et" {
+ Shturm_1 {
+  components {
+   SCR_CallsignGroupComponent "{5528A541709C29F9}" {
+    m_iCompanyCallsignCustom 0
+    m_iPlatoonCallsignCustom 1
+    m_iSquadCallsignCustom 0
+   }
+  }
+  coords 3663.274 11.75 3100.422
+  angles 0 -34.509 0
+ }
+ Shturm_2 {
+  components {
+   SCR_CallsignGroupComponent "{5528A541709C29F9}" {
+    m_iCompanyCallsignCustom 0
+    m_iPlatoonCallsignCustom 1
+    m_iSquadCallsignCustom 1
+   }
+  }
+  coords 3659.891 11.75 3120.267
+  angles 0 -131.259 0
+ }
+}
+$grp Vehicle : "{70B5047F49B2C4F4}Prefabs/Vehicles/Wheeled/CAGIVA A8/Cagi SOF4 Verde.et" {
+ Cagi_SOF4_Verde16 {
+  coords 3627.363 11.75 3131.332
+  angles 0 -129.726 0
+ }
+ Cagi_SOF4_Verde15 {
+  coords 3625.691 11.75 3133.153
+  angles 0 -132.802 0
+ }
+ Cagi_SOF4_Verde18 {
+  coords 3629.835 11.75 3127.249
+  angles 0 -129.387 0
+ }
+ Cagi_SOF4_Verde14 {
+  coords 3620.501 11.75 3127.247
+  angles 0 46.71 0
+ }
+ Cagi_SOF4_Verde13 {
+  coords 3622.206 11.75 3125.438
+  angles 0 46.71 0
+ }
+ Cagi_SOF4_Verde17 {
+  coords 3628.415 11.75 3129.2
+  angles 0 -127.286 0
+  m_AssignedGroupEntityName "Shturm_1"
+ }
+ Cagi_SOF4_Verde12 {
+  coords 3624.809 11.75 3122.674
+  angles 0 46.71 0
+ }
+ Cagi_SOF4_Verde11 {
+  coords 3623.568 11.75 3123.992
+  angles 0 46.71 0
+  m_AssignedGroupEntityName "Shturm_2"
+ }
 }

@@ -1,0 +1,89 @@
+SCR_AIGroup : "{EACD97CF4A702FAE}Prefabs/Groups/BLUFOR/Group_US_Base.et" {
+ ID "0000000000000001"
+ components {
+  AIFormationComponent "{507E9DC12F541FE6}" {
+   Enabled 0
+  }
+  SCR_CallsignGroupComponent "{5528A541709C29F9}" {
+   m_iCompanyCallsignCustom 0
+   m_iPlatoonCallsignCustom 0
+   m_iSquadCallsignCustom 0
+  }
+  SCR_EditableGroupComponent "{50D291F6C83FA532}" {
+   m_UIInfo SCR_EditableGroupUIInfo "{5298E609432D192D}" {
+    Name "#AR-Group_EngineerTeam"
+    m_Image "{D4D180B86380EFD2}UI/Textures/EditorPreviews/Groups/BLUFOR/Group_US_SapperTeam.edds"
+    m_aAuthoredLabels +{
+    }
+    m_aAutoLabels {
+     GROUPSIZE_SMALL
+    }
+    m_EntityBudgetCost {
+     SCR_EntityBudgetValue "{604482963251834C}" {
+      m_Value 150
+     }
+    }
+    m_EntityChildrenBudgetCost {
+     SCR_EntityBudgetValue "{696D0E008ECBCB1C}" {
+      m_BudgetType AI
+      m_Value 2
+     }
+    }
+    m_bUseUIInfoName 0
+    m_MilitarySymbol SCR_MilitarySymbol "{696D0E008ECBCB08}" {
+     m_Identity BLUFOR
+     m_Dimension LAND
+     m_Icons MAINTENANCE
+     m_Amplifier TEAM
+    }
+   }
+  }
+  SCR_GroupIdentityComponent "{56366C5C50AD3CF2}" {
+   m_MilitarySymbol SCR_MilitarySymbol "{56366C5C4E32A359}" {
+    m_Icons MAINTENANCE
+    m_Amplifier TEAM
+   }
+  }
+  SCR_PreviewEntityComponent "{696D0E008ECBCB32}" {
+   m_bRuntime 0
+   m_aEntries {
+    SCR_BasePreviewEntry "{696D0E008ECBCB30}" {
+     m_iParentID -1
+     m_Mesh ""
+     m_Flags 259
+     m_Shape MESH
+     m_iPivotID ""
+     m_vScale 1 1 1
+     m_vPosition 0 -5 0
+     m_vAngles 0 0 0
+    }
+    SCR_BasePreviewEntry "{696D0E008ECBCB36}" {
+     m_iParentID 0
+     m_Mesh "{7B2420C8BC72373A}Prefabs/Characters/Core/Character_Base_Preview.et"
+     m_Flags 0
+     m_Shape PREFAB
+     m_iPivotID ""
+     m_vScale 1 1 1
+     m_vPosition 0 0 0
+     m_vAngles 0 0 0
+    }
+    SCR_BasePreviewEntry "{696D0E008ECBCB35}" {
+     m_iParentID 0
+     m_Mesh "{7B2420C8BC72373A}Prefabs/Characters/Core/Character_Base_Preview.et"
+     m_Flags 0
+     m_Shape PREFAB
+     m_iPivotID ""
+     m_vScale 1 1 1
+     m_vPosition 3 0 -3
+     m_vAngles 0 0 0
+    }
+   }
+  }
+ }
+ coords 2615.702 17.977 3328.504
+ angles 0 -95.258 0
+ m_aUnitPrefabSlots {
+  "{24DE9928E7720F09}Prefabs/Characters/Factions/BLUFOR/US_Army/LCN_UAF_01_KS.et" "{75A1000000000008}Prefabs/Characters/Factions/BLUFOR/US_Army/LCN_UAF_08_Drone_M4.et"
+ }
+ m_bSnapToTerrain 0
+}

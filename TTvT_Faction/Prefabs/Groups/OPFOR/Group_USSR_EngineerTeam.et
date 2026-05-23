@@ -4,6 +4,10 @@ SCR_AIGroup : "{8DE0C0830FE0C33D}Prefabs/Groups/OPFOR/Group_USSR_Base.et" {
   AIFormationComponent "{507E9DC12F541FE6}" {
    Enabled 0
   }
+  LCN_GroupNoiseMortarTargetComponent "{696CA096422A379B}" {
+   m_sImpactProjectilePrefab "{98EC9C526AFBA282}Prefabs/Weapons/Ammo/Ammo_Shell_82mm_HE_O832DU.et"
+   m_sImpactEffectModulePrefab "{3A3331F61766D055}PrefabsEditable/EffectsModules/Mortar/EffectModule_MortarShell.et"
+  }
   SCR_EditableGroupComponent "{50D291F6C83FA532}" {
    m_UIInfo SCR_EditableGroupUIInfo "{5298E609432D192D}" {
     Name "#AR-Group_EngineerTeam"
@@ -71,14 +75,11 @@ SCR_AIGroup : "{8DE0C0830FE0C33D}Prefabs/Groups/OPFOR/Group_USSR_Base.et" {
     }
    }
   }
-  LCN_GroupNoiseMortarTargetComponent "{696CA096422A379B}" {
-   m_sImpactProjectilePrefab "{98EC9C526AFBA282}Prefabs/Weapons/Ammo/Ammo_Shell_82mm_HE_O832DU.et"
-   m_sImpactEffectModulePrefab "{3A3331F61766D055}PrefabsEditable/EffectsModules/Mortar/EffectModule_MortarShell.et"
-  }
  }
- coords 3651.052 11.75 3095.114
+ coords 3663.274 11.75 3100.422
+ angles 0 -34.509 0
  m_aUnitPrefabSlots {
-  "{DE94A93490FEC1C0}Prefabs/Characters/Factions/OPFOR/USSR_Army/LCN_Wagner_02_Komandir.et" "{68C1BF78092A70AE}Prefabs/Characters/Factions/OPFOR/USSR_Army/LCN_Wagner_02_Radio.et" "{6928678FF091B8EB}Prefabs/Characters/Factions/OPFOR/USSR_Army/LCN_Wagner_03_Medic.et" "" "" "" ""
+  "{DE94A93490FEC1C0}Prefabs/Characters/Factions/OPFOR/USSR_Army/LCN_Wagner_02_Komandir.et" "{68C1BF78092A70AE}Prefabs/Characters/Factions/OPFOR/USSR_Army/LCN_Wagner_02_ZamKO.et" "{FDA3B286BADB7DD5}Prefabs/Characters/Factions/OPFOR/USSR_Army/LCN_Wagner_07_Rifleman.et" "{12764A99F9B87A4D}Prefabs/Characters/Factions/OPFOR/USSR_Army/LCN_Wagner_05_Scout.et" "{7F815C47FD45B6BE}Prefabs/Characters/Factions/OPFOR/USSR_Army/LCN_Wagner_04_Engineer.et" "{6928678FF091B8EB}Prefabs/Characters/Factions/OPFOR/USSR_Army/LCN_Wagner_03_Medic.et" "{74F0F40F88E82E14}Prefabs/Characters/Factions/OPFOR/USSR_Army/LCN_Wagner_06_Heavy.et" "{2DA47AB0A2734EE3}Prefabs/Characters/Factions/OPFOR/USSR_Army/LCN_Wagner_08_KS_BPLA.et"
  }
  m_GroupName "STURM"
 }
